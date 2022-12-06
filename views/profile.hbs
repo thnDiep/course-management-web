@@ -1,6 +1,13 @@
+{{#section 'css'}}
+  <link rel="stylesheet" href="/public/css/profile.css">
+{{/section}}
+ {{#section 'imgs'}}
+  <link rel="stylesheet" href="/public/imgs/background/bg1.png">
+{{/section}}
+ 
   <p class="main-title">Account settings</p>
   <hr>
-  <form action="#" method="post">
+  <form action="#" method="post" class="form-profile">
   <div class="profile">
     <div class="profile__infor">
       <div class="profile__infor--notice">
@@ -11,14 +18,14 @@
       <div class="profile__infor--showName">
         <p >Name</p>
         <div class="profile__infor--showName__field">
-          <p class="profile__infor--showName__input">Thomas Hardison</p>
+          <p class="profile__infor--showName__input">Lan Vy Le Nguyen</p>
           <i class="far fa-edit"></i>
         </div>
       </div>
       <div class="profile__infor--showEmail">
         <p>Email</p>
         <div class="profile__infor--showEmail__field">
-          <p class="profile__infor--showEmail__input">thomashdr@gmail.com</p>
+          <p class="profile__infor--showEmail__input">vylee2905@gmail.com</p>
           <i class="far fa-edit"></i>
         </div>
       </div>
@@ -37,7 +44,7 @@
     </div>
     <div class="profile__photo">
       <p class="profile__photo-title">Profile Photo</p>
-      <img src="./photoCV.jpg" class="avatar" alt="">
+      <img src="/public/imgs/userPictures/photoOfVy.jpg" class="avatar" alt="">
       <p class="profile__photo--upload" >
         <i class="fas fa-arrow-circle-up"></i>
         Upload new photo
