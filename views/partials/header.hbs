@@ -1,60 +1,64 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+{{!-- {{#section "css"}}
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link rel="stylesheet" href="/public/css/header.css" />
+{{/section}} --}}
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home
-          <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdown"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
+{{#section "title"}}
+  hello
+{{/section}}
+
+{{!-- {{#section "js"}}
+  <script src="/public/js/header.js"></script>
+{{/section}} --}}
+<!--important link source from "https://bootstrapious.com/p/bootstrap-vertical-navbar"-->
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center"><img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGZ87GvL6FqCd3DNKf6CrcJNML8KQJhpN-Ig&usqp=CAU"
+        alt="..."
+        width="65"
+        class="mr-3 rounded-circle img-thumbnail shadow-sm"
       />
-      <button
-        class="btn btn-outline-success my-2 my-sm-0"
-        type="submit"
-      >Search</button>
-    </form>
+      <div class="media-body">
+        <h4 class="m-0">Course</h4>
+        <p class="font-weight-light text-muted mb-0">Online academy</p>
+      </div>
+    </div>
   </div>
-</nav>
+
+  <p
+    class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0"
+  >Main</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic bg-light">
+        <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+        Home
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+        <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+        About
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+        <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+        Services
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+        <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+        Gallery
+      </a>
+    </li>
+  </ul>
+
+</div>
+<!-- End vertical navbar -->
