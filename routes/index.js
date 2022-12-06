@@ -7,5 +7,9 @@ export default function route(app) {
     res.render("home");
   });
 
+  app.get("/profile", (req, res) => {
+    res.render("profile");
+  });
+
   app.use("/search", searchRoute);
 }
