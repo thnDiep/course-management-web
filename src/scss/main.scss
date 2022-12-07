@@ -1,3 +1,5 @@
+@import 'variable';
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -21,13 +23,15 @@ html {
 .header {
     position: fixed;
     width: 100%;
-    font-size: 1.4 rem;
-    height: 8rem;
-    background-color: #fff;
+    font-size: 1.4rem;
+    height: $header-height;
+    background-color: $white-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #f3f3f4;
+    box-shadow: rgba(100, 100, 111, 0.2) 2px 0 12px;
+    z-index: 10;
 }
 
 @media only screen and (max-width: 31.25em) {

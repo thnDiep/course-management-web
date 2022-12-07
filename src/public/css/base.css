@@ -3,7 +3,17 @@
   border: 1px solid #000;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #101010; }
+  color: #101010;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
   .btn:hover {
     color: #fff;
     background-color: #000; }
+
+.btn.btn--bg {
+  border-color: #96bdfb;
+  background-color: #96bdfb; }
+  .btn.btn--bg:hover {
+    border-color: #5e88c2;
+    background-color: #5e88c2; }

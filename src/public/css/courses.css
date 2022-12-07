@@ -25,7 +25,7 @@
     text-decoration: none;
     color: #101010; }
   .courses__category .courses__category-item:hover .courses__category-link {
-    color: #a3cfcd; }
+    color: #96bdfb; }
 
 .courses__teacher {
   font-size: 1.6rem;
@@ -65,13 +65,3 @@
     font-weight: 400;
     margin-left: 1.4rem;
     color: #555; }
-
-#add-cart-btn {
-  border-color: #a3cfcd;
-  background-color: #a3cfcd;
-  min-width: none;
-  display: flex;
-  align-items: center; }
-  #add-cart-btn:hover {
-    border-color: #47817f;
-    background-color: #47817f; }

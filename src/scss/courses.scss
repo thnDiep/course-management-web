@@ -87,16 +87,3 @@
         color: $gray-text-color;
     }
 }
-
-#add-cart-btn {
-    border-color: $primary-color;
-    background-color: $primary-color;
-    min-width: none;
-    display: flex;
-    align-items: center;
-
-    &:hover {
-        border-color: $second-color;
-        background-color: $second-color;
-    }
-}

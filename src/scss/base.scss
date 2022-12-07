@@ -6,9 +6,22 @@
     font-size: 1.8rem;
     font-weight: 600;
     color: $text-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
     &:hover {
         color: $white-color;
         background-color: $black-color;
+    }
+}
+
+.btn.btn--bg {
+    border-color: $primary-color;
+    background-color: $primary-color;
+
+    &:hover {
+        border-color: $second-color;
+        background-color: $second-color;
     }
 }
