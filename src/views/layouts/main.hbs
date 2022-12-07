@@ -16,21 +16,28 @@
     <link rel="stylesheet" href="/css/sidebar.css" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     {{{_sections.css}}}
   </head>
-  <body  >
-    {{!-- <div class="container fluid"> --}}
-      <header class="header">
-        {{> header}}
-      </header>
-        <div class="content">
+  <body  ">
+    <div class="container1">
+        <div class="sidebar">
             {{> sidebar}}
+        </div>
+        <div class="content">
+             <header class="header">
+              {{> header}}
+            </header>
             <div class="content-page">
             {{{body}}}
             </div>
         </div>
-        <footer>{{>footer}}</footer>
-    {{!-- </div> --}}
+    </div>
+      
+      <footer>{{>footer}}</footer>
    
 
 

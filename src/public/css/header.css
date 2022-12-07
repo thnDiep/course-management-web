@@ -1,7 +1,3 @@
-.logo {
-  height: 8rem;
-  margin-left: 6rem; }
-
 .search {
   flex: 0 0 40%;
   margin: 1rem;
@@ -25,10 +21,6 @@
   .logo {
     height: 5rem;
     margin-left: 1rem; }
-  .search {
-    order: 1;
-    flex: 0 0 100%;
-    margin: 0; }
   .search__input {
     width: 100%; } }
 

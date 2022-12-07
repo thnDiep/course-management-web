@@ -1,78 +1,74 @@
-.logo {
-    height: 8rem;
-    margin-left: 6rem;
-}
 .search {
-    flex: 0 0 40%;
-    margin: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  flex: 0 0 40%;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search__input {
-    font-family: inherit;
-    font-size: 1.3rem;
-    border: none;
-    background-color: #f4f2f2;
-    color: inherit;
-    padding: 1rem 2rem;
-    border-radius: 100px;
-    width: 90%;
-    transition: all 0.2s;
-    margin-right: -3.25rem;
+  font-family: inherit;
+  font-size: 1.3rem;
+  border: none;
+  background-color: #f4f2f2;
+  color: inherit;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  width: 90%;
+  transition: all 0.2s;
+  margin-right: -3.25rem;
 }
 @media only screen and (max-width: 31.25em) {
-    .logo {
-        height: 5rem;
-        margin-left: 1rem;
-    }
-    .search {
-        order: 1;
-        flex: 0 0 100%;
-        margin: 0;
-    }
-    .search__input {
-        width: 100%;
-    }
+  .logo {
+    height: 5rem;
+    margin-left: 1rem;
+  }
+  // .search {
+  //   order: 1;
+  //   flex: 0 0 100%;
+  //   margin: 0;
+  // }
+  .search__input {
+    width: 100%;
+  }
 }
 .search__input:focus {
-    outline: none;
-    width: 100%;
-    background-color: var(#f0eeee);
+  outline: none;
+  width: 100%;
+  background-color: var(#f0eeee);
 }
 .search__input:focus + .search__button {
-    background-color: var(#f0eeee);
+  background-color: var(#f0eeee);
 }
 .search__input::-webkit-input-placeholder {
-    font-weight: 100;
-    color: var(#ccc);
+  font-weight: 100;
+  color: var(#ccc);
 }
 
 .search__icon {
-    color: #999;
+  color: #999;
 }
 .search__button {
-    font-size: 1.2rem;
-    border: none;
-    background-color: #f4f2f2;
+  font-size: 1.2rem;
+  border: none;
+  background-color: #f4f2f2;
 }
 .search__button:focus {
-    outline: none;
+  outline: none;
 }
 .search__button:active {
-    transform: translateY(2px);
+  transform: translateY(2px);
 }
 
 // USER NAV
 .user-nav {
-    font-size: 1.5rem;
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  font-size: 1.5rem;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .user-nav__acc {
-    margin-right: 2rem;
+  margin-right: 2rem;
 }

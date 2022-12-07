@@ -19,13 +19,13 @@
   padding: 0;
   display: flex; }
   .courses__category .courses__category-item::before {
-    content: ">";
+    content: '>';
     margin-left: 1rem; }
   .courses__category .courses__category-link {
     text-decoration: none;
     color: #101010; }
   .courses__category .courses__category-item:hover .courses__category-link {
-    color: #96bdfb; }
+    color: #f8d752; }
 
 .courses__teacher {
   font-size: 1.6rem;
