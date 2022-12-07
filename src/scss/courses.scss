@@ -16,6 +16,7 @@
     }
 
     figure {
+        margin: 0;
         position: relative;
     }
 
@@ -74,7 +75,7 @@
 }
 
 .courses__title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 600;
     color: $text-color;
     margin: 0 0 0.6rem 0;

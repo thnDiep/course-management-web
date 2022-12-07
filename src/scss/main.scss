@@ -1,5 +1,9 @@
 @import 'variable';
 
+body {
+    margin: 0;
+}
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -10,31 +14,24 @@ html {
         font-size: 50%;
     }
 }
-.container1 {
-    display: flex;
-    // flex-direction: row;
-    // @media only screen and (max-width: 68.75em) {
-    //   flex-direction: row;
-    // }
+
+.container-fluid {
+    margin-top: calc(#{$header-height} + 20px);
 }
 
-.content-page {
-    margin-left: 230px;
-    margin-top: 8.5rem;
-}
 .content {
-    // margin-left: 200px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    // margin-top: $header-height;
+    // margin-left: $sidebar-width;
 }
 
 .header {
     position: fixed;
-    padding-left: 200px;
-    width: 100%;
-    font-size: 1.4rem;
+    top: 0;
+    left: 0;
+    padding-left: $sidebar-width;
+    width: 100vw;
     height: $header-height;
+    font-size: 1.4rem;
     background-color: $white-color;
     display: flex;
     justify-content: space-between;
@@ -43,29 +40,7 @@ html {
     box-shadow: rgba(100, 100, 111, 0.2) 2px 0 12px;
     z-index: 10;
 }
-.sidebar {
-    //   margin-top: 8rem;
-    background-color: #333;
-    height: 100vh;
-    width: 15%;
-    width: 200px;
-    position: fixed;
-    z-index: 20;
-    @media only screen and (max-width: 31.25em) {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: 8rem;
-        z-index: 3;
-    }
-    //   display: flex;
-    //   flex-direction: column;
-    /* justify-content: center; */
-    /* flex: 0 0 18%; */
-    /* display: flex;
-      flex-direction: column;
-      justify-content: space-between; */
-}
+
 @media only screen and (max-width: 31.25em) {
     .header {
         padding-left: 0;
@@ -73,11 +48,12 @@ html {
         align-content: space-around;
         height: 10rem;
     }
-    .content-page {
+    .content {
         margin-left: 0rem;
         margin-top: 11.5rem;
     }
 }
+
 @media only screen and (max-width: 31.25em) {
     .content {
         margin-top: 8rem;

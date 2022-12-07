@@ -1,3 +1,23 @@
+.sidebar1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 200px;
+  background-color: #333;
+  z-index: 20;
+  /* justify-content: center; */
+  /* flex: 0 0 18%; */
+  /* display: flex;
+      flex-direction: column;
+      justify-content: space-between; */ }
+  @media only screen and (max-width: 31.25em) {
+    .sidebar1 {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 8rem; } }
+
 /* @media only screen and (max-width: 56.25em) {
     .sidebar {
       width: 100%;
