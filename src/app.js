@@ -2,21 +2,25 @@ import express from 'express';
 import { engine } from 'express-handlebars';
 import morgan from 'morgan';
 import route from './routes/index.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import hbs_sections from 'express-handlebars-sections';
+
+// get __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
 // Logger HTTP
 app.use(morgan('dev'));
 
-app.use(
-    express.urlencoded({
-        extended: true,
-    }),
-);
+app.use(express.urlencoded({ extended: true }));
 
-// static file in public folder
-app.use('/public', express.static('public'));
+// Static file in public folder
+app.use(express.static(path.join(__dirname, '/public/')));
 
+// Config handlebars
 // Config handlebars
 app.engine(
     'hbs',
@@ -35,8 +39,7 @@ app.engine(
 );
 
 app.set('view engine', 'hbs');
-app.set('views', './views');
-
+app.set('views', path.join(__dirname, 'views'));
 route(app);
 
 app.listen(3000, () => {

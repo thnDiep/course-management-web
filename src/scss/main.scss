@@ -1,0 +1,48 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+@media only screen and (max-width: 68.75em) {
+    html {
+        font-size: 50%;
+    }
+}
+
+.content-page {
+    width: 100%;
+    margin-left: 20rem;
+    margin-top: 8.5rem;
+}
+.content {
+    display: flex;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    font-size: 1.4 rem;
+    height: 8rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f3f3f4;
+}
+
+@media only screen and (max-width: 31.25em) {
+    .header {
+        flex-wrap: wrap;
+        align-content: space-around;
+        height: 11rem;
+    }
+    .content-page {
+        margin-left: 0rem;
+        margin-top: 11.5rem;
+    }
+}
+@media only screen and (max-width: 31.25em) {
+    .content {
+        flex-direction: column;
+    }
+}

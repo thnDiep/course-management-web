@@ -1,7 +1,7 @@
 class SearchController {
-  index(req, res) {
-    res.render("search");
-  }
+    index(req, res) {
+        res.render('search');
+    }
 }
 
 export default new SearchController();

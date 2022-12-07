@@ -5,10 +5,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "beautiful": "lint-staged",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon --inspect app.js",
-        "prepare": "husky install"
+        "start": "nodemon --inspect src/app.js",
+        "watch": "node-sass -w src/scss -o src/public/css"
     },
     "author": "",
     "license": "ISC",
@@ -26,6 +25,7 @@
         "husky": "^8.0.2",
         "lint-staged": "^13.1.0",
         "morgan": "^1.10.0",
+        "node-sass": "^8.0.0",
         "nodemon": "^2.0.20",
         "prettier": "^2.8.0"
     }

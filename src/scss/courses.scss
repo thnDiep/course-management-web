@@ -1,0 +1,49 @@
+.courses-title {
+    font-size: 2.4rem;
+    margin: 0;
+}
+.courses-category {
+    font-size: 1.2rem;
+    list-style: none;
+}
+.courses-category-item {
+}
+.courses-category-link {
+    text-decoration: none;
+    color: black;
+}
+.courses-teacher {
+    margin: 0;
+}
+.courses-review {
+    display: flex;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+}
+
+.courses-review-score {
+    color: #e59819;
+    font-weight: 600;
+}
+.courses-review-icon {
+    color: #e59819;
+}
+.courses-review-number {
+    font-size: 1.2rem;
+    margin-left: 1.2rem;
+}
+
+.courses-price {
+    display: flex;
+}
+
+.courses-price-new {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.courses-price-old {
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-left: 1.4rem;
+}
