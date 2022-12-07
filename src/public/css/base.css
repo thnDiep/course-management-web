@@ -1,6 +1,7 @@
 .btn {
   padding: 1rem 2rem;
   border: 1px solid #000;
+  border-radius: 2px;
   font-size: 1.8rem;
   font-weight: 600;
   color: #101010;
@@ -15,5 +16,5 @@
   border-color: #f8d752;
   background-color: #f8d752; }
   .btn.btn--bg:hover {
-    border-color: #5e88c2;
-    background-color: #5e88c2; }
+    border-color: #917b00;
+    background-color: #917b00; }

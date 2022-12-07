@@ -30,7 +30,7 @@ html {
   align-items: center;
   border-bottom: 2px solid #f3f3f4;
   box-shadow: rgba(100, 100, 111, 0.2) 2px 0 12px;
-  z-index: 1; }
+  z-index: 10; }
 
 .sidebar {
   background-color: #333;
@@ -38,7 +38,7 @@ html {
   width: 15%;
   width: 200px;
   position: fixed;
-  z-index: 2;
+  z-index: 20;
   /* justify-content: center; */
   /* flex: 0 0 18%; */
   /* display: flex;
