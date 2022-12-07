@@ -1,0 +1,14 @@
+@import 'variable';
+
+.btn {
+    padding: 1rem 2rem;
+    border: 1px solid $black-color;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $text-color;
+
+    &:hover {
+        color: $white-color;
+        background-color: $black-color;
+    }
+}

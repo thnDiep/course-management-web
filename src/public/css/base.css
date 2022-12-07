@@ -1,0 +1,9 @@
+.btn {
+  padding: 1rem 2rem;
+  border: 1px solid #000;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #101010; }
+  .btn:hover {
+    color: #fff;
+    background-color: #000; }

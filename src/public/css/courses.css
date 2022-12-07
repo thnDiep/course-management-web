@@ -1,43 +1,77 @@
-.courses-title {
+.courses {
+  transition: 0.2s ease; }
+
+.courses:hover {
+  transform: translateX(-1px) translateY(-1px);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer; }
+
+.courses__title {
   font-size: 2.4rem;
-  margin: 0; }
+  font-weight: 600;
+  color: #101010;
+  margin: 0 0 0.6rem 0; }
 
-.courses-category {
+.courses__category {
   font-size: 1.2rem;
-  list-style: none; }
-
-.courses-category-link {
-  text-decoration: none;
-  color: black; }
-
-.courses-teacher {
-  margin: 0; }
-
-.courses-review {
-  display: flex;
-  font-size: 1.4rem;
-  margin: 1rem 0; }
-
-.courses-review-score {
-  color: #e59819;
-  font-weight: 600; }
-
-.courses-review-icon {
-  color: #e59819; }
-
-.courses-review-number {
-  font-size: 1.2rem;
-  margin-left: 1.2rem; }
-
-.courses-price {
+  list-style: none;
+  margin: 0 0 0.8rem 0;
+  padding: 0;
   display: flex; }
+  .courses__category .courses__category-item::before {
+    content: ">";
+    margin-left: 1rem; }
+  .courses__category .courses__category-link {
+    text-decoration: none;
+    color: #101010; }
+  .courses__category .courses__category-item:hover .courses__category-link {
+    color: #a3cfcd; }
 
-.courses-price-new {
-  font-size: 1.8rem;
-  font-weight: 600; }
+.courses__teacher {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0; }
 
-.courses-price-old {
+.courses__review {
+  display: flex;
+  align-items: center;
   font-size: 1.4rem;
-  font-weight: 400;
-  text-decoration: line-through;
-  margin-left: 1.4rem; }
+  font-weight: 600;
+  margin: 1rem 0;
+  color: #e59819; }
+  .courses__review .courses__review-number {
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: #555; }
+
+.courses__price {
+  display: flex;
+  align-items: center; }
+  .courses__price .courses__price-unit {
+    font-size: 1.6rem;
+    text-decoration: underline; }
+  .courses__price .courses__price-new {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #101010; }
+  .courses__price .courses__price-old {
+    display: flex;
+    align-items: center;
+    text-decoration: line-through;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: #555; }
+
+#add-cart-btn {
+  border-color: #a3cfcd;
+  background-color: #a3cfcd;
+  min-width: none;
+  display: flex;
+  align-items: center; }
+  #add-cart-btn:hover {
+    border-color: #47817f;
+    background-color: #47817f; }
