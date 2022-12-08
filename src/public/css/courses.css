@@ -13,7 +13,7 @@
     margin: 0;
     position: relative; }
   .courses figure::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: -75%;
@@ -32,7 +32,7 @@
     left: 125%; } }
 
 .courses.courses--best-seller::before {
-  content: "bestseller";
+  content: 'bestseller';
   position: absolute;
   top: 24px;
   left: -40px;
@@ -72,7 +72,7 @@
   display: flex;
   z-index: 2; }
   .courses__category .courses__category-item::before {
-    content: ">";
+    content: '>';
     margin-left: 1rem; }
   .courses__category .courses__category-link {
     text-decoration: none;

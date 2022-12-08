@@ -16,4 +16,8 @@ export default function route(app) {
     });
 
     app.use('/search', searchRoute);
+
+    app.get('/courseDetail', (req, res) => {
+        res.render('courseDetail');
+    });
 }
