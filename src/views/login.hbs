@@ -1,0 +1,54 @@
+{{#section "css"}}
+  <link rel="stylesheet" href="/css/login.css" />
+{{/section}}
+
+<div>
+  <div class="login">
+    <div class="video-container">
+      <video
+        autoplay="true"
+        playsinline="true"
+        muted="true"
+        loop="true"
+        data-video-player-target="player"
+        class="plyr__video"
+      >
+        <source
+          src="https://static.vecteezy.com/system/resources/previews/014/195/483/mp4/glowing-colorful-neon-digital-geometric-shapes-abstract-digital-geometric-shape-moving-on-black-background-high-tech-shapes-background-geometric-high-tech-loop-animation-dynamic-shape-background-free-video.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://static.vecteezy.com/system/resources/previews/014/195/483/glowing-colorful-neon-digital-geometric-shapes-abstract-digital-geometric-shape-moving-on-black-background-high-tech-shapes-background-geometric-high-tech-loop-animation-dynamic-shape-background-free-video.webm"
+          type="video/webm"
+        />
+      </video>
+    </div>
+    <form method="post" class="form-login">
+      <p class="form-login__title">Welcome!</p>
+      <div class="form-login__user-name">
+        <i class="fas fa-user form-login__icon"></i>
+        <input
+          type="text"
+          placeholder="User name"
+          class="form-login__user-name__input"
+        />
+      </div>
+      <div class="form-login__user-pass">
+        <i class="fas fa-lock form-login__icon"></i>
+        <input
+          type="password"
+          placeholder="Password"
+          class="form-login__user-pass__input"
+        />
+      </div>
+      <div>
+        <button href="#" class="w-50 mt-2 ml-2 py-3 px-2 form-login__btn">Login
+          to Your Account</button>
+        <i class="fas fa-arrow-right form-login__icon"></i>
+      </div>
+      {{! <div class="card">
+        <p class="form-login__title">Or you can login by</p>
+      </div> }}
+    </form>
+  </div>
+</div>
