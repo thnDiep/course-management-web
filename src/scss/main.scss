@@ -1,6 +1,7 @@
 @import 'variable';
 
 body {
+    font-family: "Lato", sans-serif;
     margin: 0;
 }
 
@@ -28,7 +29,6 @@ html {
     position: fixed;
     top: 0;
     left: 0;
-    padding-left: $sidebar-width;
     width: 100vw;
     height: $header-height;
     font-size: 1.4rem;
@@ -43,11 +43,14 @@ html {
 
 @media only screen and (max-width: 31.25em) {
     .header {
+        top: 8rem;
         padding-left: 0;
         // flex-wrap: wrap;
         align-content: space-around;
-        height: 10rem;
+        height: 4rem;
+        display: none;
     }
+
     .content {
         margin-left: 0rem;
         margin-top: 11.5rem;
@@ -59,4 +62,18 @@ html {
         margin-top: 8rem;
         flex-direction: column;
     }
+}
+
+.hidden {
+    display: block;
+}
+
+.overlay {
+    position: fixed;
+    top: 12rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }

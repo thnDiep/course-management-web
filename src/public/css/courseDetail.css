@@ -86,13 +86,15 @@
   /* margin-right: 2rem;
             margin-top: 1rem;
             padding-bottom: 3rem; */
-  margin: 1rem   2rem  3rem 0rem; }
+  margin: 1rem 2rem 3rem 0rem; }
 
 .WhatWillLearn {
   margin-top: 3rem;
   border: 0.2rem solid black; }
 
-.table thead th, .table td, .table th {
+.table thead th,
+.table td,
+.table th {
   border: none; }
 
 .description {

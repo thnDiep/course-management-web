@@ -1,14 +1,65 @@
 <nav class="sidebar1">
-  <div class="logo">
-    <img
+  <input type="checkbox" name="" class="nav__input" id="side-nav__input" />
+
+  <label for="side-nav__input" class="side-nav__bars">
+    <i class="fas fa-bars side-nav__bars--icon"></i>
+  </label>
+  <div class="sidebar1__logo">
+    {{!-- <img
       src="https://previews.123rf.com/images/captainvector/captainvector1703/captainvector170309493/74165387-academy-logo-element.jpg"
-      alt="trillo logo"
-      class="logo--img"
-    />
+      alt="trillo logo" class="logo--img" /> --}}
     <span class="text-primary__sun">SUN</span>
     <span class="text-primary__light">LIGHT</span>
   </div>
+
+  <ul class="side-nav">
+
+    <li class="side-nav__item side-nav__item--active">
+      <a href="#" class="side-nav__link">
+        <i class="fas fa-home side-nav__icon"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li class="side-nav__item">
+      <a href="/courses" class="side-nav__link">
+        <i class="fas fa-th-list side-nav__icon"></i>
+        <span>Category</span>
+      </a>
+    </li>
+    <li class="side-nav__item">
+      <buton class="side-nav__link">
+        <i class="fas fa-book side-nav__icon"></i>
+        <span>Course</span>
+      </buton>
+    </li>
+    <li class="side-nav__item">
+      <a href="#" class="side-nav__link">
+        <i class="fas fa-bookmark side-nav__icon"></i>
+        <span>Bookmark</span>
+      </a>
+    </li>
+    <li class="side-nav__item">
+      <a href="/profile" class="side-nav__link">
+        <i class="fas fa-address-card side-nav__icon"></i>
+        <span>profile</span>
+      </a>
+    </li>
+  </ul>
+  <button class="sidebar1__search">
+    <i class="fas fa-search sidebar1__icon"></i>
+  </button>
+  <label for="side-nav__input" class="side-nav__overlay"></label>
+</nav>
+{{!-- <nav class="sidebar1">
   <input type="checkbox" name="" class="nav__input" id="side-nav__input" />
+
+  <label for="side-nav__input" class="side-nav__bars">
+    <i class="fas fa-bars side-nav__bars--icon"></i>
+  </label>
+  <div class="sidebar1__logo">
+    <span class="text-primary__sun">SUN</span>
+    <span class="text-primary__light">LIGHT</span>
+  </div>
 
   <ul class="side-nav">
 
@@ -43,41 +94,8 @@
       </a>
     </li>
   </ul>
-  <label for="side-nav__input" class="side-nav__bars">
-    <i class="fas fa-bars side-nav__bars--icon"></i>
-  </label>
+  <button class="sidebar1__search">
+    <i class="fas fa-search sidebar1__icon"></i>
+  </button>
   <label for="side-nav__input" class="side-nav__overlay"></label>
-  {{! <ul class="side-nav__mobile">  
-    <li class="side-nav___mobile__item side-nav___mobile__item--active">
-      <a href="#" class="side-nav___mobile__link">
-        <i class="fas fa-home side-nav___mobile__icon"></i>
-        <span>Home</span>
-      </a>
-    </li>
-    <li class="side-nav___mobile__item">
-      <a href="#" class="side-nav___mobile__link">
-        <i class="fas fa-th-list side-nav___mobile__icon"></i>
-        <span>Category</span>
-      </a>
-    </li>
-    <li class="side-nav___mobile__item">
-      <buton class="side-nav___mobile__link">
-        <i class="fas fa-book side-nav___mobile__icon"></i>
-        <span>Course</span>
-      </buton>
-    </li>
-    <li class="side-nav___mobile__item">
-      <a href="#" class="side-nav___mobile__link">
-        <i class="fas fa-bookmark side-nav___mobile__icon"></i>
-        <span>Bookmark</span>
-      </a>
-    </li>
-    <li class="side-nav___mobile__item">
-      <a href="#" class="side-nav___mobile__link">
-        <i class="fas fa-address-card side-nav___mobile__icon"></i>
-        <span>profile</span>
-      </a>
-    </li>
-  </ul> }}
-
-</nav>
+</nav> --}}
