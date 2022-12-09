@@ -1,23 +1,30 @@
-import searchRoute from './search.route.js';
+import searchRoute from "./search.route.js";
 
 export default function route(app) {
-    // Routes
+  // Routes
+  app.get("/login", (req, res) => {
+    res.render("login");
+  });
 
-    app.get('/', (req, res) => {
-        res.render('home');
-    });
+  app.get("/signup", (req, res) => {
+    res.render("signUp");
+  });
 
-    app.get('/profile', (req, res) => {
-        res.render('profile');
-    });
+  app.get("/", (req, res) => {
+    res.render("home");
+  });
 
-    app.get('/courses', (req, res) => {
-        res.render('courses');
-    });
+  app.get("/profile", (req, res) => {
+    res.render("profile");
+  });
 
-    app.use('/search', searchRoute);
+  app.get("/courses", (req, res) => {
+    res.render("courses");
+  });
 
-    app.get('/courseDetail', (req, res) => {
-        res.render('courseDetail');
-    });
+  app.use("/search", searchRoute);
+
+  app.get("/courseDetail", (req, res) => {
+    res.render("courseDetail");
+  });
 }
