@@ -23,35 +23,40 @@
         />
       </video>
     </div>
-    <form method="post" class="form-login">
-      <p class="form-login__mainTitle">Welcome!</p>
-      <p class="form-login__subTitle">Choose from 130,000 online video courses
-        with new additions published every second month</p>
-      <div class="form-login__user-name">
-        <i class="fas fa-user form-login__icon"></i>
-        <input
-          type="text"
-          placeholder="User name"
-          class="form-login__user-name__input"
-        />
-      </div>
-      <div class="form-login__user-pass">
-        <i class="fas fa-lock form-login__icon"></i>
-        <input
-          type="password"
-          placeholder="Password"
-          class="form-login__user-pass__input"
-        />
-      </div>
-      <div>
-        <button href="#" class="py-3 px-1 form-login__btn">Login to Your Account<i
-            class="fas fa-arrow-right form-login__icon-arrow"
+    <div class="form row">
+      <form method="post" class="form--login col-lg-7 col-sm-0">
+        <p class="form--login__mainTitle">Welcome!</p>
+        <span class="form--login__subTitle">Choose from 130,000 online video
+          courses with new additions
+          <div>published every second month</div>
+        </span>
+        <div class="form--login__user-name">
+          <i class="fas fa-user form--login__icon"></i>
+          <input
+            type="text"
+            placeholder="User name"
+            class="form--login__user-name__input"
+          />
+        </div>
+        <div class="form--login__user-pass">
+          <i class="fas fa-lock form--login__icon"></i>
+          <input
+            type="password"
+            placeholder="Password"
+            class="form--login__user-pass__input"
+          />
+        </div>
+        <button href="#" class="py-3 px-1 form--login__btn">Login to Your
+          Account<i
+            class="fas fa-arrow-right form--login__icon-arrow"
           ></i></button>
+      </form>
+      {{! <img
+        src="/images/background/cool-background.png"
+        alt="Picture"
+        class="form--pic col-lg-5 col-sm-12"
+      /> }}
+    </div>
 
-      </div>
-      {{! <div class="card">
-        <p class="form-login__title">Or you can login by</p>
-      </div> }}
-    </form>
   </div>
 </div>

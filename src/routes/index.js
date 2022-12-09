@@ -4,31 +4,31 @@ export default function route(app) {
   // Routes
   app.get("/login", (req, res) => {
     res.render("login", {
-      check: false
+      check: false,
     });
   });
 
   app.get("/signup", (req, res) => {
     res.render("signUp", {
-      check: false
+      check: false,
     });
   });
 
   app.get("/", (req, res) => {
     res.render("home", {
-      check: true
+      check: true,
     });
   });
 
   app.get("/profile", (req, res) => {
     res.render("profile", {
-      check: false
+      check: false,
     });
   });
 
   app.get("/courses", (req, res) => {
     res.render("courses", {
-      check: false
+      check: false,
     });
   });
 
@@ -36,7 +36,7 @@ export default function route(app) {
 
   app.get("/courses/courseDetail", (req, res) => {
     res.render("courseDetail", {
-      check: false
+      check: false,
     });
   });
 }
