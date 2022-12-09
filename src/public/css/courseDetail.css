@@ -1,15 +1,11 @@
-.body {
-  width: 65%;
-  position: relative; }
 
 .intro {
-  background-color: black;
-  color: white;
-  width: 100vw;
-  padding-top: 20px; }
+  color: black;
+  width: 90vw;
+  padding-top: 5px; }
 
 .intro-link {
-  color: #cdc1fd;
+  color: #917b00;
   margin-right: 1rem;
   margin-left: 1rem; }
 
@@ -17,16 +13,18 @@
   color: #cdc1fd; }
 
 .intro-name {
-  font-size: 3.3rem;
+  padding-top: 2rem;
+  font-size: 4.3rem;
   font-weight: bold;
   margin-left: 5rem; }
 
 .intro-item {
+  font-size: 1.8rem;
   margin-left: 5rem;
   margin-top: 1rem; }
 
 .intro .courses__category {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   list-style: none;
   margin-left: 5rem;
   padding-top: 6rem;
@@ -39,10 +37,10 @@
 .courses__category .courses__category-link {
   text-decoration: none;
   margin-right: 1rem;
-  color: #cdc1fd; }
+  color:#917b00; }
 
 .courses__category .courses__category-item:hover .courses__category-link {
-  color: #f8d752; }
+  color: #0000ee }
 
 .intro .courses__review {
   display: flex;
@@ -98,12 +96,12 @@
   border: none; }
 
 .description {
-  margin-top: 2rem;
+  margin-top: 3rem;
   font-weight: bold;
-  font-size: 1.6rem; }
+  font-size: 2rem; }
 
 .description-item {
-  font-size: 1.4rem; }
+  font-size: 1.6rem; }
 
 .buying_information {
   height: 600px;
@@ -119,15 +117,56 @@
     margin-left: 3rem; }
 
 .buying_information .buying_information-button {
-  width: 90%;
-  height: 5rem;
-  font-size: 2rem;
-  justify-content: center;
-  font-weight: bold;
-  color: white;
-  background-color: #9d3af2;
-  border-color: #9d3af2; }
+  
+  background-color:#f8d752; }
 
 .buying_information .buying_information-button:hover {
   background-color: #7c28dc;
   border-color: #7c28dc; }
+
+
+
+.headercouseDetail {
+  height: 37rem;
+  background-image: 
+  linear-gradient(
+          rgba(0, 0, 0, 0.05), 
+          rgba(0, 0, 0, 0.05)),
+  url(/images/background/tech.jpg);
+}
+
+.intro .select-button{
+  display: flex;
+}
+
+.select-button .buying-button {
+  height: 5rem;
+  width: 25rem;
+  background-color: #f8d752;
+  border-color: #f8d752;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  font-size: 2rem ;
+  font-weight: bolder;
+  color: white;}
+ .buying-button:hover {
+    transform: translateX(-3px) translateY(-3px);
+    height: 7rem;
+    width: 28rem;
+    font-size: 3rem;
+  }
+
+
+
+.content{
+  display: flex;
+}
+  .content .left{
+    width: 70rem;
+    margin-left: 3rem;
+  }
+
+  .content .video_review{
+    padding-top: 3rem;
+    padding-left: 13rem;
+  }
