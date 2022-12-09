@@ -36,6 +36,19 @@
   .sidebar1__icon {
     color: #fff; }
 
+.sidebar--icon {
+  width: 60px; }
+  .sidebar--icon .side-nav {
+    margin-top: 20rem; }
+    @media only screen and (max-width: 31.25em) {
+      .sidebar--icon .side-nav {
+        margin-top: 0; } }
+  @media only screen and (max-width: 31.25em) {
+    .sidebar--icon {
+      width: 100%; }
+      .sidebar--icon span {
+        display: inline; } }
+
 /* @media only screen and (max-width: 56.25em) {
     .sidebar {
       width: 100%;

@@ -1,3 +1,4 @@
+{{#if check}}
 <nav class="sidebar1">
   <input type="checkbox" name="" class="nav__input" id="side-nav__input" />
 
@@ -5,9 +6,6 @@
     <i class="fas fa-bars side-nav__bars--icon"></i>
   </label>
   <div class="sidebar1__logo">
-    {{!-- <img
-      src="https://previews.123rf.com/images/captainvector/captainvector1703/captainvector170309493/74165387-academy-logo-element.jpg"
-      alt="trillo logo" class="logo--img" /> --}}
     <span class="text-primary__sun">SUN</span>
     <span class="text-primary__light">LIGHT</span>
   </div>
@@ -15,7 +13,7 @@
   <ul class="side-nav">
 
     <li class="side-nav__item side-nav__item--active">
-      <a href="#" class="side-nav__link">
+      <a href="/" class="side-nav__link">
         <i class="fas fa-home side-nav__icon"></i>
         <span>Home</span>
       </a>
@@ -50,7 +48,10 @@
   </button>
   <label for="side-nav__input" class="side-nav__overlay"></label>
 </nav>
-{{!-- <nav class="sidebar1">
+
+{{else}}
+{{!-- SIDEBAR--icon --}}
+<nav class="sidebar1 sidebar--icon">
   <input type="checkbox" name="" class="nav__input" id="side-nav__input" />
 
   <label for="side-nav__input" class="side-nav__bars">
@@ -64,33 +65,33 @@
   <ul class="side-nav">
 
     <li class="side-nav__item side-nav__item--active">
-      <a href="#" class="side-nav__link">
+      <a href="/" class="side-nav__link">
         <i class="fas fa-home side-nav__icon"></i>
-        <span>Home</span>
+        <span class="hidden">Home</span>
       </a>
     </li>
     <li class="side-nav__item">
-      <a href="#" class="side-nav__link">
+      <a href="/courses" class="side-nav__link">
         <i class="fas fa-th-list side-nav__icon"></i>
-        <span>Category</span>
+        <span class="hidden">Category</span>
       </a>
     </li>
     <li class="side-nav__item">
       <buton class="side-nav__link">
         <i class="fas fa-book side-nav__icon"></i>
-        <span>Course</span>
+        <span class="hidden">Course</span>
       </buton>
     </li>
     <li class="side-nav__item">
       <a href="#" class="side-nav__link">
         <i class="fas fa-bookmark side-nav__icon"></i>
-        <span>Bookmark</span>
+        <span class="hidden">Bookmark</span>
       </a>
     </li>
     <li class="side-nav__item">
-      <a href="#" class="side-nav__link">
+      <a href="/profile" class="side-nav__link">
         <i class="fas fa-address-card side-nav__icon"></i>
-        <span>profile</span>
+        <span class="hidden">profile</span>
       </a>
     </li>
   </ul>
@@ -98,4 +99,5 @@
     <i class="fas fa-search sidebar1__icon"></i>
   </button>
   <label for="side-nav__input" class="side-nav__overlay"></label>
-</nav> --}}
+</nav>
+{{/if}}

@@ -54,6 +54,27 @@
       justify-content: space-between; */
 }
 
+.sidebar--icon {
+    width: 60px;
+
+    .side-nav {
+        margin-top: 20rem;
+
+        @media only screen and (max-width: 31.25em) {
+            margin-top: 0;
+        }
+    }
+
+    @media only screen and (max-width: 31.25em) {
+        width: 100%;
+
+        span {
+            display: inline;
+        }
+
+    }
+}
+
 /* @media only screen and (max-width: 56.25em) {
     .sidebar {
       width: 100%;

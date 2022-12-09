@@ -44,9 +44,6 @@ html {
     margin-top: 8rem;
     flex-direction: column; } }
 
-.hidden {
-  display: block; }
-
 .overlay {
   position: fixed;
   top: 12rem;
@@ -55,3 +52,9 @@ html {
   right: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 10; }
+
+.hidden {
+  display: none; }
+
+.show {
+  display: block; }
