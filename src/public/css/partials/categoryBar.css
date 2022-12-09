@@ -26,7 +26,7 @@
     text-decoration: none;
     cursor: default; }
   .category-item.category-item--active .category-item__link::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: -8px;

@@ -1,7 +1,5 @@
 @import 'variable';
 
-
-
 .btn {
     padding: 1rem 2rem;
     border: 1px solid $black-color;
@@ -9,6 +7,7 @@
     font-size: 1.8rem;
     font-weight: 600;
     color: $text-color;
+    background-color: $white-color;
     display: flex;
     justify-content: space-around;
     align-items: center;

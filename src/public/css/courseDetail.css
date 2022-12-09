@@ -34,7 +34,7 @@
   display: flex; }
 
 .courses__category .courses__category-item::before {
-  content: '>'; }
+  content: ">"; }
 
 .courses__category .courses__category-link {
   text-decoration: none;

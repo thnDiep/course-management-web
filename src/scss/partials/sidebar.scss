@@ -1,4 +1,4 @@
-@import 'variable';
+@import '../global/variable';
 
 .sidebar1 {
     position: fixed;
@@ -42,7 +42,6 @@
 
     &__icon {
         color: $white-color;
-
     }
 
     //   display: flex;
@@ -55,7 +54,7 @@
 }
 
 .sidebar--icon {
-    width: 60px;
+    width: $sidebar-icon-width;
 
     .side-nav {
         margin-top: 20rem;
@@ -71,7 +70,6 @@
         span {
             display: inline;
         }
-
     }
 }
 
@@ -109,7 +107,6 @@
         margin: 2rem 2rem;
         display: block;
     }
-
 }
 
 .side-nav {
@@ -140,7 +137,7 @@
         // transform: translateX(0%);
     }
 
-    .nav__input:checked~.side-nav {
+    .nav__input:checked ~ .side-nav {
         transform: translateX(0%);
         animation: fadeInLeftBig;
         /* referring directly to the animation's @keyframe declaration */
@@ -148,7 +145,7 @@
         /* don't forget to set a duration! */
     }
 
-    .nav__input:checked~.side-nav {
+    .nav__input:checked ~ .side-nav {
         transform: translateX(0%);
         animation: fadeInLeftBig;
         /* referring directly to the animation's @keyframe declaration */
@@ -156,7 +153,7 @@
         /* don't forget to set a duration! */
     }
 
-    .nav__input:checked~.side-nav__overlay {
+    .nav__input:checked ~ .side-nav__overlay {
         animation: animate__fadeIn;
         /* referring directly to the animation's @keyframe declaration */
         animation-duration: 2s;
