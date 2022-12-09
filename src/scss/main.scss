@@ -1,67 +1,67 @@
-@import 'variable';
+@import "variable";
 
 body {
-    font-family: "Lato", sans-serif;
-    margin: 0;
+  font-family: "Lato", sans-serif;
+  margin: 0;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 @media only screen and (max-width: 68.75em) {
-    html {
-        font-size: 50%;
-    }
+  html {
+    font-size: 50%;
+  }
 }
 
 .container-fluid {
-    margin-top: calc(#{$header-height} + 20px);
+  margin-top: calc(#{$header-height} + 20px);
 }
 
 .content {
-    // margin-top: $header-height;
-    // margin-left: $sidebar-width;
+  // margin-top: $header-height;
+  // margin-left: $sidebar-width;
 }
 
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: $header-height;
-    font-size: 1.4rem;
-    background-color: $white-color;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #f3f3f4;
-    box-shadow: rgba(100, 100, 111, 0.2) 2px 0 12px;
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: $header-height;
+  font-size: 1.4rem;
+  background-color: $white-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f3f3f4;
+  box-shadow: rgba(100, 100, 111, 0.2) 2px 0 12px;
+  z-index: 10;
 }
 
 @media only screen and (max-width: 31.25em) {
-    .header {
-        top: 8rem;
-        padding-left: 0;
-        // flex-wrap: wrap;
-        align-content: space-around;
-        height: 4rem;
-        display: none;
-    }
+  .header {
+    top: 8rem;
+    padding-left: 0;
+    // flex-wrap: wrap;
+    align-content: space-around;
+    height: 4rem;
+    display: none;
+  }
 
-    .content {
-        margin-left: 0rem;
-        margin-top: 11.5rem;
-    }
+  .content {
+    margin-left: 0rem;
+    margin-top: 11.5rem;
+  }
 }
 
 @media only screen and (max-width: 31.25em) {
-    .content {
-        margin-top: 8rem;
-        flex-direction: column;
-    }
+  .content {
+    margin-top: 8rem;
+    flex-direction: column;
+  }
 }
 
 
