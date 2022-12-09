@@ -1,6 +1,6 @@
 .login {
   overflow: hidden;
-  margin-right: 6rem; }
+  margin-left: -14.5rem; }
   .login .form-login {
     display: flex;
     height: 90%;
@@ -12,11 +12,15 @@
     color: #f1f1f1;
     width: 80%;
     padding: 4rem; }
-    .login .form-login__title {
+    .login .form-login__mainTitle {
       font-size: 6rem;
       font-weight: 700;
       margin-bottom: -1rem;
       border: white; }
+    .login .form-login__subTitle {
+      margin-top: 0.5rem;
+      font-weight: 400;
+      font-size: 1.2rem; }
     .login .form-login__user-name__input, .login .form-login__user-pass__input {
       margin-bottom: 0.5rem;
       padding: 1rem;
@@ -26,20 +30,25 @@
     .login .form-login__btn {
       margin-top: 1rem;
       text-align: center;
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 600;
       color: #000;
       text-transform: uppercase;
-      background: linear-gradient(135deg, #f8d752 35%, #ff0030 100%);
-      border-radius: 1rem;
-      transform: translate(38%, 0);
-      border: transparent; }
+      background: linear-gradient(324deg, #f8d752 0%, #22c1c3 50%);
+      border-radius: 0.8rem;
+      border: transparent;
+      width: 35%; }
     .login .form-login__icon {
       color: #b3aa99;
-      min-width: 50px;
-      padding: 13px;
+      min-width: 5rem;
+      padding: 1.3rem;
+      font-size: 1.4rem;
       text-align: center;
       position: absolute; }
+      .login .form-login__icon-arrow {
+        margin-left: 4rem;
+        font-size: 2rem;
+        text-align: center; }
   .login .video-container .plyr__video {
     position: fixed;
     right: 0;
