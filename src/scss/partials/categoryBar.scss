@@ -2,13 +2,13 @@
 
 .category__heading {
     margin: 0;
-    padding: 11px 20px;
-    font-size: 2rem;
+    padding: 0 0 16px 20px;
+    font-size: 3rem;
     font-weight: 500;
     color: $text-color;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid $border-color;
 
     .category__heading-icon {
         font-size: 1.4rem;
@@ -48,7 +48,7 @@
 }
 
 .category-item--l1 + .category-item--l1 {
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-top: 1px solid $border-color;
 }
 
 .category-item--l2 + .category-item--l2 {

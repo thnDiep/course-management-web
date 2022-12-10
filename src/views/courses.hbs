@@ -7,13 +7,16 @@
     <div class="col-lg-2">
       {{> categoryBar }}
     </div>
+
     <div class="col-lg-10">
-        <h1 class="title">Javascript courses</h1>
-      <hr />
+      <div class="courses__header">
+        <h1 class="courses__title">Javascript</h1>
+        </div>
+      
       <div class="row w-100 mt-4">
         <div class="col-lg-3 col-sm-6">
-          <div class="card courses courses--best-seller">
-            <a href="/courses/courseDetail" class="courses__link"></a>
+          <div class="card course course--best-seller">
+            <a href="/course/courseDetail" class="course__link"></a>
 
             <figure>
               <img
@@ -24,21 +27,21 @@
             </figure>
 
             <div class="card-body">
-              <h4 class="courses__title">Javascript for Beginners</h4>
+              <h4 class="course__title">Javascript for Beginners</h4>
 
-              <ul class="courses__category">
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Web Development</a>
+              <ul class="course__category">
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Web Development</a>
                 </li>
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Javascript</a>
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Javascript</a>
                 </li>
               </ul>
 
-              <h5 class="courses__teacher">Teacher: Dollar Design School</h5>
+              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
 
-              <div class="courses__review">
-                <div class="courses__review-score">
+              <div class="course__review">
+                <div class="course__review-score">
                   4.3
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>
@@ -47,26 +50,26 @@
                   <i class="fa fa-star-half" aria-hidden="true"></i>
                 </div>
 
-                <div class="courses__review-number">(1,332)</div>
+                <div class="course__review-number">(1,332)</div>
               </div>
 
-              <div class="courses__price">
-                <h4 class="courses__price-new">
+              <div class="course__price">
+                <h4 class="course__price-new">
                   299.000
-                  <span class="courses__price-unit">đ</span>
+                  <span class="course__price-unit">đ</span>
                 </h4>
-                <h4 class="courses__price-old">
+                <h4 class="course__price-old">
                   499.000
-                  <span class="courses__price-unit">đ</span>
+                  <span class="course__price-unit">đ</span>
                 </h4>
               </div>
             </div>
 
-            <div class="card-footer courses__buttons">
+            <div class="card-footer course__buttons">
               <a
                 name="buy-btn"
                 id="buy-btn"
-                class="btn"
+                class="btn btn--border"
                 href="#"
                 role="button"
               >Buy now</a>
@@ -74,445 +77,7 @@
               <a
                 name="add-cart-btn"
                 id="add-cart-btn"
-                class="btn btn--bg"
-                href="#"
-                role="button"
-              >
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-sm-6">
-          <div class="card courses courses--best-seller">
-            <a href="/courses/courseDetail" class="courses__link"></a>
-
-            <figure>
-              <img
-                class="card-img-top"
-                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
-                alt="Ảnh đại diện khóa học"
-              />
-            </figure>
-
-            <div class="card-body">
-              <h4 class="courses__title">Javascript for Beginners</h4>
-
-              <ul class="courses__category">
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Web Development</a>
-                </li>
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Javascript</a>
-                </li>
-              </ul>
-
-              <h5 class="courses__teacher">Teacher: Dollar Design School</h5>
-
-              <div class="courses__review">
-                <div class="courses__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
-                </div>
-
-                <div class="courses__review-number">(1,332)</div>
-              </div>
-
-              <div class="courses__price">
-                <h4 class="courses__price-new">
-                  299.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-                <h4 class="courses__price-old">
-                  499.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-              </div>
-            </div>
-
-            <div class="card-footer courses__buttons">
-              <a
-                name="buy-btn"
-                id="buy-btn"
-                class="btn"
-                href="#"
-                role="button"
-              >Buy now</a>
-
-              <a
-                name="add-cart-btn"
-                id="add-cart-btn"
-                class="btn btn--bg"
-                href="#"
-                role="button"
-              >
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-sm-6">
-          <div class="card courses">
-            <a href="/courses/courseDetail" class="courses__link"></a>
-
-            <figure>
-              <img
-                class="card-img-top"
-                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
-                alt="Ảnh đại diện khóa học"
-              />
-            </figure>
-
-            <div class="card-body">
-              <h4 class="courses__title">Javascript for Beginners</h4>
-
-              <ul class="courses__category">
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Web Development</a>
-                </li>
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Javascript</a>
-                </li>
-              </ul>
-
-              <h5 class="courses__teacher">Teacher: Dollar Design School</h5>
-
-              <div class="courses__review">
-                <div class="courses__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
-                </div>
-
-                <div class="courses__review-number">(1,332)</div>
-              </div>
-
-              <div class="courses__price">
-                <h4 class="courses__price-new">
-                  299.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-                <h4 class="courses__price-old">
-                  499.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-              </div>
-            </div>
-
-            <div class="card-footer courses__buttons">
-              <a
-                name="buy-btn"
-                id="buy-btn"
-                class="btn"
-                href="#"
-                role="button"
-              >Buy now</a>
-
-              <a
-                name="add-cart-btn"
-                id="add-cart-btn"
-                class="btn btn--bg"
-                href="#"
-                role="button"
-              >
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-sm-6">
-          <div class="card courses">
-            <a href="/courses/courseDetail" class="courses__link"></a>
-
-            <figure>
-              <img
-                class="card-img-top"
-                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
-                alt="Ảnh đại diện khóa học"
-              />
-            </figure>
-
-            <div class="card-body">
-              <h4 class="courses__title">Javascript for Beginners</h4>
-
-              <ul class="courses__category">
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Web Development</a>
-                </li>
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Javascript</a>
-                </li>
-              </ul>
-
-              <h5 class="courses__teacher">Teacher: Dollar Design School</h5>
-
-              <div class="courses__review">
-                <div class="courses__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
-                </div>
-
-                <div class="courses__review-number">(1,332)</div>
-              </div>
-
-              <div class="courses__price">
-                <h4 class="courses__price-new">
-                  299.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-                <h4 class="courses__price-old">
-                  499.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-              </div>
-            </div>
-
-            <div class="card-footer courses__buttons">
-              <a
-                name="buy-btn"
-                id="buy-btn"
-                class="btn"
-                href="#"
-                role="button"
-              >Buy now</a>
-
-              <a
-                name="add-cart-btn"
-                id="add-cart-btn"
-                class="btn btn--bg"
-                href="#"
-                role="button"
-              >
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-sm-6">
-          <div class="card courses">
-            <a href="/courses/courseDetail" class="courses__link"></a>
-
-            <figure>
-              <img
-                class="card-img-top"
-                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
-                alt="Ảnh đại diện khóa học"
-              />
-            </figure>
-
-            <div class="card-body">
-              <h4 class="courses__title">Javascript for Beginners</h4>
-
-              <ul class="courses__category">
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Web Development</a>
-                </li>
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Javascript</a>
-                </li>
-              </ul>
-
-              <h5 class="courses__teacher">Teacher: Dollar Design School</h5>
-
-              <div class="courses__review">
-                <div class="courses__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
-                </div>
-
-                <div class="courses__review-number">(1,332)</div>
-              </div>
-
-              <div class="courses__price">
-                <h4 class="courses__price-new">
-                  299.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-                <h4 class="courses__price-old">
-                  499.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-              </div>
-            </div>
-
-            <div class="card-footer courses__buttons">
-              <a
-                name="buy-btn"
-                id="buy-btn"
-                class="btn"
-                href="#"
-                role="button"
-              >Buy now</a>
-
-              <a
-                name="add-cart-btn"
-                id="add-cart-btn"
-                class="btn btn--bg"
-                href="#"
-                role="button"
-              >
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-sm-6">
-          <div class="card courses">
-            <a href="/courses/courseDetail" class="courses__link"></a>
-
-            <figure>
-              <img
-                class="card-img-top"
-                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
-                alt="Ảnh đại diện khóa học"
-              />
-            </figure>
-
-            <div class="card-body">
-              <h4 class="courses__title">Javascript for Beginners</h4>
-
-              <ul class="courses__category">
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Web Development</a>
-                </li>
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Javascript</a>
-                </li>
-              </ul>
-
-              <h5 class="courses__teacher">Teacher: Dollar Design School</h5>
-
-              <div class="courses__review">
-                <div class="courses__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
-                </div>
-
-                <div class="courses__review-number">(1,332)</div>
-              </div>
-
-              <div class="courses__price">
-                <h4 class="courses__price-new">
-                  299.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-                <h4 class="courses__price-old">
-                  499.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-              </div>
-            </div>
-
-            <div class="card-footer courses__buttons">
-              <a
-                name="buy-btn"
-                id="buy-btn"
-                class="btn"
-                href="#"
-                role="button"
-              >Buy now</a>
-
-              <a
-                name="add-cart-btn"
-                id="add-cart-btn"
-                class="btn btn--bg"
-                href="#"
-                role="button"
-              >
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-         <div class="col-lg-3 col-sm-6">
-          <div class="card courses">
-            <a href="/courses/courseDetail" class="courses__link"></a>
-
-            <figure>
-              <img
-                class="card-img-top"
-                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
-                alt="Ảnh đại diện khóa học"
-              />
-            </figure>
-
-            <div class="card-body">
-              <h4 class="courses__title">Javascript for Beginners</h4>
-
-              <ul class="courses__category">
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Web Development</a>
-                </li>
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Javascript</a>
-                </li>
-              </ul>
-
-              <h5 class="courses__teacher">Teacher: Dollar Design School</h5>
-
-              <div class="courses__review">
-                <div class="courses__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
-                </div>
-
-                <div class="courses__review-number">(1,332)</div>
-              </div>
-
-              <div class="courses__price">
-                <h4 class="courses__price-new">
-                  299.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-                <h4 class="courses__price-old">
-                  499.000
-                  <span class="courses__price-unit">đ</span>
-                </h4>
-              </div>
-            </div>
-
-            <div class="card-footer courses__buttons">
-              <a
-                name="buy-btn"
-                id="buy-btn"
-                class="btn"
-                href="#"
-                role="button"
-              >Buy now</a>
-
-              <a
-                name="add-cart-btn"
-                id="add-cart-btn"
-                class="btn btn--bg"
+                class="btn btn--primary btn--icon"
                 href="#"
                 role="button"
               >
@@ -523,8 +88,8 @@
         </div>
 
          <div class="col-lg-3 col-sm-6">
-          <div class="card courses">
-            <a href="/courses/courseDetail" class="courses__link"></a>
+          <div class="card course course--best-seller">
+            <a href="/course/courseDetail" class="course__link"></a>
 
             <figure>
               <img
@@ -535,21 +100,21 @@
             </figure>
 
             <div class="card-body">
-              <h4 class="courses__title">Javascript for Beginners</h4>
+              <h4 class="course__title">Javascript for Beginners</h4>
 
-              <ul class="courses__category">
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Web Development</a>
+              <ul class="course__category">
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Web Development</a>
                 </li>
-                <li class="courses__category-item">
-                  <a href="#" class="courses__category-link">Javascript</a>
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Javascript</a>
                 </li>
               </ul>
 
-              <h5 class="courses__teacher">Teacher: Dollar Design School</h5>
+              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
 
-              <div class="courses__review">
-                <div class="courses__review-score">
+              <div class="course__review">
+                <div class="course__review-score">
                   4.3
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>
@@ -558,26 +123,26 @@
                   <i class="fa fa-star-half" aria-hidden="true"></i>
                 </div>
 
-                <div class="courses__review-number">(1,332)</div>
+                <div class="course__review-number">(1,332)</div>
               </div>
 
-              <div class="courses__price">
-                <h4 class="courses__price-new">
+              <div class="course__price">
+                <h4 class="course__price-new">
                   299.000
-                  <span class="courses__price-unit">đ</span>
+                  <span class="course__price-unit">đ</span>
                 </h4>
-                <h4 class="courses__price-old">
+                <h4 class="course__price-old">
                   499.000
-                  <span class="courses__price-unit">đ</span>
+                  <span class="course__price-unit">đ</span>
                 </h4>
               </div>
             </div>
 
-            <div class="card-footer courses__buttons">
+            <div class="card-footer course__buttons">
               <a
                 name="buy-btn"
                 id="buy-btn"
-                class="btn"
+                class="btn btn--border"
                 href="#"
                 role="button"
               >Buy now</a>
@@ -585,7 +150,445 @@
               <a
                 name="add-cart-btn"
                 id="add-cart-btn"
-                class="btn btn--bg"
+                class="btn btn--primary btn--icon"
+                href="#"
+                role="button"
+              >
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+         <div class="col-lg-3 col-sm-6">
+          <div class="card course course--best-seller">
+            <a href="/course/courseDetail" class="course__link"></a>
+
+            <figure>
+              <img
+                class="card-img-top"
+                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
+                alt="Ảnh đại diện khóa học"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h4 class="course__title">Javascript for Beginners</h4>
+
+              <ul class="course__category">
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Web Development</a>
+                </li>
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Javascript</a>
+                </li>
+              </ul>
+
+              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
+
+              <div class="course__review">
+                <div class="course__review-score">
+                  4.3
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                </div>
+
+                <div class="course__review-number">(1,332)</div>
+              </div>
+
+              <div class="course__price">
+                <h4 class="course__price-new">
+                  299.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+                <h4 class="course__price-old">
+                  499.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+              </div>
+            </div>
+
+            <div class="card-footer course__buttons">
+              <a
+                name="buy-btn"
+                id="buy-btn"
+                class="btn btn--border"
+                href="#"
+                role="button"
+              >Buy now</a>
+
+              <a
+                name="add-cart-btn"
+                id="add-cart-btn"
+                class="btn btn--primary btn--icon"
+                href="#"
+                role="button"
+              >
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+         <div class="col-lg-3 col-sm-6">
+          <div class="card course course--best-seller">
+            <a href="/course/courseDetail" class="course__link"></a>
+
+            <figure>
+              <img
+                class="card-img-top"
+                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
+                alt="Ảnh đại diện khóa học"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h4 class="course__title">Javascript for Beginners</h4>
+
+              <ul class="course__category">
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Web Development</a>
+                </li>
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Javascript</a>
+                </li>
+              </ul>
+
+              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
+
+              <div class="course__review">
+                <div class="course__review-score">
+                  4.3
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                </div>
+
+                <div class="course__review-number">(1,332)</div>
+              </div>
+
+              <div class="course__price">
+                <h4 class="course__price-new">
+                  299.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+                <h4 class="course__price-old">
+                  499.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+              </div>
+            </div>
+
+            <div class="card-footer course__buttons">
+              <a
+                name="buy-btn"
+                id="buy-btn"
+                class="btn btn--border"
+                href="#"
+                role="button"
+              >Buy now</a>
+
+              <a
+                name="add-cart-btn"
+                id="add-cart-btn"
+                class="btn btn--primary btn--icon"
+                href="#"
+                role="button"
+              >
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+         <div class="col-lg-3 col-sm-6">
+          <div class="card course course--best-seller">
+            <a href="/course/courseDetail" class="course__link"></a>
+
+            <figure>
+              <img
+                class="card-img-top"
+                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
+                alt="Ảnh đại diện khóa học"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h4 class="course__title">Javascript for Beginners</h4>
+
+              <ul class="course__category">
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Web Development</a>
+                </li>
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Javascript</a>
+                </li>
+              </ul>
+
+              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
+
+              <div class="course__review">
+                <div class="course__review-score">
+                  4.3
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                </div>
+
+                <div class="course__review-number">(1,332)</div>
+              </div>
+
+              <div class="course__price">
+                <h4 class="course__price-new">
+                  299.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+                <h4 class="course__price-old">
+                  499.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+              </div>
+            </div>
+
+            <div class="card-footer course__buttons">
+              <a
+                name="buy-btn"
+                id="buy-btn"
+                class="btn btn--border"
+                href="#"
+                role="button"
+              >Buy now</a>
+
+              <a
+                name="add-cart-btn"
+                id="add-cart-btn"
+                class="btn btn--primary btn--icon"
+                href="#"
+                role="button"
+              >
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+         <div class="col-lg-3 col-sm-6">
+          <div class="card course course--best-seller">
+            <a href="/course/courseDetail" class="course__link"></a>
+
+            <figure>
+              <img
+                class="card-img-top"
+                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
+                alt="Ảnh đại diện khóa học"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h4 class="course__title">Javascript for Beginners</h4>
+
+              <ul class="course__category">
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Web Development</a>
+                </li>
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Javascript</a>
+                </li>
+              </ul>
+
+              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
+
+              <div class="course__review">
+                <div class="course__review-score">
+                  4.3
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                </div>
+
+                <div class="course__review-number">(1,332)</div>
+              </div>
+
+              <div class="course__price">
+                <h4 class="course__price-new">
+                  299.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+                <h4 class="course__price-old">
+                  499.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+              </div>
+            </div>
+
+            <div class="card-footer course__buttons">
+              <a
+                name="buy-btn"
+                id="buy-btn"
+                class="btn btn--border"
+                href="#"
+                role="button"
+              >Buy now</a>
+
+              <a
+                name="add-cart-btn"
+                id="add-cart-btn"
+                class="btn btn--primary btn--icon"
+                href="#"
+                role="button"
+              >
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+         <div class="col-lg-3 col-sm-6">
+          <div class="card course course--best-seller">
+            <a href="/course/courseDetail" class="course__link"></a>
+
+            <figure>
+              <img
+                class="card-img-top"
+                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
+                alt="Ảnh đại diện khóa học"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h4 class="course__title">Javascript for Beginners</h4>
+
+              <ul class="course__category">
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Web Development</a>
+                </li>
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Javascript</a>
+                </li>
+              </ul>
+
+              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
+
+              <div class="course__review">
+                <div class="course__review-score">
+                  4.3
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                </div>
+
+                <div class="course__review-number">(1,332)</div>
+              </div>
+
+              <div class="course__price">
+                <h4 class="course__price-new">
+                  299.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+                <h4 class="course__price-old">
+                  499.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+              </div>
+            </div>
+
+            <div class="card-footer course__buttons">
+              <a
+                name="buy-btn"
+                id="buy-btn"
+                class="btn btn--border"
+                href="#"
+                role="button"
+              >Buy now</a>
+
+              <a
+                name="add-cart-btn"
+                id="add-cart-btn"
+                class="btn btn--primary btn--icon"
+                href="#"
+                role="button"
+              >
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+         <div class="col-lg-3 col-sm-6">
+          <div class="card course course--best-seller">
+            <a href="/course/courseDetail" class="course__link"></a>
+
+            <figure>
+              <img
+                class="card-img-top"
+                src="https://img-c.udemycdn.com/course/240x135/14346_9972_8.jpg"
+                alt="Ảnh đại diện khóa học"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h4 class="course__title">Javascript for Beginners</h4>
+
+              <ul class="course__category">
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Web Development</a>
+                </li>
+                <li class="course__category-item">
+                  <a href="#" class="course__category-link">Javascript</a>
+                </li>
+              </ul>
+
+              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
+
+              <div class="course__review">
+                <div class="course__review-score">
+                  4.3
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                </div>
+
+                <div class="course__review-number">(1,332)</div>
+              </div>
+
+              <div class="course__price">
+                <h4 class="course__price-new">
+                  299.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+                <h4 class="course__price-old">
+                  499.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+              </div>
+            </div>
+
+            <div class="card-footer course__buttons">
+              <a
+                name="buy-btn"
+                id="buy-btn"
+                class="btn btn--border"
+                href="#"
+                role="button"
+              >Buy now</a>
+
+              <a
+                name="add-cart-btn"
+                id="add-cart-btn"
+                class="btn btn--primary btn--icon"
                 href="#"
                 role="button"
               >

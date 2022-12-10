@@ -1,17 +1,63 @@
 @import './global/variable';
 
-.title {
-    margin: 0;
-    font-size: 3rem;
+.courses__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid $border-color;
+
+    .courses__title {
+        margin: 0;
+        font-size: 3rem;
+    }
 }
 
-.courses {
+.courses__tool {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.courses__sort {
+    width: 100%;
+    background-color: rgba($color: $black-color, $alpha: 0.05);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+
+    .courses__sort__label {
+        margin: 0;
+        font-size: 2.6rem;
+    }
+
+    .btn {
+        width: $sort-btn-width;
+    }
+
+    .dropdown-menu {
+        font-size: 1.8rem;
+        width: $sort-btn-width;
+    }
+
+    .dropdown-item {
+        padding: 8px 12px;
+
+        &:hover {
+            background-color: rgba($color: $black-color, $alpha: 0.05);
+        }
+    }
+}
+
+.course {
     transition: 0.2s ease;
     border-radius: 6px;
     overflow: hidden;
     position: relative;
     margin-bottom: 20px;
-    .courses__new-label {
+    .course__new-label {
         display: none;
     }
 
@@ -24,8 +70,8 @@
         animation: shine 0.75s;
     }
 
-    // BEST SELLER COURSES
-    &.courses--best-seller::before {
+    // BEST SELLER COURSE
+    &.course--best-seller::before {
         content: 'bestseller';
         position: absolute;
         top: 24px;
@@ -41,39 +87,38 @@
     }
 }
 
-// HORIZONTAL COURSES
-.courses.courses--horizontal {
-    width: 97.5%;
+// HORIZONTAL COURSE
+.course.course--horizontal {
     height: 180px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 0;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid $border-color;
     padding: 0 20px 12px 0;
 
-    // COURSES IMAGE in horizontal
+    // COURSE IMAGE in horizontal
     figure {
         border: 1px solid $gray-color;
         margin-right: 20px;
 
-        .courses__img {
+        .course__img {
             height: 100%;
         }
     }
 
-    // COURSES BODY in horizontal
-    .courses__body {
+    // COURSE BODY in horizontal
+    .course__body {
         flex: 1;
     }
 
-    .courses__buttons {
+    .course__buttons {
         align-self: flex-end;
         width: 200px;
     }
 
-    // NEW COURSES
-    &.courses--new .courses__new-label {
+    // NEW COURSE
+    &.course--new .course__new-label {
         display: block;
         position: absolute;
         top: 0;
@@ -124,7 +169,7 @@ figure {
     }
 }
 
-.courses__link {
+.course__link {
     display: block;
     position: absolute;
     top: 0;
@@ -134,14 +179,14 @@ figure {
     z-index: 1;
 }
 
-.courses__title {
+.course__title {
     font-size: 2.2rem;
     font-weight: 600;
     color: $text-color;
     margin: 0 0 0.6rem 0;
 }
 
-.courses__category {
+.course__category {
     position: relative;
     width: 100%;
     height: 30px;
@@ -153,29 +198,29 @@ figure {
     display: flex;
     z-index: 2;
 
-    .courses__category-item::before {
+    .course__category-item::before {
         content: '>';
         margin-left: 1rem;
     }
 
-    .courses__category-link {
+    .course__category-link {
         text-decoration: none;
         color: $text-color;
     }
 
-    .courses__category-item:hover .courses__category-link {
+    .course__category-item:hover .course__category-link {
         color: $link-color;
     }
 }
 
-.courses__teacher {
+.course__teacher {
     font-size: 1.6rem;
     font-weight: 500;
     color: $gray-text-color;
     margin: 0;
 }
 
-.courses__review {
+.course__review {
     display: flex;
     align-items: center;
     font-size: 1.4rem;
@@ -183,23 +228,23 @@ figure {
     margin: 1rem 0;
     color: $gold-color;
 
-    .courses__review-number {
+    .course__review-number {
         font-weight: 400;
         margin-left: 1.4rem;
         color: $gray-text-color;
     }
 }
 
-.courses__price {
+.course__price {
     display: flex;
     align-items: center;
 
-    .courses__price-unit {
+    .course__price-unit {
         font-size: 1.6rem;
         text-decoration: underline;
     }
 
-    .courses__price-new {
+    .course__price-new {
         display: flex;
         align-items: center;
         font-size: 2.2rem;
@@ -207,7 +252,7 @@ figure {
         color: $text-color;
     }
 
-    .courses__price-old {
+    .course__price-old {
         display: flex;
         align-items: center;
         text-decoration: line-through;
@@ -218,7 +263,7 @@ figure {
     }
 }
 
-.courses__buttons {
+.course__buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
