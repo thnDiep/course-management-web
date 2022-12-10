@@ -1,7 +1,17 @@
+.headercouseDetail {
+  height: 40rem;
+  background-image: 
+  linear-gradient(
+          rgba(0, 0, 0, 0.05), 
+          rgba(0, 0, 0, 0.05)),
+  url(/images/background/tech.jpg);
+}
+
 
 .intro {
   color: black;
-  width: 90vw;
+  width: 92vw;
+  padding-left: 10rem;
   padding-top: 5px; }
 
 .intro-link {
@@ -19,9 +29,39 @@
   margin-left: 5rem; }
 
 .intro-item {
+  width: 80rem;
   font-size: 1.8rem;
   margin-left: 5rem;
   margin-top: 1rem; }
+
+
+.intro .select-button{
+  display: flex;
+}
+  .select-button .buying-btn-frame{
+    width: 35rem;
+    /* height: 20rem; */
+  }
+  
+  .buying-button {
+  height: 5rem;
+  width: 25rem;
+  background-color: #f8d752;
+  border-color: #f8d752;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  font-size: 2rem ;
+  font-weight: bolder;
+  color: white;}
+ .buying-button:hover {
+    transform: translateX(-3px) translateY(-3px);
+    height: 7rem;
+    width: 28rem;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+
+
 
 .intro .courses__category {
   font-size: 1.5rem;
@@ -40,7 +80,7 @@
   color:#917b00; }
 
 .courses__category .courses__category-item:hover .courses__category-link {
-  color: #0000ee }
+  color: #5151e7 }
 
 .intro .courses__review {
   display: flex;
@@ -81,80 +121,19 @@
   margin-left: 5rem; }
 
 .footer_intro .footer_intro-item {
-  /* margin-right: 2rem;
-            margin-top: 1rem;
-            padding-bottom: 3rem; */
   margin: 1rem 2rem 3rem 0rem; }
 
 .WhatWillLearn {
   margin-top: 3rem;
   border: 0.2rem solid black; }
 
-.table thead th,
-.table td,
-.table th {
-  border: none; }
 
 .description {
-  margin-top: 3rem;
+  margin-top: 5rem;
   font-weight: bold;
   font-size: 2rem; }
-
-.description-item {
-  font-size: 1.6rem; }
-
-.buying_information {
-  height: 600px;
-  width: 380px;
-  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 2px 2px;
-  background-color: #efe8e8;
-  position: absolute;
-  top: 120px;
-  right: 40px; }
-  .buying_information .buying_information-price {
-    font-size: 4rem;
-    font-weight: bold;
-    margin-left: 3rem; }
-
-.buying_information .buying_information-button {
-  
-  background-color:#f8d752; }
-
-.buying_information .buying_information-button:hover {
-  background-color: #7c28dc;
-  border-color: #7c28dc; }
-
-
-
-.headercouseDetail {
-  height: 37rem;
-  background-image: 
-  linear-gradient(
-          rgba(0, 0, 0, 0.05), 
-          rgba(0, 0, 0, 0.05)),
-  url(/images/background/tech.jpg);
-}
-
-.intro .select-button{
-  display: flex;
-}
-
-.select-button .buying-button {
-  height: 5rem;
-  width: 25rem;
-  background-color: #f8d752;
-  border-color: #f8d752;
-  margin-left: 5rem;
-  margin-right: 5rem;
-  font-size: 2rem ;
-  font-weight: bolder;
-  color: white;}
- .buying-button:hover {
-    transform: translateX(-3px) translateY(-3px);
-    height: 7rem;
-    width: 28rem;
-    font-size: 3rem;
-  }
+  .description-item {
+    font-size: 1.6rem; }
 
 
 
@@ -166,7 +145,61 @@
     margin-left: 3rem;
   }
 
-  .content .video_review{
+  .content .right{
     padding-top: 3rem;
-    padding-left: 13rem;
+    padding-left: 8rem;
+  }
+
+  .right .see_reviews-link{
+    font-size: 1.4rem;
+    color: #7c28dc;
+
+  }
+
+
+.course_content_table {
+  background-color: rgb(26, 24, 24);
+}
+.chapter {
+  padding-top: 1rem;
+  display: flex;
+  border-bottom: 1px solid gray;
+}
+.chapter-name{
+    color: white;
+    width: 50rem;
+    font-size: 1.6rem;
+  }
+  .chapter-name:hover{
+    color:aquamarine;
+  }
+
+.chapter-information{
+  color: #b1b1ba;
+  font-size: 1.4rem;
+  }
+
+.similar_course-button{
+  display: flex;
+  margin-bottom: 2rem;
+  border-color: white;
+  background-color: white;
+  border-bottom: 1px solid black;
+  width: 100%;}
+  .similar_course-button:hover{
+    cursor: pointer;
+  }
+  .similar_course-button .similar_course_name{
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding-left: 2rem;
+    color: black;}
+  .similar_course-button .similar_course-image{
+    height: 6rem;
+    width: 10rem;
+  }
+  .similar_course-button .similar_course-price{
+    font-size: 1.8rem;
+    color: red;
+    padding-left: 10rem;
   }
