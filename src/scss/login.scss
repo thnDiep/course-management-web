@@ -1,14 +1,15 @@
-@import "variable";
+@import "global/variable";
 .login {
   overflow: hidden;
-  margin-left: -14.5rem;
   .form {
     background: rgba(0, 0, 0, 0.5);
     width: 80%;
     padding: 4rem;
     height: 90%;
     margin: 7rem 9rem;
-    bottom: 0;
+    @media only screen and (max-width: 31.25em) {
+      margin: 7rem 5rem;
+    }
     &--login {
       display: flex;
       flex-direction: column;
@@ -35,6 +36,9 @@
           border-radius: 1.5rem;
           width: 80%;
           text-align: center;
+          @media only screen and (max-width: 31.25em) {
+            width: 100%;
+          }
         }
       }
       &__btn {
@@ -53,6 +57,10 @@
         border: transparent;
         width: 60%;
         box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.75);
+        @media only screen and (max-width: 31.25em) {
+          width: 100%;
+          font-size: 1.4rem;
+        }
       }
       &__icon {
         color: #b3aa99;
@@ -71,6 +79,9 @@
     &--pic {
       opacity: 0.5;
       clip-path: polygon(34% 0, 100% 0%, 100% 100%, 0% 100%);
+      @media only screen and (max-width: 31.25em) {
+        display: none;
+      }
     }
   }
 

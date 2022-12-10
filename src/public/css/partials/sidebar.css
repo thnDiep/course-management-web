@@ -1,0 +1,184 @@
+.sidebar1 {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  height: 100vh;
+  width: 200px;
+  background-color: #333;
+  z-index: 20;
+  /* justify-content: center; */
+  /* flex: 0 0 18%; */
+  /* display: flex;
+      flex-direction: column;
+      justify-content: space-between; */ }
+  @media only screen and (max-width: 31.25em) {
+    .sidebar1 {
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 8rem; } }
+  .sidebar1__search {
+    background-color: #333;
+    border: none;
+    font-size: 3rem;
+    transition: all 0.2s;
+    display: none; }
+    @media only screen and (max-width: 31.25em) {
+      .sidebar1__search {
+        display: block;
+        margin-right: 2rem; } }
+    .sidebar1__search:active {
+      transform: translateX(-2px); }
+    .sidebar1__search:focus {
+      outline: none;
+      background-color: var(#f0eeee); }
+  .sidebar1__icon {
+    color: #fff; }
+
+.sidebar--icon {
+  width: 60px; }
+  .sidebar--icon .side-nav {
+    margin-top: 20rem; }
+    @media only screen and (max-width: 31.25em) {
+      .sidebar--icon .side-nav {
+        margin-top: 0; } }
+  @media only screen and (max-width: 31.25em) {
+    .sidebar--icon {
+      width: 100%; }
+      .sidebar--icon span {
+        display: inline; } }
+
+/* @media only screen and (max-width: 56.25em) {
+    .sidebar {
+      width: 100%;
+      height: 6rem;
+    }
+  } */
+.sidebar1__logo {
+  display: none;
+  margin: 5rem 2rem; }
+  .sidebar1__logo--img {
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+    margin-bottom: 1rem; }
+  .sidebar1__logo .text-primary__sun {
+    margin: 0rem;
+    font-size: 2rem;
+    color: #faf9f9;
+    font-weight: bolder; }
+  .sidebar1__logo .text-primary__light {
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #f8d752; }
+  @media only screen and (max-width: 31.25em) {
+    .sidebar1__logo {
+      margin: 2rem 2rem;
+      display: block; } }
+
+.side-nav {
+  margin: 0;
+  padding: 0;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  list-style: none; }
+
+@media only screen and (max-width: 31.25em) {
+  .side-nav {
+    transform: translateX(-100%);
+    transition: transform linear 0.2s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 50%;
+    bottom: 0;
+    background-color: #000;
+    /* justify-content: space-between; */
+    margin: 0;
+    z-index: 10; }
+  .nav__input:checked ~ .side-nav {
+    transform: translateX(0%);
+    animation: fadeInLeftBig;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.2s;
+    /* don't forget to set a duration! */ }
+  .nav__input:checked ~ .side-nav {
+    transform: translateX(0%);
+    animation: fadeInLeftBig;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.2s;
+    /* don't forget to set a duration! */ }
+  .nav__input:checked ~ .side-nav__overlay {
+    animation: animate__fadeIn;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s;
+    display: block; }
+  .side-nav__item {
+    padding-left: 0.5rem; } }
+
+.side-nav__item {
+  position: relative; }
+
+.side-nav__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80%;
+  width: 3px;
+  background-color: #f8d752;
+  transform: scaleY(0);
+  transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s; }
+
+.side-nav__link,
+.side-nav__link:visited {
+  color: #faf9f9;
+  text-transform: uppercase;
+  display: block;
+  padding: 1.5rem 2rem;
+  position: relative;
+  z-index: 10; }
+
+.side-nav__link:hover {
+  text-decoration: none;
+  color: #f8d752; }
+
+.side-nav__item:hover::before,
+.side-nav__item--active::before,
+.side-nav__item--active .side-nav__link {
+  color: #f8d752;
+  transform: scaleY(1); }
+
+.side-nav__icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 2rem;
+  fill: currentColor; }
+
+.side-nav__bars {
+  color: #faf9f9;
+  margin-left: 2rem;
+  display: none; }
+  .side-nav__bars--icon {
+    font-size: 3rem; }
+  @media only screen and (max-width: 31.25em) {
+    .side-nav__bars {
+      display: block;
+      align-self: center;
+      margin-right: 2rem; }
+      .side-nav__bars :hover {
+        cursor: pointer; } }
+
+.side-nav__overlay {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none; }
+
+.nav__input {
+  display: none; }
