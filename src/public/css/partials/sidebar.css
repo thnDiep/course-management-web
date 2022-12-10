@@ -3,7 +3,7 @@
   top: 80px;
   left: 0;
   height: 100vh;
-  width: 200px;
+  width: 150px;
   background-color: #333;
   z-index: 20;
   /* justify-content: center; */
@@ -121,7 +121,7 @@
   position: relative; }
 
 .side-nav__item::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -136,7 +136,8 @@
   color: #faf9f9;
   text-transform: uppercase;
   display: block;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 0rem;
+  padding-left: 1.5rem;
   position: relative;
   z-index: 10; }
 
@@ -153,7 +154,7 @@
 .side-nav__icon {
   width: 2rem;
   height: 2rem;
-  margin-right: 2rem;
+  margin-right: 0.5rem;
   fill: currentColor; }
 
 .side-nav__bars {

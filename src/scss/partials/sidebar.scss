@@ -1,76 +1,76 @@
-@import '../global/variable';
+@import "../global/variable";
 
 .sidebar1 {
-    position: fixed;
-    top: $header-height;
-    left: 0;
-    height: 100vh;
-    width: $sidebar-width;
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  height: 100vh;
+  width: $sidebar-width;
+  background-color: #333;
+  z-index: 20;
+
+  @media only screen and (max-width: 31.25em) {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 8rem;
+  }
+
+  &__search {
     background-color: #333;
-    z-index: 20;
+    border: none;
+    font-size: 3rem;
+    transition: all 0.2s;
+    display: none;
 
     @media only screen and (max-width: 31.25em) {
-        top: 0;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: 8rem;
+      display: block;
+      margin-right: 2rem;
     }
 
-    &__search {
-        background-color: #333;
-        border: none;
-        font-size: 3rem;
-        transition: all 0.2s;
-        display: none;
-
-        @media only screen and (max-width: 31.25em) {
-            display: block;
-            margin-right: 2rem;
-        }
-
-        &:active {
-            transform: translateX(-2px);
-        }
-
-        &:focus {
-            outline: none;
-            // width: 100%;
-            background-color: var(#f0eeee);
-        }
+    &:active {
+      transform: translateX(-2px);
     }
 
-    &__icon {
-        color: $white-color;
+    &:focus {
+      outline: none;
+      // width: 100%;
+      background-color: var(#f0eeee);
     }
+  }
 
-    //   display: flex;
-    //   flex-direction: column;
-    /* justify-content: center; */
-    /* flex: 0 0 18%; */
-    /* display: flex;
+  &__icon {
+    color: $white-color;
+  }
+
+  //   display: flex;
+  //   flex-direction: column;
+  /* justify-content: center; */
+  /* flex: 0 0 18%; */
+  /* display: flex;
       flex-direction: column;
       justify-content: space-between; */
 }
 
 .sidebar--icon {
-    width: $sidebar-icon-width;
+  width: $sidebar-icon-width;
 
-    .side-nav {
-        margin-top: 20rem;
-
-        @media only screen and (max-width: 31.25em) {
-            margin-top: 0;
-        }
-    }
+  .side-nav {
+    margin-top: 20rem;
 
     @media only screen and (max-width: 31.25em) {
-        width: 100%;
-
-        span {
-            display: inline;
-        }
+      margin-top: 0;
     }
+  }
+
+  @media only screen and (max-width: 31.25em) {
+    width: 100%;
+
+    span {
+      display: inline;
+    }
+  }
 }
 
 /* @media only screen and (max-width: 56.25em) {
@@ -80,169 +80,170 @@
     }
   } */
 .sidebar1__logo {
-    display: none;
-    margin: 5rem 2rem;
+  display: none;
+  margin: 5rem 2rem;
 
-    &--img {
-        height: 4rem;
-        border-radius: 50%;
-        margin-right: 1rem;
-        margin-bottom: 1rem;
-    }
+  &--img {
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
 
-    .text-primary__sun {
-        margin: 0rem;
-        font-size: 2rem;
-        color: #faf9f9;
-        font-weight: bolder;
-    }
+  .text-primary__sun {
+    margin: 0rem;
+    font-size: 2rem;
+    color: #faf9f9;
+    font-weight: bolder;
+  }
 
-    .text-primary__light {
-        font-size: 2rem;
-        font-weight: bolder;
-        color: $primary-color;
-    }
+  .text-primary__light {
+    font-size: 2rem;
+    font-weight: bolder;
+    color: $primary-color;
+  }
 
-    @media only screen and (max-width: 31.25em) {
-        margin: 2rem 2rem;
-        display: block;
-    }
+  @media only screen and (max-width: 31.25em) {
+    margin: 2rem 2rem;
+    display: block;
+  }
 }
 
 .side-nav {
-    // position: absolute;
-    // display: none;
-    margin: 0;
-    padding: 0;
-    margin-top: 3rem;
-    font-size: 1.5rem;
-    list-style: none;
+  // position: absolute;
+  // display: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  list-style: none;
 }
 
 @media only screen and (max-width: 31.25em) {
-    .side-nav {
-        transform: translateX(-100%);
-        transition: transform linear 0.2s;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 50%;
-        bottom: 0;
-        background-color: #000;
-        // transform: translateX(0);
-        // display: none;
-        /* justify-content: space-between; */
-        margin: 0;
-        z-index: 10;
-        // transform: translateX(0%);
-    }
+  .side-nav {
+    transform: translateX(-100%);
+    transition: transform linear 0.2s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 50%;
+    bottom: 0;
+    background-color: #000;
+    // transform: translateX(0);
+    // display: none;
+    /* justify-content: space-between; */
+    margin: 0;
+    z-index: 10;
+    // transform: translateX(0%);
+  }
 
-    .nav__input:checked ~ .side-nav {
-        transform: translateX(0%);
-        animation: fadeInLeftBig;
-        /* referring directly to the animation's @keyframe declaration */
-        animation-duration: 0.2s;
-        /* don't forget to set a duration! */
-    }
+  .nav__input:checked ~ .side-nav {
+    transform: translateX(0%);
+    animation: fadeInLeftBig;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.2s;
+    /* don't forget to set a duration! */
+  }
 
-    .nav__input:checked ~ .side-nav {
-        transform: translateX(0%);
-        animation: fadeInLeftBig;
-        /* referring directly to the animation's @keyframe declaration */
-        animation-duration: 0.2s;
-        /* don't forget to set a duration! */
-    }
+  .nav__input:checked ~ .side-nav {
+    transform: translateX(0%);
+    animation: fadeInLeftBig;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.2s;
+    /* don't forget to set a duration! */
+  }
 
-    .nav__input:checked ~ .side-nav__overlay {
-        animation: animate__fadeIn;
-        /* referring directly to the animation's @keyframe declaration */
-        animation-duration: 2s;
-        display: block;
-    }
+  .nav__input:checked ~ .side-nav__overlay {
+    animation: animate__fadeIn;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s;
+    display: block;
+  }
 
-    .side-nav__item {
-        padding-left: 0.5rem;
-    }
+  .side-nav__item {
+    padding-left: 0.5rem;
+  }
 }
 
 .side-nav__item {
-    position: relative;
+  position: relative;
 }
 
 .side-nav__item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 80%;
-    width: 3px;
-    background-color: $primary-color;
-    transform: scaleY(0);
-    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
-        background-color 0.1s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80%;
+  width: 3px;
+  background-color: $primary-color;
+  transform: scaleY(0);
+  transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+    background-color 0.1s;
 }
 
 .side-nav__link,
 .side-nav__link:visited {
-    color: #faf9f9;
-    text-transform: uppercase;
-    display: block;
-    padding: 1.5rem 2rem;
-    position: relative;
-    z-index: 10;
+  color: #faf9f9;
+  text-transform: uppercase;
+  display: block;
+  padding: 1.5rem 0rem;
+  padding-left: 1.5rem;
+  position: relative;
+  z-index: 10;
 }
 
 .side-nav__link:hover {
-    text-decoration: none;
-    color: #f8d752;
+  text-decoration: none;
+  color: #f8d752;
 }
 
 .side-nav__item:hover::before,
 .side-nav__item--active::before,
 .side-nav__item--active .side-nav__link {
-    color: #f8d752;
-    transform: scaleY(1);
+  color: #f8d752;
+  transform: scaleY(1);
 }
 
 .side-nav__icon {
-    width: 2rem;
-    height: 2rem;
-    margin-right: 2rem;
-    fill: currentColor;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  fill: currentColor;
 }
 
 .side-nav__bars {
-    color: #faf9f9;
-    margin-left: 2rem;
+  color: #faf9f9;
+  margin-left: 2rem;
 
-    &--icon {
-        font-size: 3rem;
+  &--icon {
+    font-size: 3rem;
+  }
+
+  display: none;
+
+  @media only screen and (max-width: 31.25em) {
+    display: block;
+    align-self: center;
+    margin-right: 2rem;
+
+    :hover {
+      cursor: pointer;
     }
-
-    display: none;
-
-    @media only screen and (max-width: 31.25em) {
-        display: block;
-        align-self: center;
-        margin-right: 2rem;
-
-        :hover {
-            cursor: pointer;
-        }
-    }
+  }
 }
 
 .side-nav__overlay {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: none;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
 }
 
 .nav__input {
-    display: none;
+  display: none;
 }

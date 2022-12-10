@@ -1,5 +1,7 @@
 .logo {
   margin: 5rem 2rem; }
+  .logo:hover {
+    text-decoration: none; }
   .logo--img {
     height: 4rem;
     border-radius: 50%;
