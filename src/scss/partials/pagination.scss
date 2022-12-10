@@ -1,0 +1,108 @@
+@import '../global/variable';
+
+$size: 28px;
+$thickness: 4px;
+
+$angle: 40deg;
+$angleHover: 30deg;
+$angleActive: 25deg;
+
+@mixin arrowTransform($angle, $x: 0, $y: 0) {
+    i:first-child {
+        transform: translate($x, $y) rotate($angle);
+    }
+
+    i:last-child {
+        transform: translate($x, -$y) rotate(-$angle);
+    }
+}
+
+.paginate {
+    cursor: pointer;
+    width: $size;
+    height: $size;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+        border: none;
+    }
+
+    i {
+        position: absolute;
+        top: 40%;
+        width: $size;
+        height: $thickness;
+        border-radius: $thickness / 2;
+        background: $text-color;
+
+        transition: all 0.15s ease;
+    }
+
+    &.left {
+        left: 20px;
+
+        i {
+            transform-origin: 0% 50%;
+            left: 0;
+        }
+
+        @include arrowTransform($angle, 0, -1px);
+
+        &:hover {
+            @include arrowTransform($angleHover, 0, -1px);
+        }
+
+        &:active {
+            @include arrowTransform($angleActive, 1px, -1px);
+        }
+
+        &[data-state='disabled'] {
+            @include arrowTransform(0deg, -5px, 0);
+
+            &:hover {
+                @include arrowTransform(0deg, -5px, 0);
+            }
+        }
+    }
+
+    &.right {
+        right: 20px;
+
+        i {
+            transform-origin: 100% 50%;
+            right: 0;
+        }
+
+        @include arrowTransform($angle, 0, 1px);
+
+        &:hover {
+            @include arrowTransform($angleHover, 0, 1px);
+        }
+
+        &:active {
+            @include arrowTransform($angleActive, 1px, 1px);
+        }
+
+        &[data-state='disabled'] {
+            @include arrowTransform(0deg, 5px, 0);
+
+            &:hover {
+                @include arrowTransform(0deg, 5px, 0);
+            }
+        }
+    }
+
+    &[data-state='disabled'] {
+        opacity: 0.3;
+        cursor: default;
+    }
+}
+
+.counter {
+    width: 100%;
+    text-align: center;
+    font-size: 2.8rem;
+    color: $text-color;
+}

@@ -18,36 +18,44 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-}
 
-.courses__sort {
-    width: 100%;
-    background-color: rgba($color: $black-color, $alpha: 0.05);
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    border-radius: 4px;
+    .courses__sort {
+        flex: 1;
+        background-color: rgba($color: $black-color, $alpha: 0.05);
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
 
-    .courses__sort__label {
-        margin: 0;
-        font-size: 2.6rem;
-    }
-
-    .btn {
-        width: $sort-btn-width;
-    }
-
-    .dropdown-menu {
-        font-size: 1.8rem;
-        width: $sort-btn-width;
-    }
-
-    .dropdown-item {
-        padding: 8px 12px;
-
-        &:hover {
-            background-color: rgba($color: $black-color, $alpha: 0.05);
+        .courses__sort__label {
+            margin: 0;
+            font-size: 2.6rem;
         }
+
+        .btn {
+            width: $sort-btn-width;
+        }
+
+        .dropdown-menu {
+            font-size: 1.8rem;
+            width: $sort-btn-width;
+        }
+
+        .dropdown-item {
+            padding: 8px 12px;
+
+            &:hover {
+                background-color: rgba($color: $black-color, $alpha: 0.05);
+            }
+        }
+    }
+
+    .courses__pagination {
+        width: 280px;
+        position: relative;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        padding: 10px 0;
     }
 }
 

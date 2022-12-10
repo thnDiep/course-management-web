@@ -6,11 +6,13 @@
   color: #101010;
   background-color: #fff;
   border: 1px solid #fff;
-  border-radius: 2px;
-  outline: none; }
+  border-radius: 2px; }
   .btn:hover {
     color: #101010;
     border-color: #000; }
+  .btn:focus {
+    outline: 0;
+    box-shadow: none; }
   .btn.btn--active {
     color: #101010;
     border-color: #f8d752;
