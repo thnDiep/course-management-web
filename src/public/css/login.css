@@ -53,6 +53,9 @@
           margin-left: 4rem;
           font-size: 2rem;
           text-align: center; }
+    .login .form--pic {
+      opacity: 0.5;
+      clip-path: polygon(34% 0, 100% 0%, 100% 100%, 0% 100%); }
   .login .video-container .plyr__video {
     position: fixed;
     right: 0;
@@ -61,3 +64,12 @@
     min-height: 100%;
     object-fit: cover;
     z-index: -1; }
+  .login .ripple {
+    background-position: center;
+    transition: background 0.8s; }
+  .login .ripple:hover {
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%; }
+  .login .ripple:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s; }
