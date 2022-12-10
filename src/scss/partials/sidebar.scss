@@ -187,7 +187,8 @@
     color: #faf9f9;
     text-transform: uppercase;
     display: block;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 0rem;
+    padding-left: 1.5rem;
     position: relative;
     z-index: 10;
 }
@@ -207,7 +208,7 @@
 .side-nav__icon {
     width: 2rem;
     height: 2rem;
-    margin-right: 2rem;
+    margin-right: 0.5rem;
     fill: currentColor;
 }
 

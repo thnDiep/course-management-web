@@ -3,7 +3,9 @@
 .logo {
     // display: none;
     margin: 5rem 2rem;
-
+    &:hover {
+        text-decoration: none;
+    }
     &--img {
         height: 4rem;
         border-radius: 50%;
