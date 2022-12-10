@@ -1,9 +1,6 @@
 body {
   margin: 0;
-  padding: 0;
-  background-image: linear-gradient(to right top, #d16ba5, #ef6d91, #ff7877, #ff8c5a, #ffa53f, #f0bb36, #dccf3a, #c2e34d, #9cee7a, #78f5a7, #5ff9d0, #5ffbf1);
-  background-attachment: fixed;
-  background-size: cover; }
+  padding: 0; }
 
 hr {
   margin-bottom: 0;
