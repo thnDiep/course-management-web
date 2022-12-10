@@ -1,0 +1,91 @@
+{{#section "css"}}
+  <link rel="stylesheet" href="/css/signUp.css" />
+{{/section}}
+
+<div>
+  <div class="login">
+    <div class="video-container">
+      <video
+        autoplay="true"
+        playsinline="true"
+        muted="true"
+        loop="true"
+        data-video-player-target="player"
+        class="plyr__video"
+      >
+        <source
+          src="https://static.vecteezy.com/system/resources/previews/014/195/483/mp4/glowing-colorful-neon-digital-geometric-shapes-abstract-digital-geometric-shape-moving-on-black-background-high-tech-shapes-background-geometric-high-tech-loop-animation-dynamic-shape-background-free-video.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://static.vecteezy.com/system/resources/previews/014/195/483/glowing-colorful-neon-digital-geometric-shapes-abstract-digital-geometric-shape-moving-on-black-background-high-tech-shapes-background-geometric-high-tech-loop-animation-dynamic-shape-background-free-video.webm"
+          type="video/webm"
+        />
+      </video>
+    </div>
+    <div class="form row">
+      <form class="formSignUp col-lg-7 col-sm-0">
+        <p class="formSignUp__mainTitle">Sign up to SunLight</p>
+        <span class="formSignUp__subTitle">SunLight is much better when you have
+          an account
+          <div>Get yourself one</div>
+        </span>
+        <div class="formSignUp__user-name">
+          <i class="fas fa-user formSignUp__icon"></i>
+          <input
+            type="text"
+            placeholder="User name"
+            class="formSignUp__user-name__input"
+          />
+          <p class="required-name hidden"><i
+              class="fas fa-exclamation-circle required-icon"
+            ></i>
+            User name is required</p>
+        </div>
+
+        <div class="formSignUp__user-email">
+          <i class="fas fa-envelope formSignUp__icon"></i>
+          <input
+            type="text"
+            placeholder="Email"
+            class="formSignUp__user-email__input"
+          />
+          <p class="required-email hidden"><i
+              class="fas fa-exclamation-circle required-icon"
+            ></i>
+            Email is required</p>
+
+        </div>
+
+        <div class="formSignUp__user-pass">
+          <i class="fas fa-lock formSignUp__icon"></i>
+          <input
+            type="password"
+            placeholder="Password"
+            class="formSignUp__user-pass__input"
+          />
+          <p class="required-pass hidden"><i
+              class="fas fa-exclamation-circle required-icon"
+            ></i>
+            Password is required</p>
+
+        </div>
+        <button class="py-3 px-1 formSignUp__btn ripple">Create Account
+          <i class="fas fa-arrow-right form--signUp__icon-arrow"></i>
+        </button>
+      </form>
+      <img
+        src="/images/background/photo1.jpg"
+        alt="Picture"
+        class="form--pic col-lg-5 col-sm-12"
+        style="object-fit: cover;"
+      />
+    </div>
+
+  </div>
+</div>
+
+{{#section "js"}}
+  <script src="/js/signUp.js"></script>
+
+{{/section}}
