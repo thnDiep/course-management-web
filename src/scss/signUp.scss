@@ -1,0 +1,131 @@
+@import "global/variable";
+.login {
+  overflow: hidden;
+  .form {
+    background: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    padding: 4rem;
+    height: 90%;
+    margin: 7rem 9rem;
+    @media only screen and (max-width: 31.25em) {
+      margin: 7rem 5rem;
+    }
+    &SignUp {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #f1f1f1;
+      height: 100%;
+      &__mainTitle {
+        font-size: 5rem;
+        font-weight: 700;
+        margin-bottom: -1rem;
+      }
+      &__subTitle {
+        margin-top: -1.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+        font-size: 1.5rem;
+        color: #b3aa99;
+      }
+      &__user-name,
+      &__user-pass,
+      &__user-email {
+        &__input {
+          margin-bottom: 0.5rem;
+          padding: 1.5rem;
+          border-radius: 1.5rem;
+          width: 80%;
+          text-align: center;
+          @media only screen and (max-width: 31.25em) {
+            width: 100%;
+          }
+          &::placeholder {
+            font: 3rem;
+          }
+        }
+      }
+      &__btn {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #000;
+        text-transform: uppercase;
+        background: linear-gradient(
+          324deg,
+          rgba(248, 215, 82, 1) 0%,
+          rgba(34, 193, 195, 1) 50%
+        );
+        border-radius: 0.8rem;
+        border: transparent;
+        width: 60%;
+        box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.75);
+        @media only screen and (max-width: 31.25em) {
+          width: 100%;
+          font-size: 1.4rem;
+        }
+      }
+      &__icon {
+        color: #b3aa99;
+        min-width: 5rem;
+        padding: 1.3rem;
+        font-size: 1.4rem;
+        text-align: center;
+        position: absolute;
+        &-arrow {
+          margin-left: 8rem;
+          font-size: 2rem;
+          text-align: center;
+        }
+      }
+    }
+    &--pic {
+      opacity: 0.5;
+      clip-path: polygon(34% 0, 100% 0%, 100% 100%, 0% 100%);
+      @media only screen and (max-width: 31.25em) {
+        display: none;
+      }
+    }
+  }
+
+  .required {
+    &-name,
+    &-email,
+    &-pass {
+      color: red;
+      font-size: 1.5rem;
+    }
+    &-icon {
+      padding: 0.5rem;
+      font-size: larger;
+    }
+  }
+
+  .video-container {
+    .plyr__video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+  }
+
+  .ripple {
+    background-position: center;
+    transition: background 0.6s;
+    &:hover {
+      background: #f2d184 radial-gradient(circle, transparent 1%, #f2d184 1%)
+        center/15000%;
+      border: 0.2rem solid #000;
+    }
+    &:active {
+      background-color: #f1eb9c;
+      background-size: 100%;
+      transition: background 0s;
+    }
+  }
+}

@@ -1,21 +1,35 @@
 .btn {
   padding: 1rem 2rem;
-  border: 1px solid #000;
-  border-radius: 2px;
   font-size: 1.8rem;
   font-weight: 600;
+  text-align: center;
   color: #101010;
   background-color: #fff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center; }
+  border: 1px solid #fff;
+  border-radius: 2px;
+  outline: none; }
   .btn:hover {
-    color: #fff;
-    background-color: #000; }
-
-.btn.btn--bg {
-  border-color: #f8d752;
-  background-color: #f8d752; }
-  .btn.btn--bg:hover {
-    border-color: #917b00;
-    background-color: #917b00; }
+    color: #101010;
+    border-color: #000; }
+  .btn.btn--active {
+    color: #101010;
+    border-color: #f8d752;
+    background-color: #f8d752; }
+  .btn.btn--border {
+    border-color: #000; }
+    .btn.btn--border:hover {
+      color: #101010;
+      border-color: #000;
+      background-color: rgba(0, 0, 0, 0.03); }
+  .btn.btn--icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .btn.btn--primary {
+    border-color: #f8d752;
+    background-color: #f8d752; }
+    .btn.btn--primary:hover {
+      color: #101010;
+      background-color: rgba(248, 215, 82, 0.6); }
+    .btn.btn--primary.btn--border {
+      border-color: #000; }

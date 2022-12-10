@@ -1,29 +1,54 @@
-@import "variable";
+@import 'variable';
 
 .btn {
-  padding: 1rem 2rem;
-  border: 1px solid $black-color;
-  border-radius: 2px;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: $text-color;
-  background-color: $white-color;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    color: $text-color;
+    background-color: $white-color;
+    border: 1px solid $white-color;
+    border-radius: 2px;
+    outline: none;
 
-  &:hover {
-    color: $white-color;
-    background-color: $black-color;
-  }
-}
+    &:hover {
+        color: $text-color;
+        border-color: $black-color;
+    }
 
-.btn.btn--bg {
-  border-color: $primary-color;
-  background-color: $primary-color;
+    &.btn--active {
+        color: $text-color;
+        border-color: $primary-color;
+        background-color: $primary-color;
+    }
 
-  &:hover {
-    border-color: $second-color;
-    background-color: $second-color;
-  }
+    &.btn--border {
+        border-color: $black-color;
+
+        &:hover {
+            color: $text-color;
+            border-color: $black-color;
+            background-color: rgba($color: $black-color, $alpha: 0.03);
+        }
+    }
+
+    &.btn--icon {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &.btn--primary {
+        border-color: $primary-color;
+        background-color: $primary-color;
+
+        &:hover {
+            color: $text-color;
+            background-color: rgba($color: $primary-color, $alpha: 0.6);
+        }
+
+        &.btn--border {
+            border-color: $black-color;
+        }
+    }
 }
