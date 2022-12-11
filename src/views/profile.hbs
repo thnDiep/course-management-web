@@ -4,8 +4,8 @@
 {{#section "images"}}
   <link rel="stylesheet" href="/images/background/bg1.png" />
 {{/section}}
-
-<section style="background-color: #eee;">
+{{! style="background-color: #eee;" }}
+<section>
   <div class="container-fluid py-4 m-0">
     <div class="row">
       <div class="col">
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="card mb-4 mb-lg-0">
-          <div class="card-body p-0">
+          <div class="card-body">
             <ul class="list-group list-group-flush rounded-3">
               {{! <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
@@ -90,7 +90,7 @@
                 <p class="text-muted mb-0">Johnatan Smith</p>
               </div>
               <div class="col-sm-1">
-                <i class="far fa-edit"></i>
+                <i class="far fa-edit edit"></i>
               </div>
             </div>
             <hr />
@@ -102,7 +102,7 @@
                 <p class="text-muted mb-0">example@example.com</p>
               </div>
               <div class="col-sm-1">
-                <i class="far fa-edit"></i>
+                <i class="far fa-edit edit"></i>
               </div>
             </div>
             <hr />
@@ -114,7 +114,7 @@
                 <p class="text-muted mb-0">haha123</p>
               </div>
               <div class="col-sm-1">
-                <i class="far fa-edit"></i>
+                <i class="far fa-edit edit"></i>
               </div>
             </div>
 
@@ -123,72 +123,90 @@
         <div class="row">
           <div class="col-md-6">
             <div class="card mb-4 mb-md-0">
-              <div class="card-body">
+              <div class="card-body box-slider">
                 <div class="flex-card">
                   <p
-                    class="mb-4 me-1"
+                    data-content="LEARNING"
+                    class="mb-4 me-1 titleTransition"
                     style="font-weight: bold;font-size:2rem"
-                  >LEARNING <i class="fas fa-book"></i></p>
+                  >LEARNING
+                    <i class="fas fa-book" style="color: #6e4616;"></i></p>
                   <i
                     class="fas fa-chevron-circle-right"
                     style="font-size: larger;"
                   ></i>
-                </div>
+                  {{! <a href="#" class="load-more-new">&nbsp;</a> }}
 
-                <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 80%"
-                    aria-valuenow="80"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
                 </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                <div class="progress rounded" style="height: 5px;">
+                <div class="slider">
                   <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 72%"
-                    aria-valuenow="72"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                <div class="progress rounded" style="height: 5px;">
+                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-4 bg-white"
+                    id="slide-1"
+                  >
+                    <div class="carousel-item__img">
+                      <img
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item__detail">
+
+                      <h1 class="carousel-item__detail--name">Build Responsive
+                        Real-World Websites with HTML and CSS</h1>
+                      <div class="carousel-item__detail--teacher">
+                        Teacher
+                        <a href="#">Dollar Design School</a>
+                      </div>
+
+                    </div>
+                  </div>
                   <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 89%"
-                    aria-valuenow="89"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                <div class="progress rounded" style="height: 5px;">
+                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-4 bg-white"
+                    id="slide-2"
+                  >
+                    <div class="carousel-item__img">
+                      <img
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item__detail">
+
+                      <h1 class="carousel-item__detail--name">Build Responsive
+                        Real-World Websites with HTML and CSS</h1>
+                      <div class="carousel-item__detail--teacher">
+                        Teacher
+                        <a href="#">Dollar Design School</a>
+                      </div>
+
+                    </div>
+                  </div>
                   <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 55%"
-                    aria-valuenow="55"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                <div class="progress rounded mb-2" style="height: 5px;">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 66%"
-                    aria-valuenow="66"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-4 bg-white"
+                    id="slide-3"
+                  >
+                    <div class="carousel-item__img">
+                      <img
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item__detail">
+
+                      <h1 class="carousel-item__detail--name">Build Responsive
+                        Real-World Websites with HTML and CSS</h1>
+                      <div class="carousel-item__detail--teacher">
+                        Teacher
+                        <a href="#">Dollar Design School</a>
+                      </div>
+
+                    </div>
+                  </div>
+                  <a href="#slide-1">1</a>
+                  <a href="#slide-2">2</a>
+                  <a href="#slide-3">3</a>
+                  <a href="#slide-4">4</a>
+                  <a href="#slide-5">5</a>
                 </div>
               </div>
             </div>
@@ -198,62 +216,87 @@
               <div class="card-body">
                 <div class="flex-card">
                   <p
-                    class="mb-4 me-1"
+                    data-content="WATCH LIST"
+                    class="mb-4 me-1 titleTransitionLove"
                     style="font-weight: bold;font-size:2rem"
                   >WATCH LIST
-                    <i class="fab fa-gratipay"></i></p>
+                    <i class="fab fa-gratipay" style="color: #f84c5e;"></i></p>
                   <i
                     class="fas fa-chevron-circle-right"
                     style="font-size: larger;"
                   ></i>
                 </div>
 
-                <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                <div class="progress rounded" style="height: 5px;">
+                 <div class="slider">
                   <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 80%"
-                    aria-valuenow="80"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                <div class="progress rounded" style="height: 5px;">
+                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-4 bg-white"
+                    id="slide-1"
+                  >
+                    <div class="carousel-item__img">
+                      <img
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item__detail">
+
+                      <h1 class="carousel-item__detail--name">Build Responsive
+                        Real-World Websites with HTML and CSS</h1>
+                      <div class="carousel-item__detail--teacher">
+                        Teacher
+                        <a href="#">Dollar Design School</a>
+                      </div>
+
+                    </div>
+                  </div>
                   <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 72%"
-                    aria-valuenow="72"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                <div class="progress rounded" style="height: 5px;">
+                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-4 bg-white"
+                    id="slide-2"
+                  >
+                    <div class="carousel-item__img">
+                      <img
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item__detail">
+
+                      <h1 class="carousel-item__detail--name">Build Responsive
+                        Real-World Websites with HTML and CSS</h1>
+                      <div class="carousel-item__detail--teacher">
+                        Teacher
+                        <a href="#">Dollar Design School</a>
+                      </div>
+
+                    </div>
+                  </div>
                   <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 89%"
-                    aria-valuenow="89"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-4 bg-white"
+                    id="slide-3"
+                  >
+                    <div class="carousel-item__img">
+                      <img
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item__detail">
+
+                      <h1 class="carousel-item__detail--name">Build Responsive
+                        Real-World Websites with HTML and CSS</h1>
+                      <div class="carousel-item__detail--teacher">
+                        Teacher
+                        <a href="#">Dollar Design School</a>
+                      </div>
+
+                    </div>
+                  </div>
+                  <a href="#slide-1">1</a>
+                  <a href="#slide-2">2</a>
+                  <a href="#slide-3">3</a>
+                  <a href="#slide-4">4</a>
+                  <a href="#slide-5">5</a>
                 </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 55%"
-                    aria-valuenow="55"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                <div class="progress rounded mb-2" style="height: 5px;">
                   <div
                     class="progress-bar"
                     role="progressbar"
