@@ -1,3 +1,11 @@
+body{
+  background-color: white;
+}
+
+.display_flex{
+  display: flex;
+}
+
 .headercouseDetail {
   height: 40rem;
   background-image: 
@@ -21,6 +29,14 @@
 
 .intro-link:hover {
   color: #cdc1fd; }
+
+.intro-avt{
+  /* padding-top: 3rem; */
+  margin-top: 2rem;
+  margin-left: 5rem;
+  height: 12rem;
+  width: 19rem;
+}
 
 .intro-name {
   padding-top: 2rem;
@@ -203,3 +219,81 @@
     color: red;
     padding-left: 10rem;
   }
+
+.feedback-title{
+    margin-top: 5rem;
+    margin-left: 5rem;
+    font-size: 2.6rem;
+    font-weight: bold;
+  }
+.feedback{
+  /* height: 60rem; */
+  margin-top: 10rem;
+  display: flex;
+  background-color: #f5f7fa;}
+
+  .feedback_review{
+    display: flex;
+    padding-top: 3rem;
+    margin-left: 5rem;
+  }
+  .feedback_review .feedback_review-numberRate {
+    font-size: 5.2rem;
+    font-weight: bold;
+    margin-right: 1.2rem;
+  }
+  .feedback_review .feedback_review-ratings {
+    margin-top: 1.9rem;
+    color: #e59819;
+    font-size: 1.2rem;
+  }
+  .feedback_review .feedback_review-ratings_links {
+    font-size: 1.6rem;
+    color: #e59819;}
+    .feedback_review .feedback_review-ratings_links:hover{
+      color:burlywood;
+    }
+
+  .feedback .feedback-left {
+    margin-left: 3rem;
+  }
+
+  .feedback .feedback-right{
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-left: 8rem;
+  }
+  .feedback-right .feedback-right-star {
+    color: #e59819;
+  }
+
+  .reviews-bar-graph {
+    background-color:burlywood;}
+    .reviews-bar-graph .reviews-bar-graph-per_line {
+      display: flex;
+      font-size: 1.5rem;
+      /* background-color: aquamarine; */
+    }
+
+.reviews-bar-graph-per_line-ratings {
+  height: 15rem;
+  position: relative;
+}
+.reviews-bar-graph-straight_line {
+      content: "";
+      /* top: 0;
+      left: 0; */
+      width: 100%;
+      height: 10px;
+      background: #EAEAEA;
+    }
+    .reviews-bar-graph-straight_line .reviews-bar-graph-sub_straight_line {
+      content: "";
+      /* top: 0;
+      left: 0; */
+      position: absolute;
+      height: 10px;
+      background: #FFC057;
+      /* display: block; */
+      width: 81%;
+    }
