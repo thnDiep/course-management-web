@@ -32,13 +32,13 @@
       transform: translate(1px, -1px) rotate(25deg); }
     .paginate.left:active i:last-child {
       transform: translate(1px, 1px) rotate(-25deg); }
-    .paginate.left[data-state="disabled"] i:first-child {
+    .paginate.left[data-state='disabled'] i:first-child {
       transform: translate(-5px, 0) rotate(0deg); }
-    .paginate.left[data-state="disabled"] i:last-child {
+    .paginate.left[data-state='disabled'] i:last-child {
       transform: translate(-5px, 0) rotate(0deg); }
-    .paginate.left[data-state="disabled"]:hover i:first-child {
+    .paginate.left[data-state='disabled']:hover i:first-child {
       transform: translate(-5px, 0) rotate(0deg); }
-    .paginate.left[data-state="disabled"]:hover i:last-child {
+    .paginate.left[data-state='disabled']:hover i:last-child {
       transform: translate(-5px, 0) rotate(0deg); }
   .paginate.right {
     right: 20px; }
@@ -57,15 +57,15 @@
       transform: translate(1px, 1px) rotate(25deg); }
     .paginate.right:active i:last-child {
       transform: translate(1px, -1px) rotate(-25deg); }
-    .paginate.right[data-state="disabled"] i:first-child {
+    .paginate.right[data-state='disabled'] i:first-child {
       transform: translate(5px, 0) rotate(0deg); }
-    .paginate.right[data-state="disabled"] i:last-child {
+    .paginate.right[data-state='disabled'] i:last-child {
       transform: translate(5px, 0) rotate(0deg); }
-    .paginate.right[data-state="disabled"]:hover i:first-child {
+    .paginate.right[data-state='disabled']:hover i:first-child {
       transform: translate(5px, 0) rotate(0deg); }
-    .paginate.right[data-state="disabled"]:hover i:last-child {
+    .paginate.right[data-state='disabled']:hover i:last-child {
       transform: translate(5px, 0) rotate(0deg); }
-  .paginate[data-state="disabled"] {
+  .paginate[data-state='disabled'] {
     opacity: 0.3;
     cursor: default; }
 

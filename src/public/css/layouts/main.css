@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   margin: 0;
   background-color: #f5f7f8; }
 
@@ -31,7 +31,7 @@ html {
   align-items: center;
   border-bottom: 2px solid #f3f3f4;
   box-shadow: rgba(100, 100, 111, 0.2) 2px 0 12px;
-  z-index: 10; }
+  z-index: 20; }
 
 @media only screen and (max-width: 31.25em) {
   .header {
