@@ -35,8 +35,6 @@ export default function route(app) {
   app.use("/search", searchRoute);
 
   app.get("/courses/courseDetail", (req, res) => {
-    res.render("courseDetail", {
-      check: false,
-    });
+    res.render("courseDetail");
   });
 }
