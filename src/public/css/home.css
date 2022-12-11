@@ -1,3 +1,6 @@
+body {
+  background-color: #fff; }
+
 .container-fluid {
   margin-top: 0;
   margin-top: 65px; }
@@ -170,7 +173,18 @@
     background: #222;
     box-shadow: #222 1px 0 10px;
     color: rgba(250, 250, 250, 0.8);
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    position: relative; }
+    .swiper-slide .card .course__link {
+      display: block;
+      position: absolute;
+      bottom: 6.4rem;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; }
+    .swiper-slide .card:hover {
+      transform: translateY(-2px); }
   .swiper-slide .btn {
     width: 10rem;
     font-size: 1.4rem;
@@ -261,3 +275,65 @@
     font-weight: 400;
     margin-left: 1.4rem;
     color: #fff; }
+
+.courses__featured img {
+  height: 8rem;
+  width: 30rem; }
+
+.courses__featured .card {
+  margin-top: 2rem;
+  width: 36rem;
+  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06); }
+  .courses__featured .card:hover {
+    text-decoration: none;
+    box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44);
+    -webkit-box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44); }
+  .courses__featured .card__name {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    color: #1f1f1f;
+    font-weight: bold;
+    font-size: 1.4rem; }
+  .courses__featured .card__number {
+    font-size: 1.4rem;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    color: #1f1f1f; }
+
+.coures__intro {
+  background-color: #f5f7f8;
+  display: flex;
+  margin-top: 5rem;
+  justify-content: space-between;
+  height: 10rem;
+  align-items: center; }
+  .coures__intro img {
+    height: 4rem;
+    width: 4rem;
+    margin-left: 2rem; }
+  .coures__intro div {
+    font-size: 2rem;
+    font-weight: bold;
+    width: 30%; }
+
+.reason {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  background-color: #f5f7f8; }
+  .reason .img-reason {
+    justify-content: center;
+    height: 6rem;
+    margin-bottom: 8rem;
+    margin-left: 1.2rem; }
+  .reason h1 {
+    margin-top: 2rem;
+    font-weight: bold; }
+  .reason .txt-reason {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold; }
+    .reason .txt-reason span {
+      font-weight: 100;
+      font-size: 1.4rem; }
