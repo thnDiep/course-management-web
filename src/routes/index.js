@@ -26,6 +26,12 @@ export default function route(app) {
     });
   });
 
+  app.get("/teacherProfile", (req, res) => {
+    res.render("teacherProfile", {
+      check: false,
+    });
+  });
+
   app.get("/courses", (req, res) => {
     res.render("courses", {
       check: false,
