@@ -2,10 +2,16 @@
   overflow: hidden; }
   .login .form {
     background: rgba(0, 0, 0, 0.5);
-    width: 80%;
-    padding: 4rem;
-    height: 90%;
-    margin: 7rem 9rem; }
+    padding: 3rem;
+    margin: 7rem 9rem;
+    height: 100%;
+    background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(/images/background/photo2.jpg);
+    background-size: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; }
     @media only screen and (max-width: 31.25em) {
       .login .form {
         margin: 7rem 5rem; } }
@@ -13,27 +19,35 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      color: #f1f1f1;
-      height: 100%; }
+      color: #f1f1f1; }
       .login .form--login__mainTitle {
-        font-size: 6rem;
+        color: #1b3d2f;
+        font-size: 5.5rem;
         font-weight: 700;
         margin-bottom: -1rem; }
+        @media only screen and (max-width: 31.25em) {
+          .login .form--login__mainTitle {
+            font-size: 4rem; } }
       .login .form--login__subTitle {
-        margin-top: -1.5rem;
+        margin-top: -2.5rem;
         margin-bottom: 1.5rem;
         font-weight: 400;
         font-size: 1.5rem;
         color: #b3aa99; }
-      .login .form--login__user-name__input, .login .form--login__user-pass__input {
+        @media only screen and (max-width: 31.25em) {
+          .login .form--login__subTitle {
+            font-size: 1.2rem; } }
+      .login .form--login__user-name__input, .login .form--login__user-pass__input, .login .form--login__user-email__input {
         margin-bottom: 0.5rem;
-        padding: 1rem;
+        padding: 1.5rem;
+        font-size: 1.5rem;
         border-radius: 1.5rem;
         width: 80%;
         text-align: center; }
         @media only screen and (max-width: 31.25em) {
-          .login .form--login__user-name__input, .login .form--login__user-pass__input {
-            width: 100%; } }
+          .login .form--login__user-name__input, .login .form--login__user-pass__input, .login .form--login__user-email__input {
+            width: 100%;
+            font-size: 1.4rem; } }
       .login .form--login__btn {
         margin-top: 1rem;
         text-align: center;
@@ -49,24 +63,37 @@
         @media only screen and (max-width: 31.25em) {
           .login .form--login__btn {
             width: 100%;
-            font-size: 1.4rem; } }
+            font-size: 1.2rem; } }
       .login .form--login__icon {
         color: #b3aa99;
-        min-width: 5rem;
-        padding: 1.3rem;
-        font-size: 1.4rem;
+        min-width: 7rem;
+        padding: 1.8rem;
+        font-size: 1.6rem;
         text-align: center;
         position: absolute; }
+        @media only screen and (max-width: 31.25em) {
+          .login .form--login__icon {
+            font-size: 1.4rem; } }
         .login .form--login__icon-arrow {
-          margin-left: 4rem;
+          margin-left: 10rem;
           font-size: 2rem;
           text-align: center; }
-    .login .form--pic {
-      opacity: 0.5;
-      clip-path: polygon(34% 0, 100% 0%, 100% 100%, 0% 100%); }
-      @media only screen and (max-width: 31.25em) {
-        .login .form--pic {
-          display: none; } }
+          @media only screen and (max-width: 31.25em) {
+            .login .form--login__icon-arrow {
+              margin-left: 9rem;
+              font-size: 1.8rem; } }
+  .login .required-name, .login .required-email, .login .required-pass {
+    color: red;
+    font-size: 1.5rem; }
+    @media only screen and (max-width: 31.25em) {
+      .login .required-name, .login .required-email, .login .required-pass {
+        font-size: 1.3rem; } }
+  .login .required-icon {
+    padding: 0.5rem;
+    font-size: larger; }
+    @media only screen and (max-width: 31.25em) {
+      .login .required-icon {
+        font-size: medium; } }
   .login .video-container .plyr__video {
     position: fixed;
     right: 0;
@@ -76,11 +103,11 @@
     object-fit: cover;
     z-index: -1; }
   .login .ripple {
-    background-position: center;
-    transition: background 0.8s; }
-  .login .ripple:hover {
-    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%; }
-  .login .ripple:active {
-    background-color: #6eb9f7;
-    background-size: 100%;
-    transition: background 0s; }
+    background-position: center; }
+    .login .ripple:hover {
+      background: #f2d184 radial-gradient(circle, transparent 1%, #f2d184 1%) center/15000%;
+      border: 0.2rem solid #000;
+      cursor: pointer; }
+    .login .ripple:active {
+      background-size: 100%;
+      transition: background 0s; }

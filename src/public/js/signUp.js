@@ -5,11 +5,16 @@ const btn = document.querySelector(".formSignUp__btn");
 const reqMail = document.querySelector(".required-email");
 const mailformat =
   /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
+const nameformat = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
 
 const submit = (e) => {
   e.preventDefault();
   if (name.value.length === 0) {
     document.querySelector(".required-name").classList.remove("hidden");
+  } else if (!name.value.match(nameformat)) {
+    document.querySelector(".required-name").classList.remove("hidden");
+    document.querySelector(".required-name").textContent =
+      "Invalid name format. Please format again !";
   } else {
     document.querySelector(".required-name").classList.add("hidden");
   }

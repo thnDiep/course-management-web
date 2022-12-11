@@ -24,7 +24,7 @@
       </video>
     </div>
     <div class="form row">
-      <form class="formSignUp col-lg-7 col-sm-0">
+      <form method="post" class="formSignUp col-lg-7 col-sm-0">
         <p class="formSignUp__mainTitle">Sign up to SunLight</p>
         <span class="formSignUp__subTitle">SunLight is much better when you have
           an account
@@ -36,6 +36,7 @@
             type="text"
             placeholder="User name"
             class="formSignUp__user-name__input"
+            autofocus
           />
           <p class="required-name hidden"><i
               class="fas fa-exclamation-circle required-icon"
@@ -49,6 +50,7 @@
             type="text"
             placeholder="Email"
             class="formSignUp__user-email__input"
+            autofocus
           />
           <p class="required-email hidden"><i
               class="fas fa-exclamation-circle required-icon"
@@ -63,6 +65,7 @@
             type="password"
             placeholder="Password"
             class="formSignUp__user-pass__input"
+            autofocus
           />
           <p class="required-pass hidden"><i
               class="fas fa-exclamation-circle required-icon"
@@ -82,5 +85,4 @@
 
 {{#section "js"}}
   <script src="/js/signUp.js"></script>
-
 {{/section}}

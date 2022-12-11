@@ -37,6 +37,10 @@
             placeholder="User name"
             class="form--login__user-name__input"
           />
+          <p class="required-name hidden"><i
+              class="fas fa-exclamation-circle required-icon"
+            ></i>
+            User name is required</p>
         </div>
         <div class="form--login__user-pass">
           <i class="fas fa-lock form--login__icon"></i>
@@ -45,19 +49,18 @@
             placeholder="Password"
             class="form--login__user-pass__input"
           />
+          <p class="required-pass hidden"><i
+              class="fas fa-exclamation-circle required-icon"
+            ></i>
+            Password is required</p>
         </div>
-        <button href="#" class="py-3 px-1 form--login__btn ripple">Login to Your
-          Account<i
+        <button class="py-3 px-1 form--login__btn ripple">Login to Your Account<i
             class="fas fa-arrow-right form--login__icon-arrow"
           ></i></button>
       </form>
-      <img
-        src="/images/background/photo1.jpg"
-        alt="Picture"
-        class="form--pic col-lg-5 col-sm-12"
-        style="object-fit: cover;"
-      />
     </div>
-
   </div>
 </div>
+{{#section "js"}}
+  <script src="/js/login.js"></script>
+{{/section}}
