@@ -2,10 +2,16 @@
   overflow: hidden; }
   .login .form {
     background: rgba(0, 0, 0, 0.5);
-    width: 80%;
-    padding: 4rem;
-    height: 90%;
-    margin: 7rem 9rem; }
+    padding: 3rem;
+    margin: 7rem 9rem;
+    height: 100%;
+    background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(/images/background/photo2.jpg);
+    background-size: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; }
     @media only screen and (max-width: 31.25em) {
       .login .form {
         margin: 7rem 5rem; } }
@@ -13,18 +19,24 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      color: #f1f1f1;
-      height: 100%; }
+      color: #f1f1f1; }
       .login .formSignUp__mainTitle {
+        color: #1b3d2f;
         font-size: 5rem;
         font-weight: 700;
         margin-bottom: -1rem; }
+        @media only screen and (max-width: 31.25em) {
+          .login .formSignUp__mainTitle {
+            font-size: 3rem; } }
       .login .formSignUp__subTitle {
         margin-top: -1.5rem;
         margin-bottom: 1.5rem;
         font-weight: 400;
         font-size: 1.5rem;
         color: #b3aa99; }
+        @media only screen and (max-width: 31.25em) {
+          .login .formSignUp__subTitle {
+            font-size: 1.2rem; } }
       .login .formSignUp__user-name__input, .login .formSignUp__user-pass__input, .login .formSignUp__user-email__input {
         margin-bottom: 0.5rem;
         padding: 1.5rem;
@@ -54,21 +66,15 @@
             font-size: 1.4rem; } }
       .login .formSignUp__icon {
         color: #b3aa99;
-        min-width: 5rem;
-        padding: 1.3rem;
+        min-width: 7rem;
+        padding: 1.8rem;
         font-size: 1.4rem;
         text-align: center;
         position: absolute; }
         .login .formSignUp__icon-arrow {
-          margin-left: 8rem;
+          margin-left: 12rem;
           font-size: 2rem;
           text-align: center; }
-    .login .form--pic {
-      opacity: 0.5;
-      clip-path: polygon(34% 0, 100% 0%, 100% 100%, 0% 100%); }
-      @media only screen and (max-width: 31.25em) {
-        .login .form--pic {
-          display: none; } }
   .login .required-name, .login .required-email, .login .required-pass {
     color: red;
     font-size: 1.5rem; }
