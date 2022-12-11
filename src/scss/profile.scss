@@ -1,10 +1,95 @@
+@import "./global/variable";
+
+body {
+  height: 100%;
+  // background-image: linear-gradient(
+  //     105deg,
+  //     rgba($primary-color, 0.8) 0%,
+  //     rgba($primary-color, 0.8) 50%,
+  //     transparent 50%
+  //   ),
+  //   url(/images/background/cool-background.png);
+}
 .breadcrumb {
   font-size: larger;
 }
-.card-body {
-  font-size: 1.5rem;
+.card {
+  border-radius: 0.8rem;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  &-body {
+    font-size: 1.5rem;
+  }
 }
+
 .flex-card {
   display: flex;
   justify-content: space-between;
+}
+
+.edit {
+  &:hover,
+  &:active {
+    transform: scaleY(1.5);
+  }
+}
+
+.titleTransition {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  &Love::before {
+    position: absolute;
+    content: attr(data-content); /* Prints the value of the attribute */
+    color: #f84c5e;
+    text-decoration: underline;
+    overflow: hidden;
+    transition: width 275ms ease;
+    width: 0;
+    white-space: nowrap;
+  }
+  &::before {
+    position: absolute;
+    content: attr(data-content); /* Prints the value of the attribute */
+    color: #6e4616;
+    text-decoration: underline;
+    overflow: hidden;
+    transition: width 275ms ease;
+    width: 0;
+    white-space: nowrap;
+  }
+  &Love:hover::before {
+    width: 100%;
+  }
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.slider {
+  -webkit-scroll-snap-points-x: repeat(300px);
+  -ms-scroll-snap-points-x: repeat(300px);
+  scroll-snap-points-x: repeat(300px);
+  -webkit-scroll-snap-type: mandatory;
+  -ms-scroll-snap-type: mandatory;
+  scroll-snap-type: mandatory;
+
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.slides > div:target {
+  transform: scale(0.8);
+}
+.carousel-item {
+  &__img img {
+    width: 10rem;
+    height: 8rem;
+    margin-right: 0.3rem;
+  }
+  &__detail {
+    &--name {
+      font-size: 1.8rem;
+    }
+  }
 }

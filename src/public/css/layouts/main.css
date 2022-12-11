@@ -12,7 +12,7 @@ html {
     font-size: 50%; } }
 
 .container-fluid {
-  margin-top: calc(80px + 20px); }
+  margin-top: calc(65px + 20px); }
 
 .content {
   margin-left: calc(60px + 20px);
@@ -23,7 +23,7 @@ html {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 80px;
+  height: 65px;
   font-size: 1.4rem;
   background-color: #fff;
   display: flex;
