@@ -1,58 +1,58 @@
-@import "variable";
+@import 'variable';
 
 .btn {
-  padding: 1rem 2rem;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-align: center;
-  color: $text-color;
-  background-color: $white-color;
-  border: 1px solid $white-color;
-  border-radius: 2px;
-
-  &:hover {
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
     color: $text-color;
-    border-color: $black-color;
-  }
-
-  &:focus {
-    outline: 0;
-    box-shadow: none;
-  }
-
-  &.btn--active {
-    color: $text-color;
-    border-color: $primary-color;
-    background-color: $primary-color;
-  }
-
-  &.btn--border {
-    border-color: $black-color;
+    background-color: $white-color;
+    border: 1px solid $white-color;
+    border-radius: 2px;
 
     &:hover {
-      color: $text-color;
-      border-color: $black-color;
-      background-color: rgba($color: $black-color, $alpha: 0.03);
+        color: $text-color;
+        border-color: $black-color;
     }
-  }
 
-  &.btn--icon {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    &:focus {
+        outline: 0;
+        box-shadow: none;
+    }
 
-  &.btn--primary {
-    border-color: $primary-color;
-    background-color: $primary-color;
-
-    &:hover {
-      color: $text-color;
-      background-color: rgba($color: $primary-color, $alpha: 0.6);
+    &.btn--active {
+        color: $text-color;
+        border-color: $primary-color;
+        background-color: $primary-color;
     }
 
     &.btn--border {
-      border-color: $black-color;
+        border-color: $black-color;
+
+        &:hover {
+            color: $text-color;
+            border-color: $black-color;
+            background-color: $hover-color;
+        }
     }
-  }
+
+    &.btn--icon {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &.btn--primary {
+        border-color: $primary-color;
+        background-color: $primary-color;
+
+        &:hover {
+            color: $text-color;
+            background-color: $hover-second-color;
+        }
+
+        &.btn--border {
+            border-color: $black-color;
+        }
+    }
 }
