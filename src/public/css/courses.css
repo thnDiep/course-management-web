@@ -57,6 +57,8 @@
     left: 100%; } }
   .course.course--best-seller .course__best-seller-label {
     display: block; }
+  .course .card-body {
+    padding-bottom: 0; }
 
 .course__best-seller-label {
   display: none;
@@ -111,6 +113,8 @@
       width: 300px; }
   .course.course--horizontal .course__body {
     flex: 1; }
+  .course.course--horizontal .course__category {
+    height: 30px; }
   .course.course--horizontal .course__buttons {
     align-self: flex-end;
     width: 200px; }
@@ -143,7 +147,13 @@ figure {
   z-index: 1; }
 
 .course__title {
-  font-size: 2.6rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 2.6rem;
+  max-height: 5.2rem;
+  font-size: 2.4rem;
   font-weight: 600;
   color: #101010;
   margin: 0 0 0.6rem 0; }
@@ -151,7 +161,7 @@ figure {
 .course__category {
   position: relative;
   width: 100%;
-  height: 30px;
+  height: 20px;
   line-height: 22px;
   font-size: 1.2rem;
   margin: 0;
@@ -196,7 +206,7 @@ figure {
 .course__review {
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 1rem 0;
   color: #e59819; }
