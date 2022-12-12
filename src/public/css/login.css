@@ -1,9 +1,17 @@
+.sidebar {
+  display: none; }
+
+.content {
+  margin: 0; }
+
 .login {
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative;
+  left: 3%; }
   .login .form {
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 3rem;
-    margin: 7rem 9rem;
+    margin: 4rem 9rem;
     height: 100%;
     background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(/images/background/photo2.jpg);
     background-size: 100%;
@@ -29,14 +37,15 @@
           .login .form--login__mainTitle {
             font-size: 4rem; } }
       .login .form--login__subTitle {
-        margin-top: -2.5rem;
+        margin-top: -1.5rem;
         margin-bottom: 1.5rem;
         font-weight: 400;
         font-size: 1.5rem;
         color: #b3aa99; }
         @media only screen and (max-width: 31.25em) {
           .login .form--login__subTitle {
-            font-size: 1.2rem; } }
+            font-size: 1.2rem;
+            margin-top: -2.5rem; } }
       .login .form--login__user-name__input, .login .form--login__user-pass__input, .login .form--login__user-email__input {
         margin-bottom: 0.5rem;
         padding: 1.5rem;
@@ -75,12 +84,12 @@
           .login .form--login__icon {
             font-size: 1.4rem; } }
         .login .form--login__icon-arrow {
-          margin-left: 10rem;
+          margin-left: 7rem;
           font-size: 2rem;
           text-align: center; }
           @media only screen and (max-width: 31.25em) {
             .login .form--login__icon-arrow {
-              margin-left: 9rem;
+              margin-left: 7rem;
               font-size: 1.8rem; } }
   .login .required-name, .login .required-email, .login .required-pass {
     color: red;
@@ -102,6 +111,15 @@
     min-height: 100%;
     object-fit: cover;
     z-index: -1; }
+  .login .overlay1 {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.783); }
   .login .ripple {
     background-position: center; }
     .login .ripple:hover {

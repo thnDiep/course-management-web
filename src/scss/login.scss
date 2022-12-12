@@ -1,10 +1,20 @@
 @import "global/variable";
+.sidebar {
+  display: none;
+}
+
+.content {
+  margin: 0;
+}
+
 .login {
   overflow: hidden;
+  position: relative;
+  left: 3%;
   .form {
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 3rem;
-    margin: 7rem 9rem;
+    margin: 4rem 9rem;
     height: 100%;
     background-image: linear-gradient(
         105deg,
@@ -39,13 +49,14 @@
         }
       }
       &__subTitle {
-        margin-top: -2.5rem;
+        margin-top: -1.5rem;
         margin-bottom: 1.5rem;
         font-weight: 400;
         font-size: 1.5rem;
         color: #b3aa99;
         @media only screen and (max-width: 31.25em) {
           font-size: 1.2rem;
+          margin-top: -2.5rem;
         }
       }
       &__user-name,
@@ -97,11 +108,11 @@
           font-size: 1.4rem;
         }
         &-arrow {
-          margin-left: 10rem;
+          margin-left: 7rem;
           font-size: 2rem;
           text-align: center;
           @media only screen and (max-width: 31.25em) {
-            margin-left: 9rem;
+            margin-left: 7rem;
             font-size: 1.8rem;
           }
         }
@@ -138,6 +149,16 @@
       object-fit: cover;
       z-index: -1;
     }
+  }
+  .overlay1 {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.783);
   }
 
   .ripple {

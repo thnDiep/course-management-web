@@ -3,9 +3,12 @@ const email = document.querySelector(".formSignUp__user-email__input");
 const pass = document.querySelector(".formSignUp__user-pass__input");
 const btn = document.querySelector(".formSignUp__btn");
 const reqMail = document.querySelector(".required-email");
+const video = document.querySelector(".plyr__video");
+
 const mailformat =
   /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
 const nameformat = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
+video.playbackRate = 0.5;
 
 const submit = (e) => {
   e.preventDefault();
