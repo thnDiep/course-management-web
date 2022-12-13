@@ -1,0 +1,161 @@
+// .profile-cover {
+//   position: relative;
+//   z-index: 0;
+// }
+
+// .panel {
+//   margin-bottom: 30px;
+//   color: #696969;
+//   background-color: #fff;
+//   border-radius: 5px;
+//   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+// }
+@import "./global/variable";
+
+.profile-cover__action {
+  display: flex;
+  padding: 120px 30px 10px 153px;
+  border-radius: 5px 5px 0 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: url(https://bootdey.com/img/Content/bg1.jpg) no-repeat;
+  background-size: cover;
+  .btn {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+}
+.btn {
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+.profile-cover__img {
+  position: absolute;
+  top: 120px;
+  left: 30px;
+  text-align: center;
+  z-index: 1;
+  img {
+    max-width: 120px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+  }
+  .h3 {
+    color: #393939;
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+.profile-cover__info {
+  .nav {
+    margin-right: 2.8rem;
+    padding: 1.5rem 0 1rem 17rem;
+    color: #999;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    justify-content: flex-end;
+    li {
+      margin-top: 13px;
+      margin-bottom: 13px;
+      &:not(:first-child) {
+        margin-left: 30px;
+        padding-left: 30px;
+        border-left: 1px solid #eee;
+      }
+    }
+    strong {
+      display: block;
+      margin-bottom: 10px;
+      color: #e16123;
+      font-size: 34px;
+    }
+  }
+}
+.text-black {
+  .card {
+    background: #222;
+    // border: 1px solid #dd2476;
+    box-shadow: #222 1px 0 10px;
+
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 2rem;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-2px);
+    }
+  }
+  .course__teacher {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $white-color;
+    margin: 0;
+    // margin-top: -1.5rem;
+  }
+}
+.course__review {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  color: $gold-color;
+
+  .course__review-number {
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: $white-color;
+  }
+}
+
+.course__price {
+  display: flex;
+  align-items: center;
+
+  .course__price-unit {
+    font-size: 1.6rem;
+    text-decoration: underline;
+  }
+
+  .course__price-new {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: red;
+  }
+
+  .course__price-old {
+    display: flex;
+    align-items: center;
+    text-decoration: line-through;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: $white-color;
+  }
+}
+.edit {
+  position: absolute;
+  z-index: 10;
+  bottom: 10rem;
+  width: 50%;
+  right: 10%;
+  left: 10%;
+}
+.overlay {
+  top: 0;
+}
+.fa-edit {
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+}
