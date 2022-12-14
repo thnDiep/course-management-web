@@ -44,3 +44,50 @@
       color: #e59819;
       transform: scaleY(1.1);
       cursor: pointer; }
+  .btn.btn--danger {
+    color: #fff;
+    border-color: #fe3636;
+    background-color: #fe3636; }
+    .btn.btn--danger:hover {
+      opacity: 0.6; }
+    .btn.btn--danger.btn--border {
+      border-color: #000; }
+  .btn.btn--info {
+    color: #fff;
+    border-color: #5c5cff;
+    background-color: #5c5cff; }
+    .btn.btn--info:hover {
+      opacity: 0.6; }
+    .btn.btn--info.btn--border {
+      border-color: #000; }
+  .btn.btn--success {
+    color: #fff;
+    border-color: #16a116;
+    background-color: #16a116; }
+    .btn.btn--success:hover {
+      opacity: 0.6; }
+    .btn.btn--success.btn--border {
+      border-color: #000; }
+  .btn.btn--disable {
+    color: #101010;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 0, 0, 0.4);
+    cursor: default; }
+    .btn.btn--disable:hover {
+      opacity: 1;
+      cursor: default; }
+
+.table {
+  border-spacing: 1px; }
+  .table thead th {
+    text-align: center; }
+  .table tbody td,
+  .table thead th {
+    vertical-align: middle; }
+  .table .col-btn {
+    width: 30px;
+    padding: 10px; }
+    .table .col-btn .btn {
+      width: 30px;
+      display: flex;
+      justify-content: center; }

@@ -1,0 +1,50 @@
+{{#section "css"}}
+  <link rel="stylesheet" href="/css/admin.css" />
+{{/section}}
+
+<div class="container">
+  <div class="admin__header">
+    <h1 class="admin__title">Categories</h1>
+    <a href="/admin/categories/add" class="btn btn--icon btn--success">
+      <i class="fa fa-plus mr-3" aria-hidden="true"></i>
+      Add category</a>
+  </div>
+
+  <table class="table table-bordered table--categories">
+    <thead class="thead-light">
+      <tr>
+        <th>#</th>
+        <th>Category</th>
+        <th>Number course</th>
+        <th>View detail</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      {{#each this.categories}}
+        <tr>
+          <td scope="row">{{id}}</td>
+          <td>{{name}}</td>
+          <td>{{numberCourse}}</td>
+          <td class="col-btn">
+            <a href="" class="btn btn--info">
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </a>
+          </td>
+          <td class="col-btn">
+            <a href="/admin/categories/update?id={{id}}" class="btn btn--primary">
+              <i class="fa fa-paint-brush" aria-hidden="true"></i>
+            </a>
+          </td>
+          <td class="col-btn">
+            <a href="" class="btn btn--danger {{#if numberCourse}}btn--disable{{/if}}">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

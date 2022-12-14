@@ -1,0 +1,82 @@
+@import "./global/variable";
+
+.admin__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+
+  .admin__title {
+    font-size: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+  }
+}
+
+.admin__container {
+  display: flex;
+  justify-content: center;
+}
+
+.admin__form {
+  font-size: 1.6rem;
+  width: 360px;
+  min-height: 100px;
+  padding: 12px 24px;
+  border-radius: 2px;
+  margin: 24px;
+  align-self: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: $white-color;
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  select {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid $border-color;
+    border-radius: 2px;
+  }
+
+  label {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  input {
+    font-size: 1.6rem;
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .btn {
+    margin-top: 8px;
+    width: 100%;
+    padding: 6px;
+  }
+}
+
+.table {
+  &.table--courses {
+    td:nth-child(1) {
+      text-align: center;
+      width: 50px;
+    }
+  }
+
+  &.table--categories {
+    th:nth-child(1),
+    td:nth-child(1),
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 50px;
+      text-align: center;
+    }
+  }
+}

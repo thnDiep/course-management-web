@@ -55,6 +55,7 @@
       border-color: $black-color;
     }
   }
+
   &.btn--submit {
     background-color: black;
     color: #fff;
@@ -67,5 +68,86 @@
       transform: scaleY(1.1);
       cursor: pointer;
     }
+  }
+
+  &.btn--danger {
+    color: $white-color;
+    border-color: $danger-color;
+    background-color: $danger-color;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &.btn--border {
+      border-color: $black-color;
+    }
+  }
+
+  &.btn--info {
+    color: $white-color;
+    border-color: $info-color;
+    background-color: $info-color;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &.btn--border {
+      border-color: $black-color;
+    }
+  }
+
+  &.btn--success {
+    color: $white-color;
+    border-color: $success-color;
+    background-color: $success-color;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &.btn--border {
+      border-color: $black-color;
+    }
+  }
+
+  &.btn--disable {
+    color: $text-color;
+    background-color: $border-color;
+    border-color: $border-color;
+    cursor: default;
+
+    &:hover {
+      // color: $text-color;
+      // background-color: $border-color;
+      // border-color: $border-color;
+      opacity: 1;
+      cursor: default;
+    }
+  }
+}
+
+.table {
+  border-spacing: 1px;
+
+  thead th {
+    text-align: center;
+  }
+
+  tbody td,
+  thead th {
+    vertical-align: middle;
+  }
+
+  .col-btn {
+    .btn {
+      width: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    width: 30px;
+    padding: 10px;
   }
 }

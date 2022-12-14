@@ -1,0 +1,31 @@
+{{#section "css"}}
+  <link rel="stylesheet" href="/css/admin.css" />
+{{/section}}
+
+<div class="admin__container">
+  <form class="admin__form" method="post" action="/admin/categories">
+    <div class="form-group">
+      <label for="CatName">Category name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="CatName"
+        name="CatName"
+        placeholder="Enter category name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="parentCatID">Select parent category</label>
+      <select name="parentCatID" id="parentCatID">
+        <option value="-1">None</option>
+        <option value="0">IT & Software</option>
+        <option value="1">Network</option>
+        <option value="2">Operating System</option>
+        <option value="3">Javascript</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn--success">Add</button>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+{{#section "css"}}
+  <link rel="stylesheet" href="/css/admin.css" />
+{{/section}}
+
+<div class="admin__container">
+  <form class="admin__form" method="post" action="/admin/categories">
+    <div class="form-group">
+      <label for="nameCat">ID Category</label>
+      <input
+        type="text"
+        class="form-control"
+        id="CatID"
+        name="CatID"
+        value={{this.category.id}}
+        readonly
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="nameCat">Name Category</label>
+      <input
+        type="text"
+        class="form-control"
+        id="CatName"
+        name="CatName"
+        value="{{this.category.name}}"
+      />
+    </div>
+
+    <div class="d-flex">
+      <button type="submit" class="btn btn--success mr-5">Update</button>
+      <button type="submit" class="btn btn--danger">Cancel</button>
+    </div>
+  </form>
+</div>

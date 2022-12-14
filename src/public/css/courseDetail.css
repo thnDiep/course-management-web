@@ -1,24 +1,17 @@
 body {
   background-color: white; }
 
-.video_review {
-  /* margin-top: 11rem;
-  margin-left: 5rem; */
+.display_flex {
+  display: flex; }
 
-}
-
-.course-detail__header{
-  position: relative;
-}
-
+.headercouseDetail {
+  height: 40rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/images/background/tech.jpg); }
 
 .intro {
   color: black;
-  height: 40rem;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/images/background/tech.jpg); 
-  background-color: #7c28dc;
   width: 90vw;
-  padding-left: 5rem;
+  padding-left: 10rem;
   padding-top: 5px; }
   .intro .intro-link {
     color: #917b00;
@@ -31,7 +24,6 @@ body {
     margin-top: 2rem;
     margin-left: 5rem;
     height: 12rem;
-    border-radius: 4px;
     width: 19rem; }
   .intro .intro-name {
     padding-top: 2rem;
@@ -39,7 +31,7 @@ body {
     font-weight: bold;
     margin-left: 5rem; }
   .intro .intro-item {
-    /* width: 65rem; */
+    width: 80rem;
     font-size: 1.8rem;
     margin-left: 5rem;
     margin-top: 1rem; }
@@ -51,15 +43,6 @@ body {
   .intro .select-button {
     display: flex;
     align-items: center; }
-  .intro .course-detail__intro-avt {
-    height: 300px;
-    margin: 31px 0px 0px 0px;
-    border-radius: 4px;
-  }
-
-  .intro .course-detail__intro-info {
-    flex: 1;
-  }
 
 .buying-button {
   height: 5rem;
@@ -81,7 +64,7 @@ body {
 .intro .courses__category {
   font-size: 1.5rem;
   list-style: none;
-  /* margin-left: 5rem; */
+  margin-left: 5rem;
   padding-top: 6rem;
   padding: 0;
   display: flex; }
@@ -103,7 +86,7 @@ body {
   font-size: 1.4rem;
   font-weight: 600;
   margin: 1rem 0;
-  /* margin-top: 3rem; */
+  margin-top: 3rem;
   margin-left: 5rem; }
 
 .courses__review .courses__review-number {
@@ -150,26 +133,16 @@ body {
 .description-item {
   font-size: 1.6rem; }
 
-.course-detail__content {
-  display: flex;
-  position: relative;
- }
+.content {
+  display: flex; }
 
-.course-detail__content .left {
+.content .left {
   width: 70rem;
   margin-left: 3rem; }
 
-.course-detail__content .right {
-  position:absolute;
-  background-color: #FFF;
-  padding: 12px;
-  border-radius: 4px;
-  right: 7%;
-  top: -40%;
-  transform: translateY(50%); 
-  width: 455px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
+.content .right {
+  padding-top: 3rem;
+  padding-left: 8rem; }
 
 .right .see_reviews-link {
   font-size: 1.4rem;
@@ -196,7 +169,7 @@ body {
   font-size: 1.4rem; }
 
 .similar_courses {
-  margin-top: 4rem; }
+  margin-top: 10rem; }
 
 .similar_course-button {
   display: flex;
@@ -207,8 +180,6 @@ body {
   width: 100%; }
 
 .similar_course-button:hover {
-  text-decoration: none;
-  background-color: lightgray;
   cursor: pointer; }
 
 .similar_course-button .similar_course_name {
@@ -224,7 +195,7 @@ body {
 .similar_course-button .similar_course-price {
   font-size: 1.8rem;
   color: red;
-  padding-left: 4rem; }
+  padding-left: 10rem; }
 
 .teacher {
   margin-left: 10rem;

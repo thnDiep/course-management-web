@@ -1,4 +1,5 @@
 import searchRoute from "./search.route.js";
+import adminRoute from "./admin.route.js";
 
 export default function route(app) {
   // Routes
@@ -53,4 +54,6 @@ export default function route(app) {
   app.get("/courses/courseDetail", (req, res) => {
     res.render("courseDetail");
   });
+
+  app.use("/admin", adminRoute);
 }
