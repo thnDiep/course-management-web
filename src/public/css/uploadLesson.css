@@ -1,0 +1,55 @@
+body {
+  background: linear-gradient(191deg, rgba(255, 192, 67, 0) 5.02%, rgba(255, 192, 67, 0.5) 94.1%);
+  background-size: cover; }
+
+label {
+  font-size: 3rem; }
+
+.formUpload {
+  width: 80%;
+  margin-left: 11rem;
+  border-radius: 1rem;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  padding: 3rem; }
+  .formUpload__title {
+    font-size: 4rem; }
+
+.uploadVideo {
+  padding: 8rem;
+  margin: 1rem 0;
+  border: 0.2rem dashed #d8d7dc;
+  text-align: center; }
+
+.inputField {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem; }
+
+.icon {
+  font-size: 4.5rem;
+  margin-bottom: 1rem;
+  color: #d1d1d5; }
+
+.msg-1 {
+  font-size: 1.4rem;
+  color: #e4e4e4;
+  font-weight: 600; }
+
+.msg-2 {
+  font-size: 1.4rem;
+  margin-top: -1rem;
+  color: #e4e4e4;
+  font-weight: 600; }
+
+#myFile {
+  font-size: 1.4rem; }
+
+.btnCreate {
+  margin: 3rem;
+  padding: 1rem;
+  font-size: 1.8rem; }
+  .btnCreate i {
+    margin-right: 0.5rem; }

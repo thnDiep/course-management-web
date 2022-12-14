@@ -1,8 +1,6 @@
 body {
-  height: 100%; }
-
-.breadcrumb {
-  font-size: larger; }
+  background: linear-gradient(191deg, rgba(255, 192, 67, 0) 5.02%, rgba(255, 192, 67, 0.5) 94.1%);
+  background-size: cover; }
 
 .card {
   border-radius: 0.8rem;

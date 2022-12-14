@@ -38,6 +38,12 @@ export default function route(app) {
     });
   });
 
+  app.get("/uploadLesson", (req, res) => {
+    res.render("uploadLesson", {
+      check: false,
+    });
+  });
+
   app.use("/search", searchRoute);
 
   app.get("/courses/courseDetail", (req, res) => {

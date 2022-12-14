@@ -1,0 +1,52 @@
+{{#section "css"}}
+  <link rel="stylesheet" href="/css/uploadLesson.css" />
+{{/section}}
+<div class="formUpload">
+  <div class="formUpload__title"><p>Upload Lesson</p></div>
+  <form action="" class="formUploadLesson">
+    <div class="formUpload__titleLesson">
+      <label>Title</label>
+      <input type="text" placeholder="Name of lesson" class="inputField" />
+    </div>
+    <div class="formUpload__summaryLesson">
+      <label>Summary</label>
+      <input type="text" placeholder="Summary of lesson" class="inputField" />
+    </div>
+    <div class="formUpload__descriptionLesson">
+      <label>Description</label>
+      <div class="entry">
+        <script
+          src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"
+        ></script>
+        <h1>{{title}}</h1>
+        <div class="body">
+          <textarea name="editor1"></textarea>
+          <script>
+            CKEDITOR.replace( 'editor1' );
+          </script>
+          {{body}}
+        </div>
+      </div>
+    </div>
+    <div class="formUpload__videoLesson">
+      <label>Upload Documents</label>
+      <div class="uploadVideo">
+        <div><i class="fas fa-cloud-upload-alt icon"></i></div>
+        <div><p class="msg-1">Browse and choose the file you want to</p></div>
+        <div><p class="msg-2">upload from your computer</p></div>
+        <input type="file" id="myFile" name="filename" />
+      </div>
+      {{! <input type="submit" /> }}
+    </div>
+    <div class="formUpload__categoryLesson">
+      <label for="">Topics</label>
+      <select class="inputField">
+        <option>IT & Software</option>
+        <option>Development</option>
+        <option>Business</option>
+      </select>
+    </div>
+    <button class="btnCreate btn btn--active"><i class="fas fa-check"></i>
+      Create Lesson</button>
+  </form>
+</div>
