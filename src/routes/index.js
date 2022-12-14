@@ -31,15 +31,19 @@ export default function route(app) {
       check: false,
     });
   });
-
+  app.get("/listAccount", (req, res) => {
+    res.render("listAccount", {
+      check: false,
+    });
+  });
   app.get("/courses", (req, res) => {
     res.render("courses", {
       check: false,
     });
   });
 
-  app.get("/createLesson", (req, res) => {
-    res.render("createLesson", {
+  app.get("/createCourse", (req, res) => {
+    res.render("createCourse", {
       check: false,
     });
   });

@@ -21,27 +21,32 @@
   overflow: hidden;
   background: url(https://bootdey.com/img/Content/bg1.jpg) no-repeat;
   background-size: cover;
+
   .btn {
     margin-left: 10px;
     margin-bottom: 10px;
   }
 }
+
 .btn {
   &:hover {
     background-color: $primary-color;
   }
 }
+
 .profile-cover__img {
   position: absolute;
   top: 120px;
   left: 30px;
   text-align: center;
   z-index: 1;
+
   img {
     max-width: 120px;
     border: 5px solid #fff;
     border-radius: 50%;
   }
+
   .h3 {
     color: #393939;
     font-size: 20px;
@@ -60,15 +65,18 @@
     text-align: center;
     text-transform: uppercase;
     justify-content: flex-end;
+
     li {
       margin-top: 13px;
       margin-bottom: 13px;
+
       &:not(:first-child) {
         margin-left: 30px;
         padding-left: 30px;
         border-left: 1px solid #eee;
       }
     }
+
     strong {
       display: block;
       margin-bottom: 10px;
@@ -77,6 +85,7 @@
     }
   }
 }
+
 .text-black {
   .card {
     background: #222;
@@ -92,6 +101,7 @@
       transform: translateY(-2px);
     }
   }
+
   .course__teacher {
     font-size: 1.6rem;
     font-weight: 500;
@@ -100,6 +110,7 @@
     // margin-top: -1.5rem;
   }
 }
+
 .course__review {
   display: flex;
   align-items: center;
@@ -142,7 +153,9 @@
     color: $white-color;
   }
 }
+
 .edit {
+  display: none;
   position: absolute;
   z-index: 10;
   bottom: 10rem;
@@ -150,9 +163,11 @@
   right: 10%;
   left: 10%;
 }
+
 .overlay {
   top: 0;
 }
+
 .fa-edit {
   &:hover {
     cursor: pointer;

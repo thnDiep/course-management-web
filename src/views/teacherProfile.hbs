@@ -1,30 +1,27 @@
 {{#section "css"}}
-  <link rel="stylesheet" href="/css/teacherProfile.css" />
-  <link rel="stylesheet" href="/css/profile.css" />
+<link rel="stylesheet" href="/css/teacherProfile.css" />
+<link rel="stylesheet" href="/css/profile.css" />
 
 {{/section}}
-<div class="overlay"></div>
+{{#section "js"}}
+<Script src="/js/teacherProfile.js"></Script>
+{{/section}}
+<div class="check"></div>
+
 <div class="container">
-  <div class="col-lg-8 container edit">
+  <div class="col-lg-8 container edit" id="edit">
     <div class="card mb-4">
       <div class="card-body text-center">
-        <img
-          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-          alt="avatar"
-          class="rounded-circle img-fluid"
-          style="width: 150px;"
-        />
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+          class="rounded-circle img-fluid" style="width: 150px;" />
         <h1 class="my-3">John Smith</h1>
         <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
           Student</p>
         <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
         {{! <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Follow</button>
-              <button
-                type="button"
-                class="btn btn-outline-primary ms-1"
-              >Message</button>
-            </div> }}
+          <button type="button" class="btn btn-primary">Follow</button>
+          <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+        </div> }}
       </div>
     </div>
     <div class="card mb-4">
@@ -76,14 +73,14 @@
         <h3 class="h3">Henry Foster</h3>
       </div>
       <div class="profile-cover__action bg--img" data-overlay="0.3">
-        <button class="btn btn-rounded">
+        <button class="btn btn-rounded btn-edit">
           <i class="fa fa-comment"></i>
           <span>Edit profile</span>
         </button>
-        <button class="btn btn-rounded">
+        <a href="/createCourse" class="btn btn-rounded">
           <i class="fa fa-plus"></i>
           <span>Add new course</span>
-        </button>
+        </a>
       </div>
       <div class="profile-cover__info">
         <ul class="nav">
@@ -125,11 +122,7 @@
         <div class="col mb-2">
           <div class="card" style="width: 100%;">
             <a href="/courses/courseDetail" class="course__link"></a>
-            <img
-              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-              class="card-img-top"
-              alt="..."
-            />
+            <img src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Javascript for beginners</h5>
               <h5 class="course__teacher">Teacher: Dollar Design School</h5>
@@ -167,11 +160,7 @@
         <div class="col mb-2">
           <div class="card" style="width: 100%;">
             <a href="/courses/courseDetail" class="course__link"></a>
-            <img
-              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-              class="card-img-top"
-              alt="..."
-            />
+            <img src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Javascript for beginners</h5>
               <h5 class="course__teacher">Teacher: Dollar Design School</h5>
@@ -208,11 +197,7 @@
         <div class="col mb-2">
           <div class="card" style="width: 100%;">
             <a href="/courses/courseDetail" class="course__link"></a>
-            <img
-              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-              class="card-img-top"
-              alt="..."
-            />
+            <img src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Javascript for beginners</h5>
               <h5 class="course__teacher">Teacher: Dollar Design School</h5>

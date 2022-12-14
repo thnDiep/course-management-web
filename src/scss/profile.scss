@@ -9,11 +9,9 @@ body {
   //     transparent 50%
   //   ),
   //   url(/images/background/cool-background.png);
-  background: linear-gradient(
-    191deg,
-    rgba(255, 192, 67, 0) 5.02%,
-    rgba(255, 192, 67, 0.5) 94.1%
-  );
+  background: linear-gradient(191deg,
+      rgba(255, 192, 67, 0) 5.02%,
+      rgba(255, 192, 67, 0.5) 94.1%);
   background-size: cover;
 }
 
@@ -22,6 +20,7 @@ body {
   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+
   &-body {
     font-size: 1.5rem;
   }
@@ -33,6 +32,7 @@ body {
 }
 
 .edit {
+
   &:hover,
   &:active {
     margin-top: 0.5rem;
@@ -44,9 +44,11 @@ body {
   position: relative;
   display: inline-block;
   overflow: hidden;
+
   &Love::before {
     position: absolute;
-    content: attr(data-content); /* Prints the value of the attribute */
+    content: attr(data-content);
+    /* Prints the value of the attribute */
     color: #f84c5e;
     text-decoration: underline;
     overflow: hidden;
@@ -54,9 +56,11 @@ body {
     width: 0;
     white-space: nowrap;
   }
+
   &::before {
     position: absolute;
-    content: attr(data-content); /* Prints the value of the attribute */
+    content: attr(data-content);
+    /* Prints the value of the attribute */
     color: #6e4616;
     text-decoration: underline;
     overflow: hidden;
@@ -64,9 +68,11 @@ body {
     width: 0;
     white-space: nowrap;
   }
+
   &Love:hover::before {
     width: 100%;
   }
+
   &:hover::before {
     width: 100%;
   }
@@ -83,20 +89,24 @@ body {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
-.slides > div:target {
+
+.slides>div:target {
   transform: scale(0.8);
 }
+
 .carousel-item {
   &__img img {
     width: 11rem;
     height: 9rem;
     margin-right: 0.8rem;
   }
+
   &__detail {
     &--name {
       font-size: 1.7rem;
       font-weight: 700;
     }
+
     &--teacher {
       font-size: 1.2rem;
     }
