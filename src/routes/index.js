@@ -38,8 +38,8 @@ export default function route(app) {
     });
   });
 
-  app.get("/uploadLesson", (req, res) => {
-    res.render("uploadLesson", {
+  app.get("/createLesson", (req, res) => {
+    res.render("createLesson", {
       check: false,
     });
   });

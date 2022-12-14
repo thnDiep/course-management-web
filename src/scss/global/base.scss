@@ -1,58 +1,71 @@
-@import 'variable';
+@import "variable";
 
 .btn {
-    padding: 1rem 2rem;
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: $text-color;
+  background-color: $white-color;
+  border: 1px solid $white-color;
+  border-radius: 2px;
+
+  &:hover {
     color: $text-color;
-    background-color: $white-color;
-    border: 1px solid $white-color;
-    border-radius: 2px;
+    border-color: $black-color;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  &.btn--active {
+    color: $text-color;
+    border-color: $primary-color;
+    background-color: $primary-color;
+  }
+
+  &.btn--border {
+    border-color: $black-color;
 
     &:hover {
-        color: $text-color;
-        border-color: $black-color;
+      color: $text-color;
+      border-color: $black-color;
+      background-color: $hover-color;
     }
+  }
 
-    &:focus {
-        outline: 0;
-        box-shadow: none;
-    }
+  &.btn--icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    &.btn--active {
-        color: $text-color;
-        border-color: $primary-color;
-        background-color: $primary-color;
+  &.btn--primary {
+    border-color: $primary-color;
+    background-color: $primary-color;
+
+    &:hover {
+      color: $text-color;
+      background-color: $hover-second-color;
     }
 
     &.btn--border {
-        border-color: $black-color;
-
-        &:hover {
-            color: $text-color;
-            border-color: $black-color;
-            background-color: $hover-color;
-        }
+      border-color: $black-color;
     }
+  }
+  &.btn--submit {
+    background-color: black;
+    color: #fff;
+    border-radius: 0.5rem;
 
-    &.btn--icon {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    &:hover,
+    &:active {
+      background-color: black;
+      color: $gold-color;
+      transform: scaleY(1.1);
+      cursor: pointer;
     }
-
-    &.btn--primary {
-        border-color: $primary-color;
-        background-color: $primary-color;
-
-        &:hover {
-            color: $text-color;
-            background-color: $hover-second-color;
-        }
-
-        &.btn--border {
-            border-color: $black-color;
-        }
-    }
+  }
 }
