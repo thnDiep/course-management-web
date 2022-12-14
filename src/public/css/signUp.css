@@ -1,7 +1,15 @@
+.sidebar {
+  display: none; }
+
+.content {
+  margin: 0; }
+
 .login {
+  position: relative;
+  left: 3%;
   overflow: hidden; }
   .login .form {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     padding: 3rem;
     margin: 7rem 9rem;
     height: 100%;
@@ -27,7 +35,7 @@
         margin-bottom: -1rem; }
         @media only screen and (max-width: 31.25em) {
           .login .formSignUp__mainTitle {
-            font-size: 3rem; } }
+            font-size: 2.7rem; } }
       .login .formSignUp__subTitle {
         margin-top: -1.5rem;
         margin-bottom: 1.5rem;
@@ -47,7 +55,7 @@
         @media only screen and (max-width: 31.25em) {
           .login .formSignUp__user-name__input, .login .formSignUp__user-pass__input, .login .formSignUp__user-email__input {
             width: 100%;
-            font-size: 1.4rem; } }
+            font-size: 1.2rem; } }
       .login .formSignUp__btn {
         margin-top: 1rem;
         text-align: center;
@@ -80,7 +88,8 @@
           text-align: center; }
           @media only screen and (max-width: 31.25em) {
             .login .formSignUp__icon-arrow {
-              font-size: 1.8rem; } }
+              font-size: 1.8rem;
+              margin-left: 8rem; } }
   .login .required-name, .login .required-email, .login .required-pass {
     color: red;
     font-size: 1.5rem; }
@@ -101,6 +110,15 @@
     min-height: 100%;
     object-fit: cover;
     z-index: -1; }
+  .login .overlay1 {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.783); }
   .login .ripple {
     background-position: center; }
     .login .ripple:hover {

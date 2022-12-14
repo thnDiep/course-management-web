@@ -1,8 +1,20 @@
 @import "global/variable";
+.sidebar {
+  display: none;
+}
+
+.content {
+  margin: 0;
+}
+body {
+  // text-align: center;
+}
 .login {
+  position: relative;
+  left: 3%;
   overflow: hidden;
   .form {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     padding: 3rem;
     margin: 7rem 9rem;
     height: 100%;
@@ -35,7 +47,7 @@
         font-weight: 700;
         margin-bottom: -1rem;
         @media only screen and (max-width: 31.25em) {
-          font-size: 3rem;
+          font-size: 2.7rem;
         }
       }
       &__subTitle {
@@ -61,7 +73,7 @@
           text-align: center;
           @media only screen and (max-width: 31.25em) {
             width: 100%;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
           }
         }
       }
@@ -102,6 +114,7 @@
           text-align: center;
           @media only screen and (max-width: 31.25em) {
             font-size: 1.8rem;
+            margin-left: 8rem;
           }
         }
       }
@@ -138,7 +151,16 @@
       z-index: -1;
     }
   }
-
+  .overlay1 {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.783);
+  }
   .ripple {
     background-position: center;
     &:hover {

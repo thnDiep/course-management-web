@@ -32,7 +32,7 @@
     &:hover {
       color: $text-color;
       border-color: $black-color;
-      background-color: rgba($color: $black-color, $alpha: 0.03);
+      background-color: $hover-color;
     }
   }
 
@@ -48,11 +48,24 @@
 
     &:hover {
       color: $text-color;
-      background-color: rgba($color: $primary-color, $alpha: 0.6);
+      background-color: $hover-second-color;
     }
 
     &.btn--border {
       border-color: $black-color;
+    }
+  }
+  &.btn--submit {
+    background-color: black;
+    color: #fff;
+    border-radius: 0.5rem;
+
+    &:hover,
+    &:active {
+      background-color: black;
+      color: $gold-color;
+      transform: scaleY(1.1);
+      cursor: pointer;
     }
   }
 }

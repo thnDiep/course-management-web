@@ -22,7 +22,7 @@
     .btn.btn--border:hover {
       color: #101010;
       border-color: #000;
-      background-color: rgba(0, 0, 0, 0.03); }
+      background-color: #ddd; }
   .btn.btn--icon {
     display: flex;
     justify-content: space-between;
@@ -32,6 +32,15 @@
     background-color: #f8d752; }
     .btn.btn--primary:hover {
       color: #101010;
-      background-color: rgba(248, 215, 82, 0.6); }
+      background-color: #cab14b; }
     .btn.btn--primary.btn--border {
       border-color: #000; }
+  .btn.btn--submit {
+    background-color: black;
+    color: #fff;
+    border-radius: 0.5rem; }
+    .btn.btn--submit:hover, .btn.btn--submit:active {
+      background-color: black;
+      color: #e59819;
+      transform: scaleY(1.1);
+      cursor: pointer; }

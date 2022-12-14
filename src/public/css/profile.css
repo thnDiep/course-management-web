@@ -1,14 +1,12 @@
 body {
-  height: 100%; }
-
-.breadcrumb {
-  font-size: larger; }
+  background: linear-gradient(191deg, rgba(255, 192, 67, 0) 5.02%, rgba(255, 192, 67, 0.5) 94.1%);
+  background-size: cover; }
 
 .card {
   border-radius: 0.8rem;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75); }
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75); }
   .card-body {
     font-size: 1.5rem; }
 
@@ -17,7 +15,8 @@ body {
   justify-content: space-between; }
 
 .edit:hover, .edit:active {
-  transform: scaleY(1.5); }
+  margin-top: 0.5rem;
+  cursor: pointer; }
 
 .titleTransition {
   position: relative;
@@ -62,9 +61,13 @@ body {
   transform: scale(0.8); }
 
 .carousel-item__img img {
-  width: 10rem;
-  height: 8rem;
-  margin-right: 0.3rem; }
+  width: 11rem;
+  height: 9rem;
+  margin-right: 0.8rem; }
 
 .carousel-item__detail--name {
-  font-size: 1.8rem; }
+  font-size: 1.7rem;
+  font-weight: 700; }
+
+.carousel-item__detail--teacher {
+  font-size: 1.2rem; }

@@ -1,11 +1,12 @@
-// $primary-color: #b7e1e4;
 $primary-color: #f8d752;
-
-$second-color: #917b00;
+$price-color: #d0011b;
 
 $text-color: #101010;
 $gray-text-color: #555;
 $border-color: rgba(0, 0, 0, 0.4);
+
+$hover-color: #ddd;
+$hover-second-color: #cab14b;
 
 $gold-color: #e59819;
 $link-color: #0000ee;
@@ -13,7 +14,13 @@ $gray-color: #777;
 $black-color: #000;
 $white-color: #fff;
 
+// MAIN LAYOUT
 $header-height: 65px;
 $sidebar-width: 150px;
 $sidebar-icon-width: 60px;
+
+// COURSES VIEWS
+$course--horizontal-height: 220px;
+$course--horizontal-image-width: 300px;
+
 $sort-btn-width: 180px;

@@ -1,0 +1,30 @@
+.table {
+  background-color: white; }
+
+body {
+  background: linear-gradient(191deg, rgba(255, 192, 67, 0) 5.02%, rgba(255, 192, 67, 0.5) 94.1%); }
+
+h1 {
+  font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-size: 4rem;
+  font-weight: bold; }
+
+.container .btn {
+  background-color: #f8d752;
+  text-align: center; }
+
+.choose {
+  margin-top: 3rem;
+  margin-bottom: 2rem; }
+  .choose .active {
+    color: blueviolet; }
+  .choose div {
+    font-size: 2rem; }
+    .choose div a {
+      text-decoration: none;
+      margin-right: 2rem;
+      font-weight: bold;
+      color: black; }
+      .choose div a:hover {
+        color: blueviolet;
+        cursor: pointer; }

@@ -1,0 +1,118 @@
+.profile-cover__action {
+  display: flex;
+  padding: 120px 30px 10px 153px;
+  border-radius: 5px 5px 0 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: url(https://bootdey.com/img/Content/bg1.jpg) no-repeat;
+  background-size: cover; }
+  .profile-cover__action .btn {
+    margin-left: 10px;
+    margin-bottom: 10px; }
+
+.btn:hover {
+  background-color: #f8d752; }
+
+.profile-cover__img {
+  position: absolute;
+  top: 120px;
+  left: 30px;
+  text-align: center;
+  z-index: 1; }
+  .profile-cover__img img {
+    max-width: 120px;
+    border: 5px solid #fff;
+    border-radius: 50%; }
+  .profile-cover__img .h3 {
+    color: #393939;
+    font-size: 20px;
+    line-height: 30px; }
+
+.profile-cover__info .nav {
+  margin-right: 2.8rem;
+  padding: 1.5rem 0 1rem 17rem;
+  color: #999;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  justify-content: flex-end; }
+  .profile-cover__info .nav li {
+    margin-top: 13px;
+    margin-bottom: 13px; }
+    .profile-cover__info .nav li:not(:first-child) {
+      margin-left: 30px;
+      padding-left: 30px;
+      border-left: 1px solid #eee; }
+  .profile-cover__info .nav strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #e16123;
+    font-size: 34px; }
+
+.text-black .card {
+  background: #222;
+  box-shadow: #222 1px 0 10px;
+  color: rgba(250, 250, 250, 0.8);
+  margin-bottom: 2rem;
+  position: relative; }
+  .text-black .card:hover {
+    cursor: pointer;
+    transform: translateY(-2px); }
+
+.text-black .course__teacher {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0; }
+
+.course__review {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  color: #e59819; }
+  .course__review .course__review-number {
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: #fff; }
+
+.course__price {
+  display: flex;
+  align-items: center; }
+  .course__price .course__price-unit {
+    font-size: 1.6rem;
+    text-decoration: underline; }
+  .course__price .course__price-new {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: red; }
+  .course__price .course__price-old {
+    display: flex;
+    align-items: center;
+    text-decoration: line-through;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: #fff; }
+
+.edit {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  bottom: 10rem;
+  width: 50%;
+  right: 10%;
+  left: 10%; }
+
+.overlay {
+  top: 0; }
+
+.fa-edit:hover {
+  cursor: pointer;
+  transform: translateY(-2px); }

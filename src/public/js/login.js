@@ -1,8 +1,9 @@
 const name = document.querySelector(".form--login__user-name__input");
 const pass = document.querySelector(".form--login__user-pass__input");
 const btn = document.querySelector(".form--login__btn");
+const video = document.querySelector(".plyr__video");
 const nameformat = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
-
+video.playbackRate = 0.5;
 const submit = (e) => {
   e.preventDefault();
   if (name.value.length === 0) {

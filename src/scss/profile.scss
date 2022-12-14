@@ -1,23 +1,26 @@
 @import "./global/variable";
 
 body {
-  height: 100%;
+  // height: 100%;
   // background-image: linear-gradient(
   //     105deg,
-  //     rgba($primary-color, 0.8) 0%,
-  //     rgba($primary-color, 0.8) 50%,
+  //     rgba($primary-color, 0.5) 0%,
+  //     rgba($primary-color, 0.5) 50%,
   //     transparent 50%
   //   ),
   //   url(/images/background/cool-background.png);
+  background: linear-gradient(191deg,
+      rgba(255, 192, 67, 0) 5.02%,
+      rgba(255, 192, 67, 0.5) 94.1%);
+  background-size: cover;
 }
-.breadcrumb {
-  font-size: larger;
-}
+
 .card {
   border-radius: 0.8rem;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+
   &-body {
     font-size: 1.5rem;
   }
@@ -29,9 +32,11 @@ body {
 }
 
 .edit {
+
   &:hover,
   &:active {
-    transform: scaleY(1.5);
+    margin-top: 0.5rem;
+    cursor: pointer;
   }
 }
 
@@ -39,9 +44,11 @@ body {
   position: relative;
   display: inline-block;
   overflow: hidden;
+
   &Love::before {
     position: absolute;
-    content: attr(data-content); /* Prints the value of the attribute */
+    content: attr(data-content);
+    /* Prints the value of the attribute */
     color: #f84c5e;
     text-decoration: underline;
     overflow: hidden;
@@ -49,9 +56,11 @@ body {
     width: 0;
     white-space: nowrap;
   }
+
   &::before {
     position: absolute;
-    content: attr(data-content); /* Prints the value of the attribute */
+    content: attr(data-content);
+    /* Prints the value of the attribute */
     color: #6e4616;
     text-decoration: underline;
     overflow: hidden;
@@ -59,9 +68,11 @@ body {
     width: 0;
     white-space: nowrap;
   }
+
   &Love:hover::before {
     width: 100%;
   }
+
   &:hover::before {
     width: 100%;
   }
@@ -78,18 +89,26 @@ body {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
-.slides > div:target {
+
+.slides>div:target {
   transform: scale(0.8);
 }
+
 .carousel-item {
   &__img img {
-    width: 10rem;
-    height: 8rem;
-    margin-right: 0.3rem;
+    width: 11rem;
+    height: 9rem;
+    margin-right: 0.8rem;
   }
+
   &__detail {
     &--name {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    &--teacher {
+      font-size: 1.2rem;
     }
   }
 }
