@@ -1,0 +1,81 @@
+<div class="sidenav">
+
+  <p>Course content </p>
+  <button class="dropdown-btn">Javascript for beginers
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Lesson 1</a>
+    <a href="#">Lesson 2</a>
+    <a href="#">Lesson 3</a>
+  </div>
+  <button class="dropdown-btn">Chapter 1: Hello javascript
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Lesson 1</a>
+    <a href="#">Lesson 2</a>
+    <a href="#">Lesson 3</a>
+  </div>
+  <button class="dropdown-btn">Chapter 2: Storing information in Variables
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Lesson 1</a>
+    <a href="#">Lesson 2</a>
+    <a href="#">Lesson 3</a>
+  </div>
+  <button class="dropdown-btn">Chapter 3: Conditional statement
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Lesson 1</a>
+    <a href="#">Lesson 2</a>
+    <a href="#">Lesson 3</a>
+  </div>
+  <button class="dropdown-btn">Chapter 4: Dialog boxes
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Lesson 1</a>
+    <a href="#">Lesson 2</a>
+    <a href="#">Lesson 3</a>
+  </div>
+  <button class="dropdown-btn">Chapter 5: Now We're Iterating! Loops in
+    Javascript
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Lesson 1</a>
+    <a href="#">Lesson 2</a>
+    <a href="#">Lesson 3</a>
+  </div>
+  <button class="dropdown-btn">Chapter 6: Coding Javascript function
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Lesson 1</a>
+    <a href="#">Lesson 2</a>
+    <a href="#">Lesson 3</a>
+  </div>
+  <button class="dropdown-btn">Chapter 7: Working with Arrays
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Lesson 1</a>
+    <a href="#">Lesson 2</a>
+    <a href="#">Lesson 3</a>
+  </div>
+</div>
+
+<script>
+  /* Loop through all dropdown buttons to toggle between hiding and showing its
+  dropdown content - This allows the user to have multiple dropdowns without any
+  conflict */ var dropdown = document.getElementsByClassName("dropdown-btn");
+  var i; for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active"); var dropdownContent =
+  this.nextElementSibling; if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none"; } else { dropdownContent.style.display
+  = "block"; } }); }
+</script>

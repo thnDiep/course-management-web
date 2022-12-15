@@ -1,0 +1,206 @@
+
+#rate_feedback-btn {
+    background-color: #e59819;
+    margin-top: 10rem;
+}
+
+.enrollCourse__body{
+    display: flex;
+    position: static;
+    .enrollCourse__contentCourse {
+        color:black;
+        .enrollCourse__preview{
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content:space-around;
+        }
+        .enrollCourse__chapter{
+            margin-top: 5rem;
+            font-size: 1.9rem;
+            // height: 500;
+            ol{
+                padding-left: 2rem;
+                list-style-type: none;
+            }
+            li{
+                margin-top: 1.5rem;
+            }
+            a{
+                &:hover {
+                    cursor: pointer;
+                    color: darkgrey;
+                }
+            }
+
+        }
+    }
+}
+
+.enrollCourse__mainContentCourse {
+    justify-content: space-around;
+    
+    .enrollCourse__video {
+        margin-left: 0rem;
+    }
+}
+
+.intro_courseDetail {
+    // height: 40rem;
+    color: black;
+    width: 90vw;
+    padding-top: 5px;
+    margin-left: -5rem;
+    background-color: white;
+    .intro_courseDetail-link {
+      color: #917b00;
+      margin-right: 1rem;
+      margin-left: 1rem; 
+      &:hover {
+        color: #cdc1fd; }
+    }
+
+    .course-detail__intro-avt {
+      height: 150px;
+      margin: 0px;
+      border-radius: 4px;
+      padding-left: 5rem;
+    }
+
+    .course-detail__intro-info {
+      flex: 1;
+      margin: 0rem;
+    }
+
+      .intro_courseDetail-name {
+        padding-top: 2rem;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-left: 5rem; }
+
+        .intro_courseDetail-item {
+          width: 80rem;
+          font-size: 1.4rem;
+          margin-left: 5rem;
+          margin-top: 1rem; }
+
+
+          .courses__category {
+            font-size: 1.3rem;
+            list-style: none;
+            padding: 0;
+            display: flex;
+            padding-left: 5rem;
+            .courses__category-item::before {
+              content: ">"; }
+              .courses__category-link {
+                text-decoration: none;
+                margin-right: 1rem;
+                color: #917b00; 
+                &:hover {
+                  color: grey;
+                }
+              }
+           }
+           .courses__review {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            margin-top: 2rem;
+            margin-left: 5rem;
+            .courses__review-number {
+              font-weight: 400;
+              margin-left: 1.4rem;
+              color: #555; }
+              .courses__review-ratings {
+                color: #e59819; }
+           }
+           .courses__teacher {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin: 0;
+            margin-left: 5rem;
+            /* align-items: center; */
+            display: flex; 
+            .courses_teacher-link {
+              font-size: 1.7rem;
+              margin-right: 1.2rem;
+              margin-left: 1rem;
+              color: white; }
+          }
+
+          .footer_intro {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            position: relative;
+            margin-left: 5rem;
+            margin-bottom: 0rem;
+            .footer_intro-item {
+              margin: 0rem 2rem 3rem 0rem; }
+           }
+ }
+
+
+
+ .modal-dialog{
+    height: 50%;
+    width: 50%;
+    // margin:auto;
+}
+
+
+.modal-header{
+    color: white;
+    background-color: #007bff;
+}
+
+textarea{ border: none; 
+    box-shadow: none !important;
+    // -webkit-appearance:none;
+    outline:0px !important;
+}
+
+.openmodal{
+    margin-left: 35%;
+    width: 25%;
+    margin-top: 25%;
+}
+
+.icon1{
+   color: #007bff;
+
+}
+
+a{
+    margin: auto;
+}
+
+input{
+    color: #007bff;
+
+}
+
+.nav-btn{
+    margin: 1rem 0rem 3rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+}
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+    padding: 1rem;
+    width: 15rem;
+  }
+  
+  .next {
+    background-color: #848987;
+    color: white;
+    padding: 1rem;
+    width: 15rem;
+  }

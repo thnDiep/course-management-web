@@ -1,6 +1,7 @@
-body {
-  background-color: white; }
+.display_flex {
+  display: flex; }
 
+<<<<<<< Updated upstream
 .display_flex {
   display: flex; }
 
@@ -196,6 +197,152 @@ body {
   font-size: 1.8rem;
   color: red;
   padding-left: 10rem; }
+=======
+.courseD__intro {
+  width: 90vw;
+  height: 40rem;
+  padding-left: 100px;
+  padding-top: 5px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/images/background/tech.jpg);
+  position: relative; }
+  .courseD__intro .courseD__intro__info {
+    margin-left: 5rem; }
+  .courseD__intro .course__category {
+    font-size: 1.5rem;
+    padding-top: 4px; }
+  .courseD__intro .courseD__intro__avt {
+    height: 300px;
+    margin: 31px 0px 0px 0px;
+    border-radius: 4px; }
+  .courseD__intro .courseD__intro__name {
+    padding-top: 2rem;
+    font-size: 4.3rem;
+    font-weight: bold; }
+  .courseD__intro .courseD__intro__item {
+    width: 80rem;
+    font-size: 1.8rem;
+    margin-top: 1rem; }
+  .courseD__intro .course__teacher {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 0; }
+  .courseD__intro .course__review {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    margin-top: 3rem; }
+  .courseD__intro .courseD__intro__link {
+    color: #917b00;
+    margin-right: 1rem;
+    margin-left: 1rem; }
+    .courseD__intro .courseD__intro__link:hover {
+      color: #cdc1fd; }
+  .courseD__intro .courseD__intro__footer {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    position: relative; }
+  .courseD__intro .courseD__intro__buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    height: 5rem; }
+    .courseD__intro .courseD__intro__buttons .btn {
+      height: 100%; }
+    .courseD__intro .courseD__intro__buttons .buying-btn-frame {
+      width: 28rem;
+      height: 7rem;
+      margin-right: 2rem;
+      display: flex;
+      align-items: center; }
+      .courseD__intro .courseD__intro__buttons .buying-btn-frame .buying-button {
+        height: 5rem;
+        width: 25rem;
+        background-color: #f8d752;
+        border-color: #f8d752;
+        font-size: 2rem;
+        font-weight: bolder;
+        color: white; }
+        .courseD__intro .courseD__intro__buttons .buying-btn-frame .buying-button:hover {
+          transform: translateX(-3px) translateY(-3px);
+          height: 7rem;
+          width: 28rem;
+          font-size: 3rem;
+          cursor: pointer; }
+
+.courseD__content {
+  display: flex;
+  position: relative; }
+  .courseD__content .left {
+    width: 70rem;
+    margin-left: 3rem; }
+    .courseD__content .left .description {
+      margin-top: 5rem; }
+    .courseD__content .left .description-title {
+      font-size: 2rem;
+      font-weight: bold; }
+    .courseD__content .left .description-item {
+      font-size: 1.6rem; }
+    .courseD__content .left .table {
+      border: 0.2rem solid black; }
+      .courseD__content .left .table td,
+      .courseD__content .left .table th {
+        border: none;
+        vertical-align: top; }
+    .courseD__content .left .course_content_table {
+      background-color: #1a1818; }
+    .courseD__content .left .chapter {
+      padding-top: 1rem;
+      display: flex;
+      border-bottom: 1px solid gray; }
+    .courseD__content .left .chapter-name {
+      color: white;
+      width: 50rem;
+      font-size: 1.6rem; }
+    .courseD__content .left .chapter-name:hover {
+      color: aquamarine; }
+    .courseD__content .left .chapter-information {
+      color: #b1b1ba;
+      font-size: 1.4rem; }
+  .courseD__content .right {
+    position: absolute;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    right: 7%;
+    top: -40%;
+    transform: translateY(50%);
+    width: 455px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; }
+    .courseD__content .right.see_reviews-link {
+      font-size: 1.4rem;
+      color: #7c28dc; }
+    .courseD__content .right .similar_course-button {
+      display: flex;
+      margin-bottom: 2rem;
+      border-color: white;
+      background-color: white;
+      border-bottom: 1px solid black;
+      width: 100%; }
+      .courseD__content .right .similar_course-button:hover {
+        cursor: pointer;
+        text-decoration: none;
+        background-color: lightgray; }
+      .courseD__content .right .similar_course-button .similar_course_name {
+        font-size: 1.7rem;
+        font-weight: bold;
+        padding-left: 2rem;
+        color: black; }
+      .courseD__content .right .similar_course-button .similar_course-image {
+        height: 6rem;
+        width: 10rem; }
+      .courseD__content .right .similar_course-button .similar_course-price {
+        font-size: 1.8rem;
+        color: red;
+        padding-left: 4rem; }
+>>>>>>> Stashed changes
 
 .teacher {
   margin-left: 10rem;
@@ -308,7 +455,7 @@ body {
         left: 0; */
   width: 100%;
   height: 10px;
-  background: #EAEAEA; }
+  background: #eaeaea; }
 
 .reviews-bar-graph-straight_line .reviews-bar-graph-sub_straight_line {
   content: "";
@@ -316,6 +463,6 @@ body {
         left: 0; */
   position: absolute;
   height: 10px;
-  background: #FFC057;
+  background: #ffc057;
   /* display: block; */
   width: 81%; }
