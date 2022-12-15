@@ -1,17 +1,21 @@
 import express from "express";
 
-import adminController from "../controllers/AdminController.js";
+import aCategoryController from "../controllers/admin/CategoryController.js";
+import aCourseController from "../controllers/admin/CourseController.js";
 const router = express.Router();
 
 // CATEGORIES MANAGEMENENT
-router.get("/categories/update", adminController.categoriesUpdate);
-router.get("/categories/add", adminController.categoriesAdd);
-router.get("/categories", adminController.categories);
-router.post("/categories", adminController.categories);
+router.get("/categories/update", aCategoryController.update);
+router.get("/categories/del", aCategoryController.delete);
+
+router.get("/categories/add", aCategoryController.add);
+router.post("/categories/add", aCategoryController.addPost);
+
+router.get("/categories", aCategoryController.index);
 
 // COURSES MANAGEMENT
-router.get("/courses", adminController.courses);
+router.get("/courses", aCourseController.index);
 
-router.get("/", adminController.index);
+router.get("/", aCategoryController.index);
 
 export default router;

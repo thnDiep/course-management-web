@@ -39,6 +39,7 @@
     width: 100%;
     border: 1px solid $border-color;
     border-radius: 2px;
+    color: $text-color;
   }
 
   label {
@@ -47,11 +48,14 @@
   }
 
   input {
+    border: 1px solid $border-color;
     font-size: 1.6rem;
+    color: $text-color;
     outline: none;
 
     &:focus {
-      outline: none;
+      outline: none !important;
+      color: $text-color;
     }
   }
 

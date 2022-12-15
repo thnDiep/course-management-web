@@ -3,29 +3,31 @@
 {{/section}}
 
 <div class="admin__container">
-  <form class="admin__form" method="post" action="/admin/categories">
+  <form class="admin__form" method="post" action="/admin/categories/add">
     <div class="form-group">
-      <label for="CatName">Category name</label>
+      <label for="name">Category name</label>
       <input
         type="text"
         class="form-control"
-        id="CatName"
-        name="CatName"
+        id="name"
+        name="name"
         placeholder="Enter category name"
       />
     </div>
 
     <div class="form-group">
-      <label for="parentCatID">Select parent category</label>
-      <select name="parentCatID" id="parentCatID">
-        <option value="-1">None</option>
-        <option value="0">IT & Software</option>
-        <option value="1">Network</option>
-        <option value="2">Operating System</option>
-        <option value="3">Javascript</option>
+      <label for="parentID">Select parent category</label>
+      <select name="parentID" id="parentID">
+        <option value="0">None</option>
+        {{#each this.categories}}
+          <option value={{id}}>{{name}}</option>
+        {{/each}}
       </select>
     </div>
-
-    <button type="submit" class="btn btn--success">Add</button>
+    {{! //check name rỗng }}
+    <div class="d-flex">
+      <button type="submit" class="btn btn--success mr-5">Add</button>
+      <a href="/admin/categories" class="btn btn--danger">Cancel</a>
+    </div>
   </form>
 </div>

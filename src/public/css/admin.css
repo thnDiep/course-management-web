@@ -29,15 +29,19 @@
     padding: 8px;
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.4);
-    border-radius: 2px; }
+    border-radius: 2px;
+    color: #101010; }
   .admin__form label {
     font-size: 1.8rem;
     font-weight: 600; }
   .admin__form input {
+    border: 1px solid rgba(0, 0, 0, 0.4);
     font-size: 1.6rem;
+    color: #101010;
     outline: none; }
     .admin__form input:focus {
-      outline: none; }
+      outline: none !important;
+      color: #101010; }
   .admin__form .btn {
     margin-top: 8px;
     width: 100%;

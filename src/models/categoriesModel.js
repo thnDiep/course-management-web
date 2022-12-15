@@ -1,31 +1,31 @@
-let categories = [
-  { id: 0, name: "IT & Software", numberCourse: 10 },
-  { id: 1, name: "Network", numberCourse: 0 },
-  { id: 2, name: "Operating System", numberCourse: 10 },
-  { id: 3, name: "Web development", numberCourse: 10 },
-  { id: 4, name: "Javascript", numberCourse: 10 },
-  { id: 5, name: "ReactJS", numberCourse: 10 },
-  { id: 6, name: "Nodejs", numberCourse: 0 },
-  { id: 7, name: "Software testing", numberCourse: 0 },
-  { id: 8, name: "Postman", numberCourse: 10 },
-  { id: 9, name: "API testing", numberCourse: 10 },
-  { id: 10, name: "Java", numberCourse: 10 },
-];
+import db from "../utils/db.js";
 
 export default {
   getAll() {
-    return categories;
+    return db("categories");
   },
 
-  findById(id) {
-    let result;
+  getParent() {
+    return db("categories").whereNull("parentID");
+  },
 
-    categories.forEach((category) => {
-      if (category.id === id) {
-        result = category;
-      }
-    });
+  async getById(id) {
+    const list = await db("categories").where("id", id);
+    if (list.length === 0) return null;
+    return list[0];
+  },
 
-    return result;
+  add(category) {
+    return db("categories").insert(category);
+  },
+
+  delete(id) {
+    return db("categories").where("id", id).del();
+  },
+
+  async isNameExist(name) {
+    const list = await db("categories").where("name", name);
+    if (list.length === 0) return false;
+    return true;
   },
 };
