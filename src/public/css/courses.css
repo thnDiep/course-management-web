@@ -90,7 +90,7 @@
   background-color: #f8d752;
   box-shadow: rgba(0, 0, 0, 0.15) 3px -3px 2.65px; }
   .course__new-label::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: 0;
@@ -126,7 +126,7 @@ figure {
   position: relative;
   overflow: hidden; }
   figure::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -75%;
@@ -170,7 +170,7 @@ figure {
   display: flex;
   z-index: 2; }
   .course__category .course__category-item::before {
-    content: '>';
+    content: ">";
     margin-left: 1rem; }
   .course__category .course__category-link {
     text-decoration: none;

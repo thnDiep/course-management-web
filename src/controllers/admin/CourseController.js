@@ -1,4 +1,4 @@
-import categoriesModel from "../../models/categoriesModel.js";
+import categoryModel from "../../models/categoryModel.js";
 
 class CourseController {
   // GET categories list

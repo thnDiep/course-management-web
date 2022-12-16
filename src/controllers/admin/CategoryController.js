@@ -1,9 +1,9 @@
-import categoriesModel from "../../models/categoriesModel.js";
+import categoryModel from "../../models/categoryModel.js";
 
 class CategoryController {
   // GET categories list
   async index(req, res) {
-    const categories = await categoriesModel.getAll();
+    const categories = await categoryModel.getAll();
     res.render("vwAdmin/categories/index", {
       categories,
       layout: "admin",
@@ -12,7 +12,7 @@ class CategoryController {
 
   // GET add categories
   async add(req, res) {
-    const categoriesParent = await categoriesModel.getParent();
+    const categoriesParent = await categoryModel.getParent();
     res.render("vwAdmin/categories/add", {
       categories: categoriesParent,
       layout: "admin",
@@ -21,17 +21,17 @@ class CategoryController {
 
   // POST add categories
   async addPost(req, res) {
-    if (await categoriesModel.isNameExist(req.body.name)) {
+    if (await categoryModel.isNameExist(req.body.name)) {
       console.log("tên đã tồn tại");
     } else {
       if (parseInt(req.body.parentID) === 0) {
         delete req.body.parentID;
       }
 
-      await categoriesModel.add(req.body);
+      await categoryModel.add(req.body);
     }
 
-    const categories = await categoriesModel.getAll();
+    const categories = await categoryModel.getAll();
     res.render("vwAdmin/categories/add", {
       categories,
       layout: "admin",
@@ -40,14 +40,14 @@ class CategoryController {
 
   // GET add categories
   async delete(req, res) {
-    await categoriesModel.delete(req.query.id);
+    await categoryModel.delete(req.query.id);
     res.redirect("/admin/categories");
   }
 
   // GET update categories
   async update(req, res) {
     const id = parseInt(req.query.id) || 0;
-    const category = await categoriesModel.getById(id);
+    const category = await categoryModel.getById(id);
 
     if (category === null) {
       res.redirect("/admin/categories");
