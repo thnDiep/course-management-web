@@ -1,5 +1,6 @@
 import searchRoute from "./search.route.js";
 import adminRoute from "./admin.route.js";
+import coursesRoute from "./courses.route.js";
 
 export default function route(app) {
   // Routes
@@ -37,11 +38,6 @@ export default function route(app) {
       check: false,
     });
   });
-  app.get("/courses", (req, res) => {
-    res.render("courses", {
-      check: false,
-    });
-  });
 
   app.get("/createCourse", (req, res) => {
     res.render("createCourse", {
@@ -50,6 +46,7 @@ export default function route(app) {
   });
 
   app.use("/search", searchRoute);
+  app.use("/courses", coursesRoute);
 
   app.get("/courses/courseDetail", (req, res) => {
     res.render("courseDetail");
