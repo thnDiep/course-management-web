@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Dec 16, 2022 at 06:01 AM
+-- Generation Time: Dec 17, 2022 at 10:39 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -38,18 +38,22 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `parentID`) VALUES
-(0, 'new', NULL),
-(1, 'IT & Software', NULL),
-(2, 'Network', 1),
-(3, 'Operating System', 2),
-(4, 'Web development', NULL),
-(5, 'Javascript', 4),
-(6, 'ReactJS', 4),
-(7, 'Nodejs', 4),
-(8, 'Software testing', NULL),
-(9, 'Postman', 8),
-(10, 'API testing', 8),
-(11, 'Java', 8);
+(1, 'IT', NULL),
+(2, 'Web development', 1),
+(3, 'Mobile Development', 1),
+(4, 'Game Development', 1),
+(5, 'Design', NULL),
+(6, 'Web Design', 5),
+(7, 'Game Design', 5),
+(8, '3D & Animation', 5),
+(9, 'Fashion Design', 5),
+(10, 'Marketing', NULL),
+(11, 'Digital Marketing', 10),
+(12, 'Content Marketing', 10),
+(13, 'Branding', 10),
+(14, 'Music', NULL),
+(15, 'Vocal', 14),
+(16, 'Music Production', 14);
 
 -- --------------------------------------------------------
 
@@ -274,6 +278,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `chapter`
