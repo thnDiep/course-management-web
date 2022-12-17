@@ -1,6 +1,6 @@
 import categoryModel from "../../models/categoryModel.js";
 
-class aCourseController {
+class ACourseController {
   // GET categories list
   async index(req, res) {
     res.render("vwAdmin/courses", {
@@ -9,4 +9,4 @@ class aCourseController {
   }
 }
 
-export default new aCourseController();
+export default new ACourseController();

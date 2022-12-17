@@ -14,19 +14,19 @@
 
 .category-list {
   margin: 0;
-  padding: 4px 20px;
+  padding-left: 20px;
   list-style: none; }
 
 .category-item {
-  padding: 6px 8px; }
-  .category-item.category-item--active .category-item__link {
+  padding: 8px 0 8px 8px; }
+  .category-item.category-item--active > .category-item__link {
     color: #0000ee; }
-  .category-item.category-item--active .category-item__link:hover {
+  .category-item.category-item--active > .category-item__link:hover {
     transform: none;
     text-decoration: none;
     cursor: default; }
-  .category-item.category-item--active .category-item__link::before {
-    content: '';
+  .category-item.category-item--active > .category-item__link::before {
+    content: "";
     position: absolute;
     top: 50%;
     left: -8px;

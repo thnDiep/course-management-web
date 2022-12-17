@@ -12,9 +12,10 @@ class ACategoryController {
 
   // GET add categories
   async add(req, res) {
-    const categoriesParent = await categoryModel.getParent();
+    const parentCategories = await categoryModel.getParent();
+
     res.render("vwAdmin/categories/add", {
-      categories: categoriesParent,
+      parentCategories,
       layout: "admin",
     });
   }
@@ -31,14 +32,14 @@ class ACategoryController {
       await categoryModel.add(req.body);
     }
 
-    const categories = await categoryModel.getAll();
+    const parentCategories = await categoryModel.getParent();
     res.render("vwAdmin/categories/add", {
-      categories,
+      parentCategories,
       layout: "admin",
     });
   }
 
-  // GET add categories
+  // GET delete categories
   async delete(req, res) {
     await categoryModel.delete(req.query.id);
     res.redirect("/admin/categories");
@@ -46,15 +47,23 @@ class ACategoryController {
 
   // GET update categories
   async update(req, res) {
-    const id = parseInt(req.query.id) || 0;
+    const id = parseInt(req.query.id) || 1;
     const category = await categoryModel.getById(id);
+    const parentCategories = await categoryModel.getParent();
 
     if (category === null) {
       res.redirect("/admin/categories");
     }
 
+    parentCategories.forEach((parent) => {
+      if (category.parentID === parent.id) {
+        parent.isSelected = true;
+      }
+    });
+
     res.render("vwAdmin/categories/update", {
       category,
+      parentCategories,
       layout: "admin",
     });
   }

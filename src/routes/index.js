@@ -47,7 +47,5 @@ export default function route(app) {
 
   app.use("/search", searchRoute);
   app.use("/courses", coursesRoute);
-
-
   app.use("/admin", adminRoute);
 }

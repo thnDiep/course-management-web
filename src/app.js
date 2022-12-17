@@ -31,7 +31,7 @@ app.engine(
       section: hbs_sections(),
       format_number(value) {
         return numeral(value).format("0,0");
-      },
+      }
     },
   })
 );
