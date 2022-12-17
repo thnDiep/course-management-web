@@ -38,7 +38,6 @@ export default function route(app) {
       check: false,
     });
   });
-  
 
   app.get("/createCourse", (req, res) => {
     res.render("createCourse", {
@@ -49,4 +48,9 @@ export default function route(app) {
   app.use("/search", searchRoute);
   app.use("/courses", coursesRoute);
 
+  app.get("/courses/courseDetail", (req, res) => {
+    res.render("courseDetail");
+  });
+
+  app.use("/admin", adminRoute);
 }
