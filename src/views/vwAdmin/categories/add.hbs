@@ -5,7 +5,7 @@
 <div class="admin__container">
   <form class="admin__form" method="post" action="/admin/categories/add">
     <div class="form-group">
-      <label for="name">Category name</label>
+      <label for="name">Name Category</label>
       <input
         type="text"
         class="form-control"
@@ -19,7 +19,7 @@
       <label for="parentID">Select parent category</label>
       <select name="parentID" id="parentID">
         <option value="0">None</option>
-        {{#each this.categories}}
+        {{#each this.parentCategories}}
           <option value={{id}}>{{name}}</option>
         {{/each}}
       </select>

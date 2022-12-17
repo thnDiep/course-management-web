@@ -24,7 +24,19 @@
         id="CatName"
         name="CatName"
         value="{{this.category.name}}"
+        autofocus
       />
+    </div>
+
+    <div class="form-group">
+      <label for="parentID">Parent category</label>
+      <select name="parentID" id="parentID" {{#unless this.category.parentID}}disabled{{/unless}}>
+        <option value="0">None</option>
+
+        {{#each this.parentCategories}}
+          <option value={{id}} {{#if isSelected}}selected{{/if}}>{{name}}</option>
+        {{/each}}
+      </select>
     </div>
 
     <div class="d-flex">

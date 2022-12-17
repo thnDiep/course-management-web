@@ -1,7 +1,7 @@
 import express from "express";
 
-import aCategoryController from "../controllers/admin/CategoryController.js";
-import aCourseController from "../controllers/admin/CourseController.js";
+import aCategoryController from "../controllers/admin/aCategoryController.js";
+import aCourseController from "../controllers/admin/aCourseController.js";
 const router = express.Router();
 
 // CATEGORIES MANAGEMENENT

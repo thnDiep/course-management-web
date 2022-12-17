@@ -1,20 +1,16 @@
-import express from 'express'
+import express from "express";
+import courseController from "../controllers/CourseController.js";
 
 const router = express.Router();
- 
-router.get("/", (req, res) => {
-    res.render("courses", {
-      check: false,
-    });
-});
 
+router.get("/", courseController.index);
 
 router.get("/courseDetail", (req, res) => {
-    res.render("courseDetail");
+  res.render("courseDetail");
 });
 
 router.get("/enrollCourse", (req, res) => {
   res.render("enrollCourse");
-}) 
+});
 
 export default router;

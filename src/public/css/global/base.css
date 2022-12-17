@@ -85,9 +85,10 @@
   .table thead th {
     vertical-align: middle; }
   .table .col-btn {
-    width: 30px;
+    width: 60px;
     padding: 10px; }
     .table .col-btn .btn {
       width: 30px;
       display: flex;
-      justify-content: center; }
+      justify-content: center;
+      margin: auto; }
