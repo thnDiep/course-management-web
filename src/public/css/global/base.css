@@ -85,9 +85,26 @@
   .table thead th {
     vertical-align: middle; }
   .table .col-btn {
-    width: 30px;
+    width: 60px;
     padding: 10px; }
     .table .col-btn .btn {
       width: 30px;
       display: flex;
-      justify-content: center; }
+      justify-content: center;
+      margin: auto; }
+
+.fa-star {
+  color: #feda56; }
+
+.star {
+  position: relative;
+  white-space: nowrap;
+  font-size: 1.2rem; }
+  .star .overlay--star {
+    background: #fff;
+    height: 100%;
+    overflow: hidden;
+    mix-blend-mode: color;
+    position: absolute;
+    top: 0;
+    right: 0; }

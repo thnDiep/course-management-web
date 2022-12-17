@@ -9,7 +9,6 @@
   background-color: $white-color;
   border: 1px solid $white-color;
   border-radius: 2px;
-
   &:hover {
     color: $text-color;
     border-color: $black-color;
@@ -145,9 +144,26 @@
       width: 30px;
       display: flex;
       justify-content: center;
+      margin: auto;
     }
-
-    width: 30px;
+    width: 60px;
     padding: 10px;
   }
+}
+.fa-star {
+  color: #feda56;
+}
+.star {
+  position: relative;
+  white-space: nowrap;
+  .overlay--star {
+    background: #fff;
+    height: 100%;
+    overflow: hidden;
+    mix-blend-mode: color;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  font-size: 1.2rem;
 }

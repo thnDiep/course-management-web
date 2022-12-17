@@ -15,15 +15,17 @@
     </ul>
 
     <div class="d-flex align-items-center">
-      <img
-        class="courseD__intro__avt"
-        src="https://securiumsolutions.com/blog/wp-content/uploads/2021/05/Javascript.png"
-      />
+      <img class="courseD__intro__avt" src="{{this.course.image}}" />
 
       <div class="courseD__intro__info">
-        <h1 class="courseD__intro__name">Javascript for Beginners</h1>
-        <p class="courseD__intro__item">Learn javascript online and supercharge
-          your web design with this Javascript for beginners training course.</p>
+        <div class="d-flex">
+          <h1 class="courseD__intro__name">{{this.course.name}}</h1>
+          <label
+            class="courseD__intro__status"
+            style="background-color:rgb(22, 161, 22); border-color:rgb(22, 161, 22);"
+          >Accomplished</label>
+        </div>
+        <p class="courseD__intro__item">{{this.course.tinyDescription}}</p>
 
         <div class="course__teacher">
           Teacher
@@ -33,7 +35,7 @@
 
         <div class="course__review">
           <div class="course__review-ratings">
-            4.3
+            {{this.course.rated}}
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
@@ -58,7 +60,8 @@
         <div class="courseD__intro__buttons">
           <div class="buying-btn-frame">
             <button class="buying-button">
-              đ 299.000
+              đ
+              {{format_number this.course.fee}}
             </button>
           </div>
 
@@ -73,6 +76,38 @@
           </a>
         </div>
       </div>
+
+      <div class="courseD_intro__videoPreview">
+        <div>
+          <iframe
+            src="{{this.course.video}}?autoplay=1&mute=1"
+            width="437"
+            height="250"
+          >
+          </iframe>
+          <p class="coursePreview_title">30-day money-back guarantee</p>
+          <div class="coursePreview_benefit">
+            <h2 class="title">This course include</h2>
+            <p class="content">
+              <i class="perLine fa fa-clock" aria-hidden="true"></i>
+              3 hours of video on demand
+            </p>
+            <p class="content">
+              <i class="perLine fa fa-hourglass" aria-hidden="true"></i>
+              &nbsp; Lifetime access
+            </p>
+            <p class="content">
+              <i class="perLine fa fa-tablet" aria-hidden="true"></i>
+              Access on mobile and TV
+            </p>
+            <p class="content">
+              <i class="perLine fa fa-certificate" aria-hidden="true"></i>
+              Certificate of completion
+            </p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -80,84 +115,16 @@
     <div class="left">
       <div class="description">
         <h2 class="description-title">Required</h2>
-        <p class="description-item">Some basic knowledge of HTML is required for
-          this course.</p>
+        <p class="description-item">{{this.course.required}}</p>
       </div>
 
       <div class="description">
-        <table class="table">
-          <thead>
-            <tr>
-              <th colspan="2">What will you learn</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>
-                <i class="fa fa-check" aria-hidden="true"></i>
-                Extensive, informative and interesting video lecture
-              </td>
-              <td>
-                <i class="fa fa-check" aria-hidden="true"></i>
-                Complete Code demonstrated in lecture
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <i class="fa fa-check" aria-hidden="true"></i>
-                Lab Exercises
-              </td>
-              <td>
-                <i class="fa fa-check" aria-hidden="true"></i>
-                Lab Solution Sets
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <i class="fa fa-check" aria-hidden="true"></i>
-                All Powerpoint Demonstrations Used in Course
-              </td>
-              <td>
-                <i class="fa fa-check" aria-hidden="true"></i>
-                Instructor contact Email for questions and clarifications
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <i class="fa fa-check" aria-hidden="true"></i>
-                Coverage of all important primary Javascript concepts
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        {{{this.course.benefit}}}
       </div>
 
       <div class="description">
         <h2 class="description-title">Description</h2>
-        <p class="description-item">Take this Javascript training course and
-          start learning Javascript today.<br /><br />"As a business guy I have
-          no place in programming." Ten years ago you could have gotten away
-          with that statement. Today you say that to your colleagues and they
-          scoff at you before they go back to their computers to fix real
-          problems and do real work.<br /><br />If you want to do something
-          useful start by learning Javascript . In these days when the browser
-          is central to all computer use knowing "the language of the browser"
-          is the most important step. A few years ago Javascript potential was
-          uncertain and many programmers considered it useless. These days
-          however competent programmers have identified Javascript real
-          potential and uses and it has gone from a toy language to the main
-          language of the browser. It has become one of the most useful
-          languages of this era. Every developer needs at least a basic
-          understanding of Javascript. A developer who knows Javascript is the
-          rockstar of the company and is in constant demand by employers. Our
-          online Javascript<br /><br />course will get you started by teaching
-          all the essential aspects of coding in Javascript. So... what's it
-          gonna be? Do you want to supercharge your career and be in constant
-          demand by employers? Do you want to learn how to create dynamic and
-          innovative Javascript documents? Start programming today with our
-          Javascript course for Beginners training and take control of your
-          career.</p>
+        <p class="description-item">{{this.course.fullDescription}}</p>
       </div>
 
       <div class="description">
@@ -207,22 +174,9 @@
         </ul>
       </div>
     </div>
-
     <div class="right">
-      <div class="video_review">
-        <video width="431" controls autoplay muted>
-          <source
-            src="/videos/JavaScript for Developers 01 - Introduction.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      {{! <a class="see_reviews-link" href="#">See reviews</a> }}
-
+      <p>Similar course</p>
       <div class="similar_courses">
-        <p class="description">Similar courses</p>
         <dl>
           <dt>
             <a
@@ -310,28 +264,24 @@
 
   <div class="teacher">
     <p class="teacher_title">Teacher</p>
-    <a href="#">
-      <div class="teacher_review">
-        <img
-          src="/images/userPictures/photoCV.jpg"
-          class="rounded-circle"
-          id="teacher_avt"
-          alt="Picture of teacher"
-        />
-        <div class="teacher_information">
-          <a href="#" class="teacher_name-link">Jame Scott</a>
-          <p class="teacher_role">Associate Professor</p>
-          <p class="teacher_specialization">Department of Computer Science and
-            Engineering</p>
-          <div class="teacher_learner-courses">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            &nbsp;603 585 leaners
-          </div>
-          <div class="teacher_learner-courses">
-            <i class="fa fa-book" aria-hidden="true"></i>
-            &nbsp;&nbsp;12 courses
-          </div>
-
+    <a class="teacher_review" href="/teacherProfile" role="button">
+      <img
+        src="/images/userPictures/photoCV.jpg"
+        class="rounded-circle teacher_avt"
+        alt="Picture of teacher"
+      />
+      <div class="teacher_information">
+        <p href="#" class="teacher_name-link">Jame Scott</p>
+        <p class="teacher_role">Associate Professor</p>
+        <p class="teacher_specialization">Department of Computer Science and
+          Engineering</p>
+        <div class="teacher_learner-courses">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          &nbsp;603 585 leaners
+        </div>
+        <div class="teacher_learner-courses">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          &nbsp;&nbsp;12 courses
         </div>
       </div>
     </a>
@@ -342,7 +292,7 @@
       <div class="feedback-left">
         <p class="feedback-title">Feedbacks</p>
         <div class="feedback_review">
-          <p class="feedback_review-numberRate">4.3</p>
+          <p class="feedback_review-numberRate">{{this.course.rated}}</p>
           <div>
             <div class="feedback_review-ratings">
               <i class="fa fa-star" aria-hidden="true"></i>
@@ -358,22 +308,73 @@
         <div class="reviews-bar-graph">
           <ul>
             <li class="reviews-bar-graph-per_line">
-              {{! <div>5 stars</div> }}
-              <div>
-                <div class="reviews-bar-graph-per_line-ratings">
-                  <div class="reviews-bar-graph-straight_line">
-                    <div class="reviews-bar-graph-sub_straight_line"></div>
+              <p class="col-sm-2 numberStar">5 stars</p>
+              <div class="col-sm-7">
+                <div class="line">
+                  <div class="straightLine">
+                  </div>
+                  <div class="lineStar" style="width: 81%">
                   </div>
                 </div>
               </div>
-              {{! <div>81,37%</div> }}
+              <div class="col-sm-1">81,37%</div>
+            </li>
+
+            <li class="reviews-bar-graph-per_line">
+              <p class="col-sm-2 numberStar">4 stars</p>
+              <div class="col-sm-7">
+                <div class="line">
+                  <div class="straightLine">
+                  </div>
+                  <div class="lineStar" style="width: 15%;">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-1">15.47%</div>
+            </li>
+
+            <li class="reviews-bar-graph-per_line">
+              <p class="col-sm-2 numberStar">3 stars</p>
+              <div class="col-sm-7">
+                <div class="line">
+                  <div class="straightLine">
+                  </div>
+                  <div class="lineStar" style="width: 1.7%;">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-1">1,7%</div>
+            </li>
+            <li class="reviews-bar-graph-per_line">
+              <p class="col-sm-2 numberStar">2 stars</p>
+              <div class="col-sm-7">
+                <div class="line">
+                  <div class="straightLine">
+                  </div>
+                  <div class="lineStar" style="width: 0.5%;">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-1">0,5%</div>
+            </li>
+            <li class="reviews-bar-graph-per_line">
+              <p class="col-sm-2 numberStar">1 stars</p>
+              <div class="col-sm-7">
+                <div class="line">
+                  <div class="straightLine">
+                  </div>
+                  <div class="lineStar" style="width: 0.94%;">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-1">0,94%</div>
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="col-md-7">
+    <div class="col-md-8">
       <div class="feedback-right">
         <div class="feedback-right-star">
           <i class="fa fa-star" aria-hidden="true"></i>
@@ -459,9 +460,8 @@
           teaches you the what is what, and how to do things in the correct way</p>
       </div>
       <a
-        name="See_more_feedbacks"
         id="see_more_feedbacks-btn"
-        class="btn btn--border"
+        class="btn btn--border see_more_feedbacks-btn"
         href="#"
         role="button"
       >See more</a>

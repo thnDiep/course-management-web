@@ -9,12 +9,46 @@
   height: 40rem;
   padding-left: 100px;
   padding-top: 5px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-    url(/images/background/tech.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/images/background/tech.jpg);
   position: relative;
 
   .courseD__intro__info {
     margin-left: 5rem;
+    padding-top: 2rem;
+  }
+
+  .courseD_intro__videoPreview {
+    position: absolute;
+    background-color: #fff;
+    padding: 9px;
+    border-radius: 4px;
+    right: 2%;
+    top: -15%;
+    transform: translateY(50%);
+    width: 455px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .coursePreview_title {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .coursePreview_benefit {
+      margin-top: 4rem;
+      .title {
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 1rem;
+      }
+      .content{
+        margin-top: 0.3rem;
+        font-size: 1.5rem;
+        margin-left: 0rem;
+        .perLine {
+          margin-right: 1rem;
+        }
+      }
+    }
   }
 
   .course__category {
@@ -29,9 +63,19 @@
   }
 
   .courseD__intro__name {
-    padding-top: 2rem;
+    // padding-top: 2rem;
     font-size: 4.3rem;
     font-weight: bold;
+  }
+
+  .courseD__intro__status {
+    margin-left: 5rem;
+    border-radius: 2px;
+    height: 4rem;
+    width: 20rem;
+    font-size: 2rem;
+    align-self: center;
+    text-align: center;
   }
 
   .courseD__intro__item {
@@ -96,7 +140,7 @@
         border-color: #f8d752;
         font-size: 2rem;
         font-weight: bolder;
-        color: white;
+        color: black;
 
         &:hover {
           transform: translateX(-3px) translateY(-3px);
@@ -167,28 +211,18 @@
   }
 
   .right {
-    position: absolute;
-    background-color: #fff;
-    padding: 12px;
-    border-radius: 4px;
-    right: 7%;
-    top: -40%;
-    transform: translateY(50%);
-    width: 455px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-    &.see_reviews-link {
-      font-size: 1.4rem;
-      color: #7c28dc;
-    }
-
+    margin: 40rem 0rem 0rem 17rem;
+    font-size:2.5rem;
+    font-weight: bold;
     .similar_course-button {
       display: flex;
-      margin-bottom: 2rem;
+      margin-bottom: 4rem;
+      margin-top: 2rem;
       border-color: white;
       background-color: white;
       border-bottom: 1px solid black;
       width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px ;
 
       &:hover {
         cursor: pointer;
@@ -215,64 +249,71 @@
       }
     }
   }
+
 }
 
 .teacher {
   margin-left: 10rem;
   margin-top: 10rem;
+  .teacher_title {
+    font-style: italic;
+    font-weight: bolder;
+    margin-left: 3rem;
+    font-size: 3rem;
+  }
+  .teacher_review {
+    display: flex;
+    margin-top: 2rem;
+    width: 50%;
+    color: black;
+    &:hover{
+      text-decoration: none;
+    }
+    .teacher_avt {
+      width: 150;
+      height: 150;
+      margin-top: 2rem;
+    }
+  }
+  .teacher_information {
+    margin-top: 2.5rem;
+    margin-left: 6rem;
+    text-align: left;
+
+    .teacher_role {
+      font-size: 1.8rem;
+    }
+    
+    .teacher_name-link {
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: underline;
+      color: blue;
+      &:hover {
+        color: darkblue;
+      }
+    }
+    
+    .teacher_specialization {
+      color: #906d47;
+      font-size: 1.5rem;
+    }
+    .teacher_learner-courses {
+      font-size: 1.2rem;
+    }
+  }
 }
 
-.teacher .teacher_title {
-  font-style: italic;
-  font-weight: bolder;
-  margin-left: 3rem;
-  font-size: 3rem;
-}
 
-.teacher .teacher_review {
-  display: flex;
-  margin-top: 2rem;
-}
 
-.teacher .teacher_name-link {
-  font-size: 2rem;
-  font-weight: bold;
-  text-decoration: underline;
-  color: blue;
-}
-.teacher .teacher_name-link:hover {
-  color: darkblue;
-}
-
-#teacher_avt {
-  width: 150;
-  height: 150;
-  margin-top: 2rem;
-}
-.teacher .teacher_information {
-  margin-top: 2.5rem;
-  margin-left: 6rem;
-}
-
-.teacher_information .teacher_role {
-  font-size: 1.8rem;
-}
-.teacher_information .teacher_specialization {
-  color: #906d47;
-  font-size: 1.5rem;
-}
-.teacher_information .teacher_learner-courses {
-  font-size: 1.2rem;
-}
 
 .feedback-title {
   margin-top: 5rem;
-  margin-left: 5rem;
+  // margin-left: 5rem;
   font-size: 2.6rem;
   font-weight: bold;
 }
 .feedback {
-  /* height: 60rem; */
   margin-top: 10rem;
   display: flex;
   background-color: #f5f7fa;
@@ -281,74 +322,81 @@
 .feedback_review {
   display: flex;
   padding-top: 3rem;
-  margin-left: 5rem;
-}
-.feedback_review .feedback_review-numberRate {
-  font-size: 5.2rem;
-  font-weight: bold;
-  margin-right: 1.2rem;
-}
-.feedback_review .feedback_review-ratings {
-  margin-top: 1.9rem;
-  color: #e59819;
-  font-size: 1.2rem;
-}
-.feedback_review .feedback_review-ratings_links {
-  font-size: 1.6rem;
-  color: #e59819;
-}
-.feedback_review .feedback_review-ratings_links:hover {
-  color: burlywood;
+  // margin-left: 5rem;
+  .feedback_review-numberRate {
+    font-size: 5.2rem;
+    font-weight: bold;
+    margin-right: 1.2rem;
+  }
+  .feedback_review-ratings {
+    margin-top: 1.9rem;
+    color: #e59819;
+    font-size: 1.2rem;
+  }
+  .feedback_review-ratings_links {
+    font-size: 1.6rem;
+    color: black;
+    &:hover {
+      color: burlywood;
+    }
+  }
+  
 }
 
-.feedback .feedback-left {
+.feedback-left {
   margin-left: 3rem;
 }
-
-.feedback .feedback-right {
+.feedback-right {
   font-size: 1.5rem;
-  margin-top: 3rem;
-  margin-left: 12rem;
-}
-.feedback-right .feedback-right-star {
-  color: #e59819;
+  margin-top: 5rem;
+  margin-left: 15rem;
+  .feedback-right-star {
+    color: #e59819;
+  }
 }
 
 #see_more_feedbacks-btn {
   margin-top: 2rem;
-  margin-left: 12rem;
+  margin-left: 15rem;
   color: blue;
   border-color: blue;
 }
 
 .reviews-bar-graph {
-  background-color: burlywood;
-}
-.reviews-bar-graph .reviews-bar-graph-per_line {
-  display: flex;
-  font-size: 1.5rem;
-  /* background-color: aquamarine; */
-}
+  ul{
+    padding: 0px;
+  }
+  .reviews-bar-graph-per_line {
+    display: flex;
+    font-size: 1.5rem;
+    align-items: center;
+    .numberStar{
+      padding: 0px;
+      margin: 0px;
+    }
 
-.reviews-bar-graph-per_line-ratings {
-  height: 15rem;
-  position: relative;
-}
-.reviews-bar-graph-straight_line {
-  content: "";
-  /* top: 0;
-        left: 0; */
-  width: 100%;
-  height: 10px;
-  background: #eaeaea;
-}
-.reviews-bar-graph-straight_line .reviews-bar-graph-sub_straight_line {
-  content: "";
-  /* top: 0;
-        left: 0; */
-  position: absolute;
-  height: 10px;
-  background: #ffc057;
-  /* display: block; */
-  width: 81%;
-}
+    .line {
+      position: relative;
+      height: 0.7rem;
+      
+    }
+    .straightLine {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color:#eaeaea ;
+    }
+      .lineStar{
+        position: absolute; 
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #e59819;;
+        // }
+      }
+
+    }
+  }
+
