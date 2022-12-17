@@ -1,4 +1,5 @@
 import express from 'express'
+import courseDetail from "../controllers/CourseController.js";
 
 const router = express.Router();
  
@@ -8,10 +9,9 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/courseDetail", courseDetail.detail);
 
-router.get("/courseDetail", (req, res) => {
-    res.render("courseDetail");
-});
+
 
 router.get("/enrollCourse", (req, res) => {
   res.render("enrollCourse");

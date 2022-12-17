@@ -5,6 +5,7 @@ import route from "./routes/index.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import hbs_sections from "express-handlebars-sections";
+import numeral from "numeral";
 
 // get __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -28,6 +29,9 @@ app.engine(
     extname: "hbs",
     helpers: {
       section: hbs_sections(),
+      format_number(value) {
+        return numeral(value).format("0,0");
+      },
     },
   })
 );

@@ -9,7 +9,8 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/images/background/tech.jpg);
   position: relative; }
   .courseD__intro .courseD__intro__info {
-    margin-left: 5rem; }
+    margin-left: 5rem;
+    padding-top: 2rem; }
   .courseD__intro .courseD_intro__videoPreview {
     position: absolute;
     background-color: #fff;
@@ -44,9 +45,16 @@
     margin: 31px 0px 0px 0px;
     border-radius: 4px; }
   .courseD__intro .courseD__intro__name {
-    padding-top: 2rem;
     font-size: 4.3rem;
     font-weight: bold; }
+  .courseD__intro .courseD__intro__status {
+    margin-left: 5rem;
+    border-radius: 2px;
+    height: 4rem;
+    width: 20rem;
+    font-size: 2rem;
+    align-self: center;
+    text-align: center; }
   .courseD__intro .courseD__intro__item {
     width: 80rem;
     font-size: 1.8rem;

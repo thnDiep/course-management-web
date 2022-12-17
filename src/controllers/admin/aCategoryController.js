@@ -1,6 +1,6 @@
 import categoryModel from "../../models/categoryModel.js";
 
-class CategoryController {
+class ACategoryController {
   // GET categories list
   async index(req, res) {
     const categories = await categoryModel.getAll();
@@ -60,4 +60,4 @@ class CategoryController {
   }
 }
 
-export default new CategoryController();
+export default new ACategoryController();
