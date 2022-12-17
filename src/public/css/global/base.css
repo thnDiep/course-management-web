@@ -96,11 +96,11 @@
 .fa-star {
   color: #feda56; }
 
-.stars {
+.star {
   position: relative;
   white-space: nowrap;
   font-size: 1.2rem; }
-  .stars .overlay--star {
+  .star .overlay--star {
     background: #fff;
     height: 100%;
     overflow: hidden;
