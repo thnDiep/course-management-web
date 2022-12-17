@@ -92,3 +92,19 @@
       display: flex;
       justify-content: center;
       margin: auto; }
+
+.fa-star {
+  color: #feda56; }
+
+.stars {
+  position: relative;
+  white-space: nowrap;
+  font-size: 1.2rem; }
+  .stars .overlay--star {
+    background: #fff;
+    height: 100%;
+    overflow: hidden;
+    mix-blend-mode: color;
+    position: absolute;
+    top: 0;
+    right: 0; }

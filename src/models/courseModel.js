@@ -5,7 +5,6 @@ export default {
     return db("course");
   },
 
-
   async getById(id) {
     const list = await db("course").where("id", id);
     if (list.length === 0) return null;
@@ -25,8 +24,12 @@ export default {
     if (list.length === 0) return false;
     return true;
   },
-
-//   async isComplete(id) {
-//     const status = await db("course").where()
-//   }
+  updateView(id) {
+    db("course").where("id", id).update({
+      views: 5,
+    });
+  },
+  //   async isComplete(id) {
+  //     const status = await db("course").where()
+  //   }
 };
