@@ -4,7 +4,9 @@
 {{#section "images"}}
   <link rel="stylesheet" href="/images/background/bg1.png" />
 {{/section}}
-{{! style="background-color: #eee;" }}
+{{#section "js"}}
+  <script src="/js/profile.js"></script>
+{{/section}}
 <section>
   <div class="container-fluid py-4 m-0">
     {{!-- <div class="row">
@@ -22,17 +24,17 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4">
-          <div class="card-body text-center">
+          <div class="card-body text-center d-flex flex-column">
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
               alt="avatar"
               class="rounded-circle img-fluid"
-              style="width: 150px;"
+              style="width: 150px;margin:auto"
             />
-            <h1 class="my-3">John Smith</h1>
+            <input type="text" value={{this.profiles.name}} class="my-3" style="font-size: 2.4rem; color:#333333;text-align:center" disabled >
             <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
               Student</p>
-            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+            <p class="text-muted mb-4">Ho Chi Minh City, Viet Nam</p>
             {{! <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-primary">Follow</button>
               <button
@@ -76,6 +78,7 @@
                 <p class="mb-0">mdbootstrap</p>
               </li>
             </ul>
+            
           </div>
         </div>
       </div>
@@ -84,10 +87,10 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Full Name</p>
+                <p class="mb-0">User Name</p>
               </div>
               <div class="col-sm-8">
-                <p class="text-muted mb-0">Johnatan Smith</p>
+                <input type="text" value={{this.profiles.name}} class="inputName" disabled >
               </div>
               <div class="col-sm-1">
                 <i class="far fa-edit edit"></i>
@@ -99,7 +102,7 @@
                 <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-8">
-                <p class="text-muted mb-0">example@example.com</p>
+                <input type="email" value={{this.profiles.email}} class="inputEmail" disabled >
               </div>
               <div class="col-sm-1">
                 <i class="far fa-edit edit"></i>
@@ -111,7 +114,7 @@
                 <p class="mb-0">Password</p>
               </div>
               <div class="col-sm-8">
-                <p class="text-muted mb-0">haha123</p>
+                <input type="password" value={{this.profiles.password}} class="inputPass" disabled >
               </div>
               <div class="col-sm-1">
                 <i class="far fa-edit edit"></i>
@@ -139,70 +142,29 @@
 
                 </div>
                 <div class="slider" style="overflow: scroll;">
+                        {{#each this.lesson_learned}}
                   <div
                     class="slide d-flex justify-content-between mb-1 shadow p-4 mb-2 bg-white"
                     id="slide-1"
                   >
                     <div class="carousel-item__img">
                       <img
-                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
+                        src={{Img}}
                         alt=""
                       />
                     </div>
                     <div class="carousel-item__detail">
 
-                      <h1 class="carousel-item__detail--name">Build Responsive
-                        Real-World Websites with HTML and CSS</h1>
+                      <h1 class="carousel-item__detail--name">{{CourseName}}</h1>
                       <div class="carousel-item__detail--teacher">
                         Teacher
-                        <a href="#">Dollar Design School</a>
+                        <a href="#">{{TeacherName}}</a>
                       </div>
 
                     </div>
                   </div>
-                  <div
-                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-2 bg-white"
-                    id="slide-2"
-                  >
-                    <div class="carousel-item__img">
-                      <img
-                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="carousel-item__detail">
-
-                      <h1 class="carousel-item__detail--name">Build Responsive
-                        Real-World Websites with HTML and CSS</h1>
-                      <div class="carousel-item__detail--teacher">
-                        Teacher
-                        <a href="#">Dollar Design School</a>
-                      </div>
-
-                    </div>
-                  </div>
-                  <div
-                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-2 bg-white"
-                    id="slide-3"
-                  >
-                    <div class="carousel-item__img">
-                      <img
-                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="carousel-item__detail">
-
-                      <h1 class="carousel-item__detail--name">Build Responsive
-                        Real-World Websites with HTML and CSS</h1>
-                      <div class="carousel-item__detail--teacher">
-                        Teacher
-                        <a href="#">Dollar Design School</a>
-                      </div>
-
-                    </div>
-                  </div>
-            
+                  
+            {{/each}}
 
 
             
@@ -227,69 +189,29 @@
                 </div>
 
                  <div class="slider" style="overflow: scroll;">
+                   {{#each this.lesson_love}}
                   <div
                     class="slide d-flex justify-content-between mb-1 shadow p-4 mb-2 bg-white"
                     id="slide-1"
                   >
                     <div class="carousel-item__img">
                       <img
-                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
+                        src={{Img}}
                         alt=""
                       />
                     </div>
                     <div class="carousel-item__detail">
 
-                      <h1 class="carousel-item__detail--name">Build Responsive
-                        Real-World Websites with HTML and CSS</h1>
+                      <h1 class="carousel-item__detail--name">{{CourseName}}</h1>
                       <div class="carousel-item__detail--teacher">
                         Teacher
-                        <a href="#">Dollar Design School</a>
+                        <a href="#">{{TeacherName}}</a>
                       </div>
 
                     </div>
                   </div>
-                  <div
-                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-2 bg-white"
-                    id="slide-2"
-                  >
-                    <div class="carousel-item__img">
-                      <img
-                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="carousel-item__detail">
-
-                      <h1 class="carousel-item__detail--name">Build Responsive
-                        Real-World Websites with HTML and CSS</h1>
-                      <div class="carousel-item__detail--teacher">
-                        Teacher
-                        <a href="#">Dollar Design School</a>
-                      </div>
-
-                    </div>
-                  </div>
-                  <div
-                    class="slide d-flex justify-content-between mb-1 shadow p-4 mb-2 bg-white"
-                    id="slide-3"
-                  >
-                    <div class="carousel-item__img">
-                      <img
-                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9pivKHAZwUV1ZLo-aqe_DYNE8p30sOgV-G3_DVuOg9smrAIwhEuWn9H_gBaUFmeN4kDW1_1dnNItOpgOEIk33RvzV4A6RLwkBTgUXJefI4EUBzUI78FwVh0I5xehUwu7UyVTYSDOnxYvLDgP9Y8DqdKAgucvvl0_TY853GqBi8De41CA5ED-ro6w9jg/s1280/maxresdefault%20(2).jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="carousel-item__detail">
-
-                      <h1 class="carousel-item__detail--name">Build Responsive
-                        Real-World Websites with HTML and CSS</h1>
-                      <div class="carousel-item__detail--teacher">
-                        Teacher
-                        <a href="#">Dollar Design School</a>
-                      </div>
-
-                    </div>
-                  </div>
+                  {{/each}}
+                 
                   
                 </div>
                   <div

@@ -9,9 +9,11 @@ body {
   //     transparent 50%
   //   ),
   //   url(/images/background/cool-background.png);
-  background: linear-gradient(191deg,
-      rgba(255, 192, 67, 0) 5.02%,
-      rgba(255, 192, 67, 0.5) 94.1%);
+  background: linear-gradient(
+    191deg,
+    rgba(255, 192, 67, 0) 5.02%,
+    rgba(255, 192, 67, 0.5) 94.1%
+  );
   background-size: cover;
 }
 
@@ -32,7 +34,6 @@ body {
 }
 
 .edit {
-
   &:hover,
   &:active {
     margin-top: 0.5rem;
@@ -90,7 +91,7 @@ body {
   scroll-behavior: smooth;
 }
 
-.slides>div:target {
+.slides > div:target {
   transform: scale(0.8);
 }
 
@@ -111,4 +112,7 @@ body {
       font-size: 1.2rem;
     }
   }
+}
+input {
+  border: none;
 }

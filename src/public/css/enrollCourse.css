@@ -2,31 +2,31 @@
   background-color: #e59819;
   margin-top: 10rem; }
 
-.joinCourse__body {
+.enrollCourse__body {
   display: flex;
   position: static; }
-  .joinCourse__body .joinCourse__contentCourse {
+  .enrollCourse__body .enrollCourse__contentCourse {
     color: black; }
-    .joinCourse__body .joinCourse__contentCourse .joinCourse__preview {
+    .enrollCourse__body .enrollCourse__contentCourse .enrollCourse__preview {
       margin-top: 2rem;
       font-size: 1.5rem;
       display: flex;
       justify-content: space-around; }
-    .joinCourse__body .joinCourse__contentCourse .joinCourse__chapter {
+    .enrollCourse__body .enrollCourse__contentCourse .enrollCourse__chapter {
       margin-top: 5rem;
       font-size: 1.9rem; }
-      .joinCourse__body .joinCourse__contentCourse .joinCourse__chapter ol {
+      .enrollCourse__body .enrollCourse__contentCourse .enrollCourse__chapter ol {
         padding-left: 2rem;
         list-style-type: none; }
-      .joinCourse__body .joinCourse__contentCourse .joinCourse__chapter li {
+      .enrollCourse__body .enrollCourse__contentCourse .enrollCourse__chapter li {
         margin-top: 1.5rem; }
-      .joinCourse__body .joinCourse__contentCourse .joinCourse__chapter a:hover {
+      .enrollCourse__body .enrollCourse__contentCourse .enrollCourse__chapter a:hover {
         cursor: pointer;
         color: darkgrey; }
 
-.joinCourse__mainContentCourse {
+.enrollCourse__mainContentCourse {
   justify-content: space-around; }
-  .joinCourse__mainContentCourse .joinCourse__video {
+  .enrollCourse__mainContentCourse .enrollCourse__video {
     margin-left: 0rem; }
 
 .intro_courseDetail {

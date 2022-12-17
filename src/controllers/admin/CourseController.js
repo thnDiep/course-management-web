@@ -7,6 +7,9 @@ class CourseController {
       layout: "admin",
     });
   }
+  async add(req, res) {
+    res.render("");
+  }
 }
 
 export default new CourseController();

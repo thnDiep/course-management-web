@@ -71,3 +71,6 @@ body {
 
 .carousel-item__detail--teacher {
   font-size: 1.2rem; }
+
+input {
+  border: none; }
