@@ -6,7 +6,6 @@ import coursesRoute from "./courses.route.js";
 export default function route(app) {
   app.use("/search", searchRoute);
   app.use("/courses", coursesRoute);
-  //admin
   app.use("/admin", adminRoute);
 
   //teacher chỉnh sau
