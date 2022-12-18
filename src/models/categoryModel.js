@@ -5,6 +5,28 @@ export default {
     return db("category");
   },
 
+  // get hierarchical list category
+  async getAllWithHierarchy(idActive) {
+    const categories = await this.getParent();
+
+    for (const parent of categories) {
+      const childs = await this.getChildByParentID(parent.id);
+
+      for (const child of childs) {
+        if (child.id === idActive) {
+          child.isActive = true;
+        }
+      }
+
+      parent.childs = childs;
+      if (parent.id === idActive) {
+        parent.isActive = true;
+      }
+    }
+
+    return categories;
+  },
+
   getParent() {
     return db("category").whereNull("parentID");
   },
