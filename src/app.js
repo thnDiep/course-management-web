@@ -22,7 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/public/")));
 
 // Config handlebars
-// Config handlebars
 app.engine(
   "hbs",
   engine({

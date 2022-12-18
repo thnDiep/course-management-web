@@ -1,5 +1,5 @@
-
 import courseModel from "../models/courseModel.js";
+import categoryModel from "../models/categoryModel.js";
 
 class CourseController {
 
@@ -30,7 +30,7 @@ class CourseController {
 
 
   async detail(req, res) {
-    const id = parseInt(req.query.id) || 0;
+    const id = parseInt(req.query.id) || 1;
     const course = await courseModel.getById(id);
 
     if (course === null) {
@@ -40,6 +40,11 @@ class CourseController {
     res.render("courseDetail", {
       course
     });
+  }
+
+  async join(req, res) {
+    const id = parseInt(req.query.id) || 1;
+    const lesson = await co
   }
 
 }
