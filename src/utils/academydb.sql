@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `academy`
+-- Database: `academydb`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +31,7 @@ CREATE TABLE `category` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(250) NOT NULL,
   `parentID` int(10) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -53,8 +53,7 @@ INSERT INTO `category` (`id`, `name`, `parentID`) VALUES
 (13, 'Branding', 10),
 (14, 'Music', NULL),
 (15, 'Vocal', 14),
-(16, 'Music Production', 14),
-(17, 'nodejs', NULL);
+(16, 'Music Production', 14);
 
 -- --------------------------------------------------------
 
@@ -64,7 +63,7 @@ INSERT INTO `category` (`id`, `name`, `parentID`) VALUES
 
 CREATE TABLE `chapter` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(250) COLLATE utf8_bin NOT NULL,
+  `name` varchar(250) NOT NULL,
   `courseID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -89,23 +88,24 @@ CREATE TABLE `course` (
   `tinyDescription` text DEFAULT NULL,
   `fullDescription` text NOT NULL,
   `fee` int(10) UNSIGNED NOT NULL,
+  `feeO` int(10) UNSIGNED NOT NULL,
   `updateTime` datetime NOT NULL,
-  `image` varchar(100) NOT NULL,
-  `video` varchar(100) DEFAULT NULL,
+  `image` text NOT NULL,
+  `videoID` varchar(100) DEFAULT NULL,
   `rated` decimal(5,1) DEFAULT NULL,
   `idCategory` int(10) UNSIGNED NOT NULL,
   `required` text NOT NULL,
   `benefit` text NOT NULL,
   `status` tinyint(4) NOT NULL,
   `views` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`id`, `name`, `tinyDescription`, `fullDescription`, `fee`, `updateTime`, `image`, `video`, `rated`, `idCategory`, `required`, `benefit`, `status`, `views`) VALUES
-(0000000001, 'Javascript for Beginners', 'Learn javascript online and supercharge your web design with this Javascript for beginners training course.', 'Take this Javascript training course and start learning Javascript today.\r\n\r\n\"As a business guy I have no place in programming.\" Ten years ago you could have gotten away with that statement. Today you say that to your colleagues and they scoff at you before they go back to their computers to fix real problems and do real work.\r\n\r\nIf you want to do something useful start by learning Javascript . In these days when the browser is central to all computer use knowing \"the language of the browser\" is the most important step. A few years ago Javascript potential was uncertain and many programmers considered it useless. These days however competent programmers have identified Javascript real potential and uses and it has gone from a toy language to the main language of the browser. It has become one of the most useful languages of this era. Every developer needs at least a basic understanding of Javascript. A developer who knows Javascript is the rockstar of the company and is in constant demand by employers. Our online Javascript\r\n\r\ncourse will get you started by teaching all the essential aspects of coding in Javascript. So... what\'s it gonna be? Do you want to supercharge your career and be in constant demand by employers? Do you want to learn how to create dynamic and innovative Javascript documents? Start programming today with our Javascript course for Beginners training and take control of your career.', 299000, '2022-12-13 16:38:53', 'https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg', 'https://www.youtube.com/embed/zBPeGR48_vE', '4.0', 1, 'Some basic knowledge of HTML is required for this course.', '<table class=\"table\">\r\n     <thead>\r\n            <tr>\r\n              <th colspan=\"2\">What will you learn</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Extensive, informative and interesting video lecture\r\n              </td>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Complete Code demonstrated in lecture\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Lab Exercises\r\n              </td>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Lab Solution Sets\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                All Powerpoint Demonstrations Used in Course\r\n              </td>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Instructor contact Email for questions and clarifications\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Coverage of all important primary Javascript concepts\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n        </table> ', 1, 12);
+INSERT INTO `course` (`id`, `name`, `tinyDescription`, `fullDescription`, `fee`, `feeO`, `updateTime`, `image`, `videoID`, `rated`, `idCategory`, `required`, `benefit`, `status`, `views`) VALUES
+(0000000001, 'Javascript for Beginners', 'Learn javascript online and supercharge your web design with this Javascript for beginners training course.', 'Take this Javascript training course and start learning Javascript today.\r\n\r\n\"As a business guy I have no place in programming.\" Ten years ago you could have gotten away with that statement. Today you say that to your colleagues and they scoff at you before they go back to their computers to fix real problems and do real work.\r\n\r\nIf you want to do something useful start by learning Javascript . In these days when the browser is central to all computer use knowing \"the language of the browser\" is the most important step. A few years ago Javascript potential was uncertain and many programmers considered it useless. These days however competent programmers have identified Javascript real potential and uses and it has gone from a toy language to the main language of the browser. It has become one of the most useful languages of this era. Every developer needs at least a basic understanding of Javascript. A developer who knows Javascript is the rockstar of the company and is in constant demand by employers. Our online Javascript\r\n\r\ncourse will get you started by teaching all the essential aspects of coding in Javascript. So... what\'s it gonna be? Do you want to supercharge your career and be in constant demand by employers? Do you want to learn how to create dynamic and innovative Javascript documents? Start programming today with our Javascript course for Beginners training and take control of your career.', 299000, 499000, '2022-12-13 16:38:53', 'https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg', 'zBPeGR48_vE', '4.0', 2, 'Some basic knowledge of HTML is required for this course.', '<table class=\"table\">\r\n     <thead>\r\n            <tr>\r\n              <th colspan=\"2\">What will you learn</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Extensive, informative and interesting video lecture\r\n              </td>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Complete Code demonstrated in lecture\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Lab Exercises\r\n              </td>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Lab Solution Sets\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                All Powerpoint Demonstrations Used in Course\r\n              </td>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Instructor contact Email for questions and clarifications\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\r\n                Coverage of all important primary Javascript concepts\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n        </table> ', 1, 12);
 
 -- --------------------------------------------------------
 
@@ -119,7 +119,15 @@ CREATE TABLE `course_of_student` (
   `chapterID` int(10) UNSIGNED DEFAULT NULL,
   `lessonID` int(10) UNSIGNED DEFAULT NULL,
   `time` time DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `course_of_student`
+--
+
+INSERT INTO `course_of_student` (`studentID`, `courseID`, `chapterID`, `lessonID`, `time`) VALUES
+(1, 1, NULL, NULL, NULL),
+(2, 1, NULL, NULL, NULL);
 
 --
 -- Dumping data for table `course_of_student`
@@ -138,7 +146,17 @@ INSERT INTO `course_of_student` (`studentID`, `courseID`, `chapterID`, `lessonID
 CREATE TABLE `course_of_teacher` (
   `teacherID` int(10) UNSIGNED NOT NULL,
   `courseID` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `course_of_teacher`
+--
+
+INSERT INTO `course_of_teacher` (`teacherID`, `courseID`) VALUES
+(1, 3),
+(1, 4),
+(3, 1),
+(3, 2);
 
 --
 -- Dumping data for table `course_of_teacher`
@@ -162,7 +180,14 @@ CREATE TABLE `history_lesson` (
   `time` time DEFAULT NULL,
   `courseID` int(11) NOT NULL,
   `studentID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `history_lesson`
+--
+
+INSERT INTO `history_lesson` (`chapterID`, `lessonID`, `time`, `courseID`, `studentID`) VALUES
+(1, 2, '17:21:00', 1, 1);
 
 --
 -- Dumping data for table `history_lesson`
@@ -181,7 +206,7 @@ CREATE TABLE `lesson` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(250) NOT NULL,
   `chapterID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -192,7 +217,17 @@ CREATE TABLE `lesson` (
 CREATE TABLE `permission` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `permission`
+--
+
+INSERT INTO `permission` (`id`, `name`) VALUES
+(1, 'admin'),
+(2, 'student'),
+(3, 'teacher'),
+(4, 'guest');
 
 --
 -- Dumping data for table `permission`
@@ -217,7 +252,16 @@ CREATE TABLE `rating` (
   `courseID` int(11) NOT NULL,
   `studentID` int(11) NOT NULL,
   `time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`id`, `star`, `feedback`, `courseID`, `studentID`, `time`) VALUES
+(1, 2, 'hello', 2, 1, '2022-12-16 08:33:51'),
+(2, 5, 'hekko', 1, 2, '2022-12-15 08:42:43'),
+(3, 3, 'fasfas', 1, 3, '2022-12-14 13:42:43');
 
 --
 -- Dumping data for table `rating`
@@ -237,7 +281,15 @@ INSERT INTO `rating` (`id`, `star`, `feedback`, `courseID`, `studentID`, `time`)
 CREATE TABLE `student_love_course` (
   `studentID` int(10) UNSIGNED NOT NULL,
   `courseID` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `student_love_course`
+--
+
+INSERT INTO `student_love_course` (`studentID`, `courseID`) VALUES
+(1, 1),
+(2, 1);
 
 --
 -- Dumping data for table `student_love_course`
@@ -260,7 +312,7 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `permissionID` int(10) UNSIGNED NOT NULL,
   `about` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user`

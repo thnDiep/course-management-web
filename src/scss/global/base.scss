@@ -150,3 +150,20 @@
     padding: 10px;
   }
 }
+.fa-star {
+  color: #feda56;
+}
+.star {
+  position: relative;
+  white-space: nowrap;
+  .overlay--star {
+    background: #fff;
+    height: 100%;
+    overflow: hidden;
+    mix-blend-mode: color;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  font-size: 1.2rem;
+}
