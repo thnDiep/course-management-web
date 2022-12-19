@@ -34,7 +34,7 @@ class CourseController {
     if (course === null) {
       res.redirect("/courses");
     }
-
+    await courseModel.updateView(id);
     res.render("courseDetail", {
       course,
     });

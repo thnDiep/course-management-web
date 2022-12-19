@@ -14,7 +14,10 @@
     font-size: 3rem;
   }
 }
-
+.course__review-score {
+  display: flex !important;
+  flex-direction: row;
+}
 .courses__tool {
   display: flex;
   align-items: center;
