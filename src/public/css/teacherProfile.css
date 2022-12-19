@@ -8,7 +8,8 @@
   background: url(https://bootdey.com/img/Content/bg1.jpg) no-repeat;
   background-size: cover; }
   .profile-cover__action .btn {
-    margin-left: 10px;
+    padding: 0.8rem;
+    margin-left: 15px;
     margin-bottom: 10px; }
 
 .btn:hover {

@@ -17,11 +17,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"></script>
   <script>
     $('#fuMain').fileinput({
-      maxFileCount: 5,
+      maxFileCount: 1,
       theme: 'fa5',
-      allowedFileExtensions: ['jpg', 'png', 'gif'],
+      allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"],
+      showRemove: false,
+      showUpload: false,
+      
     });
   </script>
+  <script>
+    $('#fuSub').fileinput({
+      dropZoneEnabled: false,
+      maxFileCount: 1,
+      theme: 'fa5',
+       allowedFileExtensions: ['jpg', 'png', 'gif'],
+       browseOnZoneClick: false,
+       showRemove: false,
+       showUpload: false,
+       browseOnZoneClick: true,
+      
+    });
+  </script>
+
   <script>
         tinymce.init({
       selector: 'textarea',
@@ -86,8 +103,8 @@
             </select>
           </div>
           <div class="updatePicture">
-            <label for="">Update Picture</label>
-            <div><input type="file" name="filePicture" id="filePicture inputField" /></div>
+            <label for="fuSub">Update Picture</label>
+            <input id="fuSub" type="file" class="file" data-preview-file-type="text" multiple>
           </div>
           <div class="price">
             <label for="">Price</label>
@@ -114,8 +131,8 @@
           <textarea id="requiredTextArea" placeholder="My Text Area" ></textarea>
         </div>
         <div class="formCreate__videoLesson mt-3">
-          <label>Create Documents</label>
-          <input id="fuMain" type="file" class="file btn btnInput" data-preview-file-type="text">
+          <label for="fuMain">Upload Video Documents</label>
+          <input id="fuMain" type="file" class="file" data-preview-file-type="text" multiple>
 
           {{!-- <div class="uploadVideo">
             <div><i class="fas fa-cloud-upload-alt icon"></i></div>

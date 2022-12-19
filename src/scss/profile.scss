@@ -32,7 +32,13 @@ body {
   display: flex;
   justify-content: space-between;
 }
-
+img{
+  border:2px solid linear-gradient(
+    324deg,
+    rgba(248, 215, 82, 1) 0%,
+    rgba(34, 193, 195, 1) 50% !important
+  );
+}
 .edit {
   &:hover,
   &:active {
@@ -97,7 +103,7 @@ body {
 
 .carousel-item {
   &__img img {
-    width: 11rem;
+    width: 13rem;
     height: 9rem;
     margin-right: 0.8rem;
   }
