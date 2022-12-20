@@ -39,10 +39,10 @@ class ACategoryController {
     });
   }
 
-  // GET delete categories
+  // DELETE /admin/category?id=
   async delete(req, res) {
     await categoryModel.delete(req.query.id);
-    res.redirect("/admin/categories");
+    res.redirect("back");
   }
 
   // GET update categories

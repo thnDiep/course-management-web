@@ -150,9 +150,11 @@
     padding: 10px;
   }
 }
+
 .fa-star {
   color: #feda56;
 }
+
 .star {
   position: relative;
   white-space: nowrap;
@@ -166,4 +168,24 @@
     right: 0;
   }
   font-size: 1.2rem;
+}
+
+a {
+  opacity: 0.75;
+  &:hover {
+    text-decoration: none;
+    opacity: 1;
+  }
+
+  &.link--info {
+    color: $info-color;
+  }
+
+  &.link--danger {
+    color: $danger-color;
+  }
+
+  &.link--success {
+    color: $success-color;
+  }
 }

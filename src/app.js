@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import hbs_sections from "express-handlebars-sections";
 import numeral from "numeral";
+import methodOverride from "method-override";
 
 // get __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Static file in public folder
 app.use(express.static(path.join(__dirname, "/public/")));
-
+app.use(methodOverride("_method"));
 // Config handlebars
 app.engine(
   "hbs",

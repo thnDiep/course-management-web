@@ -2,6 +2,23 @@
   <link rel="stylesheet" href="/css/admin.css" />
 {{/section}}
 
+{{#section "js"}}
+  <script>
+    let idCategory;
+    const deleteForm = document.forms['deleteForm'];
+
+    $('#deleteCategoryModal').on('show.bs.modal', function (event) {
+      const button = $(event.relatedTarget) 
+      idCategory = button.data('id')
+    })
+
+    $("#deleteBtn").on('click', () =>{
+      deleteForm.action = '/admin/categories?id=' + idCategory + "&_method=DELETE";
+      deleteForm.submit();
+    })
+  </script>
+{{/section}}
+
 <div class="container">
   <div class="admin__header">
     <h1 class="admin__title">Categories</h1>
@@ -13,38 +30,67 @@
   <table class="table table-bordered table--categories">
     <thead class="thead-light">
       <tr>
+        <th>
+            <input type="checkbox" name="idCategoryAll" id="idCategoryAll">
+        </th>
         <th>#</th>
         <th>Category</th>
         <th>Number course</th>
-        <th class="col-btn">View detail</th>
-        <th class="col-btn">Update</th>
-        <th class="col-btn">Delete</th>
+        <th class="col-btn">Operations</th>
       </tr>
     </thead>
     <tbody>
     
       {{#each this.categories}}
         <tr>
+          <td>
+            <input type="checkbox" name="idCategory" id="idCategory">
+          </td>
           <td scope="row">{{id}}</td>
           <td>{{name}}</td>
           <td>{{numberCourse}}</td>
-          <td class="col-btn">
-            <a href="" class="btn btn--info">
-              <i class="fa fa-eye" aria-hidden="true"></i>
+          <td class="d-flex">
+            <a href="" class="d-flex mr-5 link--info" id="view">
+              <i class="fa fa-eye mr-2" aria-hidden="true"></i>
+              view
             </a>
-          </td>
-          <td class="col-btn">
-            <a href="/admin/categories/update?id={{id}}" class="btn btn--primary">
-              <i class="fa fa-paint-brush" aria-hidden="true"></i>
+
+            <a href="/admin/categories/update?id={{id}}" class="d-flex mr-5 link--success" id="edit">
+              <i class="fa fa-paint-brush mr-2" aria-hidden="true"></i>
+              edit
             </a>
-          </td>
-          <td class="col-btn">
-            <a href="/admin/categories/del?id={{id}}" class="btn btn--danger {{#if numberCourse}}btn--disable{{/if}}">
-              <i class="fa fa-trash" aria-hidden="true"></i>
+
+            <a href="#" class="d-flex {{#if numberCourse}}{{/if}} link--danger" id="delete" data-id={{id}} data-toggle="modal" data-target="#deleteCategoryModal">
+              <i class="fa fa-trash mr-2" aria-hidden="true"></i>
+              delete
             </a>
           </td>
         </tr>
       {{/each}}
     </tbody>
   </table>
+</div>
+
+{{!-- Form delete --}}
+<form name="deleteForm" method="post" ></form> 
+
+{{!-- Confirm delete category --}}
+<div class="modal fade" id="deleteCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Confirm delete</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-3 mb-3">
+        <h1>Are you sure to delete the category?</h1>
+      </div>
+      <div class="modal-footer">
+        <button id="deleteBtn" type="button" class="btn btn--danger">Delete</button>
+        <button type="button" class="btn btn--border" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

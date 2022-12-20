@@ -108,3 +108,15 @@
     position: absolute;
     top: 0;
     right: 0; }
+
+a {
+  opacity: 0.75; }
+  a:hover {
+    text-decoration: none;
+    opacity: 1; }
+  a.link--info {
+    color: #5c5cff; }
+  a.link--danger {
+    color: #fe3636; }
+  a.link--success {
+    color: #16a116; }

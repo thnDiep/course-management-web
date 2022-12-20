@@ -53,7 +53,9 @@
 
 .table.table--categories th:nth-child(1),
 .table.table--categories td:nth-child(1),
-.table.table--categories th:nth-child(3),
-.table.table--categories td:nth-child(3) {
+.table.table--categories th:nth-child(2),
+.table.table--categories td:nth-child(2),
+.table.table--categories th:nth-child(4),
+.table.table--categories td:nth-child(4) {
   width: 50px;
   text-align: center; }
