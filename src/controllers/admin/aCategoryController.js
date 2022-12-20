@@ -1,4 +1,5 @@
 import categoryModel from "../../models/categoryModel.js";
+import courseModel from "../../models/courseModel.js";
 
 class ACategoryController {
   // GET /admin/categories
@@ -47,23 +48,31 @@ class ACategoryController {
   async edit(req, res) {
     const id = parseInt(req.query.id) || 1;
     const category = await categoryModel.getById(id);
-    const parentCategories = await categoryModel.getParent();
 
     if (category === null) {
       res.redirect("/admin/categories");
+    } else {
+      const courses = await courseModel.getSummaryByCategoryId(id);
+      const parentCategories = await categoryModel.getParent();
+      const childCategories = await categoryModel.getChildByParentID(id);
+      const lastCategory = await categoryModel.getLast();
+
+      parentCategories.forEach((parent) => {
+        if (category.parentID === parent.id) {
+          parent.isSelected = true;
+        }
+      });
+
+      res.render("vwAdmin/categories/edit", {
+        category,
+        courses,
+        childCategories,
+        parentCategories,
+        isFirst: category.id === 1,
+        isLast: category.id === lastCategory.id,
+        layout: "admin",
+      });
     }
-
-    parentCategories.forEach((parent) => {
-      if (category.parentID === parent.id) {
-        parent.isSelected = true;
-      }
-    });
-
-    res.render("vwAdmin/categories/edit", {
-      category,
-      parentCategories,
-      layout: "admin",
-    });
   }
 }
 

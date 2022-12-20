@@ -1,26 +1,38 @@
+.admin {
+  margin-top: 1rem;
+  height: 100%;
+  display: flex;
+  justify-content: center; }
+
+.admin__bar__option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem; }
+
 .admin__header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 10px; }
   .admin__header .admin__title {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 600;
     text-transform: uppercase;
     margin: 0; }
+    .admin__header .admin__title span {
+      text-transform: initial; }
 
 .admin__container {
-  display: flex;
-  justify-content: center; }
+  margin: auto; }
 
 .admin__form {
   font-size: 1.6rem;
-  width: 360px;
+  width: 100%;
   min-height: 100px;
   padding: 12px 24px;
   border-radius: 2px;
-  margin: 24px;
-  align-self: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #fff; }
   .admin__form .form-group {
@@ -54,6 +66,11 @@
     margin-top: 8px;
     width: 100%;
     padding: 6px; }
+
+.form-addChildInput {
+  width: 100%;
+  border: none;
+  outline: none; }
 
 .table.table--courses td:nth-child(1) {
   text-align: center;

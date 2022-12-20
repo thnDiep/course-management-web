@@ -32,6 +32,12 @@ app.engine(
       format_number(value) {
         return numeral(value).format("0,0");
       },
+      add(value1, value2) {
+        return value1 + value2;
+      },
+      minus(value1, value2) {
+        return value1 - value2;
+      },
     },
   })
 );

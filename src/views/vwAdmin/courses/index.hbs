@@ -1,21 +1,11 @@
-{{#section "css"}}
-  <link rel="stylesheet" href="/css/admin.css" />
-{{/section}}
-
 {{#section "js"}}
   <script>
-    let idCourse; 
-    const deleteForm = document.getElementById("deleteCourseForm");
-
-    $('#deleteCourseModal').on('show.bs.modal', function (event) { 
-      const button = $(event.relatedTarget)
-      idCourse = button.data('id') 
-    })
-
-    $("#deleteBtn").on('click', () =>{ 
-      deleteForm.action = '/admin/courses?id='+ idCourse + "&_method=DELETE"; 
-      deleteForm.submit(); 
-    })
+    let idCourse; const deleteForm =
+    document.getElementById("deleteCourseForm");
+    $('#deleteCourseModal').on('show.bs.modal', function (event) { const button
+    = $(event.relatedTarget) idCourse = button.data('id') })
+    $("#deleteBtn").on('click', () =>{ deleteForm.action = '/admin/courses?id='+
+    idCourse + "&_method=DELETE"; deleteForm.submit(); })
   </script>
 {{/section}}
 
@@ -30,7 +20,7 @@
         <th>#</th>
         <th>Course Name</th>
         <th>Category</th>
-        <th>Delete</th>
+        <th>Options</th>
       </tr>
     </thead>
     <tbody>
