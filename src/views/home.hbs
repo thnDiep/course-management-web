@@ -323,7 +323,7 @@
       <div class="container">
         <div class="row text-center mb-3">
           <div class="col-md-12">
-            <h2>The 10 most viewed courses</h2>
+            <h2>Most Viewed Courses</h2>
             {{! <p>Lorem Ipsum pagination consumpim in definiction.</p> }}
             <hr />
           </div>
@@ -333,15 +333,15 @@
           <div class="swiper-container">
             <div class="swiper-wrapper">
               
-              {{#each people}}
+              {{#each arrayViewed}}
               <div class="swiper-slide">
                 <div class="row">
-                  {{#each ../views}}
+                  {{#each courses}}
                     <div class="col-md-3">
                       <div class="card" style="width: 100%;">
-                        <a href="/courses/courseDetail" class="course__link"></a>
+                        <a href="/courses/courseDetail?id={{id}}" class="course__link"></a>
                         <img
-                          src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
+                          src="{{image}}"
                           class="card-img-top"
                           alt="..."
                         />
@@ -357,11 +357,11 @@
 
                           <div class="course__price">
                             <h4 class="course__price-new">
-                              200.000
+                              {{format_number feeO}}
                               <span class="course__price-unit">đ</span>
                             </h4>
                             <h4 class="course__price-old">
-                              499.000
+                              {{format_number fee}}
                               <span class="course__price-unit">đ</span>
                             </h4>
                           </div>
@@ -400,7 +400,7 @@
       <div class="container">
         <div class="row text-center mb-3">
           <div class="col-md-12">
-            <h2>The latest 10 courses</h2>
+            <h2>The latest Courses</h2>
             {{! <p>Lorem Ipsum pagination consumpim in definiction.</p> }}
             <hr />
           </div>
@@ -409,582 +409,56 @@
           <!-- Swiper -->
           <div class="swiper-container">
             <div class="swiper-wrapper">
+              {{#each arrayLastest}}
               <div class="swiper-slide">
                 <div class="row">
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
+                  {{#each courses}}
+                   <div class="col-md-3">
+                      <div class="card" style="width: 100%;">
+                        <a href="/courses/courseDetail?id={{id}}" class="course__link"></a>
+                        <img
+                          src="{{image}}"
+                          class="card-img-top"
+                          alt="..."
+                        />
+                        <div class="card-body">
+                          <h5 class="card-title">{{name}}</h5>
+                          <h5 class="course__teacher">Teacher: {{teacherName}}</h5>
 
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
+                          <div class="course__review">
+                            {{>barStar}}
+
+                            <div class="course__review-number">({{sumRate}})</div>
                           </div>
 
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
+                          <div class="course__price">
+                            <h4 class="course__price-new">
+                              {{format_number feeO}}
+                              <span class="course__price-unit">đ</span>
+                            </h4>
+                            <h4 class="course__price-old">
+                              {{format_number fee}}
+                              <span class="course__price-unit">đ</span>
+                            </h4>
                           </div>
-
-                          <div class="course__review-number">(1,332)</div>
+                          <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
+                            Visit site</a>
+                          <a href="#" class="btn"><i
+                              class="fa fa-cart-plus"
+                              aria-hidden="true"
+                            ></i>
+                            Add
+                          </a>
                         </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
+                  {{/each}}
 
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div>
               </div>
-              <div class="swiper-slide">
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                      <a href="/courses/courseDetail" class="course__link"></a>
-                      <img
-                        src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Javascript for beginners</h5>
-                        <h5 class="course__teacher">Teacher: Dollar Design
-                          School</h5>
-
-                        <div class="course__review">
-                          <div class="course__review-score">
-                            4.3
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-half" aria-hidden="true"></i>
-                          </div>
-
-                          <div class="course__review-number">(1,332)</div>
-                        </div>
-
-                        <div class="course__price">
-                          <h4 class="course__price-new">
-                            299.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                          <h4 class="course__price-old">
-                            499.000
-                            <span class="course__price-unit">đ</span>
-                          </h4>
-                        </div>
-                        <a href="#" class="btn mr-2"><i class="fas fa-link"></i>
-                          Visit site</a>
-                        <a href="#" class="btn"><i
-                            class="fa fa-cart-plus"
-                            aria-hidden="true"
-                          ></i>
-                          Add
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+               {{/each}}
+             
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>

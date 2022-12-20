@@ -46,4 +46,10 @@ export default {
                                   ORDER BY views DESC LIMIT 12;`);
     return courses;
   },
+  async getLatest() {
+    const courses = await db.raw(`SELECT c.*
+                                  FROM course c
+                                  ORDER BY updateTime DESC LIMIT 12;`);
+    return courses;
+  },
 };
