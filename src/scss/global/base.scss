@@ -75,7 +75,7 @@
     background-color: $danger-color;
 
     &:hover {
-      opacity: 0.6;
+      filter: brightness(95%);
     }
 
     &.btn--border {
@@ -89,7 +89,7 @@
     background-color: $info-color;
 
     &:hover {
-      opacity: 0.6;
+      filter: brightness(95%);
     }
 
     &.btn--border {
@@ -103,7 +103,7 @@
     background-color: $success-color;
 
     &:hover {
-      opacity: 0.6;
+      filter: brightness(95%);
     }
 
     &.btn--border {
@@ -170,10 +170,9 @@
 }
 
 a {
-  opacity: 0.75;
   &:hover {
     text-decoration: none;
-    opacity: 1;
+    filter: brightness(90%);
   }
 
   &.link--info {

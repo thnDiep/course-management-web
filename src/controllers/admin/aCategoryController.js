@@ -43,8 +43,8 @@ class ACategoryController {
     res.redirect("back");
   }
 
-  // GET update categories
-  async update(req, res) {
+  // GET /admin/categories?id=
+  async edit(req, res) {
     const id = parseInt(req.query.id) || 1;
     const category = await categoryModel.getById(id);
     const parentCategories = await categoryModel.getParent();
@@ -59,7 +59,7 @@ class ACategoryController {
       }
     });
 
-    res.render("vwAdmin/categories/update", {
+    res.render("vwAdmin/categories/edit", {
       category,
       parentCategories,
       layout: "admin",
