@@ -25,6 +25,14 @@
   background-color: #fff; }
   .admin__form .form-group {
     margin-bottom: 16px; }
+    .admin__form .form-group.invalid label,
+    .admin__form .form-group.invalid .form-message {
+      color: #fe3636; }
+    .admin__form .form-group.invalid input {
+      border-color: #fe3636; }
+  .admin__form .form-message {
+    font-size: 1.4rem;
+    padding-left: 4px; }
   .admin__form select {
     padding: 8px;
     width: 100%;

@@ -1,7 +1,7 @@
 import categoryModel from "../../models/categoryModel.js";
 
 class ACategoryController {
-  // GET categories list
+  // GET /admin/categories
   async index(req, res) {
     const categories = await categoryModel.getAll();
     res.render("vwAdmin/categories/index", {
@@ -10,7 +10,7 @@ class ACategoryController {
     });
   }
 
-  // GET add categories
+  // GET /admin/categories/add
   async add(req, res) {
     const parentCategories = await categoryModel.getParent();
 
@@ -20,26 +20,24 @@ class ACategoryController {
     });
   }
 
-  // POST add categories
-  async addPost(req, res) {
-    if (await categoryModel.isNameExist(req.body.name)) {
-      console.log("tên đã tồn tại");
-    } else {
-      if (parseInt(req.body.parentID) === 0) {
-        delete req.body.parentID;
-      }
-
-      await categoryModel.add(req.body);
-    }
-
-    const parentCategories = await categoryModel.getParent();
-    res.render("vwAdmin/categories/add", {
-      parentCategories,
-      layout: "admin",
-    });
+  // GET /admin/categories/add/is-available
+  async isAvailableToAdd(req, res) {
+    const name = await categoryModel.getByName(req.query.name);
+    if (name === null) return res.json(true);
+    return res.json(false);
   }
 
-  // DELETE /admin/category?id=
+  // POST /admin/categories/add
+  async store(req, res) {
+    if (parseInt(req.body.parentID) === 0) {
+      delete req.body.parentID;
+    }
+
+    await categoryModel.add(req.body);
+    res.redirect("back");
+  }
+
+  // DELETE /admin/categories?id=
   async delete(req, res) {
     await categoryModel.delete(req.query.id);
     res.redirect("back");

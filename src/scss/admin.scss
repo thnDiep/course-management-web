@@ -32,6 +32,20 @@
 
   .form-group {
     margin-bottom: 16px;
+    &.invalid {
+      label,
+      .form-message {
+        color: $danger-color;
+      }
+      input {
+        border-color: $danger-color;
+      }
+    }
+  }
+
+  .form-message {
+    font-size: 1.4rem;
+    padding-left: 4px;
   }
 
   select {

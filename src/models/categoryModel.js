@@ -45,6 +45,12 @@ export default {
     return list[0];
   },
 
+  async getByName(name) {
+    const list = await db("category").where("name", name);
+    if (list.length === 0) return null;
+    return list[0];
+  },
+
   getNumberChildCategory() {
     return db
       .select("c1.id", "c1.name")
