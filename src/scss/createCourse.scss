@@ -13,6 +13,8 @@ label {
 }
 
 .formCreate {
+  //background-color: rgb(160, 170, 197);
+  border: 0.2rem dashed #d8d7dc;
   width: 100%;
   //margin-left: 11rem;
   border-radius: 1rem;
@@ -29,12 +31,12 @@ label {
   }
 }
 
-.uploadVideo {
-  padding: 8rem;
-  margin: 1rem 0;
-  border: 0.2rem dashed #d8d7dc;
-  text-align: center;
-}
+// .uploadVideo {
+//   padding: 8rem;
+//   margin: 1rem 0;
+//   border: 0.2rem dashed #d8d7dc;
+//   text-align: center;
+// }
 
 .inputField {
   width: 100%;
@@ -43,11 +45,11 @@ label {
   margin-bottom: 0.5rem;
 }
 
-.icon {
-  font-size: 4.5rem;
-  margin-bottom: 1rem;
-  color: #d1d1d5;
-}
+// .icon {
+//   font-size: 4.5rem;
+//   margin-bottom: 1rem;
+//   color: #d1d1d5;
+// }
 
 .msg {
   &-1 {
@@ -130,5 +132,24 @@ label {
   &:hover,
   &:active {
     cursor: pointer;
+  }
+}
+
+.btn{
+&Input{
+    border: 0.2rem solid #d1d1d5 !important;
+    padding: 1rem !important;
+    color: #d8d7dc !important;
+  
+}
+}
+.subLabel{
+  font-size: 1.5rem;
+  color: red;
+  margin-top: 1rem;
+  font-weight: bold;
+  &-price{
+    font-size: 1.1rem;
+    margin-top: 1.3rem;
   }
 }

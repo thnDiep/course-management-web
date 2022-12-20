@@ -14,6 +14,9 @@ body {
   display: flex;
   justify-content: space-between; }
 
+img {
+  border: 2px solid linear-gradient(324deg, #f8d752 0%, #22c1c3 50% !important); }
+
 .edit:hover, .edit:active {
   margin-top: 0.5rem;
   cursor: pointer; }
@@ -61,7 +64,7 @@ body {
   transform: scale(0.8); }
 
 .carousel-item__img img {
-  width: 11rem;
+  width: 13rem;
   height: 9rem;
   margin-right: 0.8rem; }
 

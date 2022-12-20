@@ -1,7 +1,57 @@
+
 {{#section "css"}}
 <link rel="stylesheet" href="/css/createCourse.css" />
 <link rel="stylesheet" href="/css/teacherProfile.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/css/fileinput.min.css" />
 {{/section}}
+{{#section "js"}}
+  <script
+    src="https://cdn.tiny.cloud/1/y16lx8krusdxb9jurdcxz9xr6r24nrd6vgz4231m0rgoezfz/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/fileinput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"></script>
+  <script>
+    $('#fuMain').fileinput({
+      maxFileCount: 1,
+      theme: 'fa5',
+      allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"],
+      showRemove: false,
+      showUpload: false,
+      
+    });
+  </script>
+  <script>
+    $('#fuSub').fileinput({
+      dropZoneEnabled: false,
+      maxFileCount: 1,
+      theme: 'fa5',
+       allowedFileExtensions: ['jpg', 'png', 'gif'],
+       browseOnZoneClick: false,
+       showRemove: false,
+       showUpload: false,
+       browseOnZoneClick: true,
+      
+    });
+  </script>
+
+  <script>
+        tinymce.init({
+      selector: 'textarea',
+      menubar: false,
+      plugins: 'paste image link autolink lists table media',
+      toolbar: [
+        'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright | forecolor backcolor | table link image media',
+      ],
+    });
+</script>
+<script src="/js/createCourse.js"></script>
+{{/section}}
+
 <div class="row justify-content-center">
   <div class="col-lg-10">
     <div class="profile-cover">
@@ -37,90 +87,74 @@
       <hr />
       <form action="" class="formCourse">
         <div class="formCreate__titleCourse">
-          <label>Course Title</label>
-          <input type="text" placeholder="Name of course" class="inputField" />
+          <div class="d-flex justify-content-between">
+            <label>Course Title</label>
+          <p class="subLabel subLabel-title hidden">This feild can't be empty...</p>
+          </div>
+          <input type="text" placeholder="Name of course" class="inputField input" />
         </div>
         <div class="formCreate__categoryLesson d-flex flex-wrap justify-content-between">
           <div class="topics">
-            <label for="">Topics</label>
+            
+            <label for="">Main Category</label>
             <select class="inputField">
-              <option>IT & Software</option>
-              <option>Development</option>
-              <option>Business</option>
-              <option>Add more topic...</option>
+              {{#each this.parentCourse}}
+              <option>{{name}}</option>
+              {{/each}}
             </select>
+             
           </div>
-          <div class="updatePicture">
-            <label for="">Update Picture</label>
-            <div><input type="file" name="filePicture" id="filePicture inputField" /></div>
+
+          <div class="subTopics">
+            
+            <label for="">Sub Category</label>
+            <select class="inputField">
+              {{#each this.childCourse}}
+              <option>{{name}}</option>
+              {{/each}}
+            </select>
+             
           </div>
+          
           <div class="price">
-            <label for="">Price</label>
-            <div><input type="text" name="currency-field" id="currency-field" pattern="^\VNĐ\d{1,3}(,\d{3})*(\.\d+)?$"
-                value="" data-type="currency" placeholder="VNĐ1,000,000.00" class="inputField" />
+            <div class="d-flex justify-content-between">
+            <label>Price</label>
+          <p class="subLabel subLabel-price hidden">This feild can't be empty...</p>
+          </div>
+            <div><input type="text" name="currency-field" id="currency-field" 
+                value=""  placeholder="VNĐ1,000,000.00" class="inputField" />
             </div>
           </div>
+        </div>
+        <div class="updatePicture ">
+            <label for="fuSub">Update Picture</label>
+            <input id="fuSub" type="file" class="file" data-preview-file-type="text" multiple>
         </div>
         <div class="formCreate__summaryCourse">
-          <label>Summary</label>
-          <input type="text" placeholder="Summary of course" class="inputField" />
-        </div>
-        <div class="formCreate__descriptionCourse">
-          <label>Description</label>
-          <div class="entry">
-            <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
-            <h1>{{title}}</h1>
-            <div class="body">
-              <textarea name="editor1"></textarea>
-              <script>
-                CKEDITOR.replace('editor1');
-              </script>
-              {{body}}
-            </div>
+          <div class="d-flex justify-content-between">
+            <label>Summary</label>
+          <p class="subLabel subLabel-summary hidden">This feild can't be empty...</p>
           </div>
+          <input type="text" placeholder="Summary of course" class="inputField input" />
+        </div>
+       
+        <div class="formCreate__descriptionCourse">
+          <label >Description</label>
+          <textarea id="descriptionTextArea" placeholder="My Text Area"></textarea>
         </div>
         <div class="formCreate__benefitCourse">
           <label>Benefit</label>
-          <div class="entry">
-            <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
-            <h1>{{title}}</h1>
-            <div class="body">
-              <textarea name="editor2"></textarea>
-              <script>
-                CKEDITOR.replace('editor2');
-              </script>
-              {{body}}
-            </div>
-          </div>
+          <textarea id="benefitTextArea" placeholder="My Text Area" ></textarea>
         </div>
         <div class="formCreate__requiredCourse">
           <label>Required</label>
-          <div class="entry">
-            <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
-            <h1>{{title}}</h1>
-            <div class="body">
-              <textarea name="editor3"></textarea>
-              <script>
-                CKEDITOR.replace('editor3');
-              </script>
-              {{body}}
-            </div>
-          </div>
+          <textarea id="requiredTextArea" placeholder="My Text Area" ></textarea>
         </div>
-        {{!-- <div class="formCreate__videoLesson mt-3">
-          <label>Create Documents</label>
-          <div class="uploadVideo">
-            <div><i class="fas fa-cloud-upload-alt icon"></i></div>
-            <div>
-              <p class="msg-1">Browse and choose the file you want to</p>
-            </div>
-            <div>
-              <p class="msg-2">upload from your computer</p>
-            </div>
-            <input type="file" id="myFile" name="filename" />
-          </div>
-          {{! <input type="submit" /> }}
-        </div> --}}
+        <div class="formCreate__videoLesson mt-3">
+          <label for="fuMain">Upload Video Documents</label>
+          <input id="fuMain" type="file" class="file" data-preview-file-type="text" multiple>
+
+        </div>
         <div class="formLessonList">
           <div class="formLessonList__title d-flex justify-content-between">
             <label class="title">Lesson list</label>
@@ -129,7 +163,7 @@
 
           </div>
           <hr />
-          <div class="formLessonList__content">
+          <div class="formLessonList__content hidden">
             <div class="formLessionList__mainTitle">
               <div class="row">
                 <div class="col-lg-12">
