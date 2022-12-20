@@ -87,3 +87,12 @@ label {
   border: 0.2rem solid #d1d1d5 !important;
   padding: 1rem !important;
   color: #d8d7dc !important; }
+
+.subLabel {
+  font-size: 1.5rem;
+  color: red;
+  margin-top: 1rem;
+  font-weight: bold; }
+  .subLabel-price {
+    font-size: 1.1rem;
+    margin-top: 1.3rem; }
