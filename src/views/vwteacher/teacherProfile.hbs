@@ -1,7 +1,6 @@
 {{#section "css"}}
   <link rel="stylesheet" href="/css/teacherProfile.css" />
   <link rel="stylesheet" href="/css/profile.css" />
-
 {{/section}}
 {{#section "js"}}
   <script src="/js/teacherProfile.js"></script>
@@ -21,7 +20,7 @@
           />
           <br />
           <input type="file" name="image" />
-          <h1 class="my-3">John Smith</h1>
+          <h1 class="my-3">{{this.teacher.name}}</h1>
           <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
             Teacher</p>
           {{! <div class="d-flex justify-content-center mb-2">
@@ -39,7 +38,7 @@
             <div class="col-sm-8">
               <input
                 type="text"
-                value="Johnatan Smith"
+                value="{{this.teacher.name}}"
                 class="text-muted mb-0 input"
                 name="name"
                 disabled
@@ -58,7 +57,7 @@
             <div class="col-sm-8">
               <input
                 type="text"
-                value="example@example.com"
+                value="{{this.teacher.email}}"
                 class="text-muted mb-0 input"
                 name="email"
                 disabled
@@ -76,7 +75,7 @@
             <div class="col-sm-8">
               <input
                 type="password"
-                value="haha123"
+                value="{{this.teacher.password}}"
                 class="text-muted mb-0 input"
                 name="password"
                 disabled
@@ -96,7 +95,7 @@
     <div class="profile-cover">
       <div class="profile-cover__img">
         <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
-        <h3 class="h3">Henry Foster</h3>
+        <h3 class="h3">{{this.teacher.name}}</h3>
       </div>
       <div class="profile-cover__action bg--img" data-overlay="0.3">
         <button class="btn btn-rounded btn-edit">
@@ -110,9 +109,9 @@
       </div>
       <div class="profile-cover__info">
         <ul class="nav">
-          <li><strong>76,134</strong>Reviews</li>
-          <li><strong>925,657</strong>Students</li>
-          <li><strong>16</strong>Courses</li>
+          <li><strong>{{this.teacher.countReview}}</strong>Reviews</li>
+          <li><strong>{{this.teacher.student}}</strong>Students</li>
+          <li><strong>{{this.teacher.courses}}</strong>Courses</li>
         </ul>
       </div>
 
@@ -145,156 +144,42 @@
         <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
       </div>
       <div class="row g-2">
-        <div class="col-3 mb-2">
-          <div class="card" style="width: 100%;">
-            <a href="/courses/courseDetail" class="course__link"></a>
-            <img
-              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Javascript for beginners</h5>
+        {{#each course}}
+          <div class="col-3 mb-2">
+            <div class="card" style="width: 100%;">
+              {{! <a href="/courses/courseDetail" class="course__link"></a> }}
+              <img src="{{image}}" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Javascript for beginners</h5>
 
-              <div class="course__review">
-                <div class="course__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                <div class="course__review">
+                  {{!-- <div class="course__review-score">
+                    4.3
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half" aria-hidden="true"></i>
+                  </div> --}}
+                  {{>barStar}}
+                  <div class="course__review-number">({{numberStudent}})</div>
                 </div>
 
-                <div class="course__review-number">(1,332)</div>
-              </div>
-
-              <div class="course__price">
-                <h4 class="course__price-new">
-                  299.000
-                  <span class="course__price-unit">đ</span>
-                </h4>
-                <h4 class="course__price-old">
-                  499.000
-                  <span class="course__price-unit">đ</span>
-                </h4>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-3 mb-2">
-          <div class="card" style="width: 100%;">
-            <a href="/courses/courseDetail" class="course__link"></a>
-            <img
-              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Javascript for beginners</h5>
-
-              <div class="course__review">
-                <div class="course__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                <div class="course__price">
+                  <h4 class="course__price-new">
+                    {{format_number feeO}}
+                    <span class="course__price-unit">đ</span>
+                  </h4>
+                  <h4 class="course__price-old">
+                    {{format_number fee}}
+                    <span class="course__price-unit">đ</span>
+                  </h4>
                 </div>
 
-                <div class="course__review-number">(1,332)</div>
               </div>
-
-              <div class="course__price">
-                <h4 class="course__price-new">
-                  299.000
-                  <span class="course__price-unit">đ</span>
-                </h4>
-                <h4 class="course__price-old">
-                  499.000
-                  <span class="course__price-unit">đ</span>
-                </h4>
-              </div>
-
             </div>
           </div>
-        </div><div class="col-3 mb-2">
-          <div class="card" style="width: 100%;">
-            <a href="/courses/courseDetail" class="course__link"></a>
-            <img
-              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Javascript for beginners</h5>
-
-              <div class="course__review">
-                <div class="course__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
-                </div>
-
-                <div class="course__review-number">(1,332)</div>
-              </div>
-
-              <div class="course__price">
-                <h4 class="course__price-new">
-                  299.000
-                  <span class="course__price-unit">đ</span>
-                </h4>
-                <h4 class="course__price-old">
-                  499.000
-                  <span class="course__price-unit">đ</span>
-                </h4>
-              </div>
-
-            </div>
-          </div>
-        </div><div class="col-3 mb-2">
-          <div class="card" style="width: 100%;">
-            <a href="/courses/courseDetail" class="course__link"></a>
-            <img
-              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Javascript for beginners</h5>
-
-              <div class="course__review">
-                <div class="course__review-score">
-                  4.3
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half" aria-hidden="true"></i>
-                </div>
-
-                <div class="course__review-number">(1,332)</div>
-              </div>
-
-              <div class="course__price">
-                <h4 class="course__price-new">
-                  299.000
-                  <span class="course__price-unit">đ</span>
-                </h4>
-                <h4 class="course__price-old">
-                  499.000
-                  <span class="course__price-unit">đ</span>
-                </h4>
-              </div>
-
-            </div>
-          </div>
-        </div>
+        {{/each}}
 
       </div>
 
