@@ -1,5 +1,12 @@
-{{#section "css"}}
-  <link rel="stylesheet" href="/css/admin.css" />
+{{#section "js"}}
+  <script>
+    let idCourse; const deleteForm =
+    document.getElementById("deleteCourseForm");
+    $('#deleteCourseModal').on('show.bs.modal', function (event) { const button
+    = $(event.relatedTarget) idCourse = button.data('id') })
+    $("#deleteBtn").on('click', () =>{ deleteForm.action = '/admin/courses?id='+
+    idCourse + "&_method=DELETE"; deleteForm.submit(); })
+  </script>
 {{/section}}
 
 <div class="container">
@@ -13,110 +20,74 @@
         <th>#</th>
         <th>Course Name</th>
         <th>Category</th>
-        <th>Delete</th>
+        <th>Options</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td scope="row">0</td>
-        <td>Javascript for Beginners</td>
-        <td>IT & Software</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">1</td>
-        <td>Javascript for Beginners</td>
-        <td>Network</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">2</td>
-        <td>Javascript for Beginners</td>
-        <td>Operating System</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">3</td>
-        <td>Javascript for Beginners</td>
-        <td>Javscript</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">4</td>
-        <td>Javascript for Beginners</td>
-        <td>Web development</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">5</td>
-        <td>Javascript for Beginners</td>
-        <td>ReactJS</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">6</td>
-        <td>Javascript for Beginners</td>
-        <td>Nodejs</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">7</td>
-        <td>Javascript for Beginners</td>
-        <td>Software testing</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">8</td>
-        <td>Javascript for Beginners</td>
-        <td>Postman</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">9</td>
-        <td>Javascript for Beginners</td>
-        <td>Java</td>
-        <td class="col-btn">
-          <a href="" class="btn btn--danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
-        </td>
-      </tr>
+      {{#each this.courses}}
+        <tr>
+          <td scope="row">{{id}}</td>
+          <td>{{name}}</td>
+          <td>{{category}}</td>
+          <td class="col-btn">
+            <a
+              href="#"
+              class="d-flex link--danger"
+              id="delete"
+              data-id={{id}}
+              data-toggle="modal"
+              data-target="#deleteCourseModal"
+            >
+              <i class="fa fa-trash mr-2" aria-hidden="true"></i>
+              delete
+            </a>
+          </td>
+        </tr>
+      {{/each}}
     </tbody>
   </table>
+</div>
+
+{{! Form delete }}
+<form id="deleteCourseForm" method="post"></form>
+
+{{! Confirm delete category }}
+<div
+  class="modal fade"
+  id="deleteCourseModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="deleteCourseModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="deleteCourseModal">Confirm delete</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-3 mb-3">
+        <h1>Are you sure to delete this course?</h1>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="deleteBtn"
+          type="button"
+          class="btn btn--danger"
+        >Delete</button>
+        <button
+          type="button"
+          class="btn btn--border"
+          data-dismiss="modal"
+        >Close</button>
+      </div>
+    </div>
+  </div>
 </div>
