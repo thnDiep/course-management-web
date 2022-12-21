@@ -1,0 +1,1 @@
+{"version":3,"sources":["pagination.scss","pagination.css","../global/_variable.scss"],"names":[],"mappings":"AAEA;EACI,qBAAA;ACDJ;ADGI;EACI,WEOM;EFNN,WAAA;EACA,iBAAA;EACA,qBAAA;EACA,iCAAA;EACA,oCAAA;EACA,aAAA;EACA,iBAAA;ACDR;ADGQ;EACI,yBEhBI;EFiBJ,WEJE;EFKF,yBAAA;ACDZ;ADIQ;EACI,sBEfE;ADad","file":"pagination.css"}

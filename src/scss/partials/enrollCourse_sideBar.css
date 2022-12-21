@@ -1,0 +1,78 @@
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 380px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #eeeeee;
+  overflow-x: hidden;
+  padding-top: 10rem;
+}
+.sidenav p {
+  font-size: 2.5rem;
+  margin: 0rem 0rem 1rem 3rem;
+  font-weight: bold;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 18px 16px;
+  text-decoration: none;
+  font-size: 1.6rem;
+  background-color: white;
+  color: black;
+  display: block;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: black;
+  background-color: gainsboro;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  color: black;
+  font-weight: bolder;
+  background-color: #eeeeee;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  padding-left: 8px;
+}
+.dropdown-container a {
+  font-size: 1.4rem;
+  background-color: #eeeeee;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=enrollCourse_sideBar.css.map */

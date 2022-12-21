@@ -54,7 +54,7 @@
     font-size: 34px; }
 
 .text-black .card {
-  background: #fff;
+  background: #222;
   box-shadow: #222 1px 0 10px;
   color: rgba(250, 250, 250, 0.8);
   margin-bottom: 2rem;
@@ -66,7 +66,7 @@
 .text-black .course__teacher {
   font-size: 1.6rem;
   font-weight: 500;
-  color: #000;
+  color: #fff;
   margin: 0; }
 
 .course__review {
@@ -79,7 +79,7 @@
   .course__review .course__review-number {
     font-weight: 400;
     margin-left: 1.4rem;
-    color: #000; }
+    color: #fff; }
 
 .course__price {
   display: flex;
@@ -100,7 +100,7 @@
     font-size: 1.8rem;
     font-weight: 400;
     margin-left: 1.4rem;
-    color: #000; }
+    color: #fff; }
 
 .edit {
   display: none;
@@ -113,11 +113,6 @@
 
 .overlay {
   top: 0; }
-
-.card-title {
-  font-size: 1.8rem;
-  color: #101010;
-  font-weight: 600; }
 
 .fa-edit:hover {
   cursor: pointer;

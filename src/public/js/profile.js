@@ -1,4 +1,3 @@
-
 const icon = document.querySelectorAll(".Edit");
 const iconLayer = document.querySelectorAll(".editPage");
 const nameInput = document.querySelector(".inputName");
