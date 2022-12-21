@@ -72,6 +72,11 @@
   border: none;
   outline: none; }
 
+.admin__btn {
+  height: 50px;
+  width: 50px;
+  padding: 1rem 1.7rem; }
+
 .table.table--courses td:nth-child(1) {
   text-align: center;
   width: 50px; }

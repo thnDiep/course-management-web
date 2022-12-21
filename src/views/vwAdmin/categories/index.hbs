@@ -1,22 +1,12 @@
 {{#section "js"}}
-  <script>
-    let idCategory;
-    const deleteForm = document.forms['deleteForm'];
-
-    $('#deleteCategoryModal').on('show.bs.modal', function (event) {
-      const button = $(event.relatedTarget) 
-      idCategory = button.data('id')
-    })
-
-    $("#deleteBtn").on('click', () =>{
-      deleteForm.action = '/admin/categories?id=' + idCategory + "&_method=DELETE";
-      deleteForm.submit();
-    })
-  </script>
+  <script src="/js/admin/category.js"></script>
 {{/section}}
 
-<div class="container">
+<form class="container" method="post" action="/admin/categories/deleteByCheckbox">
   <div class="admin__header">
+    <button type="submit" class="admin__btn btn btn--icon btn--danger btn--disabled submitDeleteByCheckBox" disabled>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
     <h1 class="admin__title">Categories</h1>
     <a href="/admin/categories/add" class="btn btn--icon btn--success">
       <i class="fa fa-plus mr-3" aria-hidden="true"></i>
@@ -27,7 +17,7 @@
     <thead class="thead-light">
       <tr>
         <th>
-            <input type="checkbox" name="idCategoryAll" id="idCategoryAll">
+            <input type="checkbox" id="checkboxAll">
         </th>
         <th>#</th>
         <th>Category</th>
@@ -40,7 +30,7 @@
       {{#each this.categories}}
         <tr>
           <td>
-            <input type="checkbox" name="idCategory" id="idCategory">
+            <input type="checkbox" name="idCategories" class="checkboxCategory" value={{id}}>
           </td>
           <td scope="row">{{id}}</td>
           <td>{{name}}</td>
@@ -51,7 +41,7 @@
               edit
             </a>
 
-            <a href="#" class="d-flex {{#if numberCourse}}{{/if}} link--danger" id="delete" data-id={{id}} data-toggle="modal" data-target="#deleteCategoryModal">
+            <a href="#" class="d-flex {{#if numberCourse}}link--disable{{/if}} link--danger" id="delete" data-id={{id}} data-toggle="modal" data-target="#deleteCategoryModal">
               <i class="fa fa-trash mr-2" aria-hidden="true"></i>
               delete
             </a>
@@ -60,7 +50,7 @@
       {{/each}}
     </tbody>
   </table>
-</div>
+</form>
 
 {{!-- Form delete --}}
 <form name="deleteForm" method="post" ></form> 

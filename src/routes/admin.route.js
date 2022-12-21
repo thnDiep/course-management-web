@@ -15,6 +15,10 @@ router.post("/categories/add", aCategoryController.store);
 
 // delete CATEGORY
 router.delete("/categories", aCategoryController.delete);
+router.post(
+  "/categories/deleteByCheckbox",
+  aCategoryController.deleteByCheckbox
+);
 
 // update CATEGORY
 router.get("/categories/edit", aCategoryController.edit);

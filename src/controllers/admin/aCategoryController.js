@@ -44,6 +44,14 @@ class ACategoryController {
     res.redirect("back");
   }
 
+  // POST /admin/categories/deleteByCheckbox
+  async deleteByCheckbox(req, res) {
+    for (const idCategory of req.body.idCategories) {
+      await categoryModel.delete(idCategory);
+    }
+    res.redirect("back");
+  }
+
   // GET /admin/categories?id=
   async edit(req, res) {
     const id = parseInt(req.query.id) || 1;

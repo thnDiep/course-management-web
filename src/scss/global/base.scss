@@ -112,12 +112,13 @@
   }
 
   &.btn--disabled {
-    opacity: 0.5;
+    opacity: 0.8;
     filter: brightness(80%);
-    cursor: none;
+    border: none;
 
     &:hover {
-      cursor: none;
+      opacity: 0.8;
+      filter: brightness(80%);
     }
   }
 }
@@ -165,6 +166,7 @@
 }
 
 a {
+  color: $text-color;
   &:hover {
     text-decoration: none;
     filter: brightness(90%);
@@ -183,6 +185,7 @@ a {
   }
 
   &.link--disabled {
+    opacity: 0.5;
     pointer-events: none;
   }
 }
