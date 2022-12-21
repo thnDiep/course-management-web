@@ -1,6 +1,6 @@
 
 {{#section "css"}}
-<link rel="stylesheet" href="/css/createCourse.css" />
+<link rel="stylesheet" href="/css/createLesson.css">
 <link rel="stylesheet" href="/css/teacherProfile.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/css/fileinput.min.css" />
 {{/section}}
@@ -81,91 +81,12 @@
       </div>
 
     </div>
-  </div>
+  </div >
   <div class="col-lg-10">
-    <div class="formCreate">
-      <div class="formCreate__title">
-        <p>Create Course Lesson</p>
-      </div>
-      <hr />
-      <form action="" class="formCourse">
-        <div class="formCreate__titleCourse">
-          <div class="d-flex justify-content-between">
-            <label>Course Title</label>
-          <p class="subLabel subLabel-title hidden">This feild can't be empty...</p>
-          </div>
-          <input type="text" placeholder="Name of course" class="inputField input" name="title"/>
-        </div>
-        <div class="formCreate__categoryLesson d-flex flex-wrap justify-content-between">
-          <div class="topics">
-            
-            <label for="">Main Category</label>
-            <select class="inputField">
-              {{#each this.parentCourse}}
-              <option>{{name}}</option>
-              {{/each}}
-            </select>
-             
-          </div>
-
-          <div class="subTopics">
-            
-            <label for="">Sub Category</label>
-            <select class="inputField">
-              {{#each this.childCourse}}
-              <option>{{name}}</option>
-              {{/each}}
-            </select>
-             
-          </div>
-          
-          <div class="price">
-          <div class="d-flex justify-content-between">
-            <label for="">Price</label>
-            <p class="subLabel subLabel-price hidden">This feild can't be empty...</p>
-          </div>
-            
-            <div>
-              <input type="text" name="currency-field" id="currency-field" 
-                value=""  placeholder="VNĐ1,000,000.00" class="inputField" />
-            </div>
-          </div>
-        </div>
-        <div class="updatePicture ">
-            <label for="fuSub">Update Picture</label>
-            <input id="fuSub" type="file" class="file" data-preview-file-type="text" multiple>
-        </div>
-        <div class="formCreate__summaryCourse">
-         
-           <div class="d-flex justify-content-between">
-            <label>Summary</label>
-            <p class="subLabel subLabel-summary hidden">This feild can't be empty...</p>
-          </div>
-          <input type="text" placeholder="Summary of course" class="inputField input" name="summay"/>
-        </div>
-       
-        <div class="formCreate__descriptionCourse">
-          <label >Description</label>
-          <textarea id="descriptionTextArea" placeholder="My Text Area" name="desciption"></textarea>
-        </div>
-        <div class="formCreate__benefitCourse">
-          <label>Benefit</label>
-          <textarea id="benefitTextArea" placeholder="My Text Area" name="benefit" ></textarea>
-        </div>
-        <div class="formCreate__requiredCourse">
-          <label>Required</label>
-          <textarea id="requiredTextArea" placeholder="My Text Area" name="required" ></textarea>
-        </div>
-        <div class="formCreate__videoLesson mt-3">
-          <label for="fuMain">Upload Video Documents</label>
-          <input id="fuMain" type="file" class="file" data-preview-file-type="text" multiple>
-
-
-        </div>
-         {{!-- <div class="formLessonList">
+         <div class="formLessonList">
           <div class="formLessonList__title d-flex justify-content-between">
-            <label class="title">Lesson list</label>
-            <button class="btnClick"><i class="fas fa-plus"></i>
+            <p class="title">Lesson list</p>
+            <button class="btnClick" type="submit"><i class="fas fa-plus"></i>
               Add new lesson</button>
 
           </div>
@@ -229,12 +150,6 @@
               </div>
             </div>
           </div>
-        </div>  --}}
-        <div class="formUpload__btn">
-          <button class="btnCreate btn btn--submit"><i class="fas fa-check"></i>
-            Create Course</button>
-        </div>
-      </form>
-    </div>
-  </div>
+        </div> 
+   </div>    
 </div>

@@ -5,9 +5,10 @@ class TCourseController {
   async index(req, res) {
     const parentCourse = await categoryModel.getParent();
     const childCourse = await categoryModel.getChild();
-    res.render("createCourse", {
+    res.render("vwteacher/createCourse", {
       parentCourse,
       childCourse,
+      layout:"teacher",
     });
   }
 }

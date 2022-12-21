@@ -1,0 +1,68 @@
+body {
+    background: linear-gradient(191deg,
+        rgba(255, 192, 67, 0) 5.02%,
+        rgba(255, 192, 67, 0.5) 94.1%);
+    background-size: cover;
+  }
+  
+  label {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+.formLessonList {
+    //background-color: rgb(160, 170, 197);
+    border: 0.2rem dashed #d8d7dc;
+    width: 100%;
+    border-radius: 1rem;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    padding: 3rem;
+  
+    &__title {
+      font-size: 3rem;
+      font-family: SuisseWorks, Georgia, Times, times new roman, serif,
+        apple color emoji, segoe ui emoji, segoe ui symbol;
+      font-weight: bold;
+    }
+    &__content {
+        margin-left: 1rem;
+        border: 0.1rem solid #d1d1d5;
+        font-size: 1.5rem;
+    
+        p {
+          margin-top: 2rem;
+    
+          i {
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+          }
+        }
+      }
+  }
+
+  .btnClick {
+    background-color: #00d8b2;
+    border-color: transparent;
+    color: #fff;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+  }
+
+  .subLabel{
+    font-size: 1.5rem;
+    color: red;
+    margin-top: 1rem;
+    font-weight: bold;
+    &-price{
+      font-size: 1.1rem;
+      margin-top: 1.3rem;
+    }
+  }

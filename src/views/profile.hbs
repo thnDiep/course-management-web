@@ -11,16 +11,16 @@
 {{/section}}
 <section>
   <div class="check"></div>
-
+<form action="">
   <div class="col-lg-8 container edit" id="edit">
     <div class="card mb-4">
       <div class="card-body text-center">
         <div class="d-flex flex-column justify-content-center align-items-center">
           <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
           class="rounded-circle img-fluid" style="width: 150px;" />
-          <input type="file" id="myfile" name="myfile">
+          <input type="file" id="myfile" name="fileImg">
         </div>
-        <h1 class="my-3">John Smith</h1>
+        <input type="text" class="my-3 text-center nameOverlay" value={{this.profiles.name}} style="color: #333333;font-size:2.5rem"></input>
         <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
           Student</p>
         <p class="text-muted mb-4">Ho Chi Minh City, Viet Nam</p>
@@ -33,7 +33,7 @@
             <p class="mb-0">User Name</p>
           </div>
           <div class="col-sm-8">
-            <input type="text" value="John" class="nameInput" disabled >
+            <input type="text" value={{this.profiles.name}} class="nameInput" name="Name" disabled >
           </div>
           <div class="col-sm-1">
             <i class="far fa-edit editPage"></i>
@@ -45,7 +45,7 @@
             <p class="mb-0">Email</p>
           </div>
           <div class="col-sm-8">
-          <input type="text" value="johnvt@gmail.com" class="emailInput" disabled >
+          <input type="email" value={{this.profiles.email}} class="emailInput" name="Email" disabled >
 
           </div>
           <div class="col-sm-1">
@@ -58,7 +58,7 @@
             <p class="mb-0">Password</p>
           </div>
           <div class="col-sm-8">
-            <input type="password" value="haha123" class="passInput" disabled >
+            <input type="password" value={{this.profiles.password}} class="passInput" name="Password" disabled >
 
           </div>
           <div class="col-sm-1">
@@ -70,8 +70,9 @@
       </div>
     </div>
     <div class="card mb-4">
-      <button class="btn btn--submit">EDIT</button>
+      <button type="submit" class="btn btn--submit">EDIT</button>
     </div>
+</form>
   </div>
   <div class="container-fluid py-4 m-0">
     <div class="row">
