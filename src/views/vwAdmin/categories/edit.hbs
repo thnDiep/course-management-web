@@ -1,38 +1,5 @@
 {{#section "js"}}
-  <script>
-    $("#addChildCategory").on('click', e => {
-      e.preventDefault();
-      $("#addChildCategory").off('click');
-      $('#childCategoryTable tr:last').after(`
-        <tr>
-          <td></td>
-          <td></td>
-          <td>
-            <input
-              class="form-addChildInput"
-              type="text"
-              id="name"
-              name="name"
-            />
-          </td>
-          <td></td> 
-          <td class="d-flex">
-            <a href="" class="d-flex mr-5 link--success">
-              <i class="fa fa-plus mr-2" aria-hidden="true"></i>
-              add
-            </a>
-
-            <a href="" class="d-flex link--danger">
-              <i class="fa fa-window-close mr-2" aria-hidden="true"></i>
-              cancel
-            </a>
-          </td>
-        </tr>
-      `);
-
-      $(".form-addChildInput").focus();
-    })
-  </script>
+<script src="/js/admin/editCategory.js"></script>
 {{/section}}
 
 <div class="container-fluid mt-0">
@@ -100,90 +67,182 @@
 
     {{#unless this.category.parentID}}
     <div class="col-lg-5">
-      <div class="admin__header">
-        <h1 class="admin__title">Child Categories
-          <a href="javascript:void(0)" class="link--success" id="addChildCategory">
-            <i class="ml-3 fa fa-plus" aria-hidden="true"></i>
-          </a>
-        </h1>
-      </div>
-      <table id="childCategoryTable" class="table table-bordered table--categories">
-        <thead class="thead-light">
-          <tr>
-            <th>
-                <input type="checkbox" name="idCategoryAll" id="idCategoryAll">
-            </th>
-            <th>#</th>
-            <th>Category</th>
-            <th>Number course</th>
-            <th class="col-btn">Options</th>
-          </tr>
-        </thead>
-        <tbody>
-        
-          {{#each this.childCategories}}
-            <tr>
-              <td>
-                <input type="checkbox" name="idCategory" id="idCategory">
-              </td>
-              <td scope="row">{{id}}</td>
-              <td>{{name}}</td>
-              <td>{{numberCourse}}</td>
-              <td class="d-flex">
-                <a href="/admin/categories/edit?id={{id}}" class="d-flex mr-5 link--success" id="edit">
-                  <i class="fa fa-paint-brush mr-2" aria-hidden="true"></i>
-                  edit
-                </a>
+      <form class="container" method="post" action="/admin/categories/deleteByCheckbox">
+        <div class="admin__header">
+          <button type="submit" class="admin__btn btn btn--icon btn--danger btn--disabled submitDeleteByCheckBox" disabled>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+          <h1 class="admin__title">Child Categories
+            <a href="javascript:void(0)" class="link--success" id="addChildCategory" disabled>
+              <i class="ml-3 fa fa-plus" aria-hidden="true"></i>
+            </a>
+          </h1>
+          <div></div>
+        </div>
 
-                <a href="#" class="d-flex {{#if numberCourse}}{{/if}} link--danger" id="delete" data-id={{id}} data-toggle="modal" data-target="#deleteCategoryModal">
-                  <i class="fa fa-trash mr-2" aria-hidden="true"></i>
-                  delete
-                </a>
-              </td>
+        <table id="childCategoryTable" class="table table-bordered table--categories">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                  <input type="checkbox" id="checkboxAll">
+              </th>
+              <th>#</th>
+              <th>Category</th>
+              <th>Number course</th>
+              <th class="col-btn">Operations</th>
             </tr>
-          {{/each}}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+          
+            {{#each this.childCategories}}
+              <tr>
+                <td>
+                  <input type="checkbox" name="idCategories" class="checkboxCategory" value={{id}} {{#if numberCourse}}disabled{{/if}}>
+                </td>
+                <td scope="row">{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{numberCourse}}</td>
+                <td class="d-flex">
+                  <a href="/admin/categories/edit?id={{id}}" class="d-flex mr-5 link--success" id="edit">
+                    <i class="fa fa-paint-brush mr-2" aria-hidden="true"></i>
+                    edit
+                  </a>
+
+                  <a href="#" class="d-flex {{#if numberCourse}}link--disabled{{/if}} link--danger" id="delete" data-id={{id}} data-toggle="modal" data-target="#deleteCategoryModal">
+                    <i class="fa fa-trash mr-2" aria-hidden="true"></i>
+                    delete
+                  </a>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </form>
     </div>
     {{/unless}}
 
     <div class="col-lg-{{#unless this.category.parentID}}4{{else}}9{{/unless}}">
-       <div class="admin__header">
-          <h1 class="admin__title">Courses of 
-           <span>"{{this.category.name}}"</span> 
-          </h1>
-      </div>
+      <form class="container" method="post" action="/admin/courses/deleteByCheckbox">
+        <div class="admin__header">
+          <button
+            type="submit"
+            class="admin__btn btn btn--icon btn--danger btn--disabled submitDeleteByCheckBox"
+            disabled
+          >
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+          <h1 class="admin__title">Courses</h1>
+          <div></div>
+        </div>
 
-      <table class="table table-bordered table--courses">
-        <thead class="thead-light">
-          <tr>
-            <th>#</th>
-            <th>Course</th>
-            <th>Options</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each this.courses}}
+        <table class="table table-bordered table--courses">
+          <thead class="thead-light">
             <tr>
-              <td scope="row">{{id}}</td>
-              <td>{{name}}</td>
-              <td class="col-btn">
-                <a
-                  href="#"
-                  class="d-flex link--danger"
-                  id="delete"
-                  data-id={{id}}
-                  data-toggle="modal"
-                  data-target="#deleteCourseModal"
-                >
-                  <i class="fa fa-trash mr-2" aria-hidden="true"></i>
-                  delete
-                </a>
-              </td>
+              <th>
+                <input type="checkbox" id="checkboxAll" />
+              </th>
+              <th>#</th>
+              <th>Course Name</th>
+              <th>Options</th>
             </tr>
-          {{/each}}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {{#each this.courses}}
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    name="idCourses"
+                    class="checkboxCourse"
+                    value={{id}}
+                  />
+                </td>
+                <td scope="row">{{id}}</td>
+                <td>{{name}}</td>
+                <td class="col-btn">
+                  <a
+                    href="#"
+                    class="d-flex link--danger"
+                    id="delete"
+                    data-id={{id}}
+                    data-toggle="modal"
+                    data-target="#deleteCourseModal"
+                  >
+                    <i class="fa fa-trash mr-2" aria-hidden="true"></i>
+                    delete
+                  </a>
+                </td>
+              </tr>
+        {{/each}}
+      </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{!-- Form delete --}}
+<form name="deleteCategoryForm" method="post"></form> 
+<form name="deleteCourseForm" method="post"></form> 
+
+{{!-- Confirm delete category --}}
+<div class="modal fade" id="deleteCategoryModal" tabindex="-1" role="dialog" aria-labelledby="deleteCategoryModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="deleteCategoryModal">Confirm delete</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-3 mb-3">
+        <h1>Are you sure to delete this category?</h1>
+      </div>
+      <div class="modal-footer">
+        <button id="deleteCategoryBtn" type="button" class="btn btn--danger">Delete</button>
+        <button type="button" class="btn btn--border" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Confirm delete course }}
+<div
+  class="modal fade"
+  id="deleteCourseModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="deleteCourseModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="deleteCourseModal">Confirm delete</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-3 mb-3">
+        <h1>Are you sure to delete this course?</h1>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="deleteCourseBtn"
+          type="button"
+          class="btn btn--danger"
+        >Delete</button>
+        <button
+          type="button"
+          class="btn btn--border"
+          data-dismiss="modal"
+        >Close</button>
+      </div>
     </div>
   </div>
 </div>

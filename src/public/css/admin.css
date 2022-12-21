@@ -73,9 +73,10 @@
   outline: none; }
 
 .admin__btn {
-  height: 50px;
-  width: 50px;
-  padding: 1rem 1.7rem; }
+  height: 40px;
+  width: 40px;
+  margin: 0 5px;
+  padding: 1rem 1.2rem; }
 
 .table.table--courses th:nth-child(1),
 .table.table--courses td:nth-child(1),

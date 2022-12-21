@@ -76,6 +76,11 @@ class ACategoryController {
         }
       });
 
+      for (const category of childCategories) {
+        const courses = await courseModel.getByCategoryId(category.id);
+        category.numberCourse = courses.length;
+      }
+
       res.render("vwAdmin/categories/edit", {
         category,
         courses,

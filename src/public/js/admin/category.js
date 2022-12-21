@@ -33,14 +33,15 @@ checkboxs.forEach((checkbox) => {
 
 // Confirm delete category
 let idCategory;
-const deleteForm = document.forms["deleteForm"];
+const deleteCategoryForm = document.forms["deleteCategoryForm"];
 
 $("#deleteCategoryModal").on("show.bs.modal", function (event) {
   const button = $(event.relatedTarget);
   idCategory = button.data("id");
 });
 
-$("#deleteBtn").on("click", () => {
-  deleteForm.action = "/admin/categories?id=" + idCategory + "&_method=DELETE";
-  deleteForm.submit();
+$("#deleteCategoryBtn").on("click", () => {
+  deleteCategoryForm.action =
+    "/admin/categories?id=" + idCategory + "&_method=DELETE";
+  deleteCategoryForm.submit();
 });

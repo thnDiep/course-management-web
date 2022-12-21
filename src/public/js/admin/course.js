@@ -33,14 +33,14 @@ checkboxs.forEach((checkbox) => {
 
 // Confirm delete course
 let idCourse;
-const deleteForm = document.getElementById("deleteForm");
+const deleteCourseForm = document.forms["deleteCourseForm"];
 
 $("#deleteCourseModal").on("show.bs.modal", function (event) {
   const button = $(event.relatedTarget);
   idCourse = button.data("id");
 });
 
-$("#deleteBtn").on("click", () => {
-  deleteForm.action = "/admin/courses?id=" + idCourse + "&_method=DELETE";
-  deleteForm.submit();
+$("#deleteCourseBtn").on("click", () => {
+  deleteCourseForm.action = "/admin/courses?id=" + idCourse + "&_method=DELETE";
+  deleteCourseForm.submit();
 });
