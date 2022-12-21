@@ -5,21 +5,32 @@ import aCourseController from "../controllers/admin/aCourseController.js";
 import aAccountController from "../controllers/admin/AccountController.js";
 const router = express.Router();
 
-// CATEGORIES MANAGEMENENT
-router.get("/categories/update", aCategoryController.update);
-router.get("/categories/del", aCategoryController.delete);
-
+// add CATEGORY
 router.get("/categories/add", aCategoryController.add);
-router.post("/categories/add", aCategoryController.addPost);
+router.get(
+  "/categories/add/is-available",
+  aCategoryController.isAvailableToAdd
+);
+router.post("/categories/add", aCategoryController.store);
 
+// delete CATEGORY
+router.delete("/categories", aCategoryController.delete);
+
+// update CATEGORY
+router.get("/categories/edit", aCategoryController.edit);
+
+// show list CATEGORY
 router.get("/categories", aCategoryController.index);
 
-// Accounts Management
-router.get("/listAccount", aAccountController.index);
+// delete COURSE
+router.delete("/courses", aCourseController.delete);
 
-// COURSES MANAGEMENT
+// show list COURSE
 router.get("/courses", aCourseController.index);
 
 router.get("/", aCategoryController.index);
+
+// Accounts Management
+router.get("/listAccount", aAccountController.index);
 
 export default router;

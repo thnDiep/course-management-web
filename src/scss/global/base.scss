@@ -9,6 +9,7 @@
   background-color: $white-color;
   border: 1px solid $white-color;
   border-radius: 2px;
+
   &:hover {
     color: $text-color;
     border-color: $black-color;
@@ -34,7 +35,6 @@
       background-color: $hover-color;
     }
   }
-
   &.btn--icon {
     display: flex;
     justify-content: space-between;
@@ -75,7 +75,7 @@
     background-color: $danger-color;
 
     &:hover {
-      opacity: 0.6;
+      filter: brightness(95%);
     }
 
     &.btn--border {
@@ -89,7 +89,7 @@
     background-color: $info-color;
 
     &:hover {
-      opacity: 0.6;
+      filter: brightness(95%);
     }
 
     &.btn--border {
@@ -103,7 +103,7 @@
     background-color: $success-color;
 
     &:hover {
-      opacity: 0.6;
+      filter: brightness(95%);
     }
 
     &.btn--border {
@@ -111,18 +111,13 @@
     }
   }
 
-  &.btn--disable {
-    color: $text-color;
-    background-color: $border-color;
-    border-color: $border-color;
-    cursor: default;
+  &.btn--disabled {
+    opacity: 0.5;
+    filter: brightness(80%);
+    cursor: none;
 
     &:hover {
-      // color: $text-color;
-      // background-color: $border-color;
-      // border-color: $border-color;
-      opacity: 1;
-      cursor: default;
+      cursor: none;
     }
   }
 }
@@ -150,6 +145,7 @@
     padding: 10px;
   }
 }
+
 .fa-star {
   color: #feda56;
 }
@@ -166,4 +162,27 @@
     right: 0;
   }
   font-size: 1.2rem;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+    filter: brightness(90%);
+  }
+
+  &.link--info {
+    color: $info-color;
+  }
+
+  &.link--danger {
+    color: $danger-color;
+  }
+
+  &.link--success {
+    color: $success-color;
+  }
+
+  &.link--disabled {
+    pointer-events: none;
+  }
 }

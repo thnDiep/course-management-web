@@ -1,9 +1,15 @@
-{{#section "css"}}
-  <link rel="stylesheet" href="/css/admin.css" />
+{{#section "js"}}
+  <script src="/js/admin/addCategory.js"></script>
 {{/section}}
 
 <div class="admin__container">
-  <form class="admin__form" method="post" action="/admin/categories/add">
+  <form
+    id="formAddCategory"
+    class="admin__form"
+    style="width: 330px;"
+    method="post"
+    action="/admin/categories/add"
+  >
     <div class="form-group">
       <label for="name">Name Category</label>
       <input
@@ -13,6 +19,7 @@
         name="name"
         placeholder="Enter category name"
       />
+      <span class="form-message"></span>
     </div>
 
     <div class="form-group">
@@ -30,4 +37,41 @@
       <a href="/admin/categories" class="btn btn--danger">Cancel</a>
     </div>
   </form>
+</div>
+
+{{! Confirm delete category }}
+<div
+  class="modal fade"
+  id="failedAddModel"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="failedAddModel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="failedAddModel">Failed Add</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-3 mb-3">
+        <h1>This category name already exists</h1>
+        <h3>Please enter another name</h3>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn--border"
+          data-dismiss="modal"
+        >OK</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -118,10 +118,10 @@ body {
   .courses__title h2 {
     font-weight: bold;
     font-size: 4rem;
-    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses__title p {
     font-size: 2rem;
-    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses .active {
     color: #1c1d1f; }
   .courses button {
@@ -165,13 +165,14 @@ body {
     -webkit-box-orient: vertical;
     line-height: 2.5rem;
     overflow: hidden;
+    font-weight: 600;
     background-color: #0d1017;
     color: #fff;
-    text-align: center;
+    /* text-align: center; */
     height: 5rem;
     transform: translateY(-50%);
-    width: 80%;
-    margin-left: 10%; }
+    width: 90%;
+    margin-left: 6%; }
   .swiper-slide .card {
     background: #222;
     box-shadow: #222 1px 0 10px;
@@ -236,7 +237,7 @@ body {
   font-size: 3rem;
   text-align: left;
   margin-top: 3rem;
-  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   font-weight: bold; }
 
 .course__teacher {

@@ -26,10 +26,11 @@ export default {
     const [[name], ...h] = await db.raw(
       `SELECT us.name as teacherName 
             FROM course_of_teacher tc, user us  
-            WHERE  us.id = tc.teacherID AND tc.courseID = ?`,
+            WHERE  us.id = tc.teacherID AND us.permissionID = 3 AND tc.courseID = ?`,
       id
     );
-    return name.teacherName;
+    // console.log(name);
+    return name?.teacherName;
   },
   async getTrending() {
     const courses = await db.raw(`SELECT c.*

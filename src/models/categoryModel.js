@@ -5,6 +5,10 @@ export default {
     return db("category");
   },
 
+  getLast() {
+    return db("category").orderBy("id", "desc").limit(1);
+  },
+
   // get hierarchical list category
   async getAllWithHierarchy(idActive) {
     const categories = await this.getParent();
@@ -41,6 +45,12 @@ export default {
 
   async getById(id) {
     const list = await db("category").where("id", id);
+    if (list.length === 0) return null;
+    return list[0];
+  },
+
+  async getByName(name) {
+    const list = await db("category").where("name", name);
     if (list.length === 0) return null;
     return list[0];
   },
