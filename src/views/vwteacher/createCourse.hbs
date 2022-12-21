@@ -41,11 +41,15 @@
   </script>
 
   <script>
-    tinymce.init({ selector: 'textarea', menubar: false, plugins: 'paste image
-    link autolink lists table media', toolbar: [ 'undo redo | bold italic
-    underline strikethrough | numlist bullist | alignleft aligncenter alignright
-    | forecolor backcolor | table link image media', ], });
+    tinymce.init(
+      { 
+        selector: 'textarea', 
+        menubar: false, 
+        plugins: 'paste image link autolink lists table media', 
+        toolbar: [ 'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright| forecolor backcolor | table link image media', ], 
+      });
   </script>
+  <script src="/js/createCourse.js"></script>
 {{/section}}
 
 <div class="row justify-content-center">
@@ -83,8 +87,11 @@
       <hr />
       <form action="" class="formCourse">
         <div class="formCreate__titleCourse">
+          <div class="d-flex justify-content-between ">
           <label>Course Title</label>
-          <input type="text" placeholder="Name of course" class="inputField" />
+          <p class="subLabel subLabel-title hidden">This field can't be empty</p>
+          </div>
+          <input type="text" placeholder="Name of course" class="inputField input" />
         </div>
         <div
           class="formCreate__categoryLesson d-flex flex-wrap justify-content-between"
@@ -109,7 +116,10 @@
             />
           </div>
           <div class="price">
+          <div class="d-flex justify-content-between ">
             <label for="">Price</label>
+            <p class="subLabel subLabel-price hidden">This field can't be empty</p>
+          </div>
             <div><input
                 type="text"
                 name="currency-field"
@@ -124,11 +134,14 @@
           </div>
         </div>
         <div class="formCreate__summaryCourse">
-          <label>Summary</label>
+          <div class="d-flex justify-content-between ">
+            <label>Summary</label>
+            <p class="subLabel subLabel-summary hidden">This field can't be empty</p>
+          </div>
           <input
             type="text"
             placeholder="Summary of course"
-            class="inputField"
+            class="inputField input"
           />
         </div>
 
@@ -170,7 +183,7 @@
           </div> }}
 
         </div>
-        <div class="formLessonList">
+        {{!-- <div class="formLessonList">
           <div class="formLessonList__title d-flex justify-content-between">
             <label class="title">Lesson list</label>
             <button class="btnClick"><i class="fas fa-plus"></i>
@@ -240,7 +253,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
         <div class="formUpload__btn">
           <button class="btnCreate btn btn--submit"><i class="fas fa-check"></i>
             Create Course</button>

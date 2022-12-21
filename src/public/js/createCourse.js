@@ -11,6 +11,7 @@ field[0].onblur = function () {
     myFunction(field[0],"subLabel-title")
 };
 field[1].onblur = function () {
+    console.log(field[1])
     myFunction(field[1],"subLabel-summary")
 };
 currency.onblur = function () {
