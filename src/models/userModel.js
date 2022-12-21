@@ -1,6 +1,15 @@
 import db from "../utils/db.js";
 
 export default {
+  // student
+  async getNumberStudentByCourse(id) {
+    const [[number], ...h] = await db.raw(
+      `SELECT count(courseID) as sumStudent FROM course_of_student WHERE  courseID = ?`,
+      id
+    );
+    return number.sumStudent;
+  },
+  // teacher
   async getNameTeacher(id) {
     const [[name], ...h] = await db.raw(
       `SELECT us.name as teacherName 
@@ -12,7 +21,7 @@ export default {
     return name?.teacherName;
   },
 
-  async getAllCourse(id) {
+  async getAllCourseOfTeacher(id) {
     const [course] = await db.raw(
       `SELECT c.* 
       FROM course_of_teacher tc,course c 
@@ -21,7 +30,7 @@ export default {
     );
     return course;
   },
-  async getAll(id) {
+  async getInforTeacherByID(id) {
     const [teacher] = await db.raw(
       `SELECT tc.* 
       FROM user tc 
@@ -29,5 +38,13 @@ export default {
       id
     );
     return teacher;
+  },
+  async getAllStudentAndTeacher() {
+    const [user] = await db.raw(
+      `SELECT us.*, pm.name as ruleName
+      FROM user us, permission pm
+      WHERE us.permissionID != 1 AND pm.id = us.permissionID`
+    );
+    return user;
   },
 };

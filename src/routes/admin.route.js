@@ -2,7 +2,7 @@ import express from "express";
 
 import aCategoryController from "../controllers/admin/aCategoryController.js";
 import aCourseController from "../controllers/admin/aCourseController.js";
-import aAccountController from "../controllers/admin/AccountController.js";
+import aAccountController from "../controllers/admin/aAccountController.js";
 const router = express.Router();
 
 // add CATEGORY
@@ -32,5 +32,7 @@ router.get("/", aCategoryController.index);
 
 // Accounts Management
 router.get("/listAccount", aAccountController.index);
+// Add teacher
+router.get("/listAccount/addTeacher", aAccountController.add);
 
 export default router;

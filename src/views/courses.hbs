@@ -19,75 +19,75 @@
     <div class="row w-100 mt-4">
       {{#each this.courses}}
         <div class="col-lg-3 col-sm-6">
-        <div class="card course course--best-seller">
-          <a href="/courses/courseDetail?id={{id}}" class="course__link"></a>
+          <div class="card course course--best-seller">
+            <a href="/courses/courseDetail?id={{id}}" class="course__link"></a>
 
-          <figure class="course__img">
-            <div class="course__best-seller-label">
-              <span>bestseller</span>
-            </div>
-              <img
-              class="card-img-top"
-              src={{image}}
-              alt="Ảnh đại diện khóa học"
-            />
-          </figure>
+            <figure class="course__img">
+              <div class="course__best-seller-label">
+                <span>bestseller</span>
+              </div>
+                <img
+                class="card-img-top"
+                src={{image}}
+                alt="Ảnh đại diện khóa học"
+              />
+            </figure>
 
-          <div class="card-body">
-            <h4 class="course__title">{{name}}</h4>
+            <div class="card-body">
+              <h4 class="course__title">{{name}}</h4>
 
-            <ul class="course__category">
-              {{#each @root.linkCategories}}
-                <li class="course__category-item">
-                  <a href="/courses?id={{id}}" class="course__category-link">{{name}}</a>
-                </li>
-              {{/each}}
-            </ul>
+              <ul class="course__category">
+                {{#each @root.linkCategories}}
+                  <li class="course__category-item">
+                    <a href="/courses?id={{id}}" class="course__category-link">{{name}}</a>
+                  </li>
+                {{/each}}
+              </ul>
 
-            <div class="course__teacher">
-          <a href="#" class="course__teacher__link">Dollar Design School</a>
-        </div>
+              <div class="course__teacher">
+            <a href="#" class="course__teacher__link">Dollar Design School</a>
+          </div>
 
-            <div class="course__review">
-              <div class="course__review-score">
-                {{> barStar this}}
+              <div class="course__review">
+                <div class="course__review-score">
+                  {{> barStar this}}
+                </div>
+
+                <div class="course__review-number">({{views}})</div>
               </div>
 
-              <div class="course__review-number">({{views}})</div>
-            </div>
-
-            <div class="course__price">
-              <h4 class="course__price-new">
-                {{format_number fee}}
-                <span class="course__price-unit">đ</span>
-              </h4>
-              <h4 class="course__price-old">
+              <div class="course__price">
+                <h4 class="course__price-new">
                   {{format_number feeO}}
-                <span class="course__price-unit">đ</span>
-              </h4>
+                  <span class="course__price-unit">đ</span>
+                </h4>
+                <h4 class="course__price-old">
+                    {{format_number fee}}
+                  <span class="course__price-unit">đ</span>
+                </h4>
+              </div>
+            </div>
+
+            <div class="card-footer course__buttons">
+              <a
+                name="buy-btn"
+                id="buy-btn"
+                class="btn btn--border"
+                href="#"
+                role="button"
+              >Buy now</a>
+
+              <a
+                name="add-cart-btn"
+                id="add-cart-btn"
+                class="btn btn--primary btn--icon"
+                href="#"
+                role="button"
+              >
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
             </div>
           </div>
-
-          <div class="card-footer course__buttons">
-            <a
-              name="buy-btn"
-              id="buy-btn"
-              class="btn btn--border"
-              href="#"
-              role="button"
-            >Buy now</a>
-
-            <a
-              name="add-cart-btn"
-              id="add-cart-btn"
-              class="btn btn--primary btn--icon"
-              href="#"
-              role="button"
-            >
-              <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
         </div>
       {{/each}}
     </div>

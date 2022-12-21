@@ -28,3 +28,10 @@ h1 {
       .choose div a:hover {
         color: blueviolet;
         cursor: pointer; }
+
+.thead {
+  background-color: #ccc !important;
+  height: 5rem !important; }
+  .thead th {
+    padding-top: 1.5rem !important;
+    text-align: left !important; }

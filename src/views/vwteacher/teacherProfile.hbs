@@ -103,7 +103,7 @@
           <span>Edit profile</span>
         </button>
         <a href="/teacher/createCourse" class="btn btn-rounded">
-          <i class="fa fa-plus"></i>
+          <i role="img" class="fa fa-plus"></i>
           <span>Add new course</span>
         </a>
       </div>
@@ -147,10 +147,11 @@
         {{#each course}}
           <div class="col-3 mb-2">
             <div class="card" style="width: 100%;">
+              <i class="fas fa-times"></i>
               {{! <a href="/courses/courseDetail" class="course__link"></a> }}
               <img src="{{image}}" class="card-img-top" alt="..." />
               <div class="card-body">
-                <h5 class="card-title">Javascript for beginners</h5>
+                <h5 class="card-title">{{name}}</h5>
 
                 <div class="course__review">
                   {{!-- <div class="course__review-score">
@@ -175,8 +176,14 @@
                     <span class="course__price-unit">đ</span>
                   </h4>
                 </div>
-
+               
               </div>
+              <div class="card-footer w-100 course__buttons d-flex justify-content-between">
+                <a name="buy-btn" id="buy-btn" class="btn btn--border" href="#" role="button"><i class="fa fa-plus"> Add</i> </a>
+
+                <a name="add-cart-btn" id="add-cart-btn" class="btn btn--primary btn--icon" href="#" role="button"><i class="fa fa-edit"> Edit</i> 
+                </a>
+                </div>
             </div>
           </div>
         {{/each}}
