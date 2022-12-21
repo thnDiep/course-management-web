@@ -23,11 +23,19 @@ class ACourseController {
     });
   }
 
-    // DELETE /admin/courses?id=
-    async delete(req, res) {
-      await courseModel.delete(req.query.id);
-      res.redirect("back");
+  // DELETE /admin/courses?id=
+  async delete(req, res) {
+    await courseModel.delete(req.query.id);
+    res.redirect("back");
+  }
+
+  // POST /admin/courses/deleteByCheckbox
+  async deleteByCheckbox(req, res) {
+    for (const idCourse of req.body.idCourses) {
+      await courseModel.delete(idCourse);
     }
+    res.redirect("back");
+  }
 }
 
 export default new ACourseController();

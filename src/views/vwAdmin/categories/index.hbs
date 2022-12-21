@@ -30,7 +30,7 @@
       {{#each this.categories}}
         <tr>
           <td>
-            <input type="checkbox" name="idCategories" class="checkboxCategory" value={{id}}>
+            <input type="checkbox" name="idCategories" class="checkboxCategory" value={{id}} {{#if numberCourse}}disabled{{/if}}>
           </td>
           <td scope="row">{{id}}</td>
           <td>{{name}}</td>
@@ -41,7 +41,7 @@
               edit
             </a>
 
-            <a href="#" class="d-flex {{#if numberCourse}}link--disable{{/if}} link--danger" id="delete" data-id={{id}} data-toggle="modal" data-target="#deleteCategoryModal">
+            <a href="#" class="d-flex {{#if numberCourse}}link--disabled{{/if}} link--danger" id="delete" data-id={{id}} data-toggle="modal" data-target="#deleteCategoryModal">
               <i class="fa fa-trash mr-2" aria-hidden="true"></i>
               delete
             </a>

@@ -5,6 +5,11 @@ class ACategoryController {
   // GET /admin/categories
   async index(req, res) {
     const categories = await categoryModel.getAll();
+    for (const category of categories) {
+      const courses = await courseModel.getByCategoryId(category.id);
+      category.numberCourse = courses.length;
+    }
+
     res.render("vwAdmin/categories/index", {
       categories,
       layout: "admin",

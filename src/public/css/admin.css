@@ -77,9 +77,12 @@
   width: 50px;
   padding: 1rem 1.7rem; }
 
-.table.table--courses td:nth-child(1) {
-  text-align: center;
-  width: 50px; }
+.table.table--courses th:nth-child(1),
+.table.table--courses td:nth-child(1),
+.table.table--courses th:nth-child(2),
+.table.table--courses td:nth-child(2) {
+  width: 50px;
+  text-align: center; }
 
 .table.table--categories th:nth-child(1),
 .table.table--categories td:nth-child(1),

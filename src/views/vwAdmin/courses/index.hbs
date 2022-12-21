@@ -1,22 +1,26 @@
 {{#section "js"}}
-  <script>
-    let idCourse; const deleteForm =
-    document.getElementById("deleteCourseForm");
-    $('#deleteCourseModal').on('show.bs.modal', function (event) { const button
-    = $(event.relatedTarget) idCourse = button.data('id') })
-    $("#deleteBtn").on('click', () =>{ deleteForm.action = '/admin/courses?id='+
-    idCourse + "&_method=DELETE"; deleteForm.submit(); })
-  </script>
+  <script src="/js/admin/course.js"></script>
 {{/section}}
 
-<div class="container">
+<form class="container" method="post" action="/admin/courses/deleteByCheckbox">
   <div class="admin__header">
+    <button
+      type="submit"
+      class="admin__btn btn btn--icon btn--danger btn--disabled submitDeleteByCheckBox"
+      disabled
+    >
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
     <h1 class="admin__title">Courses</h1>
+    <div></div>
   </div>
 
   <table class="table table-bordered table--courses">
     <thead class="thead-light">
       <tr>
+        <th>
+          <input type="checkbox" id="checkboxAll" />
+        </th>
         <th>#</th>
         <th>Course Name</th>
         <th>Category</th>
@@ -26,6 +30,14 @@
     <tbody>
       {{#each this.courses}}
         <tr>
+          <td>
+            <input
+              type="checkbox"
+              name="idCourses"
+              class="checkboxCourse"
+              value={{id}}
+            />
+          </td>
           <td scope="row">{{id}}</td>
           <td>{{name}}</td>
           <td>{{category}}</td>
@@ -46,10 +58,10 @@
       {{/each}}
     </tbody>
   </table>
-</div>
+</form>
 
 {{! Form delete }}
-<form id="deleteCourseForm" method="post"></form>
+<form id="deleteForm" method="post"></form>
 
 {{! Confirm delete category }}
 <div

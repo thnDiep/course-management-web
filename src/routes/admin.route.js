@@ -28,6 +28,7 @@ router.get("/categories", aCategoryController.index);
 
 // delete COURSE
 router.delete("/courses", aCourseController.delete);
+router.post("/courses/deleteByCheckbox", aCourseController.deleteByCheckbox);
 
 // show list COURSE
 router.get("/courses", aCourseController.index);
