@@ -1,71 +1,97 @@
 {{#section "css"}}
-<link rel="stylesheet" href="/css/teacherProfile.css" />
-<link rel="stylesheet" href="/css/profile.css" />
+  <link rel="stylesheet" href="/css/teacherProfile.css" />
+  <link rel="stylesheet" href="/css/profile.css" />
 
 {{/section}}
 {{#section "js"}}
-<Script src="/js/teacherProfile.js"></Script>
+  <script src="/js/teacherProfile.js"></script>
 {{/section}}
 <div class="check"></div>
 
 <div class="container">
-  <div class="col-lg-8 container edit" id="edit">
-    <div class="card mb-4">
-      <div class="card-body text-center">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-          class="rounded-circle img-fluid" style="width: 150px;" />
-        <h1 class="my-3">John Smith</h1>
-        <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
-          Student</p>
-        <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-        {{! <div class="d-flex justify-content-center mb-2">
+  <form action="">
+    <div class="col-lg-8 container edit" id="edit">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+            alt="avatar"
+            class="rounded-circle img-fluid"
+            style="width: 150px;"
+          />
+          <br />
+          <input type="file" name="image" />
+          <h1 class="my-3">John Smith</h1>
+          <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
+            Teacher</p>
+          {{! <div class="d-flex justify-content-center mb-2">
           <button type="button" class="btn btn-primary">Follow</button>
           <button type="button" class="btn btn-outline-primary ms-1">Message</button>
         </div> }}
+        </div>
       </div>
-    </div>
-    <div class="card mb-4">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-3">
-            <p class="mb-0">Full Name</p>
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Full Name</p>
+            </div>
+            <div class="col-sm-8">
+              <input
+                type="text"
+                value="Johnatan Smith"
+                class="text-muted mb-0 input"
+                name="name"
+                disabled
+              />
+            </div>
+            <div class="col-sm-1">
+              <i class="far fa-edit"></i>
+            </div>
           </div>
-          <div class="col-sm-8">
-            <p class="text-muted mb-0">Johnatan Smith</p>
-          </div>
-          <div class="col-sm-1">
-            <i class="far fa-edit"></i>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-sm-3">
-            <p class="mb-0">Email</p>
-          </div>
-          <div class="col-sm-8">
-            <p class="text-muted mb-0">example@example.com</p>
-          </div>
-          <div class="col-sm-1">
-            <i class="far fa-edit"></i>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-sm-3">
-            <p class="mb-0">Password</p>
-          </div>
-          <div class="col-sm-8">
-            <p class="text-muted mb-0">haha123</p>
-          </div>
-          <div class="col-sm-1">
-            <i class="far fa-edit"></i>
-          </div>
-        </div>
+          <hr />
+          <div class="row">
+            <div class="col-sm-3">
 
+              <p class="mb-0">Email</p>
+            </div>
+            <div class="col-sm-8">
+              <input
+                type="text"
+                value="example@example.com"
+                class="text-muted mb-0 input"
+                name="email"
+                disabled
+              />
+            </div>
+            <div class="col-sm-1">
+              <i class="far fa-edit"></i>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Password</p>
+            </div>
+            <div class="col-sm-8">
+              <input
+                type="password"
+                value="haha123"
+                class="text-muted mb-0 input"
+                name="password"
+                disabled
+              />
+            </div>
+            <div class="col-sm-1">
+              <i class="far fa-edit"></i>
+            </div>
+          </div>
+
+        </div>
       </div>
+      <button type="submit" class="btn btn-primary w-100">EDIT</button>
     </div>
-  </div>
-
+  </form>
   <div class="col-lg-12">
     <div class="profile-cover">
       <div class="profile-cover__img">
@@ -77,7 +103,7 @@
           <i class="fa fa-comment"></i>
           <span>Edit profile</span>
         </button>
-        <a href="/createCourse" class="btn btn-rounded">
+        <a href="/teacher/createCourse" class="btn btn-rounded">
           <i class="fa fa-plus"></i>
           <span>Add new course</span>
         </a>
@@ -119,13 +145,16 @@
         <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
       </div>
       <div class="row g-2">
-        <div class="col mb-2">
+        <div class="col-3 mb-2">
           <div class="card" style="width: 100%;">
             <a href="/courses/courseDetail" class="course__link"></a>
-            <img src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg" class="card-img-top" alt="..." />
+            <img
+              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">Javascript for beginners</h5>
-              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
 
               <div class="course__review">
                 <div class="course__review-score">
@@ -151,19 +180,19 @@
                 </h4>
               </div>
 
-              <a href="#" class="btn"><i class="fas fa-link"></i>
-                Edit</a>
-
             </div>
           </div>
         </div>
-        <div class="col mb-2">
+        <div class="col-3 mb-2">
           <div class="card" style="width: 100%;">
             <a href="/courses/courseDetail" class="course__link"></a>
-            <img src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg" class="card-img-top" alt="..." />
+            <img
+              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">Javascript for beginners</h5>
-              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
 
               <div class="course__review">
                 <div class="course__review-score">
@@ -188,19 +217,19 @@
                   <span class="course__price-unit">đ</span>
                 </h4>
               </div>
-              <a href="#" class="btn"><i class="fas fa-link"></i>
-                Edit</a>
 
             </div>
           </div>
-        </div>
-        <div class="col mb-2">
+        </div><div class="col-3 mb-2">
           <div class="card" style="width: 100%;">
             <a href="/courses/courseDetail" class="course__link"></a>
-            <img src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg" class="card-img-top" alt="..." />
+            <img
+              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">Javascript for beginners</h5>
-              <h5 class="course__teacher">Teacher: Dollar Design School</h5>
 
               <div class="course__review">
                 <div class="course__review-score">
@@ -225,12 +254,48 @@
                   <span class="course__price-unit">đ</span>
                 </h4>
               </div>
-              <a href="#" class="btn"><i class="fas fa-link"></i>
-                Edit</a>
+
+            </div>
+          </div>
+        </div><div class="col-3 mb-2">
+          <div class="card" style="width: 100%;">
+            <a href="/courses/courseDetail" class="course__link"></a>
+            <img
+              src="https://i.ytimg.com/vi/vDQ9GZsJkms/maxresdefault.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Javascript for beginners</h5>
+
+              <div class="course__review">
+                <div class="course__review-score">
+                  4.3
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                </div>
+
+                <div class="course__review-number">(1,332)</div>
+              </div>
+
+              <div class="course__price">
+                <h4 class="course__price-new">
+                  299.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+                <h4 class="course__price-old">
+                  499.000
+                  <span class="course__price-unit">đ</span>
+                </h4>
+              </div>
 
             </div>
           </div>
         </div>
+
       </div>
 
     </div>

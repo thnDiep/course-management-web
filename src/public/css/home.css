@@ -165,13 +165,14 @@ body {
     -webkit-box-orient: vertical;
     line-height: 2.5rem;
     overflow: hidden;
+    font-weight: 600;
     background-color: #0d1017;
     color: #fff;
-    text-align: center;
+    /* text-align: center; */
     height: 5rem;
     transform: translateY(-50%);
-    width: 80%;
-    margin-left: 10%; }
+    width: 90%;
+    margin-left: 6%; }
   .swiper-slide .card {
     background: #222;
     box-shadow: #222 1px 0 10px;

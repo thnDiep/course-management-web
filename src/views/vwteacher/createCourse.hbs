@@ -1,58 +1,52 @@
-
 {{#section "css"}}
-<link rel="stylesheet" href="/css/createCourse.css" />
-<link rel="stylesheet" href="/css/teacherProfile.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/css/fileinput.min.css" />
+  <link rel="stylesheet" href="/css/createCourse.css" />
+  <link rel="stylesheet" href="/css/teacherProfile.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/css/fileinput.min.css"
+  />
 {{/section}}
 {{#section "js"}}
-<script
+  <script
     src="https://cdn.tiny.cloud/1/y16lx8krusdxb9jurdcxz9xr6r24nrd6vgz4231m0rgoezfz/tinymce/6/tinymce.min.js"
     referrerpolicy="origin"
   ></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/fileinput.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/fileinput.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"
+  ></script>
   <script>
-    $('#fuMain').fileinput({
-      maxFileCount: 1,
-      theme: 'fa5',
-      allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"],
-      showRemove: false,
-      showUpload: false,
-      
-    });
+    $('#fuMain').fileinput({ maxFileCount: 1, theme: 'fa5',
+    allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"], showRemove:
+    false, showUpload: false, });
   </script>
   <script>
-    $('#fuSub').fileinput({
-      dropZoneEnabled: false,
-      maxFileCount: 1,
-      theme: 'fa5',
-       allowedFileExtensions: ['jpg', 'png', 'gif'],
-       browseOnZoneClick: false,
-       showRemove: false,
-       showUpload: false,
-       browseOnZoneClick: true,
-      
-    });
+    $('#fuSub').fileinput({ dropZoneEnabled: false, maxFileCount: 1, theme:
+    'fa5', allowedFileExtensions: ['jpg', 'png', 'gif'], browseOnZoneClick:
+    false, showRemove: false, showUpload: false, browseOnZoneClick: true, });
   </script>
 
   <script>
-        tinymce.init({
-      selector: 'textarea',
-      menubar: false,
-      plugins: 'paste image link autolink lists table media',
-      toolbar: [
-        'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright | forecolor backcolor | table link image media',
-      ],
-    });
-</script>
+    tinymce.init({ selector: 'textarea', menubar: false, plugins: 'paste image
+    link autolink lists table media', toolbar: [ 'undo redo | bold italic
+    underline strikethrough | numlist bullist | alignleft aligncenter alignright
+    | forecolor backcolor | table link image media', ], });
+  </script>
 {{/section}}
-
-
-
 
 <div class="row justify-content-center">
   <div class="col-lg-10">
@@ -92,7 +86,9 @@
           <label>Course Title</label>
           <input type="text" placeholder="Name of course" class="inputField" />
         </div>
-        <div class="formCreate__categoryLesson d-flex flex-wrap justify-content-between">
+        <div
+          class="formCreate__categoryLesson d-flex flex-wrap justify-content-between"
+        >
           <div class="topics">
             <label for="">Topics</label>
             <select class="inputField">
@@ -104,37 +100,64 @@
           </div>
           <div class="updatePicture">
             <label for="fuSub">Update Picture</label>
-            <input id="fuSub" type="file" class="file" data-preview-file-type="text" multiple>
+            <input
+              id="fuSub"
+              type="file"
+              class="file"
+              data-preview-file-type="text"
+              multiple
+            />
           </div>
           <div class="price">
             <label for="">Price</label>
-            <div><input type="text" name="currency-field" id="currency-field" pattern="^\VNĐ\d{1,3}(,\d{3})*(\.\d+)?$"
-                value="" data-type="currency" placeholder="VNĐ1,000,000.00" class="inputField" />
+            <div><input
+                type="text"
+                name="currency-field"
+                id="currency-field"
+                pattern="^\VNĐ\d{1,3}(,\d{3})*(\.\d+)?$"
+                value=""
+                data-type="currency"
+                placeholder="VNĐ1,000,000.00"
+                class="inputField"
+              />
             </div>
           </div>
         </div>
         <div class="formCreate__summaryCourse">
           <label>Summary</label>
-          <input type="text" placeholder="Summary of course" class="inputField" />
+          <input
+            type="text"
+            placeholder="Summary of course"
+            class="inputField"
+          />
         </div>
-       
+
         <div class="formCreate__descriptionCourse">
-          <label >Description</label>
-          <textarea id="descriptionTextArea" placeholder="My Text Area"></textarea>
+          <label>Description</label>
+          <textarea
+            id="descriptionTextArea"
+            placeholder="My Text Area"
+          ></textarea>
         </div>
         <div class="formCreate__benefitCourse">
           <label>Benefit</label>
-          <textarea id="benefitTextArea" placeholder="My Text Area" ></textarea>
+          <textarea id="benefitTextArea" placeholder="My Text Area"></textarea>
         </div>
         <div class="formCreate__requiredCourse">
           <label>Required</label>
-          <textarea id="requiredTextArea" placeholder="My Text Area" ></textarea>
+          <textarea id="requiredTextArea" placeholder="My Text Area"></textarea>
         </div>
         <div class="formCreate__videoLesson mt-3">
           <label for="fuMain">Upload Video Documents</label>
-          <input id="fuMain" type="file" class="file" data-preview-file-type="text" multiple>
+          <input
+            id="fuMain"
+            type="file"
+            class="file"
+            data-preview-file-type="text"
+            multiple
+          />
 
-          {{!-- <div class="uploadVideo">
+          {{! <div class="uploadVideo">
             <div><i class="fas fa-cloud-upload-alt icon"></i></div>
             <div>
               <p class="msg-1">Browse and choose the file you want to</p>
@@ -144,7 +167,7 @@
             </div>
             <input id="input-id" type="file" class="file" data-preview-file-type="text">
 
-          </div> --}}
+          </div> }}
 
         </div>
         <div class="formLessonList">
@@ -205,7 +228,10 @@
                     <p style="font-style: italic;">Add more chapter for your
                       lesson.
                     </p>
-                    <button class="btnClick p-3" style="background-color:#6BB41B; border-color:transparent">
+                    <button
+                      class="btnClick p-3"
+                      style="background-color:#6BB41B; border-color:transparent"
+                    >
                       <i class="fas fa-plus"></i>
                       Add new chapter</button>
                   </div>
