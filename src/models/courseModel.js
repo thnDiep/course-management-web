@@ -53,6 +53,20 @@ export default {
     return list;
   },
 
+  async getAvgRate(id) {
+    const [[rate], ...h] = await db.raw(
+      `SELECT AVG(star) as avgRate FROM rating WHERE  rating.courseID = ?`,
+      id
+    );
+    return rate.avgRate;
+  },
+  async getCountFeedback(id) {
+    const [[rate], ...h] = await db.raw(
+      `SELECT count(star) as sumRate FROM rating WHERE  rating.courseID = ?`,
+      id
+    );
+    return rate.sumRate;
+  },
   add(course) {
     return db("course").insert(course);
   },

@@ -1,5 +1,5 @@
 import express from "express";
-
+import tProfileController from "../controllers/teacher/tProfileController.js";
 const router = express.Router();
 
 router.get("/createCourse", (req, res) => {
@@ -7,9 +7,5 @@ router.get("/createCourse", (req, res) => {
     layout: "teacher",
   });
 });
-router.get("/profile", (req, res) => {
-  res.render("vwteacher/teacherProfile", {
-    layout: "teacher",
-  });
-});
+router.get("/profile", tProfileController.index);
 export default router;
