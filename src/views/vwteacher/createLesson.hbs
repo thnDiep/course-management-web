@@ -1,0 +1,194 @@
+{{#section "css"}}
+  <link rel="stylesheet" href="/css/createLesson.css" />
+  <link rel="stylesheet" href="/css/teacherProfile.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/css/fileinput.min.css"
+  />
+{{/section}}
+{{#section "js"}}
+  <script
+    src="https://cdn.tiny.cloud/1/y16lx8krusdxb9jurdcxz9xr6r24nrd6vgz4231m0rgoezfz/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/fileinput.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"
+  ></script>
+  <script>
+    $('#fuMain').fileinput({ maxFileCount: 1, theme: 'fa5',
+    allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"], showRemove:
+    false, showUpload: false, });
+  </script>
+  <script>
+    $('#fuSub').fileinput({ dropZoneEnabled: false, maxFileCount: 1, theme:
+    'fa5', allowedFileExtensions: ['jpg', 'png', 'gif'], browseOnZoneClick:
+    false, showRemove: false, showUpload: false, browseOnZoneClick: true, });
+  </script>
+
+  <script>
+    tinymce.init( { selector: 'textarea', menubar: false, plugins: 'paste image
+    link autolink lists table media', toolbar: [ 'undo redo | bold
+    italicunderline strikethrough | numlist bullist | alignleft aligncenter
+    alignright| forecolor backcolor | table link image media', ], });
+  </script>
+  <script src="/js/createLesson.js"></script>
+{{/section}}
+
+<div class="check"></div>
+<div class="check2"></div>
+<div class="row justify-content-center ml-2">
+  <div class="col-lg-10">
+    <div class="profile-cover">
+      <div class="profile-cover__img">
+        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
+        <h3 class="h3">Henry Foster</h3>
+      </div>
+      <div class="profile-cover__action bg--img" data-overlay="0.3">
+        <button class="btn btn-rounded">
+          <i class="fa fa-comment"></i>
+          <span>Edit profile</span>
+        </button>
+        <button class="btn btn-rounded">
+          <i class="fa fa-plus"></i>
+          <span>Add new course</span>
+        </button>
+      </div>
+      <div class="profile-cover__info">
+        <ul class="nav">
+          <li><strong>76,134</strong>Reviews</li>
+          <li><strong>925,657</strong>Students</li>
+          <li><strong>16</strong>Courses</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-lg-10">
+    <div class="formLessonList">
+      <div class="formLessonList__title d-flex justify-content-between">
+        <p class="title">Lesson list</p>
+        <button class="btnAddLesson" type="submit"><i
+            class="fas fa-plus mr-1"
+          ></i>
+          Add new lesson</button>
+
+      </div>
+      <hr />
+      <div class="formLessonList__content">
+        <div class="formLessionList__mainTitle">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p><i class="fas fa-expand-arrows-alt"></i>
+                    Part 1: Hello Javascript</p>
+                </div>
+                <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
+                  Edit
+                  <i class="fas fa-trash"></i>
+                  Delete
+                </div>
+              </div>
+
+              <hr />
+              <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                <div>
+                  <p><i class="far fa-sticky-note"></i>
+                    Lesson 1: Course structure and projects</p>
+                </div>
+                <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
+                  Edit
+                  <i class="fas fa-trash"></i>
+                  Delete
+                </div>
+              </div>
+              <hr />
+              <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                <div>
+                  <p><i class="far fa-sticky-note"></i>
+                    Lesson 2: Setting up our code editor</p>
+                </div>
+                <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
+                  Edit
+                  <i class="fas fa-trash"></i>
+                  Delete
+                </div>
+              </div>
+              <hr />
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="btnAddChapter ml-4 d-flex justify-content-between">
+                <p style="font-style: italic;">Add more chapter for your lesson.
+                </p>
+                <button class="addChapterBtn p-3 mb-4">
+                  <i class="fas fa-plus mr-2"></i>Add new chapter
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="lesson col-lg-10 hidden">
+    <div class="form-group">
+      <label for="title-lesson">Tiltle Of Lesson</label>
+      <input
+        type="text"
+        class="form-control p-4"
+        id="title-lesson"
+        name="title-lesson"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      style="border-color: black;"
+    ><i class="fa fa-plus"></i> Add</button>
+  </form>
+
+  <form class="chapter col-lg-10 hidden">
+    <div class="form-group2">
+      <label for="title-chapter">Tiltle Of Chapter</label>
+      <input
+        type="text"
+        class="form-control p-4"
+        id="title-chapter"
+        name="title-chapter"
+      />
+    </div>
+    <div class="form-group2">
+      <label for="video-chapter">Video Of Chapter</label>
+      <input
+        type="file"
+        class="form-control p-4"
+        id="video-chapter"
+        name="video-chapter"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary mt-3"
+      style="border-color: black;"
+    ><i class="fa fa-plus"></i> Add</button>
+  </form>
+</div>
