@@ -62,7 +62,8 @@ body {
       }
       &__user-name,
       &__user-pass,
-      &__user-email {
+      &__user-email,
+      &__user-repeatPass {
         &__input {
           margin-bottom: 0.5rem;
           padding: 1.5rem;
@@ -124,7 +125,8 @@ body {
   .required {
     &-name,
     &-email,
-    &-pass {
+    &-pass,
+    &-repeatPass {
       color: red;
       font-size: 1.5rem;
       @media only screen and (max-width: 31.25em) {

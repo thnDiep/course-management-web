@@ -45,7 +45,7 @@
         @media only screen and (max-width: 31.25em) {
           .login .formSignUp__subTitle {
             font-size: 1.2rem; } }
-      .login .formSignUp__user-name__input, .login .formSignUp__user-pass__input, .login .formSignUp__user-email__input {
+      .login .formSignUp__user-name__input, .login .formSignUp__user-pass__input, .login .formSignUp__user-email__input, .login .formSignUp__user-repeatPass__input {
         margin-bottom: 0.5rem;
         padding: 1.5rem;
         font-size: 1.5rem;
@@ -53,7 +53,7 @@
         width: 80%;
         text-align: center; }
         @media only screen and (max-width: 31.25em) {
-          .login .formSignUp__user-name__input, .login .formSignUp__user-pass__input, .login .formSignUp__user-email__input {
+          .login .formSignUp__user-name__input, .login .formSignUp__user-pass__input, .login .formSignUp__user-email__input, .login .formSignUp__user-repeatPass__input {
             width: 100%;
             font-size: 1.2rem; } }
       .login .formSignUp__btn {
@@ -90,11 +90,11 @@
             .login .formSignUp__icon-arrow {
               font-size: 1.8rem;
               margin-left: 8rem; } }
-  .login .required-name, .login .required-email, .login .required-pass {
+  .login .required-name, .login .required-email, .login .required-pass, .login .required-repeatPass {
     color: red;
     font-size: 1.5rem; }
     @media only screen and (max-width: 31.25em) {
-      .login .required-name, .login .required-email, .login .required-pass {
+      .login .required-name, .login .required-email, .login .required-pass, .login .required-repeatPass {
         font-size: 1.3rem; } }
   .login .required-icon {
     padding: 0.5rem;

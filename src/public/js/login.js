@@ -5,7 +5,6 @@ const video = document.querySelector(".plyr__video");
 const nameformat = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
 video.playbackRate = 0.5;
 const submit = (e) => {
-  e.preventDefault();
   if (name.value.length === 0) {
     document.querySelector(".required-name").classList.remove("hidden");
   } else if (!name.value.match(nameformat)) {
