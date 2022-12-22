@@ -39,5 +39,8 @@ router.get("/", aCategoryController.index);
 router.get("/listAccount", aAccountController.index);
 // Add teacher
 router.get("/listAccount/addTeacher", aAccountController.add);
-
+// delete Account 
+router.delete("/account", aAccountController.delete);
+//
+router.post("/listAccount/deleteByCheckbox", aAccountController.deleteByCheckbox)
 export default router;
