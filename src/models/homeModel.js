@@ -8,7 +8,7 @@ export default {
     );
     return rate.avgRate;
   },
-  async getRate(id) {
+  async getCountFeedback(id) {
     const [[rate], ...h] = await db.raw(
       `SELECT count(star) as sumRate FROM rating WHERE  rating.courseID = ?`,
       id
@@ -43,7 +43,13 @@ export default {
   async getViews() {
     const courses = await db.raw(`SELECT c.*
                                   FROM course c
-                                  GROUP BY c.id;`);
+                                  ORDER BY views DESC LIMIT 12;`);
+    return courses;
+  },
+  async getLatest() {
+    const courses = await db.raw(`SELECT c.*
+                                  FROM course c
+                                  ORDER BY updateTime DESC LIMIT 12;`);
     return courses;
   },
 };

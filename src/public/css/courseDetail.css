@@ -42,6 +42,7 @@
     padding-top: 4px; }
   .courseD__intro .courseD__intro__avt {
     height: 300px;
+    width: 300px;
     margin: 31px 0px 0px 0px;
     border-radius: 4px; }
   .courseD__intro .courseD__intro__name {
@@ -72,6 +73,13 @@
     font-weight: 600;
     margin: 1rem 0;
     margin-top: 3rem; }
+    .courseD__intro .course__review .course__review-ratings {
+      color: #e59819; }
+      .courseD__intro .course__review .course__review-ratings .star {
+        color: #f8d752; }
+    .courseD__intro .course__review .course__review-number {
+      color: black;
+      margin-right: 2rem; }
   .courseD__intro .courseD__intro__link {
     color: #917b00;
     margin-right: 1rem;
@@ -103,13 +111,25 @@
         border-color: #f8d752;
         font-size: 2rem;
         font-weight: bolder;
-        color: black; }
+        color: black;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center; }
         .courseD__intro .courseD__intro__buttons .buying-btn-frame .buying-button:hover {
           transform: translateX(-3px) translateY(-3px);
           height: 7rem;
           width: 28rem;
-          font-size: 3rem;
+          font-size: 4rem;
           cursor: pointer; }
+        .courseD__intro .courseD__intro__buttons .buying-btn-frame .buying-button .fee {
+          font-size: 2rem;
+          margin-bottom: 0px;
+          margin-right: 1.2rem; }
+        .courseD__intro .courseD__intro__buttons .buying-btn-frame .buying-button .feeO {
+          font-size: 1.4rem;
+          text-decoration: line-through;
+          margin-bottom: 0px; }
 
 .courseD__content {
   display: flex;
@@ -177,7 +197,8 @@
 
 .teacher {
   margin-left: 10rem;
-  margin-top: 10rem; }
+  margin-top: 10rem;
+  height: 30rem; }
   .teacher .teacher_title {
     font-style: italic;
     font-weight: bolder;
@@ -186,14 +207,14 @@
   .teacher .teacher_review {
     display: flex;
     margin-top: 2rem;
+    height: 29rem;
     width: 50%;
     color: black; }
     .teacher .teacher_review:hover {
       text-decoration: none; }
     .teacher .teacher_review .teacher_avt {
-      width: 150;
-      height: 150;
-      margin-top: 2rem; }
+      margin-top: 2rem;
+      clip-path: circle(80px at 50% 30%); }
   .teacher .teacher_information {
     margin-top: 2.5rem;
     margin-left: 6rem;
@@ -219,7 +240,7 @@
   font-weight: bold; }
 
 .feedback {
-  margin-top: 10rem;
+  margin-top: 7rem;
   display: flex;
   background-color: #f5f7fa; }
 

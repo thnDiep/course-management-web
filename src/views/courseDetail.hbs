@@ -1,6 +1,7 @@
 {{#section "css"}}
   <link rel="stylesheet" href="/css/courses.css" />
   <link rel="stylesheet" href="/css/courseDetail.css" />
+  <link rel="stylesheet" href="./partials/barStar.hbs" />
 {{/section}}
 
 <div class="courseD__container">
@@ -34,14 +35,15 @@
         </div>
 
         <div class="course__review">
-          <div class="course__review-ratings">
+          {{> barStar this}}
+          {{!-- <div class="course__review-ratings">
             {{this.course.rated}}
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-half" aria-hidden="true"></i>
-          </div>
+            <i class="fa fa-star star" aria-hidden="true"></i>
+            <i class="fa fa-star star" aria-hidden="true"></i>
+            <i class="fa fa-star star" aria-hidden="true"></i>
+            <i class="fa fa-star star" aria-hidden="true"></i>
+            <i class="fa fa-star-half star" aria-hidden="true"></i>
+          </div> --}}
           <a class="course__review-number" href="#">1336 ratings</a>
           11396 students
         </div>
@@ -49,19 +51,26 @@
         <div class="courseD__intro__footer">
           <div class="mr-5">
             <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-            Last updated 4/2016
+            Last updated
+             {{!-- {{this.course.updateTime}}  --}}
           </div>
-          <div>
+          {{!-- <div>
             <i class="fa fa-globe" aria-hidden="true"></i>
             English
-          </div>
+          </div> --}}
         </div>
 
         <div class="courseD__intro__buttons">
           <div class="buying-btn-frame">
             <button class="buying-button">
-              đ
-              {{format_number this.course.fee}}
+              <p class="fee">
+                {{format_number this.course.fee}}
+                đ
+              </p>
+              <p class="feeO">
+                {{format_number this.course.feeO}}
+                đ
+              </p>
             </button>
           </div>
 
@@ -72,7 +81,7 @@
             href="#"
             role="button"
           >
-            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -120,7 +129,8 @@
 
       <div class="description">
         {{{this.course.benefit}}}
-      </div>
+        
+     </div>
 
       <div class="description">
         <h2 class="description-title">Description</h2>
@@ -267,7 +277,7 @@
     <a class="teacher_review" href="/teacherProfile" role="button">
       <img
         src="/images/userPictures/photoCV.jpg"
-        class="rounded-circle teacher_avt"
+        class="teacher_avt  "
         alt="Picture of teacher"
       />
       <div class="teacher_information">

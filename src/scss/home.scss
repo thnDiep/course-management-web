@@ -212,7 +212,7 @@ body {
     width: 100%;
   }
   .row {
-    padding: 0 2rem;
+    padding: 0 4rem;
   }
   text-align: center;
   font-size: 18px;
@@ -222,11 +222,16 @@ body {
   align-items: center;
   .card-title {
     // width: 80%;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 2.5rem;
+    overflow: hidden;
     background-color: #0d1017;
     color: $white-color;
     text-align: center;
-    padding-top: 2rem;
+    // padding-top: 2rem;
     height: 5rem;
     transform: translateY(-50%);
     width: 80%;
@@ -293,15 +298,15 @@ body {
 .swiper-button-prev {
   background-image: none !important;
   i {
-    color: #ccc;
+    color: #110e1d;
     font-size: 5rem;
   }
 }
 .swiper-button-prev {
-  left: 20px !important;
+  left: -2px !important;
 }
 .swiper-button-next {
-  right: 20px !important;
+  right: 2px !important;
 }
 .courses__choose {
   h2 {
@@ -315,7 +320,12 @@ body {
   }
 }
 .course__teacher {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
   font-weight: 500;
   color: $white-color;
   margin: 0;
@@ -351,7 +361,7 @@ body {
     align-items: center;
     font-size: 2.2rem;
     font-weight: 700;
-    color: $gray-text-color;
+    color: $white-color;
   }
 
   .course__price-old {
@@ -361,7 +371,7 @@ body {
     font-size: 1.8rem;
     font-weight: 400;
     margin-left: 1.4rem;
-    color: $white-color;
+    color: $gray-text-color;
   }
 }
 

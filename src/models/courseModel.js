@@ -38,10 +38,16 @@ export default {
     return db("course").where("id", id).del();
   },
 
-  updateView(id) {
-    db("course").where("id", id).update({
-      views: 5,
-    });
+  async join(id) {
+    const list = await db("lesson").where("id", id);
+    if (list.length === 0) return null;
+    return list[0];
+  },
+
+  async updateView(id) {
+    let [getView] = await db.select("views").from("course").where("id", id);
+    console.log(getView.views);
+    await db("course").where("id", id).update("views", ++getView.views);
   },
   //   async isComplete(id) {
   //     const status = await db("course").where()

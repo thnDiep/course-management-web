@@ -34,8 +34,22 @@ class CourseController {
     if (course === null) {
       res.redirect("/courses");
     }
-
+    await courseModel.updateView(id);
     res.render("courseDetail", {
+      course,
+    });
+  }
+
+  // [GET] /courses/join?id=
+  async join(req, res) {
+    const id = parseInt(req.query.id) || 1;
+    const course = await courseModel.join(id);
+
+    if (course === null) {
+      res.redirect("/courses");
+    }
+    await courseModel.updateView(id);
+    res.render("enrollCourse", {
       course,
     });
   }

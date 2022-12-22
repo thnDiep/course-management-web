@@ -9,7 +9,8 @@
   height: 40rem;
   padding-left: 100px;
   padding-top: 5px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/images/background/tech.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+    url(/images/background/tech.jpg);
   position: relative;
 
   .courseD__intro__info {
@@ -40,7 +41,7 @@
         text-align: left;
         margin-bottom: 1rem;
       }
-      .content{
+      .content {
         margin-top: 0.3rem;
         font-size: 1.5rem;
         margin-left: 0rem;
@@ -58,6 +59,7 @@
 
   .courseD__intro__avt {
     height: 300px;
+    width: 300px;
     margin: 31px 0px 0px 0px;
     border-radius: 4px;
   }
@@ -99,6 +101,16 @@
     font-weight: 600;
     margin: 1rem 0;
     margin-top: 3rem;
+    .course__review-ratings {
+      color: $gold-color;
+      .star {
+        color: $primary-color;
+      }
+    }
+    .course__review-number {
+      color: black;
+      margin-right: 2rem;
+    }
   }
 
   .courseD__intro__link {
@@ -143,13 +155,27 @@
         font-size: 2rem;
         font-weight: bolder;
         color: black;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
 
         &:hover {
           transform: translateX(-3px) translateY(-3px);
           height: 7rem;
           width: 28rem;
-          font-size: 3rem;
+          font-size: 4rem;
           cursor: pointer;
+        }
+        .fee {
+          font-size: 2rem;
+          margin-bottom: 0px;
+          margin-right: 1.2rem;
+        }
+        .feeO {
+          font-size: 1.4rem;
+          text-decoration: line-through;
+          margin-bottom: 0px;
         }
       }
     }
@@ -214,7 +240,7 @@
 
   .right {
     margin: 40rem 0rem 0rem 17rem;
-    font-size:2.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     .similar_course-button {
       display: flex;
@@ -224,7 +250,7 @@
       background-color: white;
       border-bottom: 1px solid black;
       width: 100%;
-      box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px ;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px;
 
       &:hover {
         cursor: pointer;
@@ -251,12 +277,12 @@
       }
     }
   }
-
 }
 
 .teacher {
   margin-left: 10rem;
   margin-top: 10rem;
+  height: 30rem;
   .teacher_title {
     font-style: italic;
     font-weight: bolder;
@@ -266,15 +292,15 @@
   .teacher_review {
     display: flex;
     margin-top: 2rem;
+    height: 29rem;
     width: 50%;
     color: black;
-    &:hover{
+    &:hover {
       text-decoration: none;
     }
     .teacher_avt {
-      width: 150;
-      height: 150;
       margin-top: 2rem;
+      clip-path: circle(80px at 50% 30%);
     }
   }
   .teacher_information {
@@ -285,7 +311,7 @@
     .teacher_role {
       font-size: 1.8rem;
     }
-    
+
     .teacher_name-link {
       font-size: 2rem;
       font-weight: bold;
@@ -295,7 +321,7 @@
         color: darkblue;
       }
     }
-    
+
     .teacher_specialization {
       color: #906d47;
       font-size: 1.5rem;
@@ -306,9 +332,6 @@
   }
 }
 
-
-
-
 .feedback-title {
   margin-top: 5rem;
   // margin-left: 5rem;
@@ -316,7 +339,7 @@
   font-weight: bold;
 }
 .feedback {
-  margin-top: 10rem;
+  margin-top: 7rem;
   display: flex;
   background-color: #f5f7fa;
 }
@@ -342,7 +365,6 @@
       color: burlywood;
     }
   }
-  
 }
 
 .feedback-left {
@@ -365,14 +387,14 @@
 }
 
 .reviews-bar-graph {
-  ul{
+  ul {
     padding: 0px;
   }
   .reviews-bar-graph-per_line {
     display: flex;
     font-size: 1.5rem;
     align-items: center;
-    .numberStar{
+    .numberStar {
       padding: 0px;
       margin: 0px;
     }
@@ -380,7 +402,6 @@
     .line {
       position: relative;
       height: 0.7rem;
-      
     }
     .straightLine {
       position: absolute;
@@ -388,17 +409,15 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color:#eaeaea ;
+      background-color: #eaeaea;
     }
-      .lineStar{
-        position: absolute; 
-        top: 0;
-        left: 0;
-        height: 100%;
-        background-color: #e59819;;
-        // }
-      }
-
+    .lineStar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: #e59819;
+      // }
     }
   }
-
+}

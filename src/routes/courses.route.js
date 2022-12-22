@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get("/", courseController.index);
 router.get("/courseDetail", courseController.detail);
-// router.get("/enrollCourse", CourseController.join);
+router.get("/join", courseController.join);
 
 export default router;
+
+
