@@ -1,50 +1,60 @@
 @import "./global/variable";
 
 .table {
-    background-color: white;
+  background-color: white;
 }
 
 body {
-    background: linear-gradient(191deg,
-            rgba(255, 192, 67, 0) 5.02%,
-            rgba(255, 192, 67, 0.5) 94.1%);
+  background: linear-gradient(
+    191deg,
+    rgba(255, 192, 67, 0) 5.02%,
+    rgba(255, 192, 67, 0.5) 94.1%
+  );
 }
 
 h1 {
-    font-family: SuisseWorks, Georgia, Times, times new roman, serif,
-        apple color emoji, segoe ui emoji, segoe ui symbol;
-    font-size: 4rem;
-    font-weight: bold;
+  font-family: SuisseWorks, Georgia, Times, times new roman, serif,
+    apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-size: 4rem;
+  font-weight: bold;
 }
 
 .container {
-    .btn {
-        background-color: $primary-color;
-        text-align: center;
-    }
+  .btn {
+    background-color: $primary-color;
+    text-align: center;
+  }
 }
 
 .choose {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 
-    .active {
+  .active {
+    color: blueviolet;
+  }
+
+  div {
+    font-size: 2rem;
+
+    a {
+      text-decoration: none;
+      margin-right: 2rem;
+      font-weight: bold;
+      color: black;
+
+      &:hover {
         color: blueviolet;
+        cursor: pointer;
+      }
     }
-
-    div {
-        font-size: 2rem;
-
-        a {
-            text-decoration: none;
-            margin-right: 2rem;
-            font-weight: bold;
-            color: black;
-
-            &:hover {
-                color: blueviolet;
-                cursor: pointer;
-            }
-        }
-    }
+  }
+}
+.thead {
+  background-color: #ccc !important;
+  height: 5rem !important;
+  th {
+    padding-top: 1.5rem !important;
+    text-align: left !important;
+  }
 }

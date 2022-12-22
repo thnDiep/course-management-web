@@ -143,3 +143,13 @@ label {
   
 }
 }
+.subLabel{
+  font-size: 1.5rem;
+  color: red;
+  margin-top: 1rem;
+  font-weight: bold;
+  &-price{
+    font-size: 1.1rem;
+    margin-top: 1.3rem;
+  }
+}

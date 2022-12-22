@@ -1,30 +1,50 @@
+.admin {
+  margin-top: 1rem;
+  height: 100%;
+  display: flex;
+  justify-content: center; }
+
+.admin__bar__option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem; }
+
 .admin__header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 10px; }
   .admin__header .admin__title {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 600;
     text-transform: uppercase;
     margin: 0; }
+    .admin__header .admin__title span {
+      text-transform: initial; }
 
 .admin__container {
-  display: flex;
-  justify-content: center; }
+  margin: auto; }
 
 .admin__form {
   font-size: 1.6rem;
-  width: 360px;
+  width: 100%;
   min-height: 100px;
   padding: 12px 24px;
   border-radius: 2px;
-  margin: 24px;
-  align-self: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #fff; }
   .admin__form .form-group {
     margin-bottom: 16px; }
+    .admin__form .form-group.invalid label,
+    .admin__form .form-group.invalid .form-message {
+      color: #fe4343; }
+    .admin__form .form-group.invalid input {
+      border-color: #fe4343; }
+  .admin__form .form-message {
+    font-size: 1.4rem;
+    padding-left: 4px; }
   .admin__form select {
     padding: 8px;
     width: 100%;
@@ -47,13 +67,45 @@
     width: 100%;
     padding: 6px; }
 
-.table.table--courses td:nth-child(1) {
-  text-align: center;
-  width: 50px; }
+.form-addChildInput {
+  width: 100%;
+  border: none;
+  outline: none; }
+
+.admin__btn {
+  height: 40px;
+  width: 40px;
+  margin: 0 5px;
+  padding: 1rem 1.2rem; }
+
+.table.table--courses th:nth-child(1),
+.table.table--courses td:nth-child(1),
+.table.table--courses th:nth-child(2),
+.table.table--courses td:nth-child(2) {
+  width: 50px;
+  text-align: center; }
 
 .table.table--categories th:nth-child(1),
 .table.table--categories td:nth-child(1),
-.table.table--categories th:nth-child(3),
-.table.table--categories td:nth-child(3) {
+.table.table--categories th:nth-child(2),
+.table.table--categories td:nth-child(2),
+.table.table--categories th:nth-child(4),
+.table.table--categories td:nth-child(4) {
   width: 50px;
   text-align: center; }
+
+.gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #84fab0;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5)); }
+
+.gradient-custom-4 {
+  /* fallback for old browsers */
+  background: #84fab0;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #84fab0, #8fd3f4);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #84fab0, #8fd3f4); }

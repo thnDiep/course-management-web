@@ -1,13 +1,17 @@
 import homeModel from "../models/homeModel.js";
+import courseModel from "../models/courseModel.js";
+import userModel from "../models/userModel.js";
 class homeController {
   // GET categories list
   async index(req, res) {
     const getAll = async (course) => {
       for (let i = 0; i < course.length; i++) {
-        const Rated = await homeModel.getAvgRate(course[i].id);
-        const sumRate = await homeModel.getCountFeedback(course[i].id);
-        const numberStudent = await homeModel.getNumberStudent(course[i].id);
-        const teacherName = await homeModel.getTeacher(course[i].id);
+        const Rated = await courseModel.getAvgRate(course[i].id);
+        const sumRate = await courseModel.getCountFeedback(course[i].id);
+        const numberStudent = await userModel.getNumberStudentByCourse(
+          course[i].id
+        );
+        const teacherName = await userModel.getNameTeacher(course[i].id);
         course[i].rated = (+Rated).toFixed(1);
         course[i].sumRate = (+sumRate).toFixed(0);
         course[i].numberStudent = (+numberStudent).toFixed(0);

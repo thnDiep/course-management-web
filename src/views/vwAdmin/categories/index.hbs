@@ -1,9 +1,12 @@
-{{#section "css"}}
-  <link rel="stylesheet" href="/css/admin.css" />
+{{#section "js"}}
+  <script src="/js/admin/category.js"></script>
 {{/section}}
 
-<div class="container">
+<form class="container" method="post" action="/admin/categories/deleteByCheckbox">
   <div class="admin__header">
+    <button type="submit" class="admin__btn btn btn--icon btn--danger btn--disabled submitDeleteByCheckBox" disabled>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
     <h1 class="admin__title">Categories</h1>
     <a href="/admin/categories/add" class="btn btn--icon btn--success">
       <i class="fa fa-plus mr-3" aria-hidden="true"></i>
@@ -13,38 +16,62 @@
   <table class="table table-bordered table--categories">
     <thead class="thead-light">
       <tr>
+        <th>
+            <input type="checkbox" id="checkboxAll">
+        </th>
         <th>#</th>
         <th>Category</th>
         <th>Number course</th>
-        <th class="col-btn">View detail</th>
-        <th class="col-btn">Update</th>
-        <th class="col-btn">Delete</th>
+        <th class="col-btn">Operations</th>
       </tr>
     </thead>
     <tbody>
     
       {{#each this.categories}}
         <tr>
+          <td>
+            <input type="checkbox" name="idCategories" class="checkboxCategory" value={{id}} {{#if numberCourse}}disabled{{/if}}>
+          </td>
           <td scope="row">{{id}}</td>
           <td>{{name}}</td>
           <td>{{numberCourse}}</td>
-          <td class="col-btn">
-            <a href="" class="btn btn--info">
-              <i class="fa fa-eye" aria-hidden="true"></i>
+          <td class="d-flex">
+            <a href="/admin/categories/edit?id={{id}}" class="d-flex mr-5 link--success" id="edit">
+              <i class="fa fa-paint-brush mr-2" aria-hidden="true"></i>
+              edit
             </a>
-          </td>
-          <td class="col-btn">
-            <a href="/admin/categories/update?id={{id}}" class="btn btn--primary">
-              <i class="fa fa-paint-brush" aria-hidden="true"></i>
-            </a>
-          </td>
-          <td class="col-btn">
-            <a href="/admin/categories/del?id={{id}}" class="btn btn--danger {{#if numberCourse}}btn--disable{{/if}}">
-              <i class="fa fa-trash" aria-hidden="true"></i>
+
+            <a href="#" class="d-flex {{#if numberCourse}}link--disabled{{/if}} link--danger" id="delete" data-id={{id}} data-toggle="modal" data-target="#deleteCategoryModal">
+              <i class="fa fa-trash mr-2" aria-hidden="true"></i>
+              delete
             </a>
           </td>
         </tr>
       {{/each}}
     </tbody>
   </table>
+</form>
+
+{{!-- Form delete --}}
+<form name="deleteCategoryForm" method="post"></form> 
+
+{{!-- Confirm delete category --}}
+<div class="modal fade" id="deleteCategoryModal" tabindex="-1" role="dialog" aria-labelledby="deleteCategoryModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="deleteCategoryModal">Confirm delete</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-3 mb-3">
+        <h1>Are you sure to delete this category?</h1>
+      </div>
+      <div class="modal-footer">
+        <button id="deleteCategoryBtn" type="button" class="btn btn--danger">Delete</button>
+        <button type="button" class="btn btn--border" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

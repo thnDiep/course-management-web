@@ -1,5 +1,7 @@
 {{#section "css"}}
   <link rel="stylesheet" href="/css/profile.css" />
+  <link rel="stylesheet" href="/css/teacherProfile.css">
+  <link rel="stylesheet" href="/css/base.css">
 {{/section}}
 {{#section "images"}}
   <link rel="stylesheet" href="/images/background/bg1.png" />
@@ -8,19 +10,71 @@
   <script src="/js/profile.js"></script>
 {{/section}}
 <section>
-  <div class="container-fluid py-4 m-0">
-    {{!-- <div class="row">
-      <div class="col">
-        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-          <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">User</a></li>
-            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-          </ol>
-        </nav>
+  <div class="check"></div>
+<form action="">
+  <div class="col-lg-8 container edit" id="edit">
+    <div class="card mb-4">
+      <div class="card-body text-center">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+          class="rounded-circle img-fluid" style="width: 150px;" />
+          <input type="file" id="myfile" name="fileImg">
+        </div>
+        <input type="text" class="my-3 text-center nameOverlay" value={{this.profiles.name}} style="color: #333333;font-size:2.5rem"></input>
+        <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
+          Student</p>
+        <p class="text-muted mb-4">Ho Chi Minh City, Viet Nam</p>
       </div>
-    </div> --}}
+    </div>
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0">User Name</p>
+          </div>
+          <div class="col-sm-8">
+            <input type="text" value={{this.profiles.name}} class="nameInput" name="Name" disabled >
+          </div>
+          <div class="col-sm-1">
+            <i class="far fa-edit editPage"></i>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0">Email</p>
+          </div>
+          <div class="col-sm-8">
+          <input type="email" value={{this.profiles.email}} class="emailInput" name="Email" disabled >
 
+          </div>
+          <div class="col-sm-1">
+            <i class="far fa-edit editPage"></i>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0">Password</p>
+          </div>
+          <div class="col-sm-8">
+            <input type="password" value={{this.profiles.password}} class="passInput" name="Password" disabled >
+
+          </div>
+          <div class="col-sm-1">
+            <i class="far fa-edit editPage"></i>
+          </div>
+        </div>
+       
+
+      </div>
+    </div>
+    <div class="card mb-4">
+      <button type="submit" class="btn btn--submit">EDIT</button>
+    </div>
+</form>
+  </div>
+  <div class="container-fluid py-4 m-0">
     <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4">
@@ -35,24 +89,12 @@
             <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
               Student</p>
             <p class="text-muted mb-4">Ho Chi Minh City, Viet Nam</p>
-            {{! <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Follow</button>
-              <button
-                type="button"
-                class="btn btn-outline-primary ms-1"
-              >Message</button>
-            </div> }}
           </div>
         </div>
         <div class="card mb-4 mb-lg-0">
           <div class="card-body">
             <ul class="list-group list-group-flush rounded-3">
-              {{! <li
-                class="list-group-item d-flex justify-content-between align-items-center p-3"
-              >
-                <i class="fas fa-globe fa-lg text-warning"></i>
-                <p class="mb-0">https://mdbootstrap.com</p>
-              </li> }}
+             
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
               >
@@ -85,6 +127,7 @@
       <div class="col-lg-8">
         <div class="card mb-4">
           <div class="card-body">
+            
             <div class="row">
               <div class="col-sm-3">
                 <p class="mb-0">User Name</p>
@@ -93,7 +136,7 @@
                 <input type="text" value={{this.profiles.name}} class="inputName" disabled >
               </div>
               <div class="col-sm-1">
-                <i class="far fa-edit edit"></i>
+                <i class="far fa-edit Edit"></i>
               </div>
             </div>
             <hr />
@@ -105,7 +148,7 @@
                 <input type="email" value={{this.profiles.email}} class="inputEmail" disabled >
               </div>
               <div class="col-sm-1">
-                <i class="far fa-edit edit"></i>
+                <i class="far fa-edit Edit"></i>
               </div>
             </div>
             <hr />
@@ -117,12 +160,13 @@
                 <input type="password" value={{this.profiles.password}} class="inputPass" disabled >
               </div>
               <div class="col-sm-1">
-                <i class="far fa-edit edit"></i>
+                <i class="far fa-edit Edit"></i>
               </div>
             </div>
 
           </div>
         </div>
+        
         <div class="row">
           <div class="col-md-6">
             <div class="card mb-4 mb-md-0">

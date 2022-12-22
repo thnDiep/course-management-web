@@ -8,9 +8,7 @@ router.get("/", HomeController.index);
 
 router.get("/profile", ProfileController.index);
 
-router.get("/createCourse", (req, res) => {
-  res.render("createCourse");
-});
+
 // router.get("/courses/courseDetail", courseDetailController.index);
 // Routes
 router.get("/login", (req, res) => {

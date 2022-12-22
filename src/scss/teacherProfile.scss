@@ -97,10 +97,10 @@
     margin-bottom: 2rem;
     position: relative;
 
-    &:hover {
-      cursor: pointer;
-      transform: translateY(-2px);
-    }
+    // &:hover {
+    //   cursor: pointer;
+    //   transform: translateY(-2px);
+    // }
   }
 
   .course__teacher {
@@ -173,5 +173,27 @@
   &:hover {
     cursor: pointer;
     transform: translateY(-2px);
+  }
+}
+.btn-default,
+.btn-primary {
+  color: $black-color !important;
+  border: solid 1px $black-color;
+}
+.card {
+  position: relative;
+}
+.fa-times {
+  img {
+    background-color: #ccc;
+    border-radius: 100px;
+  }
+  position: absolute;
+  color: $black-color;
+  right: 2;
+  font-size: 2rem;
+  &:hover {
+    cursor: pointer;
+    transform: translateY(2px);
   }
 }
