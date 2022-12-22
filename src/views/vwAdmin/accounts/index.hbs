@@ -1,104 +1,116 @@
 {{#section "css"}}
-  <link rel="stylesheet" href="/css/listAccount.css" />
+<link rel="stylesheet" href="/css/listAccount.css" />
+{{/section}}
+
+{{#section "js"}}
+<script>
+  let idAccount;
+  const deleteAccountForm = document.forms["deleteAccountForm"];
+  const checkboxAll = document.querySelector('#checkboxAll')
+  const checkboxAccount = document.querySelectorAll('.checkboxAccount');
+  console.log(checkboxAll.checked)
+  checkboxAll.onchange = (e) => {
+    checkboxAccount.forEach((checkbox) => {
+      checkbox.checked = e.target.checked;
+    });
+
+  };
+  $("#deleteAccountModal").on('show.bs.modal', function (e) {
+    idAccount = e.relatedTarget.getAttribute("data-id")
+  });
+  $("#deleteAccount").on("click", () => {
+    console.log("hello")
+    deleteAccountForm.action =
+      "/admin/account?id=" + idAccount + "&_method=DELETE";
+    deleteAccountForm.submit();
+  })
+</script>
 {{/section}}
 <div class="container">
   <div class="d-flex justify-content-between">
     <h1>Member</h1>
-    <a class="btn" href="/admin/listAccount/addTeacher"><i
-        class="fas fa-plus"
-      ></i>
+    <a class="btn" href="/admin/listAccount/addTeacher"><i class="fas fa-plus"></i>
       Add teacher</a>
   </div>
   <div class="choose d-flex">
-    <div><a class="active" href="http://">All</a></div>
-    <div><a href="http://">Teachers</a></div>
+    <div><a class="active" href="/admin/listAccount">All</a></div>
+    <div><a href="/admin/listAccount">Teachers</a></div>
     <div><a href="http://">Students</a></div>
   </div>
+  <form action="/admin/listAccount/deleteByCheckbox" method="post">
 
-  <table class="table table-striped">
-    <thead class="thead">
-      <tr class="thead">
-        <th><input
-            class="mt-2"
-            type="checkbox"
-            id="html"
-            name="fav_language"
-            value="HTML"
-          /></th>
-        <th class="text-primary">Username</th>
-        <th class="text-primary">Email</th>
-        <th>Role</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each user}}
+    <button type="submit" class="admin__btn btn btn--icon" style="background-color: #dc3545; margin-bottom:3px">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+    <table class="table table-bordered">
+      <thead class="thead">
+        <tr class="thead">
+          <th style="width:5rem; text-align:center !important"><input class="mt-2" type="checkbox" id="checkboxAll" />
+          </th>
+          <th style="text-align:center !important">#</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Course</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each users}}
         <tr>
-          <td style="width:2px"><input
-              class="mt-4"
-              type="checkbox"
-              id="html"
-              name="fav_language"
-              value="HTML"
-            /></td>
+          <td style="width:5rem; text-align:center"><input class="mt-4 checkboxAccount" type="checkbox"
+              name="idAccounts" value={{id}} />
+          </td>
+          <td style="text-align:center">{{id}}</td>
           <td class="d-flex">
-            <img
-              class="mr-3"
-              style="width:45px;height: 40px;"
+            <img class="mr-3" style="width:45px;height: 40px;"
               src="http://phunuvietnam.mediacdn.vn/media/news/33abffcedac43a654ac7f501856bf700/anh-profile-tiet-lo-g-ve-ban-1.jpg"
-              alt=""
-            />
+              alt="" />
             <div class="d-flex flex-column justify-content-between">
               <div>{{name}}</div>
               <div>
                 <a href="http://"><i class="fas fa-pen"></i> Edit</a>
-                <a class="pl-2 text-danger" href="http://"><i
-                    class="fas fa-trash"
-                  ></i>
+                <a class="pl-2 text-danger" data-toggle="modal" data-id={{id}} data-target="#deleteAccountModal"
+                  href="#"><i class="fas fa-trash"></i>
                   Delete</a>
               </div>
             </div>
           </td>
           <td class="text-primary">{{email}}</td>
           <td>{{ruleName}}</td>
+          <td style="width: 1rem; text-align:center"><a href="">{{sumCourse}}</a></td>
         </tr>
-      {{/each}}
+        {{/each}}
 
-    </tbody>
+      </tbody>
 
-  </table>
+    </table>
 </div>
+</form>
 
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<form name="deleteAccountForm" method="post"></form>
+
+{{!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> --}}
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="deleteAccountModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <h5 class="modal-title" id="deleteAccountModal">
+          <h2>Confirm delete</h2>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <h3>Are you sure to delete this account?</h3>
       </div>
       <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-dismiss="modal"
-        >Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="deleteAccount" type="button" class="btn btn-primary"
+          style="background-color: brown;">Delete</button>
       </div>
     </div>
   </div>

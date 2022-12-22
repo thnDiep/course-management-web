@@ -1,6 +1,7 @@
 import db from "../utils/db.js";
 
 export default {
+  ////////////////////////////////
   // student
   async getNumberStudentByCourse(id) {
     const [[number], ...h] = await db.raw(
@@ -9,6 +10,7 @@ export default {
     );
     return number.sumStudent;
   },
+  ////////////////////////////////
   // teacher
   async getNameTeacher(id) {
     const [[name], ...h] = await db.raw(
@@ -39,6 +41,7 @@ export default {
     );
     return teacher;
   },
+  // get all infor of student and teacher
   async getAllStudentAndTeacher() {
     const [user] = await db.raw(
       `SELECT us.*, pm.name as ruleName
@@ -47,4 +50,31 @@ export default {
     );
     return user;
   },
+  delete(id) {
+    return db("user").where("id", id).del();
+  },
+  // get sum student of teacher
+  async getNumberStudentOfTeacher(id) {
+    const [[numberStudent]] = await db.raw(
+      `SELECT COUNT(st.studentID) as number
+      FROM course_of_teacher tc,course_of_student st
+      WHERE tc.courseID = st.courseID AND tc.teacherID = ?`, id
+    )
+    return numberStudent.number;
+  },
+  // get sum views of teacher by id
+  async getNumberViewsOfTeacher(id) {
+    const [[views]] = await db.raw(
+      `SELECT count(star) as sumRate 
+      FROM rating, course_of_teacher tc 
+      WHERE  rating.courseID = tc.courseID AND tc.teacherID = ?`, id
+    );
+    return views.sumRate;
+  },
+  // get sum course of teacher by id
+  async getNumberCourseOfTeacher(id) {
+    const [views] = await db("course_of_teacher").count("courseID as count").where("teacherID", id);
+    return views.count;
+  }
+
 };
