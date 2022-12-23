@@ -11,17 +11,15 @@ class tProfileController {
       const numberStudent = await userModel.getNumberStudentByCourse(
         course[i].id
       );
-      countReview += sumRate;
-      countStudent += numberStudent;
       course[i].rated = (+Rated).toFixed(1);
       course[i].sumRate = (+sumRate).toFixed(0);
       course[i].numberStudent = (+numberStudent).toFixed(0);
     }
     const [teacher] = await userModel.getInforTeacherByID(3);
-    console.log(course);
+    // console.log(course);
     teacher.courses = course.length;
-    teacher.student = countStudent;
-    teacher.countReview = countReview;
+    teacher.student = await userModel.getNumberStudentOfTeacher(3);
+    teacher.countReview = await userModel.getNumberViewsOfTeacher(3);
     res.render("vwteacher/teacherProfile", {
       course,
       teacher,

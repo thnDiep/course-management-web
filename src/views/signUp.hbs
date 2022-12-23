@@ -26,7 +26,7 @@
     <div class="overlay1"></div>
 
     <div class="form row">
-      <form method="post" class="formSignUp col-lg-7 col-sm-0">
+      <form method="post" action="signup" class="formSignUp col-lg-7 col-sm-0">
         <p class="formSignUp__mainTitle">Sign up to SunLight</p>
         <span class="formSignUp__subTitle">SunLight is much better when you have
           an account
@@ -38,8 +38,14 @@
             type="text"
             placeholder="User name"
             class="formSignUp__user-name__input"
+            name="name"
             autofocus
           />
+          {{#if err_message_name}}
+          <p class="required-name"><i
+              class="fas fa-exclamation-circle required-icon"
+            ></i>
+            {{err_message_name}}</p>{{/if}} 
           <p class="required-name hidden"><i
               class="fas fa-exclamation-circle required-icon"
             ></i>
@@ -52,8 +58,14 @@
             type="text"
             placeholder="Email"
             class="formSignUp__user-email__input"
+            name="email"
             autofocus
           />
+            {{#if err_message_email}}
+          <p class="required-email"><i
+              class="fas fa-exclamation-circle required-icon"
+            ></i>
+            {{err_message_email}}</p>{{/if}} 
           <p class="required-email hidden"><i
               class="fas fa-exclamation-circle required-icon"
             ></i>
@@ -67,6 +79,7 @@
             type="password"
             placeholder="Password"
             class="formSignUp__user-pass__input"
+            name="password"
             autofocus
           />
           <p class="required-pass hidden"><i
@@ -75,7 +88,22 @@
             Password is required</p>
 
         </div>
-        <button class="py-3 px-1 formSignUp__btn ripple">Create Account
+        <div class="formSignUp__user-repeatPass">
+          <i class="fas fa-lock formSignUp__icon"></i>
+          <input
+            type="password"
+            placeholder="Repeat Password"
+            class="formSignUp__user-repeatPass__input"
+            name="repeatPassword"
+            autofocus
+          />
+          <p class="required-repeatPass hidden"><i
+              class="fas fa-exclamation-circle required-icon"
+            ></i>
+            Repeat Password is required</p>
+
+        </div>
+        <button type="submit" class="py-3 px-1 formSignUp__btn ripple">Create Account
           <i class="fas fa-arrow-right formSignUp__icon-arrow"></i>
         </button>
       </form>

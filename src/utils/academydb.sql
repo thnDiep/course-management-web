@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Cấu trúc bảng cho bảng `category`
 --
-
+drop table if exists `category`;
 CREATE TABLE `category` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(250) NOT NULL,
@@ -60,7 +60,7 @@ INSERT INTO `category` (`id`, `name`, `parentID`) VALUES
 --
 -- Cấu trúc bảng cho bảng `chapter`
 --
-
+drop table if exists `chapter`;
 CREATE TABLE `chapter` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(250) COLLATE utf8_bin NOT NULL,
@@ -75,7 +75,7 @@ INSERT INTO `chapter` (`id`, `name`, `courseID`) VALUES
 (1, 'Javascript for beginers', 1),
 (2, 'Storing information in variables', 1),
 (3, 'Conditional statement', 1),
-(4, 'Now we\'re iterating! Loops in Javascript', 1),
+(4, 'Now we re iterating! Loops in Javascript', 1),
 (5, 'Coding Javascript function', 1),
 (6, 'Working with Arrays', 1);
 
@@ -84,7 +84,7 @@ INSERT INTO `chapter` (`id`, `name`, `courseID`) VALUES
 --
 -- Cấu trúc bảng cho bảng `course`
 --
-
+drop table if exists `course`;
 CREATE TABLE `course` (
   `id` int(10) UNSIGNED ZEROFILL NOT NULL,
   `name` varchar(250) NOT NULL,
@@ -118,6 +118,7 @@ INSERT INTO `course` (`id`, `name`, `tinyDescription`, `fullDescription`, `fee`,
 --
 -- Cấu trúc bảng cho bảng `course_of_student`
 --
+drop table if exists `course_of_student`;
 
 CREATE TABLE `course_of_student` (
   `studentID` int(10) UNSIGNED NOT NULL,
@@ -140,6 +141,7 @@ INSERT INTO `course_of_student` (`studentID`, `courseID`, `chapterID`, `lessonID
 --
 -- Cấu trúc bảng cho bảng `course_of_teacher`
 --
+drop table if exists `course_of_teacher`;
 
 CREATE TABLE `course_of_teacher` (
   `teacherID` int(10) UNSIGNED NOT NULL,
@@ -161,6 +163,7 @@ INSERT INTO `course_of_teacher` (`teacherID`, `courseID`) VALUES
 --
 -- Cấu trúc bảng cho bảng `history_lesson`
 --
+drop table if exists `history_lesson`;
 
 CREATE TABLE `history_lesson` (
   `chapterID` int(11) DEFAULT NULL,
@@ -182,6 +185,7 @@ INSERT INTO `history_lesson` (`chapterID`, `lessonID`, `time`, `courseID`, `stud
 --
 -- Cấu trúc bảng cho bảng `lesson`
 --
+drop table if exists `lesson`;
 
 CREATE TABLE `lesson` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -212,6 +216,7 @@ INSERT INTO `lesson` (`id`, `name`, `chapterID`, `videoID`) VALUES
 --
 -- Cấu trúc bảng cho bảng `permission`
 --
+drop table if exists `permission`;
 
 CREATE TABLE `permission` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -233,6 +238,7 @@ INSERT INTO `permission` (`id`, `name`) VALUES
 --
 -- Cấu trúc bảng cho bảng `rating`
 --
+drop table if exists `rating`;
 
 CREATE TABLE `rating` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -260,6 +266,7 @@ INSERT INTO `rating` (`id`, `star`, `feedback`, `courseID`, `studentID`, `time`)
 --
 -- Cấu trúc bảng cho bảng `student_love_course`
 --
+drop table if exists `student_love_course`;
 
 CREATE TABLE `student_love_course` (
   `studentID` int(10) UNSIGNED NOT NULL,
@@ -279,6 +286,7 @@ INSERT INTO `student_love_course` (`studentID`, `courseID`) VALUES
 --
 -- Cấu trúc bảng cho bảng `user`
 --
+drop table if exists `user`;
 
 CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,

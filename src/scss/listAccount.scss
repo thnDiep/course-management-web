@@ -5,11 +5,11 @@
 }
 
 body {
-  background: linear-gradient(
-    191deg,
-    rgba(255, 192, 67, 0) 5.02%,
-    rgba(255, 192, 67, 0.5) 94.1%
-  );
+  // background: linear-gradient(
+  //   191deg,
+  //   rgba(255, 192, 67, 0) 5.02%,
+  //   rgba(255, 192, 67, 0.5) 94.1%
+  // );
 }
 
 h1 {
@@ -50,9 +50,11 @@ h1 {
     }
   }
 }
+
 .thead {
   background-color: #ccc !important;
   height: 5rem !important;
+
   th {
     padding-top: 1.5rem !important;
     text-align: left !important;
