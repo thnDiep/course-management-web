@@ -2,6 +2,7 @@ import db from "../utils/db.js";
 import categoryModel from "./categoryModel.js";
 
 export default {
+  // get course / courses
   getAll() {
     return db("course");
   },
@@ -19,9 +20,10 @@ export default {
   },
 
   async getByCategoryId(id) {
+    // get courses of this category
     let list = await db("course").where("idCategory", id);
-    // id = 1
-    // id of course = 2 => still show
+
+    // get courses of this category's child
     const category = await categoryModel.getById(id);
     if (category.parentID === null) {
       const childCategories = await categoryModel.getChildByParentID(id);
@@ -37,9 +39,10 @@ export default {
   },
 
   async getSummaryByCategoryId(id) {
+    // get courses of this category
     let list = await db("course").select("id", "name").where("idCategory", id);
-    // id = 1
-    // id of course = 2 => still show
+
+    // get courses of this category's child
     const category = await categoryModel.getById(id);
     if (category.parentID === null) {
       const childCategories = await categoryModel.getChildByParentID(id);
@@ -53,6 +56,7 @@ export default {
     return list;
   },
 
+  //
   async getAvgRate(id) {
     const [[rate], ...h] = await db.raw(
       `SELECT AVG(star) as avgRate FROM rating WHERE  rating.courseID = ?`,
@@ -60,6 +64,7 @@ export default {
     );
     return rate.avgRate;
   },
+
   async getCountFeedback(id) {
     const [[rate], ...h] = await db.raw(
       `SELECT count(star) as sumRate FROM rating WHERE  rating.courseID = ?`,
@@ -67,6 +72,7 @@ export default {
     );
     return rate.sumRate;
   },
+
   add(course) {
     return db("course").insert(course);
   },

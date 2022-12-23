@@ -27,7 +27,7 @@
     .courses__tool .courses__sort .courses__sort__label {
       margin: 0;
       font-size: 2.2rem;
-      width: 300px;
+      width: 360px;
       text-align: center;
       text-transform: uppercase; }
     .courses__tool .courses__sort .btn {
@@ -53,7 +53,7 @@
   .course:hover {
     transform: translateX(-1px) translateY(-1px);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; }
-  .course:hover figure::after {
+  .course:hover .course__img::after {
     animation: shine 0.75s; }
 
 @keyframes shine {
@@ -75,6 +75,8 @@
   padding: 2px 40px;
   color: #000;
   background-color: #f8d752;
+  border: 1px solid #000;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   transform: rotate(-40deg);
   z-index: 2; }
 
@@ -110,11 +112,18 @@
   border-radius: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   padding: 0 20px 12px 0; }
-  .course.course--horizontal figure {
+  .course.course--horizontal .course__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    line-height: 2.6rem;
+    height: 2.6rem;
+    max-height: 2.6rem; }
+  .course.course--horizontal .course__img {
     border: 1px solid #777;
-    margin-right: 20px; }
-    .course.course--horizontal figure .course__img {
-      width: 300px; }
+    margin-right: 20px;
+    width: 360px; }
   .course.course--horizontal .course__body {
     flex: 1; }
   .course.course--horizontal .course__category {
@@ -125,11 +134,16 @@
   .course.course--horizontal.course--new .course__new-label {
     display: block; }
 
-figure {
+.course__img {
+  height: 200px;
   margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   position: relative;
-  overflow: hidden; }
-  figure::after {
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+  .course__img::after {
     content: "";
     position: absolute;
     top: 0;
@@ -156,6 +170,7 @@ figure {
   -webkit-line-clamp: 2;
   overflow: hidden;
   line-height: 2.6rem;
+  height: 5.2rem;
   max-height: 5.2rem;
   font-size: 2.4rem;
   font-weight: 600;
@@ -198,14 +213,10 @@ figure {
   display: block;
   height: 1.5rem;
   margin: 8px 0 0 0;
-  z-index: 2; }
-  .course__teacher .course__teacher__link {
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #555;
-    text-decoration: none; }
-    .course__teacher .course__teacher__link:hover {
-      color: #0000ee; }
+  z-index: 2;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #555; }
 
 .course__review {
   display: flex;

@@ -42,14 +42,12 @@
             autofocus
           />
           {{#if err_message_name}}
-          <p class="required-name"><i
-              class="fas fa-exclamation-circle required-icon"
-            ></i>
-            {{err_message_name}}</p>{{/if}} 
-          <p class="required-name hidden"><i
-              class="fas fa-exclamation-circle required-icon"
-            ></i>
-            User name is required</p>
+          <p class="required-name">
+            <i class="fas fa-exclamation-circle required-icon"></i>
+          {{err_message_name}}
+          </p>
+          {{/if}} 
+          <p class="required-name "></p>
         </div>
 
         <div class="formSignUp__user-email">
@@ -66,10 +64,7 @@
               class="fas fa-exclamation-circle required-icon"
             ></i>
             {{err_message_email}}</p>{{/if}} 
-          <p class="required-email hidden"><i
-              class="fas fa-exclamation-circle required-icon"
-            ></i>
-            Email is required</p>
+          <p class="required-email "></p>
 
         </div>
 
@@ -82,28 +77,22 @@
             name="password"
             autofocus
           />
-          <p class="required-pass hidden"><i
-              class="fas fa-exclamation-circle required-icon"
-            ></i>
-            Password is required</p>
+          <p class="required-pass "></p>
 
         </div>
         <div class="formSignUp__user-repeatPass">
           <i class="fas fa-lock formSignUp__icon"></i>
           <input
             type="password"
-            placeholder="Repeat Password"
+            placeholder="Confirm Password"
             class="formSignUp__user-repeatPass__input"
             name="repeatPassword"
             autofocus
           />
-          <p class="required-repeatPass hidden"><i
-              class="fas fa-exclamation-circle required-icon"
-            ></i>
-            Repeat Password is required</p>
+          <p class="required-repeatPass "></p>
 
         </div>
-        <button type="submit" class="py-3 px-1 formSignUp__btn ripple">Create Account
+        <button type="submit" class="py-3 px-1 formSignUp__btn ripple" onclick="swal({'title: Request Delivered,text: You can continue with your search.,type: success})">Create Account
           <i class="fas fa-arrow-right formSignUp__icon-arrow"></i>
         </button>
       </form>
@@ -115,4 +104,5 @@
 
 {{#section "js"}}
   <script src="/js/signUp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.2/sweetalert2.all.min.js"></script>
 {{/section}}

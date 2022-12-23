@@ -5,6 +5,7 @@ class AccountController {
     const rawPassword = req.body.password;
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(rawPassword, salt);
+    console.log(hash)
     const user = {
         name: req.body.name,
         password: hash,
@@ -13,7 +14,6 @@ class AccountController {
       }
       let err_message_name, err_message_email;
       const check = (name, chec)=>{
-
          if(name===chec){
            err_message_name =`${name} was exist...`
            return 0;
@@ -24,6 +24,7 @@ class AccountController {
       const emailAvailable = await accountModel.findByEmail(req.body.email)
       if(check(userAvailable?.name, user.name)===1&&check(emailAvailable?.email, user.email)===1)
       {
+
          await accountModel.add(user);
          return res.redirect("back")
       }
@@ -37,6 +38,20 @@ class AccountController {
           }
       }
     }
+    async index2(req, res) {
+        const [passAvailable] = await accountModel.findByUsernameToCheckPassword(req.body.name)
+        const ret = bcrypt.compareSync(req.body.password, passAvailable.password)
+        console.log(ret)
+        if(ret)
+        {
+           return res.redirect("/")
+        }
+        else{
+          return res.render('login',{
+            err_message_name: "Password was wrong...",
+          });
+        }
+      }
 }
 
 export default new AccountController();

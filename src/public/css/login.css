@@ -37,7 +37,7 @@
           .login .form--login__mainTitle {
             font-size: 4rem; } }
       .login .form--login__subTitle {
-        margin-top: -1.5rem;
+        margin-top: -0.5rem;
         margin-bottom: 1.5rem;
         font-weight: 400;
         font-size: 1.5rem;
@@ -45,7 +45,7 @@
         @media only screen and (max-width: 31.25em) {
           .login .form--login__subTitle {
             font-size: 1.2rem;
-            margin-top: -2.5rem; } }
+            margin-top: -0.5rem; } }
       .login .form--login__user-name__input, .login .form--login__user-pass__input, .login .form--login__user-email__input {
         margin-bottom: 0.5rem;
         padding: 1.5rem;
@@ -89,10 +89,12 @@
           text-align: center; }
           @media only screen and (max-width: 31.25em) {
             .login .form--login__icon-arrow {
-              margin-left: 7rem;
+              margin-left: 14rem;
               font-size: 1.8rem; } }
   .login .required-name, .login .required-email, .login .required-pass {
     color: red;
+    height: 2rem;
+    font-weight: bold;
     font-size: 1.5rem; }
     @media only screen and (max-width: 31.25em) {
       .login .required-name, .login .required-email, .login .required-pass {

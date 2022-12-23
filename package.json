@@ -24,7 +24,8 @@
         "knex": "^2.3.0",
         "method-override": "^3.0.0",
         "mysql2": "^2.3.3",
-        "numeral": "^2.0.6"
+        "numeral": "^2.0.6",
+        "sweetalert2": "^11.6.16"
     },
     "devDependencies": {
         "husky": "^8.0.2",
