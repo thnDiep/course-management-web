@@ -76,7 +76,7 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 
-  &:hover figure::after {
+  &:hover .course__img::after {
     animation: shine 0.75s;
   }
 
@@ -106,6 +106,9 @@
   padding: 2px 40px;
   color: $black-color;
   background-color: $primary-color;
+  border: 1px solid $black-color;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   transform: rotate(-40deg);
   z-index: 2;
 }
@@ -148,14 +151,22 @@
   border-bottom: 1px solid $border-color;
   padding: 0 20px 12px 0;
 
+  // COURSE TITLE in horizontal
+  .course__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    line-height: 2.6rem;
+    height: 2.6rem;
+    max-height: 2.6rem;
+  }
+
   // COURSE IMAGE in horizontal
-  figure {
+  .course__img {
     border: 1px solid $gray-color;
     margin-right: 20px;
-
-    .course__img {
-      width: $course--horizontal-image-width;
-    }
+    width: $course--horizontal-image-width;
   }
 
   // COURSE BODY in horizontal
@@ -178,10 +189,15 @@
 }
 
 // AVATAR COURSE
-figure {
+.course__img {
+  height: 200px;
   margin: 0;
+  border-bottom: 1px solid $border-color;
   position: relative;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
   &::after {
     content: "";
@@ -217,6 +233,7 @@ figure {
   -webkit-line-clamp: 2;
   overflow: hidden;
   line-height: 2.6rem;
+  height: 5.2rem;
   max-height: 5.2rem;
 
   font-size: 2.4rem;
@@ -272,15 +289,15 @@ figure {
   margin: 8px 0 0 0;
   z-index: 2;
 
-  .course__teacher__link {
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: $gray-text-color;
-    text-decoration: none;
-    &:hover {
-      color: $link-color;
-    }
-  }
+  // .course__teacher__link {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: $gray-text-color;
+  // text-decoration: none;
+  // &:hover {
+  //   color: $link-color;
+  // }
+  // }
 }
 
 .course__review {
