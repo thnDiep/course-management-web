@@ -16,7 +16,7 @@
     </ul>
 
     <div class="d-flex align-items-center">
-      <img class="courseD__intro__avt" src="{{this.course.image}}" />
+      <img class="courseD__intro__avt" src="{{this.course.image}}" alt="Avater of course"/>
 
       <div class="courseD__intro__info">
         <div class="d-flex">
@@ -35,7 +35,7 @@
         </div>
 
         <div class="course__review">
-          {{> barStar this}}
+          {{> barStar this.course.rated}}
           {{!-- <div class="course__review-ratings">
             {{this.course.rated}}
             <i class="fa fa-star star" aria-hidden="true"></i>
@@ -128,7 +128,8 @@
       </div>
 
       <div class="description">
-        {{{this.course.benefit}}}
+         {{{this.course.benefit}}} 
+        
         
      </div>
 
