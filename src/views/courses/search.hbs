@@ -6,7 +6,7 @@
 <div class="courses__header">
   <h1 class="courses__title">
     <i class="fa fa-info-circle" aria-hidden="true"></i>
-    4.310 results for "{{this.keyWord}}"
+    {{this.numberResult}} results for "{{this.keyWord}}"
   </h1>
 </div>
 
@@ -50,8 +50,9 @@
 
 <div class="courses__body">
   {{#each this.courses}}
-    <div class="course course--horizontal course--best-seller course--new">
-      <a href="/courses/courseDetail?id={{id}}" class="course__link"></a>
+ 
+    <div class="course course--horizontal {{#if bestSeller}}course--best-seller{{/if}}  {{#if new}}course--new{{/if}}">
+      <a href="/courses/detail?id={{id}}" class="course__link"></a>
 
 
       <div class="course__img" style="background-image: url({{image}})">
