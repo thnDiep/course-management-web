@@ -58,9 +58,34 @@
   }
 }
 
-.courses__pagination {
+.courses__footer {
   text-align: center;
   margin: 10px 0 50px 0;
+}
+
+.courses__pagination {
+  display: inline-block;
+
+  a {
+    color: $black-color;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: 1px solid $border-color;
+    margin: 0 4px;
+    font-size: 1.8rem;
+
+    &.active {
+      background-color: $primary-color;
+      color: $black-color;
+      border: 1px solid $primary-color;
+    }
+
+    &:hover:not(.active) {
+      background-color: $hover-color;
+    }
+  }
 }
 
 //// COURSE

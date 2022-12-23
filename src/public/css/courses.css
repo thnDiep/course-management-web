@@ -40,9 +40,27 @@
       .courses__tool .courses__sort .dropdown-item:hover {
         background-color: rgba(0, 0, 0, 0.05); }
 
-.courses__pagination {
+.courses__footer {
   text-align: center;
   margin: 10px 0 50px 0; }
+
+.courses__pagination {
+  display: inline-block; }
+  .courses__pagination a {
+    color: #000;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    margin: 0 4px;
+    font-size: 1.8rem; }
+    .courses__pagination a.active {
+      background-color: #f8d752;
+      color: #000;
+      border: 1px solid #f8d752; }
+    .courses__pagination a:hover:not(.active) {
+      background-color: #ddd; }
 
 .course {
   transition: 0.2s ease;

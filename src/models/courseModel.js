@@ -1,3 +1,4 @@
+import { link } from "fs";
 import db from "../utils/db.js";
 import categoryModel from "./categoryModel.js";
 
@@ -20,22 +21,20 @@ export default {
   },
 
   async getByCategoryId(id) {
-    // get courses of this category
-    let list = await db("course").where("idCategory", id);
-
-    // get courses of this category's child
     const category = await categoryModel.getById(id);
+    const ids = [id];
+
     if (category.parentID === null) {
       const childCategories = await categoryModel.getChildByParentID(id);
-      for (const child of childCategories) {
-        const coursesOfChildCategory = await db("course").where(
-          "idCategory",
-          child.id
-        );
-        list.push(...coursesOfChildCategory);
-      }
+      childCategories.forEach((childCategory) => {
+        ids.push(childCategory.id);
+      });
     }
-    return list;
+
+    return await db("course")
+      .whereIn("idCategory", ids)
+      .limit(limit)
+      .offset(offset);
   },
 
   async getSummaryByCategoryId(id) {
@@ -56,6 +55,34 @@ export default {
     return list;
   },
 
+  async getPageByCategoryId(id, limit, offset) {
+    const category = await categoryModel.getById(id);
+    const ids = [id];
+
+    if (category.parentID === null) {
+      const childCategories = await categoryModel.getChildByParentID(id);
+      childCategories.forEach((childCategory) => {
+        ids.push(childCategory.id);
+      });
+    }
+
+    return await db("course")
+      .whereIn("idCategory", ids)
+      .limit(limit)
+      .offset(offset);
+  },
+
+  async getBestSellerList(limit) {
+    return await db
+      .select("id")
+      .table("course as C")
+      .groupBy("C.id")
+      .join("course_of_student as buyed", "buyed.courseID", "C.id")
+      .count("buyed.courseID as count")
+      .orderBy("count", "DESC")
+      .limit(limit);
+  },
+
   //
   async getAvgRate(id) {
     const [[rate], ...h] = await db.raw(
@@ -71,6 +98,23 @@ export default {
       id
     );
     return rate.sumRate;
+  },
+
+  async countByCategoryId(id) {
+    const category = await categoryModel.getById(id);
+    const ids = [id];
+
+    if (category.parentID === null) {
+      const childCategories = await categoryModel.getChildByParentID(id);
+      childCategories.forEach((childCategory) => {
+        ids.push(childCategory.id);
+      });
+    }
+
+    const result = await db("course")
+      .whereIn("idCategory", ids)
+      .count("id as number");
+    return result[0].number;
   },
 
   add(course) {

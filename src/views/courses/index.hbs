@@ -1,5 +1,4 @@
 {{#section "css"}}
-  <link rel="stylesheet" href="/css/partials/pagination.css" />
   <link rel="stylesheet" href="/css/courses.css" />
 {{/section}}
 
@@ -15,11 +14,11 @@
     
     {{#if this.isEmpty}}
       <h1>Don't have any courses</h1>
-    {{/if}}
+    {{else}}
     <div class="row w-100 mt-4">
       {{#each this.courses}}
         <div class="col-lg-3 col-sm-6">
-          <div class="card course course--best-seller">
+          <div class="card course {{#if bestSeller}}course--best-seller{{/if}}">
             <a href="/courses/detail?id={{id}}" class="course__link"></a>
 
             <div class="course__img" style="background-image: url({{image}})">
@@ -94,8 +93,17 @@
       {{/each}}
     </div>
 
-    {{!-- <div class="courses__pagination">
-      {{> pagination}}
-    </div> --}}
+    <div class="courses__footer">
+      <div class="courses__pagination">
+          <a href="/courses?id={{this.category.id}}&page={{minus currentPage 1}}" {{#if this.isFirstPage}}class="link--disabled"{{/if}}>&laquo;</a>
+          
+          {{#each this.pageNumbers}}
+            <a href="/courses?id={{@root.category.id}}&page={{value}}" {{#if isActive}}class="active"{{/if}}>{{value}}</a>
+          {{/each}}
+
+          <a href="/courses?id={{this.category.id}}&page={{add currentPage 1}}" {{#if this.isLastPage}}class="link--disabled"{{/if}}>&raquo;</a>
+      </div>
+    </div>
+    {{/if}}
   </div>
 </div>
