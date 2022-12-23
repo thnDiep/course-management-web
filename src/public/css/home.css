@@ -10,7 +10,8 @@ body {
   padding: 0;
   margin-left: 150px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 90%; }
   .content__title {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -76,7 +77,7 @@ body {
           transform: translateY(-4px); }
 
 .carousel-control-prev {
-  left: -5%; }
+  width: 4%; }
   .carousel-control-prev-icon {
     background-color: #0d1017;
     border-radius: 20rem;
@@ -90,7 +91,7 @@ body {
       margin-right: 0.2rem; }
 
 .carousel-control-next {
-  right: -5%; }
+  width: 4%; }
   .carousel-control-next-icon {
     background-color: #0d1017;
     border-radius: 20rem;
@@ -118,10 +119,10 @@ body {
   .courses__title h2 {
     font-weight: bold;
     font-size: 4rem;
-    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses__title p {
     font-size: 2rem;
-    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses .active {
     color: #1c1d1f; }
   .courses button {
@@ -213,11 +214,353 @@ body {
     text-decoration: underline; }
 
 :root {
-  --gradient: linear-gradient(
-    to left top,
+  --gradient: linear-gradient(to left top,
     #f8d752 10%,
-    #f8d752 90%
-  ) !important; }
+    #f8d752 90%) !important; }
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-image: none !important; }
+  .swiper-button-next i,
+  .swiper-button-prev i {
+    color: #110e1d;
+    font-size: 5rem; }
+
+.swiper-button-prev {
+  left: -2px !important; }
+
+.courses__choose h2 {
+  font-size: 3rem;
+  text-align: left;
+  margin-top: 3rem;
+  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-weight: bold; }
+
+.course__teacher {
+  font-size: 1.5rem;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  margin-top: -1.5rem; }
+
+.course__review {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  color: #e59819; }
+  .course__review .course__review-number {
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: #fff; }
+
+.course__price {
+  display: flex;
+  align-items: center; }
+  .course__price .course__price-unit {
+    font-size: 1.6rem;
+    text-decoration: underline; }
+  .course__price .course__price-new {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff; }
+  .course__price .course__price-old {
+    display: flex;
+    align-items: center;
+    text-decoration: line-through;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: #555; }
+
+.courses__featured img {
+  height: 8rem;
+  width: 30rem; }
+
+.courses__featured .card {
+  margin-top: 2rem;
+  width: 36rem;
+  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06); }
+  .courses__featured .card:hover {
+    text-decoration: none;
+    box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44);
+    -webkit-box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44); }
+  .courses__featured .card__name {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    color: #1f1f1f;
+    font-weight: bold;
+    font-size: 1.4rem; }
+  .courses__featured .card__number {
+    font-size: 1.4rem;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    color: #1f1f1f; }
+
+.coures__intro {
+  background-color: #f5f7f8;
+  display: flex;
+  margin-top: 5rem;
+  justify-content: space-between;
+  height: 10rem;
+  align-items: center; }
+  .coures__intro img {
+    height: 4rem;
+    width: 4rem;
+    margin-left: 2rem; }
+  .coures__intro div {
+    font-size: 2rem;
+    font-weight: bold;
+    width: 30%; }
+
+.reason {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  background-color: #f5f7f8; }
+  .reason .img-reason {
+    justify-content: center;
+    height: 6rem;
+    margin-bottom: 8rem;
+    margin-left: 1.2rem; }
+  .reason h1 {
+    margin-top: 2rem;
+    font-weight: bold; }
+  .reason .txt-reason {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold; }
+    .reason .txt-reason span {
+      font-weight: 100;
+      font-size: 1.4rem; }
+
+body {
+  background-color: #fff; }
+
+.container-fluid {
+  margin-top: 0;
+  margin-top: 65px; }
+
+.content {
+  margin-top: 0rem;
+  padding: 0;
+  margin-left: 150px;
+  display: flex;
+  flex-direction: column; }
+  .content__title {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    margin-left: 5rem;
+    font-size: 3rem;
+    font-weight: 600; }
+  .content .carousel {
+    background-color: #f8d752;
+    height: 40rem; }
+
+.carousel-inner {
+  display: flex; }
+  .carousel-inner .carousel-item__img img {
+    width: 50rem;
+    height: 28rem;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75); }
+  .carousel-inner .carousel-item__rate {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateY(-50%);
+    height: 6rem;
+    width: 31rem;
+    background-color: #ffffff; }
+    .carousel-inner .carousel-item__rate--1 h3 {
+      font-weight: bold;
+      text-align: center; }
+    .carousel-inner .carousel-item__rate--1 .fas {
+      color: #feda56; }
+  .carousel-inner .carousel-item__detail {
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%; }
+    .carousel-inner .carousel-item__detail--name {
+      font-size: 3rem;
+      font-weight: bold; }
+    .carousel-inner .carousel-item__detail--item {
+      font-size: 1.8rem; }
+    .carousel-inner .carousel-item__detail--teacher {
+      font-size: 1.6rem;
+      font-weight: 500; }
+      .carousel-inner .carousel-item__detail--teacher a {
+        font-weight: bold;
+        margin-left: 0.5rem;
+        color: #100f07; }
+    .carousel-inner .carousel-item__detail--btn {
+      display: flex; }
+      .carousel-inner .carousel-item__detail--btn a {
+        width: 100%;
+        margin-right: 2rem;
+        background-color: #ffffff; }
+      .carousel-inner .carousel-item__detail--btn #buy-btn {
+        background-color: #0d1017;
+        color: #fff;
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 1.5rem; }
+        .carousel-inner .carousel-item__detail--btn #buy-btn:hover {
+          transform: translateY(-4px); }
+
+.carousel-control-prev {
+  width: 4%; }
+  .carousel-control-prev-icon {
+    background-color: #0d1017;
+    border-radius: 20rem;
+    height: 4rem;
+    width: 4rem;
+    background-image: none; }
+    .carousel-control-prev-icon i {
+      font-size: 2rem;
+      color: #fff;
+      margin-top: 1rem;
+      margin-right: 0.2rem; }
+
+.carousel-control-next {
+  width: 4%; }
+  .carousel-control-next-icon {
+    background-color: #0d1017;
+    border-radius: 20rem;
+    height: 4rem;
+    width: 4rem;
+    background-image: none; }
+    .carousel-control-next-icon i {
+      font-size: 2rem;
+      color: #fff;
+      margin-top: 1rem; }
+
+.carousel-indicators li {
+  background-color: #f8d752;
+  border: solid 2px #0d1017;
+  margin-right: 2rem;
+  height: 1.3rem;
+  width: 1.3rem;
+  border-radius: 200px; }
+
+.carousel-indicators .active {
+  background-color: #0d101777; }
+
+.courses {
+  margin-top: 3rem; }
+  .courses__title h2 {
+    font-weight: bold;
+    font-size: 4rem;
+    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+  .courses__title p {
+    font-size: 2rem;
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+  .courses .active {
+    color: #1c1d1f; }
+  .courses button {
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    font-size: 2rem;
+    border: none;
+    color: #6a6f73;
+    font-weight: bold;
+    background-color: #f5f7f8; }
+    .courses button:hover {
+      cursor: pointer;
+      transform: translateY(-2px); }
+    .courses button:focus {
+      outline: none; }
+  .courses__choose {
+    border: 1px solid #d1d7dc; }
+
+.divider {
+  border: 1px solid #ccc; }
+
+.swiper-container {
+  width: 100%;
+  height: 100%; }
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  justify-content: center;
+  align-items: center; }
+  .swiper-slide img {
+    width: 100%; }
+  .swiper-slide .row {
+    padding: 0 4rem; }
+  .swiper-slide .card-title {
+    font-size: 1.5rem;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 2.5rem;
+    overflow: hidden;
+    font-weight: 600;
+    background-color: #0d1017;
+    color: #fff;
+    /* text-align: center; */
+    height: 5rem;
+    transform: translateY(-50%);
+    width: 90%;
+    margin-left: 6%; }
+  .swiper-slide .card {
+    background: #222;
+    box-shadow: #222 1px 0 10px;
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 2rem;
+    position: relative; }
+    .swiper-slide .card .course__link {
+      display: block;
+      position: absolute;
+      bottom: 6.4rem;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; }
+    .swiper-slide .card:hover {
+      transform: translateY(-2px); }
+  .swiper-slide .btn {
+    width: 10rem;
+    font-size: 1.4rem;
+    padding: 0;
+    padding: 1rem 0;
+    border: 5px solid;
+    color: #fff;
+    border-image-slice: 1;
+    background: var(--gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    border-image-source: var(--gradient) !important;
+    text-decoration: none;
+    transition: all 0.4s ease; }
+  .swiper-slide .btn:hover,
+  .swiper-slide .btn:focus {
+    background: var(--gradient) !important;
+    -webkit-background-clip: none !important;
+    -webkit-text-fill-color: #1b1616 !important;
+    border: 5px solid #fff !important;
+    box-shadow: #222 1px 0 10px;
+    text-decoration: underline; }
+
+:root {
+  --gradient: linear-gradient(to left top,
+    #f8d752 10%,
+    #f8d752 90%) !important; }
 
 .swiper-button-next,
 .swiper-button-prev {
@@ -231,13 +574,13 @@ body {
   left: -2px !important; }
 
 .swiper-button-next {
-  right: 2px !important; }
+  right: 10px !important; }
 
 .courses__choose h2 {
   font-size: 3rem;
   text-align: left;
   margin-top: 3rem;
-  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   font-weight: bold; }
 
 .course__teacher {

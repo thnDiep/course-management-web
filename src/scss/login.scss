@@ -49,14 +49,14 @@
         }
       }
       &__subTitle {
-        margin-top: -1.5rem;
+        margin-top: -0.5rem;
         margin-bottom: 1.5rem;
         font-weight: 400;
         font-size: 1.5rem;
         color: #b3aa99;
         @media only screen and (max-width: 31.25em) {
           font-size: 1.2rem;
-          margin-top: -2.5rem;
+          margin-top: -0.5rem;
         }
       }
       &__user-name,
@@ -112,7 +112,7 @@
           font-size: 2rem;
           text-align: center;
           @media only screen and (max-width: 31.25em) {
-            margin-left: 7rem;
+            margin-left: 14rem;
             font-size: 1.8rem;
           }
         }
@@ -125,6 +125,8 @@
     &-email,
     &-pass {
       color: red;
+      height: 2rem;
+      font-weight: bold;
       font-size: 1.5rem;
       @media only screen and (max-width: 31.25em) {
         font-size: 1.3rem;
