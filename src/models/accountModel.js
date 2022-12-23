@@ -12,7 +12,6 @@ export default {
 
     return list[0];
   },
-
   async findByUsername(name) {
     const list = await db('user').where('name', name);
     if (list.length === 0)
@@ -27,7 +26,15 @@ export default {
 
     return list[0];
   },
+  async findByUsernameToCheckPassword(name) {
+    let list = null
+    if(this.findByUsername(name)!== null)
+    {
+      list = await db.raw(`SELECT password FROM user WHERE name = ?`, name);
+    }
 
+    return list[0];
+  },
   add(user) {
     return db('user').insert(user);
   },
