@@ -8,18 +8,60 @@
   const deleteAccountForm = document.forms["deleteAccountForm"];
   const checkboxAll = document.querySelector('#checkboxAll')
   const checkboxAccount = document.querySelectorAll('.checkboxAccount');
-  console.log(checkboxAll.checked)
+  const check_btn = document.querySelector('.check_btn')
   checkboxAll.onchange = (e) => {
+
+   checkboxAll.checked===true? check_btn.removeAttribute("disabled"): check_btn.setAttribute("disabled","")
+   if(document.querySelector('.checkboxAccount')===null){
+    check_btn.setAttribute("disabled","")
+   }
     checkboxAccount.forEach((checkbox) => {
+      e.target.checked===true ? check_btn.removeAttribute("disabled"): check_btn.setAttribute("disabled","")
       checkbox.checked = e.target.checked;
     });
 
   };
+  const checkAllFalse = ()=>
+  {
+    for(const check of checkboxAccount){
+      if(check.checked === true){
+        checkboxAll.checked=false
+        return false
+        }
+    }
+    return true
+  }
+   const checkAllTrue = ()=>
+  {
+    for(const check of checkboxAccount){
+      if(check.checked === false){
+        return;
+        }
+    }
+    checkboxAll.checked=true
+  }
+  
+  checkboxAccount.cl
+  checkboxAccount.forEach((checkbox) => {
+    checkbox.addEventListener('change',function handleClick(event) {
+      if(checkbox.checked ===true){
+        check_btn.removeAttribute("disabled")
+        checkAllTrue()
+      }
+      else{
+        console.log(checkAllFalse())
+        if(checkAllFalse()===true)
+          check_btn.setAttribute("disabled","")
+      }
+    })
+  
+      
+    });
   $("#deleteAccountModal").on('show.bs.modal', function (e) {
     idAccount = e.relatedTarget.getAttribute("data-id")
   });
   $("#deleteAccount").on("click", () => {
-    console.log("hello")
+
     deleteAccountForm.action =
       "/admin/account?id=" + idAccount + "&_method=DELETE";
     deleteAccountForm.submit();
@@ -34,12 +76,12 @@
   </div>
   <div class="choose d-flex">
     <div><a class="active" href="/admin/listAccount">All</a></div>
-    <div><a href="/admin/listAccount">Teachers</a></div>
-    <div><a href="http://">Students</a></div>
+    <div><a href="/admin/listAccount?id=3">Teachers</a></div>
+    <div><a href="/admin/listAccount?id=2">Students</a></div>
   </div>
   <form action="/admin/listAccount/deleteByCheckbox" method="post">
 
-    <button type="submit" class="admin__btn btn btn--icon" style="background-color: #dc3545; margin-bottom:3px">
+    <button type="submit" class="admin__btn btn btn--icon check_btn" style="background-color: #dc3545; margin-bottom:3px" disabled>
       <i class="fa fa-trash" aria-hidden="true"></i>
     </button>
     <table class="table table-bordered">
@@ -57,7 +99,7 @@
       <tbody>
         {{#each users}}
         <tr>
-          <td style="width:5rem; text-align:center"><input class="mt-4 checkboxAccount" type="checkbox"
+          <td style="width:5rem; text-align:center"><input class="mt-4 {{#if sumCourse}}{{else}}checkboxAccount{{/if}} " {{#if sumCourse}}disabled{{/if}}  type="checkbox"
               name="idAccounts" value={{id}} />
           </td>
           <td style="text-align:center">{{id}}</td>
@@ -68,7 +110,6 @@
             <div class="d-flex flex-column justify-content-between">
               <div>{{name}}</div>
               <div>
-                <a href="http://"><i class="fas fa-pen"></i> Edit</a>
                 <a class="pl-2 text-danger" data-toggle="modal" data-id={{id}} data-target="#deleteAccountModal"
                   href="#"><i class="fas fa-trash"></i>
                   Delete</a>
