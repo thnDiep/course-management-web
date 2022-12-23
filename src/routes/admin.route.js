@@ -43,6 +43,6 @@ router.get("/listAccount/addTeacher", aAccountController.add);
 router.delete("/account", aAccountController.delete);
 router.post("/listAccount/deleteByCheckbox", aAccountController.deleteByCheckbox)
 // add Teacher
-router.post("/listAccount/add", aAccountController.addTeacher)
+// router.post("/listAccount/add", aAccountController.addTeacher)
 
 export default router;

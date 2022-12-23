@@ -10,8 +10,7 @@
   const checkboxAccount = document.querySelectorAll('.checkboxAccount');
   const check_btn = document.querySelector('.check_btn')
   checkboxAll.onchange = (e) => {
-
-   checkboxAll.checked===true? check_btn.removeAttribute("disabled"): check_btn.setAttribute("disabled","")
+   checkboxAll.checked===true ? check_btn.removeAttribute("disabled") : check_btn.setAttribute("disabled","")
    if(document.querySelector('.checkboxAccount')===null){
     check_btn.setAttribute("disabled","")
    }
@@ -41,7 +40,6 @@
     checkboxAll.checked=true
   }
   
-  checkboxAccount.cl
   checkboxAccount.forEach((checkbox) => {
     checkbox.addEventListener('change',function handleClick(event) {
       if(checkbox.checked ===true){
@@ -51,7 +49,10 @@
       else{
         console.log(checkAllFalse())
         if(checkAllFalse()===true)
+         { 
           check_btn.setAttribute("disabled","")
+          checkboxAll.checked=false
+        }
       }
     })
   

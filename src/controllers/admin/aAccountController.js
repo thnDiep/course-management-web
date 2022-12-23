@@ -1,5 +1,7 @@
 import userModel from "../../models/userModel.js";
 import sgMail from "@sendgrid/mail"
+import bcrypt from 'bcryptjs';
+import accountModel from "../../models/accountModel.js";
 class AAccountController {
   async index(req, res) {
     let users;
@@ -36,32 +38,7 @@ class AAccountController {
       layout: "admin",
     });
   }
-  async addTeacher(req,res){
-    const API_KEY = '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'
-    sgMail.setApiKey(API_KEY)
-    const randomstring = Math.random().toString(36).slice(-8);
-    console.log(randomstring)
-
-    const message = {
-      to: req.body.email,
-      from: {
-        name: 'SUN LIGHT',
-        email: 'manhtu2272002@gmail.com',
-      },
-      subject:`SEND ACCOUNT TEACHER`,
-      text: 'and easy to do anywhere, even with Node.js',
-      html: `<div><strong>username:${req.body.name}</strong></div>
-             <div><strong>password:${req.body.password}</strong></div>`,
-    }
-    sgMail
-    .send(message)
-    .then(() => {
-      console.log('Email sent')
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-  }
+ 
   async delete(req, res) {
     await userModel.delete(req.query.id);
     res.redirect("back");
