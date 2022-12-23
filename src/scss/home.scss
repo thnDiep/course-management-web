@@ -3,17 +3,19 @@
 body {
   background-color: $white-color;
 }
+
 .container-fluid {
   margin-top: 0;
   margin-top: $header-height;
 }
+
 .content {
   margin-top: 0rem;
   padding: 0;
   margin-left: $sidebar-width;
   display: flex;
   flex-direction: column;
-  // width: 60%;
+  width: 90%;
 
   &__title {
     margin-top: 1rem;
@@ -22,11 +24,13 @@ body {
     font-size: 3rem;
     font-weight: 600;
   }
+
   .carousel {
     background-color: $primary-color;
     height: 40rem;
   }
 }
+
 .carousel-inner {
   display: flex;
 
@@ -40,6 +44,7 @@ body {
         -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
       }
     }
+
     &__rate {
       display: flex;
       justify-content: space-around;
@@ -48,17 +53,20 @@ body {
       height: 6rem;
       width: 31rem;
       background-color: #ffffff;
+
       &--1 {
         h3 {
           font-weight: bold;
           text-align: center;
         }
+
         // .fa,
         .fas {
           color: #feda56;
         }
       }
     }
+
     &__detail {
       height: 28rem;
       display: flex;
@@ -66,18 +74,22 @@ body {
       justify-content: space-between;
       // padding-top: 3rem;
       width: 40%;
+
       &--name {
         font-size: 3rem;
         font-weight: bold;
       }
+
       &--item {
         // margin-top: 1.5rem;
         font-size: 1.8rem;
       }
+
       &--teacher {
         // margin-top: 2rem;
         font-size: 1.6rem;
         font-weight: 500;
+
         a {
           font-weight: bold;
           margin-left: 0.5rem;
@@ -85,6 +97,7 @@ body {
           color: #100f07;
         }
       }
+
       &--btn {
         // mar
         display: flex;
@@ -94,12 +107,14 @@ body {
           margin-right: 2rem;
           background-color: #ffffff;
         }
+
         #buy-btn {
           background-color: #0d1017;
           color: $white-color;
           font-weight: 300;
           text-transform: uppercase;
           font-size: 1.5rem;
+
           &:hover {
             transform: translateY(-4px);
           }
@@ -108,14 +123,18 @@ body {
     }
   }
 }
+
 .carousel-control-prev {
-  left: -5%;
+  // left: -5%;
+  width: 4%;
+
   &-icon {
     background-color: #0d1017;
     border-radius: 20rem;
     height: 4rem;
     width: 4rem;
     background-image: none;
+
     i {
       font-size: 2rem;
       color: $white-color;
@@ -124,14 +143,18 @@ body {
     }
   }
 }
+
 .carousel-control-next {
-  right: -5%;
+  // right: -5%;
+  width: 4%;
+
   &-icon {
     background-color: #0d1017;
     border-radius: 20rem;
     height: 4rem;
     width: 4rem;
     background-image: none;
+
     i {
       font-size: 2rem;
       color: $white-color;
@@ -139,6 +162,7 @@ body {
     }
   }
 }
+
 .carousel-indicators {
   li {
     background-color: $primary-color;
@@ -148,6 +172,7 @@ body {
     width: 1.3rem;
     border-radius: 200px;
   }
+
   .active {
     background-color: #0d101777;
   }
@@ -156,6 +181,7 @@ body {
 .courses {
   // margin-left: 5rem;
   margin-top: 3rem;
+
   &__title {
     h2 {
       font-weight: bold;
@@ -163,6 +189,7 @@ body {
       font-family: SuisseWorks, Georgia, Times, times new roman, serif,
         apple color emoji, segoe ui emoji, segoe ui symbol;
     }
+
     p {
       font-size: 2rem;
       font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont,
@@ -170,9 +197,11 @@ body {
         segoe ui emoji, segoe ui symbol;
     }
   }
+
   .active {
     color: #1c1d1f;
   }
+
   button {
     margin-bottom: 2rem;
     margin-right: 2rem;
@@ -187,10 +216,12 @@ body {
       transform: translateY(-2px);
       // background-color: $primary-color;
     }
+
     &:focus {
       outline: none;
     }
   }
+
   &__choose {
     border: 1px solid #d1d7dc;
     // -webkit-transform: translateY(
@@ -199,6 +230,7 @@ body {
     // transform: translateY(100%);
   }
 }
+
 .divider {
   border: 1px solid #ccc;
 }
@@ -207,19 +239,23 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .swiper-slide {
   img {
     width: 100%;
   }
+
   .row {
     padding: 0 4rem;
   }
+
   text-align: center;
   font-size: 18px;
   background: #fff;
   /* Center slide text vertically */
   justify-content: center;
   align-items: center;
+
   .card-title {
     // width: 80%;
     font-size: 1.5rem;
@@ -246,6 +282,7 @@ body {
     color: rgba(250, 250, 250, 0.8);
     margin-bottom: 2rem;
     position: relative;
+
     .course__link {
       display: block;
       position: absolute;
@@ -256,6 +293,7 @@ body {
       height: 100%;
       z-index: 1;
     }
+
     &:hover {
       transform: translateY(-2px);
     }
@@ -287,27 +325,31 @@ body {
     text-decoration: underline;
   }
 }
+
 :root {
-  --gradient: linear-gradient(
-    to left top,
+  --gradient: linear-gradient(to left top,
     #{$primary-color} 10%,
-    #{$primary-color} 90%
-  ) !important;
+    #{$primary-color} 90%) !important;
 }
+
 .swiper-button-next,
 .swiper-button-prev {
   background-image: none !important;
+
   i {
     color: #110e1d;
     font-size: 5rem;
   }
 }
+
 .swiper-button-prev {
   left: -2px !important;
 }
-.swiper-button-next {
-  right: 2px !important;
-}
+
+// .swiper-button-next {
+//   right: 0px !important;
+// }
+
 .courses__choose {
   h2 {
     font-size: 3rem;
@@ -319,6 +361,7 @@ body {
     font-weight: bold;
   }
 }
+
 .course__teacher {
   font-size: 1.5rem;
   display: -webkit-box !important;
@@ -380,6 +423,7 @@ body {
     height: 8rem;
     width: 30rem;
   }
+
   // .devide {
   //   display: grid;
   //   column-gap: 2px;
@@ -391,17 +435,20 @@ body {
     box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
     -webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
     -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
+
     &:hover {
       text-decoration: none;
       box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44);
       -webkit-box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44);
     }
+
     &__name {
       font-family: "Source Sans Pro", Arial, sans-serif;
       color: #1f1f1f;
       font-weight: bold;
       font-size: 1.4rem;
     }
+
     &__number {
       font-size: 1.4rem;
       font-family: "Source Sans Pro", Arial, sans-serif;
@@ -409,6 +456,7 @@ body {
     }
   }
 }
+
 .coures__intro {
   background-color: #f5f7f8;
   display: flex;
@@ -416,11 +464,13 @@ body {
   justify-content: space-between;
   height: 10rem;
   align-items: center;
+
   img {
     height: 4rem;
     width: 4rem;
     margin-left: 2rem;
   }
+
   div {
     font-size: 2rem;
     font-weight: bold;
@@ -436,19 +486,533 @@ body {
     margin-bottom: 8rem;
     margin-left: 1.2rem;
   }
+
   h1 {
     margin-top: 2rem;
     font-weight: bold;
   }
+
   margin-top: 10rem;
   margin-bottom: 10rem;
   background-color: #f5f7f8;
+
   .txt-reason {
     display: flex;
     flex-direction: column;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
+
+    span {
+      font-weight: 100;
+      font-size: 1.4rem;
+    }
+  }
+}@import "./global/variable";
+
+body {
+  background-color: $white-color;
+}
+
+.container-fluid {
+  margin-top: 0;
+  margin-top: $header-height;
+}
+
+.content {
+  margin-top: 0rem;
+  padding: 0;
+  margin-left: $sidebar-width;
+  display: flex;
+  flex-direction: column;
+  // width: 60%;
+
+  &__title {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    margin-left: 5rem;
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  .carousel {
+    background-color: $primary-color;
+    height: 40rem;
+  }
+}
+
+.carousel-inner {
+  display: flex;
+
+  .carousel-item {
+    &__img {
+      img {
+        width: 50rem;
+        height: 28rem;
+        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+      }
+    }
+
+    &__rate {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      transform: translateY(-50%);
+      height: 6rem;
+      width: 31rem;
+      background-color: #ffffff;
+
+      &--1 {
+        h3 {
+          font-weight: bold;
+          text-align: center;
+        }
+
+        // .fa,
+        .fas {
+          color: #feda56;
+        }
+      }
+    }
+
+    &__detail {
+      height: 28rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      // padding-top: 3rem;
+      width: 40%;
+
+      &--name {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+
+      &--item {
+        // margin-top: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      &--teacher {
+        // margin-top: 2rem;
+        font-size: 1.6rem;
+        font-weight: 500;
+
+        a {
+          font-weight: bold;
+          margin-left: 0.5rem;
+
+          color: #100f07;
+        }
+      }
+
+      &--btn {
+        // mar
+        display: flex;
+
+        a {
+          width: 100%;
+          margin-right: 2rem;
+          background-color: #ffffff;
+        }
+
+        #buy-btn {
+          background-color: #0d1017;
+          color: $white-color;
+          font-weight: 300;
+          text-transform: uppercase;
+          font-size: 1.5rem;
+
+          &:hover {
+            transform: translateY(-4px);
+          }
+        }
+      }
+    }
+  }
+}
+
+.carousel-control-prev {
+  // left: -5%;
+  width: 4%;
+
+  &-icon {
+    background-color: #0d1017;
+    border-radius: 20rem;
+    height: 4rem;
+    width: 4rem;
+    background-image: none;
+
+    i {
+      font-size: 2rem;
+      color: $white-color;
+      margin-top: 1rem;
+      margin-right: 0.2rem;
+    }
+  }
+}
+
+.carousel-control-next {
+  // right: -5%;
+  width: 4%;
+
+  &-icon {
+    background-color: #0d1017;
+    border-radius: 20rem;
+    height: 4rem;
+    width: 4rem;
+    background-image: none;
+
+    i {
+      font-size: 2rem;
+      color: $white-color;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.carousel-indicators {
+  li {
+    background-color: $primary-color;
+    border: solid 2px #0d1017;
+    margin-right: 2rem;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 200px;
+  }
+
+  .active {
+    background-color: #0d101777;
+  }
+}
+
+.courses {
+  // margin-left: 5rem;
+  margin-top: 3rem;
+
+  &__title {
+    h2 {
+      font-weight: bold;
+      font-size: 4rem;
+      font-family: SuisseWorks, Georgia, Times, times new roman, serif,
+        apple color emoji, segoe ui emoji, segoe ui symbol;
+    }
+
+    p {
+      font-size: 2rem;
+      font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont,
+        Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji,
+        segoe ui emoji, segoe ui symbol;
+    }
+  }
+
+  .active {
+    color: #1c1d1f;
+  }
+
+  button {
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    font-size: 2rem;
+    border: none;
+    color: #6a6f73;
+    font-weight: bold;
+    background-color: #f5f7f8;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-2px);
+      // background-color: $primary-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__choose {
+    border: 1px solid #d1d7dc;
+    // -webkit-transform: translateY(
+    //   100%
+    // ); //if your div is 200px, this will move it down by 200px, if it is 100px it will down by 100px etc
+    // transform: translateY(100%);
+  }
+}
+
+.divider {
+  border: 1px solid #ccc;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  img {
+    width: 100%;
+  }
+
+  .row {
+    padding: 0 4rem;
+  }
+
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  justify-content: center;
+  align-items: center;
+
+  .card-title {
+    // width: 80%;
+    font-size: 1.5rem;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 2.5rem;
+    overflow: hidden;
+    font-weight: 600;
+    background-color: #0d1017;
+    color: #fff;
+    /* text-align: center; */
+    height: 5rem;
+    transform: translateY(-50%);
+    width: 90%;
+    margin-left: 6%;
+  }
+
+  .card {
+    background: #222;
+    // border: 1px solid #dd2476;
+    box-shadow: #222 1px 0 10px;
+
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 2rem;
+    position: relative;
+
+    .course__link {
+      display: block;
+      position: absolute;
+      // top: 2rem;
+      bottom: 6.4rem;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .btn {
+    width: 10rem;
+    font-size: 1.4rem;
+    padding: 0;
+    padding: 1rem 0;
+    border: 5px solid;
+    color: $white-color;
+    border-image-slice: 1;
+    background: var(--gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    border-image-source: var(--gradient) !important;
+    text-decoration: none;
+    transition: all 0.4s ease;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    background: var(--gradient) !important;
+    -webkit-background-clip: none !important;
+    -webkit-text-fill-color: rgb(27, 22, 22) !important;
+    border: 5px solid #fff !important;
+    box-shadow: #222 1px 0 10px;
+    text-decoration: underline;
+  }
+}
+
+:root {
+  --gradient: linear-gradient(to left top,
+    #{$primary-color} 10%,
+    #{$primary-color} 90%) !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-image: none !important;
+
+  i {
+    color: #110e1d;
+    font-size: 5rem;
+  }
+}
+
+.swiper-button-prev {
+  left: -2px !important;
+}
+
+.swiper-button-next {
+  right: 10px !important;
+}
+
+.courses__choose {
+  h2 {
+    font-size: 3rem;
+    text-align: left;
+    margin-top: 3rem;
+    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui,
+      Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji,
+      segoe ui symbol;
+    font-weight: bold;
+  }
+}
+
+.course__teacher {
+  font-size: 1.5rem;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
+  font-weight: 500;
+  color: $white-color;
+  margin: 0;
+  margin-top: -1.5rem;
+}
+
+.course__review {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  color: $gold-color;
+
+  .course__review-number {
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: $white-color;
+  }
+}
+
+.course__price {
+  display: flex;
+  align-items: center;
+
+  .course__price-unit {
+    font-size: 1.6rem;
+    text-decoration: underline;
+  }
+
+  .course__price-new {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: $white-color;
+  }
+
+  .course__price-old {
+    display: flex;
+    align-items: center;
+    text-decoration: line-through;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-left: 1.4rem;
+    color: $gray-text-color;
+  }
+}
+
+.courses__featured {
+  img {
+    height: 8rem;
+    width: 30rem;
+  }
+
+  // .devide {
+  //   display: grid;
+  //   column-gap: 2px;
+  // }
+
+  .card {
+    margin-top: 2rem;
+    width: 36rem;
+    box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
+    -webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      text-decoration: none;
+      box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44);
+      -webkit-box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44);
+    }
+
+    &__name {
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      color: #1f1f1f;
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    &__number {
+      font-size: 1.4rem;
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      color: #1f1f1f;
+    }
+  }
+}
+
+.coures__intro {
+  background-color: #f5f7f8;
+  display: flex;
+  margin-top: 5rem;
+  justify-content: space-between;
+  height: 10rem;
+  align-items: center;
+
+  img {
+    height: 4rem;
+    width: 4rem;
+    margin-left: 2rem;
+  }
+
+  div {
+    font-size: 2rem;
+    font-weight: bold;
+    width: 30%;
+  }
+}
+
+.reason {
+  .img-reason {
+    justify-content: center;
+    // height: 10rem;
+    height: 6rem;
+    margin-bottom: 8rem;
+    margin-left: 1.2rem;
+  }
+
+  h1 {
+    margin-top: 2rem;
+    font-weight: bold;
+  }
+
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  background-color: #f5f7f8;
+
+  .txt-reason {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+
     span {
       font-weight: 100;
       font-size: 1.4rem;

@@ -35,16 +35,25 @@
     false, showUpload: false, });
   </script>
   <script>
-    $('#fuSub').fileinput({ dropZoneEnabled: false, maxFileCount: 1, theme:
-    'fa5', allowedFileExtensions: ['jpg', 'png', 'gif'], browseOnZoneClick:
-    false, showRemove: false, showUpload: false, browseOnZoneClick: true, });
+    $('#fuSub').fileinput({
+       dropZoneEnabled: false, 
+       maxFileCount: 1,
+        theme:'fa5',
+         allowedFileExtensions: ['jpg', 'png', 'gif'],
+          browseOnZoneClick:false, 
+          showRemove: false, 
+          showUpload: false, 
+          browseOnZoneClick: true, 
+          });
   </script>
 
   <script>
-    tinymce.init( { selector: 'textarea', menubar: false, plugins: 'paste image
-    link autolink lists table media', toolbar: [ 'undo redo | bold
-    italicunderline strikethrough | numlist bullist | alignleft aligncenter
-    alignright| forecolor backcolor | table link image media', ], });
+    tinymce.init({ 
+        selector: 'textarea', 
+        menubar: false, 
+        plugins: 'paste image link autolink lists table media', 
+        toolbar: [ 'undo redo | bold italicunderline strikethrough | numlist bullist | alignleft aligncenter alignright| forecolor backcolor | table link image media', ], 
+      });
   </script>
   <script src="/js/createLesson.js"></script>
 {{/section}}

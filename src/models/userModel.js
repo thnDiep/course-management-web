@@ -10,8 +10,28 @@ export default {
     );
     return number.sumStudent;
   },
+  async getAllStudent() {
+    const [user] = await db.raw(
+      `SELECT us.*, pm.name as ruleName
+      FROM user us, permission pm
+      WHERE us.permissionID = 2 AND pm.id = us.permissionID`
+    );
+    return user;
+  },
+  async getNumberCourseOfStudent(id) {
+    const [views] = await db("course_of_student").count("courseID as count").where("studentID", id);
+    return views.count;
+  },
   ////////////////////////////////
   // teacher
+  async getAllTeacher() {
+    const [user] = await db.raw(
+      `SELECT us.*, pm.name as ruleName
+      FROM user us, permission pm
+      WHERE us.permissionID = 3 AND pm.id = us.permissionID`
+    );
+    return user;
+  },
   async getNameTeacher(id) {
     const [[name], ...h] = await db.raw(
       `SELECT us.name as teacherName 
