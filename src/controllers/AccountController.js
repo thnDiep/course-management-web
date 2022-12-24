@@ -12,6 +12,7 @@ class AccountController {
         email: req.body.email,
         permissionID: 2
       }
+    console.log(user.password)
       let err_message_name, err_message_email;
       const check = (name, chec)=>{
          if(name===chec){
@@ -38,20 +39,21 @@ class AccountController {
           }
       }
     }
-    async index2(req, res) {
-        const [passAvailable] = await accountModel.findByUsernameToCheckPassword(req.body.name)
-        const ret = bcrypt.compareSync(req.body.password, passAvailable.password)
-        console.log(ret)
-        if(ret)
-        {
-           return res.redirect("/")
-        }
-        else{
-          return res.render('login',{
-            err_message_name: "Password was wrong...",
-          });
-        }
+  async index2(req, res) {
+      const [passAvailable] = await accountModel.findByEmailToCheckPassword(req.body.email)
+      const ret = bcrypt.compareSync(req.body.password, passAvailable.password)
+      console.log(passAvailable.password)
+      console.log(ret)
+      if(ret)
+      {
+          return res.redirect("/")
       }
+      else{
+        return res.render('login',{
+          err_message_name: "Password was wrong...",
+        });
+      }
+    }
 }
 
 export default new AccountController();

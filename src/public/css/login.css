@@ -46,7 +46,7 @@
           .login .form--login__subTitle {
             font-size: 1.2rem;
             margin-top: -0.5rem; } }
-      .login .form--login__user-name__input, .login .form--login__user-pass__input, .login .form--login__user-email__input {
+      .login .form--login__user-pass__input, .login .form--login__user-email__input {
         margin-bottom: 0.5rem;
         padding: 1.5rem;
         font-size: 1.5rem;
@@ -54,7 +54,7 @@
         width: 80%;
         text-align: center; }
         @media only screen and (max-width: 31.25em) {
-          .login .form--login__user-name__input, .login .form--login__user-pass__input, .login .form--login__user-email__input {
+          .login .form--login__user-pass__input, .login .form--login__user-email__input {
             width: 100%;
             font-size: 1.4rem; } }
       .login .form--login__btn {
@@ -91,13 +91,13 @@
             .login .form--login__icon-arrow {
               margin-left: 14rem;
               font-size: 1.8rem; } }
-  .login .required-name, .login .required-email, .login .required-pass {
+  .login .required-email, .login .required-pass {
     color: red;
     height: 2rem;
     font-weight: bold;
     font-size: 1.5rem; }
     @media only screen and (max-width: 31.25em) {
-      .login .required-name, .login .required-email, .login .required-pass {
+      .login .required-email, .login .required-pass {
         font-size: 1.3rem; } }
   .login .required-icon {
     padding: 0.5rem;

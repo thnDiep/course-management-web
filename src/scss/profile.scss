@@ -32,6 +32,7 @@ img{
   );
 }
 .Edit {
+  margin-left: 2rem;
   &:hover,
   &:active {
     margin-top: 0.5rem;
@@ -89,8 +90,8 @@ img{
 
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  width:35.95rem;
-  height: 38.4rem;
+  width:37rem;
+  height: 43.1rem;
 }
 
 .slides > div:target {
@@ -117,4 +118,9 @@ img{
 }
 input {
   border: none;
+}
+
+.btnEdit{
+  padding: 0.5rem 5rem;
+  
 }
