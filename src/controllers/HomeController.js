@@ -19,7 +19,6 @@ class homeController {
       }
     };
     const [trending] = await homeModel.getTrending();
-    console.log(trending)
     const [views] = await homeModel.getViews();
     const [lastest] = await homeModel.getLatest();
     await getAll(trending);
