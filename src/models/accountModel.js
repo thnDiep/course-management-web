@@ -43,6 +43,15 @@ export default {
 
     return list[0];
   },
+  async findByEmailToGetDetail(email) {
+    let list = null
+    if(this.findByEmail(email)!== null)
+    {
+      list = await db.raw(`SELECT * FROM user WHERE email = ?`, email);
+    }
+
+    return list[0];
+  },
   add(user) {
     console.log(user.password)
     return db('user').insert(user);

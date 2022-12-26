@@ -8,6 +8,26 @@ const rEmail = document.querySelector(".required-email");
 const mailformat =
   /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
 video.playbackRate = 0.5;
+email.oninput = (e)=>{
+  rEmail.innerHTML=""
+}
+email.onblur = (e)=>{
+  console.log(email.value.length)
+  if(email.value.length === 0){
+    rEmail.innerHTML ="Please fill out this field";
+    email.focus();
+  }
+}
+pass.oninput = (e)=>{
+  rPass.innerHTML=""
+}
+pass.onblur = (e)=>{
+  console.log(pass.value.length)
+  if(pass.value.length === 0){
+    rPass.innerHTML ="Please fill out this field";
+    pass.focus();
+  }
+}
 const submit = (e) => {
   if (pass.value.length === 0) {
     rPass.innerHTML =
