@@ -1,6 +1,6 @@
 {{#section "css"}}
-  <link rel="stylesheet" href="/css/teacherProfile.css" />
   <link rel="stylesheet" href="/css/profile.css" />
+  <link rel="stylesheet" href="/css/teacherProfile.css" />
 {{/section}}
 {{#section "js"}}
   <script src="/js/teacherProfile.js"></script>
@@ -8,89 +8,7 @@
 <div class="check"></div>
 
 <div class="container">
-  <form action="">
-    <div class="col-lg-8 container edit" id="edit">
-      <div class="card mb-4">
-        <div class="card-body text-center">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-            alt="avatar"
-            class="rounded-circle img-fluid"
-            style="width: 150px;"
-          />
-          <br />
-          <input type="file" name="image" />
-          <h1 class="my-3">{{this.teacher.name}}</h1>
-          <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
-            Teacher</p>
-          {{! <div class="d-flex justify-content-center mb-2">
-          <button type="button" class="btn btn-primary">Follow</button>
-          <button type="button" class="btn btn-outline-primary ms-1">Message</button>
-        </div> }}
-        </div>
-      </div>
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-3">
-              <p class="mb-0">Full Name</p>
-            </div>
-            <div class="col-sm-8">
-              <input
-                type="text"
-                value="{{this.teacher.name}}"
-                class="text-muted mb-0 input"
-                name="name"
-                disabled
-              />
-            </div>
-            <div class="col-sm-1">
-              <i class="far fa-edit"></i>
-            </div>
-          </div>
-          <hr />
-          <div class="row">
-            <div class="col-sm-3">
-
-              <p class="mb-0">Email</p>
-            </div>
-            <div class="col-sm-8">
-              <input
-                type="text"
-                value="{{this.teacher.email}}"
-                class="text-muted mb-0 input"
-                name="email"
-                disabled
-              />
-            </div>
-            <div class="col-sm-1">
-              <i class="far fa-edit"></i>
-            </div>
-          </div>
-          <hr />
-          <div class="row">
-            <div class="col-sm-3">
-              <p class="mb-0">Password</p>
-            </div>
-            <div class="col-sm-8">
-              <input
-                type="password"
-                value="{{this.teacher.password}}"
-                class="text-muted mb-0 input"
-                name="password"
-                disabled
-              />
-            </div>
-            <div class="col-sm-1">
-              <i class="far fa-edit"></i>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary w-100">EDIT</button>
-    </div>
-  </form>
+  
   <div class="col-lg-12">
     <div class="profile-cover">
       <div class="profile-cover__img">
@@ -98,7 +16,7 @@
         <h3 class="h3">{{this.teacher.name}}</h3>
       </div>
       <div class="profile-cover__action bg--img" data-overlay="0.3">
-        <button class="btn btn-rounded btn-edit">
+        <button class="btn btn-rounded btn-edit" data-toggle="modal" data-target="#exampleModalCenter">
           <i class="fa fa-comment"></i>
           <span>Edit profile</span>
         </button>
@@ -141,7 +59,6 @@
       </div>
       <div class="d-flex justify-content-between align-items-center mb-4">
         <p class="lead fw-normal mb-0">Courses</p>
-        <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
       </div>
       <div class="row g-2">
         {{#each course}}
@@ -193,3 +110,149 @@
     </div>
   </div>
 </div>
+
+<form method="POST" action="/teacher/profile/?_method=PUT">
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 2rem;">Edit Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="edit" class="d-flex justify-content-around">
+            <div class="card mb-5">
+              <div class="card-body text-center">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  alt="avatar"
+                  class="rounded-circle img-fluid"
+                  style="width: 150px;"
+                />
+                <br />
+                <input type="file" name="image" accept="image/png, image/gif, image/jpeg"/>
+                <h1 class="my-3">{{this.teacher.name}}</h1>
+                <p class=" mb-1"><i class="fas fa-graduation-cap"></i>
+                  Teacher</p>
+                {{! <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary">Follow</button>
+                <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+              </div> }}
+              </div>
+            </div>
+            <div class="card mb-5">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Full Name</p>
+                  </div>
+                  <div class="col-sm-7 input">
+                    <i class="fas fa-exclamation-circle required-icon hidden" style="color:red"></i>
+
+                    <input
+                      type="text"
+                      value="{{this.teacher.name}}"
+                      class="text-muted mb-0"
+                      name="name"
+                    />
+                  
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Email</p>
+                  </div>
+                  <div class="col-sm-7 input">
+                    <i class="fas fa-exclamation-circle required-icon hidden" style="color:red"></i>
+
+                    <input
+                      type="text"
+                      value="{{this.teacher.email}}"
+                      class="text-muted mb-0"
+                      name="email"
+                    />
+                  
+                  </div>
+                </div>
+
+                <div class="mb-2 mt-5"><b>Change Password</b></div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Current Password</p>
+                  </div>
+                  <div class="col-sm-7 input">
+                    <i class="fas fa-exclamation-circle required-icon hidden" style="color:red"></i>
+
+                    <input
+                      type="password"
+                      value=""
+                      class="text-muted mb-0"
+                      name="password"
+                    />
+                  
+                  </div>
+                  {{!-- <button class="dropdown-btn">Javascript for beginers
+      <i class="fa fa-caret-down"></i>
+    </button> --}}
+                  
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Your new password</p>
+                  </div>
+                  <div class="col-sm-7 input">
+                    <i class="fas fa-exclamation-circle required-icon hidden" style="color:red"></i>
+
+                    <input
+                      type="password"
+                      value=""
+                      class="text-muted mb-0"
+                      name="password"
+                    />
+                  
+
+                  </div>
+                  {{!-- <button class="dropdown-btn">Javascript for beginers
+      <i class="fa fa-caret-down"></i>
+    </button> --}}
+                  
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Repeat password</p>
+                  </div>
+                  <div class="col-sm-7 input">
+                    <i class="fas fa-exclamation-circle required-icon hidden" style="color:red"></i>
+                    <input
+                      type="password"
+                      value=""
+                      class="text-muted mb-0"
+                      name="password"
+                      
+                    />
+                  
+                  </div>
+                  {{!-- <button class="dropdown-btn">Javascript for beginers
+      <i class="fa fa-caret-down"></i>
+    </button> --}}
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary submit">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,31 +1,45 @@
-const overlay1 = document.querySelector(".check");
-const edit = document.querySelector("#edit");
-const btnedit = document.querySelector(".btn-edit");
-const submit1 = document.querySelectorAll(".input");
-const fa_edit = document.querySelectorAll(".fa-edit");
-console.log(submit1);
-submit1[0].onblur = function () {
-  console.log("hel");
-  form.submit();
-};
-overlay1.addEventListener("click", function () {
-  console.log("hello");
-  overlay1.classList.toggle("overlay");
-  edit.style.display = "none";
-});
-btnedit.addEventListener("click", function () {
-  overlay1.classList.toggle("overlay");
-  edit.style.display = "block";
-});
-
-const faedit = (input, e) => {
-  console.log(input);
-  input.removeAttribute("disabled");
-  input.focus();
-};
-for (let i = 0; i < fa_edit.length; i++) {
-  console.log(i);
-  fa_edit[i].addEventListener("click", function (e) {
-    faedit(submit1[i], e);
+const input = document.querySelectorAll(".text-muted")
+const submit = document.querySelector(".submit")
+const nameformat = /^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$/;
+const mailformat =
+  /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
+submit.addEventListener("click",function(e){
+  input.forEach(element => {
+    if (element.value.length === 0) {
+      element.style.border ='1px solid red'
+      element.previousElementSibling.classList.remove("hidden")
+      e.preventDefault();
+  }
   });
-}
+  console.log(input[0].value)
+  if (!input[0].value.match(nameformat)) {
+    input[0].style.border ='1px solid red'
+    input[0].previousElementSibling.classList.remove("hidden")
+    e.preventDefault();
+  }
+  if (!input[1].value.match(mailformat)) {
+    input[1].style.border ='1px solid red'
+    input[1].previousElementSibling.classList.remove("hidden")
+    e.preventDefault();
+  }
+  if(!input[4].value.match(input[3].value)) {
+    input[4].style.border ='1px solid red'
+    input[4].previousElementSibling.classList.remove("hidden")
+    e.preventDefault();
+  }
+  
+  
+})
+input.forEach(element => {
+  element.oninput = (e)=>{
+    element.style.border ='1px solid #000'
+    element.previousElementSibling.classList.add("hidden")
+
+  }
+  element.onblur = (e)=>{
+    if (element.value.length === 0) {
+      element.style.border ='1px solid red'
+      element.previousElementSibling.classList.remove("hidden")
+    }
+  }
+})

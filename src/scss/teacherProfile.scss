@@ -155,26 +155,12 @@
   }
 }
 
-.edit {
-  display: none;
-  position: absolute;
-  z-index: 10;
-  bottom: 10rem;
-  width: 50%;
-  right: 10%;
-  left: 10%;
-}
 
 .overlay {
   top: 0;
 }
 
-.fa-edit {
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-2px);
-  }
-}
+
 .btn-default,
 .btn-primary {
   color: $black-color !important;
@@ -196,4 +182,24 @@
     cursor: pointer;
     transform: translateY(2px);
   }
+}
+.col-sm-7>input{
+  border: 1px solid #000;
+}
+.input{
+  position: relative;
+  .fa-exclamation-circle {
+    top: 0.5rem;
+    position: absolute;
+    right: 2rem;
+  }
+}
+
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 800px;
+    margin: 1.75rem auto;
+}}
+.hidden{
+  display: none;
 }

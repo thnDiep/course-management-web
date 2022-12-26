@@ -8,17 +8,21 @@ import express from 'express'
 class AAccountController {
   async index(req, res) {
     let users;
+    let isActive;
     const id = parseInt(req.query.id) || 1;
     if(id===2){
        users = await userModel.getAllStudent();
+       isActive = 2;
     }
     else if(id === 3 )
     {
        users = await userModel.getAllTeacher();
+       isActive = 3;
     }
     else
     {
        users = await userModel.getAllStudentAndTeacher();
+       isActive = 1;
     }
     for (const user of users) {
       if (user.permissionID === 3) {
@@ -32,10 +36,12 @@ class AAccountController {
       // }
     }
     res.render("vwAdmin/accounts", {
+      isActive,
       users,
       layout: "admin",
     });
   }
+
   async add(req, res) {
     res.render("vwAdmin/accounts/addTeacher", {
       layout: "admin",
