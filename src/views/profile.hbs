@@ -98,7 +98,7 @@
                 <p class="mb-0">User name</p>
               </div>
               <div class="col-sm-6">
-                <input type="text" value={{this.profiles.name}} class="inputName" disabled >
+                <input type="text" value={{this.profiles.name}} class="inputName input" disabled >
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit"></i>
@@ -110,7 +110,7 @@
                 <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-6">
-                <input type="email" value={{this.profiles.email}} class="inputEmail" disabled >
+                <input type="email" value={{this.profiles.email}} class="inputEmail input" disabled >
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit"></i>
@@ -119,19 +119,30 @@
             <hr />
             <div class="row">
               <div class="col-sm-4">
-                <p class="mb-0">Password</p>
+                <p class="mb-0">Current Password</p>
               </div>
               <div class="col-sm-6">
-                <input type="password" value={{this.profiles.password}} class="inputPass" disabled >
+                <input type="password" value={{this.profiles.password}} class="inputPass input mt-3" disabled >
+              </div>
+              <div class="col-sm-2">
+                <i class="far fa-edit Edit mt-4"></i>
+              </div>
+            </div> 
+            <hr />
+            <div class="row rowNewPass hidden">
+              <div class="col-sm-4">
+                <p class="mb-0">New Password</p>
+              </div>
+              <div class="col-sm-6">
+                <input type="password" value="" class="inputNewPass input" style="border: 1px solid #333333;" >
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit"></i>
               </div>
-            </div>
-            <hr>
+            </div> 
             <div class="row">
               <div class="col-sm-12 d-flex justify-content-center">
-                <button type="submit" class="btn btn--submit btnEdit">EDIT</button>
+                <button type="submit" class="btn btn--submit btnEdit" onclick="update()">EDIT</button>
               </div>
             </div>
           </div>
