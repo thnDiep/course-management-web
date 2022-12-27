@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3307
--- Thời gian đã tạo: Th12 23, 2022 lúc 10:00 PM
--- Phiên bản máy phục vụ: 10.4.25-MariaDB
--- Phiên bản PHP: 8.1.10
+-- Host: 127.0.0.1
+-- Generation Time: Dec 27, 2022 at 04:13 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `academydb`
+-- Database: `academydb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -35,7 +35,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `parentID`, `image`) VALUES
@@ -61,7 +61,7 @@ INSERT INTO `category` (`id`, `name`, `parentID`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chapter`
+-- Table structure for table `chapter`
 --
 
 CREATE TABLE `chapter` (
@@ -71,7 +71,7 @@ CREATE TABLE `chapter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `chapter`
+-- Dumping data for table `chapter`
 --
 
 INSERT INTO `chapter` (`id`, `name`, `courseID`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `chapter` (`id`, `name`, `courseID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `course`
+-- Table structure for table `course`
 --
 
 CREATE TABLE `course` (
@@ -124,7 +124,7 @@ CREATE TABLE `course` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `course`
+-- Dumping data for table `course`
 --
 
 INSERT INTO `course` (`id`, `name`, `idCategory`, `image`, `videoID`, `status`, `fee`, `feeO`, `tinyDescription`, `required`, `fullDescription`, `benefit`, `views`, `updateTime`, `createTime`) VALUES
@@ -149,12 +149,12 @@ INSERT INTO `course` (`id`, `name`, `idCategory`, `image`, `videoID`, `status`, 
 INSERT INTO `course` (`id`, `name`, `idCategory`, `image`, `videoID`, `status`, `fee`, `feeO`, `tinyDescription`, `required`, `fullDescription`, `benefit`, `views`, `updateTime`, `createTime`) VALUES
 (0000000016, 'The Complete 2022 Web Development Course - Build 15 Projects', 2, 'data:image/jpeg;base64,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', 'YWA-xbsJrVg', 1, 1999000, 2299000, 'The only course you need to become a full-stack web developer. Covers HTML5, CSS3, JS, ES6, Node, APIs, Mobile & more!\r\n', 'I will teach you everything. All you need is a computer.\r\nThere is absolutely no pre-knowledge required. This is a 100% Comprehensive Web Development Course that will take you from Zero-skills to a Cash Earning Web Developer, Step by Step with NO Step skipped.', 'Did you know you can go from Zero Skills to a Fully Qualified Cash Earning Web Developer in only a few weeks?\r\n\r\nWell let me tell you: If you are looking for a truly 100% Comprehensive Web Development Course, that will take you from learning the basics to mastering the most advanced web development techniques, then be certain that you have come to the right place.\r\n\r\nTaking this course will help you achieve your dream of becoming a professional web developer, and you will be ready to build powerful and responsive websites to a highly professional degree using today’s most advanced and up to date web technologies within a few weeks from now.\r\n\r\nIn order to guarantee the success of your learning experience, this course was divided into perfectly structured Chapters consisting of ~100 hours of crystal clear and 100% hands-on engaging lectures.\r\n\r\nEach chapter covers one of the major web technologies and will take you from the basics to advanced skills. This is how:\r\n\r\nYou will first learn the basic concepts, and straight after that apply them in easy practical examples. Then you will easily navigate to more advanced concepts and use them to build more complex applications. Once you have finished the chapter, you will then move to a bigger challenge where you will confidently build a “Real Life Full Professional Project” using the skills you acquired in that chapter combined with previous ones.\r\n\r\nYou will be so amazed at your own first-class work, and I am sure you will love to share it with the world. That’s why I will offer you \"FREE WEB HOSTING\" worth 200$  so that you can make your professional websites live and attract potential employers or clients. As a result you can start making money from the first week of your unique learning journey.\r\n\r\nBy the end of the course, you will have built a solid portfolio of “Over 15 Real Professional Websites, Games and Mobile Apps for The IOS and Google Stores”. This will give you a competitive edge in the web development market and boost your income as a web developer by increasing your employability or chances of being awarded lucrative projects by clients around the world.', '<table class=\"table\"><thead><tr><th colspan=\"2\">What will you learn</th</tr></thead><tbody><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Go from Zero skills to building Powerful Web Applications on a highly professional level using the latest 2021 Web Technologies.</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Use a Portfolio of over 15 highly professional websites, Games and Mobile apps you would have developed during the course to take your career to the next level.</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Use HTML5, CSS3, Flexbox, Grid & SASS to build website content and add stunning styling and decoration.</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Use advanced skills to connect your websites to APIs like Google Maps, Facebook, Google plus and Twitter.</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Create a Fully Functional Car Sharing App which users around the world can use to share car trips. (using HTML5, CSS3, Javascript, PHP, MySQL, AJAX & JSON)</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Create a Professional website with video background using HTML5, CSS3, jQuery & Bootstrap.</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Create a Professional Online Notes App using HTML5, CSS3, Bootstrap, PHP, MySQL & AJAX.</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Create a Professional Fruits Slice Game using HTML5, CSS3 & JQuery.</td></tr></tbody></table>', 19, '2022-12-23', '2022-12-01'),
 (0000000017, 'The Complete Unity Game Development Course', 4, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfwK5GJDcaOtx9otDeI5XMgHdIrb58rSf0Q&usqp=CAU', 'Y3Rs1z7it5M', 1, 479000, 529000, 'Create Your Own First Person Shooter Zombie Game', 'Students must be confident with a procedural or object-oriented programming language such as C#\r\nStudents will require a Mac or PC with the free version of Unity installed', 'Getting started in game development doesn\'t have to be scary.  All you need is the passion to learn and an inquisitive, experimental nature for combining code, animation, graphics, artificial intelligence, art and audio.  Sounds like a lot?  It is, but when you see how you as a solo developer can bring it all together there\'s a touch of magic in the air.\r\n\r\nUnity is the number one game development engine due to its ease of use and yet powerful abilities.  It works on all platforms and can export to desktop, console and mobile devices.  It\'s a great way for the beginner to jump straight into the world of game development and get their hands on the tools used by AAA game studios to produce games such as Hearthstone (Blizzard Entertainment), Cities: Skylines (Colossal Order) and Monument Valley 2 (ustwo Games) and best of all, for the beginner and hobbyist it is free!\r\n\r\nIn this course, Penny demystifies Unity\'s interface and plethora of tools to bring art, code, design, and more together to produce a fully-fledged First Person Shooter game completely from scratch. Using her internationally acclaimed teaching style and knowledge from over 25 years working with games, graphics, and having written two award-winning books on games A.I., Penny will take you from complete noob to a confident user of Unity. Throughout, you will follow along with hands-on workshops designed to take you through every step of becoming familiar with all the functionality of the game engine.  Throughout, you will work towards the creation of a First Person Shooter set in a post-apocalyptic world complete with zombies out for the player\'s brains!\r\n\r\nThis course was created with Unity 2019.3.11f however is compatible with Unity 2019.4.2f1 (LTS) on either Mac or PC.\r\n\r\nContents and Overview\r\n\r\nThe course begins with a section to introduce you to the Unity interface.  If you are already familiar with Unity, you can skip to Section 3.  In this introductory session, we will cover Unity\'s window system, how to add models and textures, the creation of code to manipulate the properties of models, and the physics system.\r\n\r\nFollowing this, we will start work on the First Person Character (FPC).  You will learn how to add physics and code to move the character around, as well as add animated arms and a weapon that you can see in the game view.  You will also work to add animations for firing and reloading the weapon.  Audio effects for the player\'s footsteps and jumping will also be included here.\r\n\r\nNext, you will create pickup items for medical kits and ammunition that can be scattered around the game environment to provide extra resources to the player when their health or bullet levels get low.  Here you will learn about how colliders and triggers can be used to fire off code to update values on the player that store an inventory.\r\n\r\nWe will then jump into the Unity Terrain Sculpting tool and work through the creation of a large game map on which to place the FPC and enemies.  You will work with textures to colour the terrain and models, to add extra details such as trees and grass.  High-quality models of houses, rocks, fences, and other props will be included for you to be as creative as you like in developing the game environment.\r\n\r\nBy this point, you\'ll be ready to start adding the zombies.  You will first begin with the zombie models and learn how to add animations to them and then move them about on the game environment using navigation meshes.  Then we will cover one of the most popular artificial intelligence techniques used in games for creating simple behaviours in non-player characters; the Finite State Machine.  You will develop enemies capable of wandering, chasing, attacking, dying, and standing idle.  These actions will be linked to the location of the player such that the zombies will ignore the player when they are far away and only attack when in range.\r\n\r\nOnce these mechanics are in place, you will learn how to use raycasts to link the player\'s shooting animations with a hit to the zombie.  When hit, the zombie death animation will play and you will also be able to add in a ragdoll instead at this point.  We will work with spotlights to create a crosshair aiming system and program dead zombies to sink into the ground, to remove them from the game.\r\n\r\nLast but not least, we tie everything together with a Heads Up Display complete with health meter, an ammunition count, a radar for detecting nearby zombies, and a compass to point the player toward their goal location.\r\n\r\nOnce you have put all the game mechanics in place, you\'ll learn several techniques for taking your game to a more professional level with special effects, extra audio & feedback, and a main menu switching system.\r\n\r\nThis is the perfect course to get started with Unity if you are an absolute beginner or learn a few extra techniques if you are familiar with the engine. ', '<table class=\"table\"><thead><tr><th colspan=\"2\">What will you learn</th</tr></thead><tbody><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Creating and animating a first person character for use in an FPS</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Artificial Intelligence techniques for defining the behaviour of non-player characters</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Using physics to develop a shooting mechanic with rag doll animations</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>How to create pickup items with colliders and triggers</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Post Processing Techniques to enhance the look of a game environment</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>How to use lighting to enhance a game environment</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Unity\'s Canvas to develop an integrated heads up display with maps, radar and compass</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Add dynamic visual and audio special effects</td></tr></tbody></table>', 5, '2022-11-07', '2022-02-09'),
-(0000000018, 'Complete NodeJS Developer in 2023 (GraphQL, MongoDB, + more)\r\n', 17, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPBUiYIJxG3KthwuCZMVZFsDr9WQN5Vlbw7A&usqp=CAU', 'OR0hBEUk4wI', 1, 1699000, 2599000, 'Learn from real NodeJS experts! Includes REALLY Advanced NodeJS. Express, GraphQL, REST, MongoDB, SQL, MERN + much more', 'Just basic JavaScript knowledge\r\nYou DO NOT need any prior experience with NodeJS!\r\nYou DO NOT need any prior Backend Development knowledge!', 'Just released with all new NodeJS best practices and trends for 2023! Join a live online community of over 900,000+ developers and a course taught by industry experts that have actually worked both in Silicon Valley and Toronto with Node.js.\r\n\r\nUsing the latest version of Node, this course is focused on efficiency and turning you into a Back End or Fullstack developer. Never spend time on confusing, out of date, incomplete tutorials anymore! Graduates of Andrei’s courses are now working at Google, Tesla, Amazon, Apple, IBM, JP Morgan, Facebook, + other top tech companies for a reason.\r\n\r\nWe guarantee you this is the most comprehensive online resource on NodeJS. This project based course will introduce you to all of the modern toolchain of a Node JS developer in 2023. Along the way, we will build a massive NASA Space launch application using Node.js, Express Framework, RESTful APIs, GraphQL, and much more! This is going to be a Fullstack MERN app. We will also build many other mini projects along the way so you feel confident deploying any Node.js project to production in the future by yourself!\r\n\r\n\r\n\r\nAll code is going to be provided step by step and even if you don’t like to code along, you will get access to all the code from the projects we build so anyone signed up for the course will have their own project to put on their portfolio right away.\r\n\r\n\r\n\r\nThe curriculum is going to be very hands on as we walk you from start to finish of releasing a professional (performant and secure) Node.js project all the way into production. We will start from the very beginning by teaching you Node basics and then going into advanced topics so you can make good decisions on architecture and tools on any of your future NodeJS projects. The goal is to turn you into a senior backend developer!\r\n\r\n\r\nFinally, this course will be constantly evolving and updating as the landscape changes. Just as the Node ecosystem evolves, we want this course to be constantly updated with lectures and resource for you to come back to, in order to find the latest Node best practices anytime in the future.', '<table class=\"table\"><thead><tr><th colspan=\"2\">What will you learn</th</tr></thead><tbody><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Lead NodeJS projects by making good architecture decisions and helping others on your team</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Work with real life data and SpaceX API to build a NASA launch system, discover new planets that may contain life + other projects</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build a MERN (MongoDb, Express, React, Node) fullstack app and deploy to production</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Learn to build secure and performant, large scale applications like a senior backend developer</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Authentication, File I/O, Databases (SQL, MongoDB), Express Framework, Sockets, plus many other important topics a backend developer should know</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Focus on security best practices throughout the course so you can be confident with your deployments</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Load balancing, Monitoring, CI/CD, and Zero Downtime Deployment</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build enterprise level Node applications and deploy to the cloud (AWS)</td></tr></tbody></table>', 92, '2022-12-23', '2022-12-04');
+(0000000018, 'Complete NodeJS Developer in 2023 (GraphQL, MongoDB, + more)\n', 17, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPBUiYIJxG3KthwuCZMVZFsDr9WQN5Vlbw7A&usqp=CAU', 'OR0hBEUk4wI', 1, 1699000, 2599000, 'Learn from real NodeJS experts! Includes REALLY Advanced NodeJS. Express, GraphQL, REST, MongoDB, SQL, MERN + much more', 'Just basic JavaScript knowledge\r\nYou DO NOT need any prior experience with NodeJS!\r\nYou DO NOT need any prior Backend Development knowledge!', 'Just released with all new NodeJS best practices and trends for 2023! Join a live online community of over 900,000+ developers and a course taught by industry experts that have actually worked both in Silicon Valley and Toronto with Node.js.\r\n\r\nUsing the latest version of Node, this course is focused on efficiency and turning you into a Back End or Fullstack developer. Never spend time on confusing, out of date, incomplete tutorials anymore! Graduates of Andrei’s courses are now working at Google, Tesla, Amazon, Apple, IBM, JP Morgan, Facebook, + other top tech companies for a reason.\r\n\r\nWe guarantee you this is the most comprehensive online resource on NodeJS. This project based course will introduce you to all of the modern toolchain of a Node JS developer in 2023. Along the way, we will build a massive NASA Space launch application using Node.js, Express Framework, RESTful APIs, GraphQL, and much more! This is going to be a Fullstack MERN app. We will also build many other mini projects along the way so you feel confident deploying any Node.js project to production in the future by yourself!\r\n\r\n\r\n\r\nAll code is going to be provided step by step and even if you don’t like to code along, you will get access to all the code from the projects we build so anyone signed up for the course will have their own project to put on their portfolio right away.\r\n\r\n\r\n\r\nThe curriculum is going to be very hands on as we walk you from start to finish of releasing a professional (performant and secure) Node.js project all the way into production. We will start from the very beginning by teaching you Node basics and then going into advanced topics so you can make good decisions on architecture and tools on any of your future NodeJS projects. The goal is to turn you into a senior backend developer!\r\n\r\n\r\nFinally, this course will be constantly evolving and updating as the landscape changes. Just as the Node ecosystem evolves, we want this course to be constantly updated with lectures and resource for you to come back to, in order to find the latest Node best practices anytime in the future.', '<table class=\"table\"><thead><tr><th colspan=\"2\">What will you learn</th</tr></thead><tbody><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Lead NodeJS projects by making good architecture decisions and helping others on your team</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Work with real life data and SpaceX API to build a NASA launch system, discover new planets that may contain life + other projects</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build a MERN (MongoDb, Express, React, Node) fullstack app and deploy to production</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Learn to build secure and performant, large scale applications like a senior backend developer</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Authentication, File I/O, Databases (SQL, MongoDB), Express Framework, Sockets, plus many other important topics a backend developer should know</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Focus on security best practices throughout the course so you can be confident with your deployments</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Load balancing, Monitoring, CI/CD, and Zero Downtime Deployment</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build enterprise level Node applications and deploy to the cloud (AWS)</td></tr></tbody></table>', 92, '2022-12-23', '2022-12-04');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `course_of_student`
+-- Table structure for table `course_of_student`
 --
 
 CREATE TABLE `course_of_student` (
@@ -166,7 +166,7 @@ CREATE TABLE `course_of_student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `course_of_student`
+-- Dumping data for table `course_of_student`
 --
 
 INSERT INTO `course_of_student` (`studentID`, `courseID`, `chapterID`, `lessonID`, `time`) VALUES
@@ -176,7 +176,7 @@ INSERT INTO `course_of_student` (`studentID`, `courseID`, `chapterID`, `lessonID
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `course_of_teacher`
+-- Table structure for table `course_of_teacher`
 --
 
 CREATE TABLE `course_of_teacher` (
@@ -185,19 +185,31 @@ CREATE TABLE `course_of_teacher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `course_of_teacher`
+-- Dumping data for table `course_of_teacher`
 --
 
 INSERT INTO `course_of_teacher` (`teacherID`, `courseID`) VALUES
-(1, 3),
-(1, 4),
-(3, 1),
-(3, 2);
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15),
+(16, 16),
+(17, 17);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `history_lesson`
+-- Table structure for table `history_lesson`
 --
 
 CREATE TABLE `history_lesson` (
@@ -209,7 +221,7 @@ CREATE TABLE `history_lesson` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `history_lesson`
+-- Dumping data for table `history_lesson`
 --
 
 INSERT INTO `history_lesson` (`chapterID`, `lessonID`, `time`, `courseID`, `studentID`) VALUES
@@ -218,7 +230,7 @@ INSERT INTO `history_lesson` (`chapterID`, `lessonID`, `time`, `courseID`, `stud
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `lesson`
+-- Table structure for table `lesson`
 --
 
 CREATE TABLE `lesson` (
@@ -229,7 +241,7 @@ CREATE TABLE `lesson` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `lesson`
+-- Dumping data for table `lesson`
 --
 
 INSERT INTO `lesson` (`id`, `name`, `chapterID`, `videoID`) VALUES
@@ -309,7 +321,7 @@ INSERT INTO `lesson` (`id`, `name`, `chapterID`, `videoID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `permission`
+-- Table structure for table `permission`
 --
 
 CREATE TABLE `permission` (
@@ -318,7 +330,7 @@ CREATE TABLE `permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `permission`
+-- Dumping data for table `permission`
 --
 
 INSERT INTO `permission` (`id`, `name`) VALUES
@@ -330,7 +342,7 @@ INSERT INTO `permission` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `rating`
+-- Table structure for table `rating`
 --
 
 CREATE TABLE `rating` (
@@ -343,7 +355,7 @@ CREATE TABLE `rating` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `rating`
+-- Dumping data for table `rating`
 --
 
 INSERT INTO `rating` (`id`, `star`, `feedback`, `courseID`, `studentID`, `time`) VALUES
@@ -374,7 +386,7 @@ INSERT INTO `rating` (`id`, `star`, `feedback`, `courseID`, `studentID`, `time`)
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `student_love_course`
+-- Table structure for table `student_love_course`
 --
 
 CREATE TABLE `student_love_course` (
@@ -383,7 +395,7 @@ CREATE TABLE `student_love_course` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `student_love_course`
+-- Dumping data for table `student_love_course`
 --
 
 INSERT INTO `student_love_course` (`studentID`, `courseID`) VALUES
@@ -393,7 +405,7 @@ INSERT INTO `student_love_course` (`studentID`, `courseID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -402,24 +414,45 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `permissionID` int(10) UNSIGNED NOT NULL,
-  `about` varchar(1000) DEFAULT NULL
+  `about` varchar(1000) DEFAULT NULL,
+  `img` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `password`, `email`, `permissionID`, `about`) VALUES
-(1, 'manhtu227', '', 'manhtu2272002@gmail.com', 2, NULL),
-(2, 'lavy2905', 'langg', 'lavy@gmail.com', 2, NULL),
-(3, 'Jonas Schmedtmann', 'dfhgfhfg', 'quangtrung@gmail.com', 3, NULL);
+INSERT INTO `user` (`id`, `name`, `password`, `email`, `permissionID`, `about`, `img`) VALUES
+(1, 'Bob Tabor', '$2a$10$8vajDxYwNZok7pksJnu36eza912kgyi/BbfGQQKcg2y', 'bobtabor78@gmail.com', 3, 'Hi, I\'m Jonas! I have been identified as one of Udemy\'s Top Instructors and all my premium courses have earned the best-selling status for outstanding performance and student satisfaction.\n\nI\'m a full-stack web developer and designer with a passion for building beautiful things from scratch. I\'ve been building websites and apps since 2010 and also have a Master\'s degree in Engineering.\n\nI discovered my passion for teaching and helping others by sharing all I knew when I was in college, and that passion brought me to Udemy in 2015.\n\nHere, in all my courses, what students love the most is that I take the time to explain every concept in a way that everyone can easily understand.\n\nSo, do you want to learn how to build awesome websites with modern HTML and CSS?\n\nLooking for a complete JavaScript course that takes you from zero to an advanced developer?\n\nOr maybe you want to build modern and fast back-end applications with Node.js?\n\nThen don\'t waste your time with random tutorials or incomp', 'https://www.courseduck.com/programming/c-sharp/images/bob_tabor.jpg'),
+(2, 'Aman Dhattarwal', '$2a$10$8vajDxYwNZok7pksJnu36eza912kgyi/BbfGQQKcg2y', 'dhattarwalaman97@gmail.com', 3, 'Hi! I\'m Aman. I\'m a developer with a serious love for teaching. I\'ve spent the last few years teaching people to program at 2 different immersive bootcamps where I\'ve helped hundreds of people become web developers and change their lives. My graduates work at companies like Google, Salesforce, and Square.\r\n\r\nMost recently, I led Galvanize\'s SF\'s 6 month immersive program as Lead Instructor and Curriculum Director. After graduating from my class, 94% of my students went on to receive full-time developer roles. I also worked at Udacity as a Senior Course Developer on the web development team where I got to reach thousands of students daily.\r\n\r\nI’ve since focused my time on bringing my classroom teaching experience to an online environment. In 2016 I launched my Web Developer Bootcamp course, which has since gone on to become one of the best selling and top rated courses on Udemy. I was also voted Udemy’s Best New Instructor of 2016.\r\n\r\nI\'ve spent years figuring out the \"formula\" to teach', 'https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/275306434_512729540222191_2290251342561825429_n.png?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=En_gS88oKwwAX_0PBzK&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfCQo_yMD9fGEilFoieuHxDapplgZsyklbFRks-VP4rDAg&oe=63AEAA03'),
+(3, 'WB Web Development Solutions', '', 'wbweb77@gmail.com', 3, 'I\'m WB, I\'m a developer with a passion for teaching. I\'m the lead instructor at the London App Brewery, London\'s leading Programming Bootcamp. I\'ve helped hundreds of thousands of students learn to code and change their lives by becoming a developer. I\'ve been invited by companies such as Twitter, Facebook and Google to teach their employees.\r\n\r\nMy first foray into programming was when I was just 12 years old, wanting to build my own Space Invader game. Since then, I\'ve made hundred of websites, apps and games. But most importantly, I realised that my greatest passion is teaching.\r\n\r\nI spend most of my time researching how to make learning to code fun and make hard concepts easy to understand. I apply everything I discover into my bootcamp courses. In my courses, you\'ll find lots of geeky humour but also lots of explanations and animations to make sure everything is easy to understand.\r\n\r\nI\'ll be there for you every step of the way.', 'https://scontent.fsgn5-5.fna.fbcdn.net/v/t39.30808-6/305685631_515432193918304_2102162966007196282_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=nwWyhgLaY7cAX9TbEFI&tn=xuL0xYGbzvNxwAGL&_nc_ht=scontent.fsgn5-5.fna&oh=00_AfDA3GFKgNeqEipFoVk4VqnGipm6wgnS6HwZonF1Gv82OA&oe=63AEA935'),
+(4, 'Eden Eldersong', '', 'edenpixagram55@gmail.com', 3, 'Hi! I\'m Eden. I\'m a self-taught software engineer with over eight years of experience, and the author of Learn Unity Programming with C#. I\'ve developed several Unity games for Cartoon Network, Adult Swim, the casino industry, and various indie game companies. I\'ve also developed real world enterprise augmented reality applications for companies like GE, Coca-Cola, and ThyssenKrupp. I got my start in programming when I was 16 years old, developing private game servers for a popular MMO. When I decided to look at game development as a career, I struggled to find content that didn\'t just spoon-feed me the answers. After countless hours of learning concepts and trying to figure out the logic behind everything myself, I decided to start my own YouTube series that teaches developers to code from scratch through interactive challenges. It quickly became popular within the Unity community, and my educational career became a reality. I have a passion for teaching, and I love watching my studen', 'https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/280719033_152186647315157_9081496165208181906_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=q0ssfAcejm8AX9OHA40&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfBkBQbn2t86QBwYk95vKozplxssMaqM3YXnKASpr1Pr-A&oe=63AF9FB4'),
+(5, 'Gareth David', '', 'garethdavidstudio99@gmail.com', 3, 'If anyone has questions about which course may work best for them, please feel free to contact or message me.\r\n\r\nI have had many self-made titles over the years: Brand Manager, Digital Architect, Interactive Designer, Graphic Designer, Web Developer and Social Media Expert, to name a few. My name is Lindsay Marsh and I have been creating brand experiences for my clients for over 15 years. As a freelance graphic designer, I have worked on a wide variety of projects both in the digital and print space. \r\n\r\nI have had the wonderful opportunity of taking classes at some of the top design schools in the world: Parsons at The New School, The Pratt Institute and NYU. \r\n\r\nI have had the pleasure of teaching over 300,000+ students globally online. I have provided private tutoring in the the area of design and marketing for over 8 years. I am also now a certified Canva Certified Creative.  \r\n\r\nThe thing I enjoy most of all about being a teacher is seeing my students flourish and to be able to st', 'https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-6/274585665_525133198946814_8284784720459805486_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=bKakD7g-JNsAX8mCe4Q&tn=xuL0xYGbzvNxwAGL&_nc_ht=scontent.fsgn5-6.fna&oh=00_AfBeB6kO1au4yHsF2_wvQKMZFISGPkYs5bN-NWZPzXkQig&oe=63AEB10A'),
+(6, 'Envato Tuts+', '', 'envatotuts55@gmail.com', 3, 'Envato Tuts, Studied Arts, Advertising & Graphic design in the faculty of Applied Arts Helwan University.\r\n\r\nThen worked as a designer & got promoted to be a Chief design officer in International Advertising Agencies like DDB, TBWA & Sahara Petroleum Services. in many countries.\r\n\r\nThen switched to freelancing while working in the Aviation field to pursue his passion for Flying & to travel the world (check Instagram for interesting photos) while learning about different Art directions, Trends & design schools. Also getting a great experience from seeing different cultures.\r\n\r\nCurrently running Design Academy Online & Teaching over 200k international students from more than 171 countries Design & Art in a creative & professional way.', 'https://scontent.fsgn5-10.fna.fbcdn.net/v/t1.18169-9/12227668_10156247364105442_6518611457334726098_n.png?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=7X4wjVd9BBcAX8-za1R&_nc_ht=scontent.fsgn5-10.fna&oh=00_AfBFnlq50MEs5k7PkN9Pe6N_YbID_q3o5P5vnUebAK8IGQ&oe=63D1E73F'),
+(7, 'DESIGNR', '', 'uxceldesign12@gmail.com', 3, 'Sharing is who I am, and teaching is where I am at my best, because I\'ve been on both sides of that equation, and getting to deliver useful training is my meaningful way to be a part of the creative community.\r\n\r\nI\'ve spent a long time watching others learn, and teach, to refine how I work with you to be efficient, useful and, most importantly, memorable. I want you to carry what I\'ve shown you into a bright future.\r\n\r\nI have a wife (a lovely Irish girl) and kids. I have lived and worked in many places (as Kiwis tend to do) – but most of my 14+ years of creating and teaching has had one overriding theme: bringing others along for the ride as we all try to change the world with our stories, our labours of love and our art.\r\n\r\nI\'m a certified Adobe instructor (ACI) in Ireland. I\'m also an Adobe Certified Expert (ACE) and have completed the Adobe Certified Associate training (ACA). And I don\'t just do Adobe. Remember, media is a very broad term – digital blew out the borders, so we are al', 'https://cdn4.telegram-cdn.org/file/VAYGvSCTqTvNqpuuECSdowUBx0gmtZ-q4z1qNfrzWL-5Gtf0O2xdTpowPca88PPLxGb3KkDCBUWkdxvbpzBrYR4URRG9sI5ViHLL-x7__1IULS5aJppEboVMOA_LkpKagC3Jwi1uz7Q9CXjimeiuEvWaU0WsyjlJu8vgRKQ4w9LRk9O0_1f3_Q10ViA1p0P7515c9u92kABLfkJgH-zg3hsqJfQRiw436QQk7KxvjvPikvYni0gpTuj3go00Zn48MAda0CTuSc5jt3cWPNadVsUEUeRew-urlX180MnmcI9tIavJpdYEcdGDi43jTBceGsZ1GAuRAS7Sx81Cc8uBhg.jpg'),
+(8, 'Mark Brown', '', 'markgmtk1978@gmail.com', 3, '\r\nGREAT EDUCATION SHOULD BE AVAILABLE TO EVERYONE\r\nGame Maker\'s Toolkit was created to provide in-depth, current industry education in the area of interactive arts. We have our finger on the pulse of the tech industry and keep our curriculum up to date so our students are some of the most sought after artists and designers available. We arm students with the tools needed to thrive as designers, programmers, 3D animators, game developers, web designers, and UI / UX artists.\r\n\r\nWE TEACH ONLY THE LATEST TECHNOLOGY\r\nUnity, Photoshop, Illustrator, Maya, GameSalad, and several other powerful programming languages are just some of the many topics we cover here at the School of Game Design. We pay close attention to the latest tools and techniques being utilized by the tech and gaming industries, making sure that what we teach, keeps our students on top of these fast growing technologies. We are always developing new training videos which help make our students leaders in their chosen fields.\r', 'https://scontent.fsgn5-11.fna.fbcdn.net/v/t39.30808-6/300750521_137969622272602_4496136976974628654_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=aCqkI2zY8l8AX9TQ8vR&_nc_ht=scontent.fsgn5-11.fna&oh=00_AfDqdonpibyVTcZGvIzrcBcTL5ei4JM77zosWT47xDxurQ&oe=63AFA5F3'),
+(9, 'InspirationTuts', '', 'inspirationtuts712@gmail.com', 3, 'My name is InspirationTuts and I am a 3D artist, teaching and working with 3D graphics for the last 8 years and helping thousands to also master the art of 3D! I have a passion for art, for teaching and helping students to not only learn but have a fun experience while doing so. Blender 3D program is my drug of choice and I love it. I\'ve been passionate about art my whole life and look to instill that passion to my students through my teachings!\r\n\r\nI am a positive guy and originally from France. I love helping people and putting a smile on their face. I am an artist at heart not only with 3D art but with poetry and music. Look forward to serving you!', 'https://scontent.fsgn5-3.fna.fbcdn.net/v/t1.6435-9/81010388_116650206510008_8977662949329993728_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=DusCFIQlMuEAX8SrG_q&_nc_ht=scontent.fsgn5-3.fna&oh=00_AfCCoEmiM6RSL2b8SvfqkK3u5qLLKt3eaHLnlsI7gTGcoA&oe=63D1F898'),
+(10, 'Ben Heath', '', 'leadguru48@gmail.com', 3, 'Hi! I\'m Ben. I have a degree in Mathematics from Cambridge University and you might call me a bit of coding geek.\r\n\r\nAfter building websites for friends and family for fun, I soon learned that web development was a very lucrative career choice. I gave up my successful (and sometimes stressful) job as a teacher to work part time and today, couldn\'t be happier.\r\n\r\nI\'m passionate about teaching kids to code, so every summer I run Code School in the beautiful city of Cambridge. I also run the popular web hosting and design service, Eco Web Hosting which leaves me free to share my secrets with people like you.\r\n\r\nYou wouldn\'t believe the freedom that being a web developer offers. Sign up and find out for yourself why so many people are taking and recommending this course. I genuinely believe it\'s the best on the market and if you don\'t agree, I\'ll happily refund your money.\r\n\r\nSign up to my courses and join me in this amazing adventure today.', 'https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/293777407_409201534568466_2647615438410102045_n.jpg?stp=dst-jpg_p200x200&_nc_cat=108&ccb=1-7&_nc_sid=c6021c&_nc_ohc=ydCf4H8Xq80AX-K28cC&_nc_ht=scontent.fsgn5-6.fna&oh=00_AfB2KNshmUhCQ26rJrYfshrISYOnRvRIiR4WXG7M0W7ZFA&oe=63B01E64'),
+(11, 'No name', '', '', 0, NULL, ''),
+(12, 'NGAO CONTENT', '', 'ngaocontent14@gmail.com', 3, 'NGAO CONTENT, a modern holding company focused on building independent, scalable businesses at the intersection of technology and media. He is regarded as an expert in his field, teaching business and technology courses to more than 100,000 students and providing marketing training to a number of prominent startups and Fortune 500 companies.\r\n\r\nMerrill considers himself a passionate creative: he loves creating articles, videos, websites, companies, workflows, and new ideas. He has been creating things on the web since 2007, working on dozens of projects and reaching tens of millions of people in the process.\r\n\r\nIn 2010, Merrill founded VentureBreak, which became a leading source of news about innovation for forward-thinking entrepreneurs, investors, business executives, and interested consumers. Under his leadership, VentureBreak served more than half a million monthly readers, appeared regularly on Techmeme, and found itself cited by a number of notable publications, including the Wal', 'https://scontent.fsgn5-10.fna.fbcdn.net/v/t1.6435-9/126300371_418564445842518_8379261962065587725_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=494qgxsKr7MAX9laiX6&_nc_ht=scontent.fsgn5-10.fna&oh=00_AfBaT24q_MS0L348p5mDyEihFgpsDJ6MussVDHUeU9QRlA&oe=63D1F06A'),
+(13, 'Giai Dap Viet', '', 'vietgiaidap224@gmail.com', 3, 'Hi, my name is Giai Dap Viet!\r\n\r\n\r\n\r\nI\'m an e-commerce entrepreneur traveling the world on a quest to continually achieve a better life for myself and my family AND to share the life-changing knowledge I acquire in the form of affordable, detailed, & highly valuable courses here on Udemy.\r\n\r\n\r\n\r\nWant to…\r\n\r\n\r\n\r\n• Generate more income by creating & selling your own physical products on Amazon?\r\n\r\n• Build a brand you are proud of that stands out?\r\n\r\n• Achieve your personal goals faster & happier than ever before?\r\n\r\n\r\n\r\nThen be sure to enroll in one of the many courses I offer here on Udemy (listed below) and I promise you won’t regret it!\r\n\r\n\r\n\r\nAlso, feel free to check out all of the free content I give away on my Youtube channel, Facebook group, Instagram and TikTok @giaidapvietofficial.\r\n\r\n\r\n\r\nIf there is any way I can help you get even a little bit closer to your dream life let me know how I can help.\r\n\r\n\r\n\r\nI\'m looking forward to your success,GDV\r\n', 'https://giaidapviet.com/wp-content/uploads/2020/02/GDV-Logo-V2-Website.png'),
+(14, 'Vu Thuong', '', 'thuongvu69@gmail.com', 3, 'Experience as (Web) Developer\n\nStarting out at the age of 12 I never stopped learning new programming skills and languages. Early I started creating websites for friends and just for fun as well. Besides web development I also explored Python and other non-web-only languages. This passion has since lasted and lead to my decision of working as a freelance web developer and consultant. The success and fun I have in this job is immense and really keeps that passion burningly alive.\n\nStarting web development on the backend (PHP with Laravel, NodeJS, Python) I also became more and more of a frontend developer using modern frameworks like React, Angular or VueJS in a lot of projects. I love both worlds nowadays!\n\nI also build full-stack applications and acquired expert DevOps and cloud computing knowledge - proven by the many AWS certifications I hold (incl. the top-level Solutions Architect Professional certification).\n\nAs a self-taught developer I had the chance to broaden my horizon by st', 'https://yt3.ggpht.com/ytc/AMLnZu8oUNcqnWf8lK1XqSm8cHpoNyklcQJf2cZU7oJO=s88-c-k-c0x00ffffff-no-rj'),
+(15, 'Alan piano', '', 'alanpiano999@gmail.com', 3, 'Hi There! My name is Alan Stephen.\r\n\r\nI’ve been a full-time professional singer, guitarist and music coach for two decades. I\'m also a published songwriter.\r\n\r\nI was personally trained by the same elite vocal coach that taught some of the biggest musical icons in the world.\r\n\r\nI’ve been a signed artist to a great Indie label in Austin, TX (Fiesta Red Records) and I’ve performed in major cities all around the United States.\r\n\r\nI founded STRUM Music School in Austin, TX where we helped hundreds of aspiring musicians reach their goals and skyrocket their abilities beyond what they ever thought possible.  I sold STRUM in 2015 to pursue teaching the rest of the world how to sing. :)', 'https://pianoclassesgurgaon.com/wp-content/uploads/2021/03/music-teacher_06.jpg'),
+(16, 'Website Learners', '', 'websitelearners887@gmail.com', 3, 'Hi! I\'m WB. I have a degree in Mathematics from Cambridge University and you might call me a bit of coding geek.\r\n\r\nAfter building websites for friends and family for fun, I soon learned that web development was a very lucrative career choice. I gave up my successful (and sometimes stressful) job as a teacher to work part time and today, couldn\'t be happier.\r\n\r\nI\'m passionate about teaching kids to code, so every summer I run Code School in the beautiful city of Cambridge. I also run the popular web hosting and design service, Eco Web Hosting which leaves me free to share my secrets with people like you.\r\n\r\nYou wouldn\'t believe the freedom that being a web developer offers. Sign up and find out for yourself why so many people are taking and recommending this course. I genuinely believe it\'s the best on the market and if you don\'t agree, I\'ll happily refund your money.\r\n\r\nSign up to my courses and join me in this amazing adventure today.', 'https://scontent.fsgn5-3.fna.fbcdn.net/v/t39.30808-6/302534884_492422076239481_6701392663729604917_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=UQBKc1m6UXwAX-6q9aB&_nc_ht=scontent.fsgn5-3.fna&oh=00_AfACKnYjDqREXYV4pJlJNKMVGq-6y2LtBRMbwBUxBM0cDQ&oe=63B0A6C5'),
+(17, 'Game Dev Unlocked', '', 'gamedevunlocked232@gmail.com', 3, 'GameDev Unlocked was created to help anyone learn how to develop, design and sell indie games.  We have some of the best-selling and highest rating game development courses on Udemy.\r\n\r\nWe have more than a million students, and our aim is to make and maintain high quality courses that are engaging and entertaining for them.\r\n\r\nGameDev tv offers comprehensive courses on Unity, Blender, Unreal, coding in C#, C++ and more.  Looking to learn about a topic that we don\'t cover? Get plugged into our communities of amazing developers on Facebook (nearly 20k), in our own TA-curated Community (17k views/day), and our student chat group (10k live at any one time).', 'https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/309670139_521019336698652_73345938563299267_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=BhFhwAVO0JEAX8Zyf8y&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfD92qrMEH40Td3AraGB7XfPCnkg7UGdTKno3sxLKFbH4Q&oe=63B006A2'),
+(18, 'Andrei Neagoie', '', 'andreine323@gmail.com', 3, 'Andrei is the instructor of some of the highest rated programming and technical courses online. He is now the founder of ZTM Academy which is one of the fastest growing education platforms in the world. ZTM Academy is known for having some of the best instructors and success rates for students. His graduates have moved on to work for some of the biggest tech companies around the world like Apple, Google, Tesla, Amazon, JP Morgan, IBM, UNIQLO etc... He has been working as a senior software developer in Silicon Valley and Toronto for many years, and is now taking all that he has learned, to teach programming skills and to help you discover the amazing career opportunities that being a developer allows in life. \r\n\r\nHaving been a self taught programmer, he understands that there is an overwhelming number of online courses, tutorials and books that are overly verbose and inadequate at teaching proper skills. Most people feel paralyzed and don\'t know where to start when learning a complex su', 'https://img-c.udemycdn.com/user/200_H/38516954_b11c_3.jpg'),
+(19, 'vylee4119', '$2a$10$K62BL4M6VBDNheGRvzVnP.4ZAmCs3kINr3ym92zg.SC', 'vylee2905@gmail.com', 1, NULL, ''),
+(20, 'manhtu212', '$2a$10$8vajDxYwNZok7pksJnu36eza912kgyi/BbfGQQKcg2y', 'manhtu220702@gmail.com', 1, NULL, ''),
+(21, 'thquyen2002', '$2a$10$bkbHzeC2ECCBB/Fex1U2VOHPccMtSK4.0BiOtDEpZ45', 'ttthaoquyen2312@gmail.com', 1, NULL, ''),
+(22, 'thngocdiep123', '$2a$10$vTQ329szYs1pBTuk4UtdkuYclzQ/Wwd1DtOqXORz5oW', 'thngocdiep2002@gmail.com', 1, NULL, ''),
+(23, 'hoanguyen2002', '$2a$10$tSsh1aBMYdLGKhRE5LGbUe5dCr5zwFLKOw.51fVVV2i', 'hoahoa123@gmail.com', 2, NULL, '');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
@@ -427,7 +460,7 @@ ALTER TABLE `category`
   ADD UNIQUE KEY `name_UNIQUE` (`name`);
 
 --
--- Chỉ mục cho bảng `chapter`
+-- Indexes for table `chapter`
 --
 ALTER TABLE `chapter`
   ADD PRIMARY KEY (`id`),
@@ -435,7 +468,7 @@ ALTER TABLE `chapter`
   ADD UNIQUE KEY `name_UNIQUE` (`name`);
 
 --
--- Chỉ mục cho bảng `course`
+-- Indexes for table `course`
 --
 ALTER TABLE `course`
   ADD PRIMARY KEY (`id`),
@@ -444,52 +477,52 @@ ALTER TABLE `course`
   ADD KEY `idCategory_idx` (`idCategory`);
 
 --
--- Chỉ mục cho bảng `course_of_student`
+-- Indexes for table `course_of_student`
 --
 ALTER TABLE `course_of_student`
   ADD PRIMARY KEY (`studentID`,`courseID`);
 
 --
--- Chỉ mục cho bảng `course_of_teacher`
+-- Indexes for table `course_of_teacher`
 --
 ALTER TABLE `course_of_teacher`
   ADD PRIMARY KEY (`teacherID`,`courseID`);
 
 --
--- Chỉ mục cho bảng `history_lesson`
+-- Indexes for table `history_lesson`
 --
 ALTER TABLE `history_lesson`
   ADD PRIMARY KEY (`studentID`,`courseID`);
 
 --
--- Chỉ mục cho bảng `lesson`
+-- Indexes for table `lesson`
 --
 ALTER TABLE `lesson`
   ADD PRIMARY KEY (`id`,`chapterID`),
   ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
 --
--- Chỉ mục cho bảng `permission`
+-- Indexes for table `permission`
 --
 ALTER TABLE `permission`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `idpermission_UNIQUE` (`id`);
 
 --
--- Chỉ mục cho bảng `rating`
+-- Indexes for table `rating`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
 --
--- Chỉ mục cho bảng `student_love_course`
+-- Indexes for table `student_love_course`
 --
 ALTER TABLE `student_love_course`
   ADD PRIMARY KEY (`studentID`,`courseID`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -498,44 +531,44 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email_UNIQUE` (`email`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT cho bảng `chapter`
+-- AUTO_INCREMENT for table `chapter`
 --
 ALTER TABLE `chapter`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT cho bảng `course`
+-- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
   MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT cho bảng `lesson`
+-- AUTO_INCREMENT for table `lesson`
 --
 ALTER TABLE `lesson`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
--- AUTO_INCREMENT cho bảng `rating`
+-- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT cho bảng `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
