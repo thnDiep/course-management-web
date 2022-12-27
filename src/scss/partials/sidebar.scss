@@ -57,8 +57,11 @@
   width: $sidebar-icon-width;
 
   .side-nav {
-    margin-top: 20rem;
-
+    margin-top: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
     @media only screen and (max-width: 31.25em) {
       margin-top: 0;
     }
@@ -112,9 +115,9 @@
 .side-nav {
   // position: absolute;
   // display: none;
-  margin: 0;
+    margin-top: 3rem !important;
+    margin: 0;
   padding: 0;
-  margin-top: 3rem;
   font-size: 1.5rem;
   list-style: none;
 }
