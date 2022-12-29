@@ -21,7 +21,7 @@
 </form>
 <nav class="user-nav">
   {{#if lcIsAuthenticated}}
-  <div class="user-nav__icon-box">
+  {{!-- <div class="user-nav__icon-box">
     <svg class="user-nav__icon">
       <use xlink:href="img/sprite.svg#icon-bookmark"></use>
     </svg>
@@ -34,9 +34,9 @@
     <span class="user-nav__notification">13</span>
   </div>
   <div class="user-nav__user">
-    <img src="img/user.jpg" alt="User photo" class="user-nav__user-photo" />
+    <img src="{{lcAuthUser}}" alt="User photo" class="user-nav__user-photo" />
     <span class="user-nav__user-name">{{lcAuthUser.name}}</span>
-  </div> 
+  </div>  --}}
   {{else}}
    <div class="user-nav__acc">
     <a class="btn btn--border user-nav__link" href="/login" role="button">

@@ -80,12 +80,12 @@
         <div class="card mb-4">
           <div class="card-body text-center d-flex flex-column">
             <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-              alt="avatar"
+              src={{lcAuthUser.img}}
+              alt="Avatar"
               class="rounded-circle img-fluid img_ava"
               style="width: 150px;margin:auto"
             />
-            <input type="text" value={{this.profiles.name}} class="usernameCard1 my-3" style="font-size: 2.4rem; color:#333333;text-align:center" disabled >
+            <input type="text" value={{lcAuthUser.name}} class="usernameCard1 my-3" style="font-size: 2.4rem; color:#333333;text-align:center" disabled >
             <p class="text-muted mb-1 positionCard1"><i class="fas fa-graduation-cap"></i>
               Student</p>
             <p class="text-muted mb-4 positionCard1">Ho Chi Minh City, Viet Nam</p>
@@ -99,7 +99,7 @@
                 <p class="mb-0 titleCard2">User name</p>
               </div>
               <div class="col-sm-6">
-                <input type="text" value={{this.profiles.name}} class="inputName input" name="username" disabled >
+                <input type="text" value={{lcAuthUser.name}} class="inputName input" name="username" disabled >
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit"></i>
@@ -111,7 +111,7 @@
                 <p class="mb-0 titleCard2">Email</p>
               </div>
               <div class="col-sm-6">
-                <input type="email" value={{this.profiles.email}} class="inputEmail input" name="email" disabled >
+                <input type="email" value={{lcAuthUser.email}} class="inputEmail input" name="email" disabled >
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit"></i>
@@ -123,7 +123,7 @@
                 <p class="mb-0 titleCard2">Current Password</p>
               </div>
               <div class="col-sm-6">
-                <input type="password" value={{this.profiles.password}} class="inputPass input mt-3" name="currentPassword" disabled >
+                <input type="password" value={{lcAuthUser.password}} class="inputPass input mt-3" name="currentPassword" disabled >
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit Edit-currpass mt-4"></i>

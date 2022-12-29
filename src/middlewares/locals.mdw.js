@@ -8,7 +8,6 @@ export default function (app)
 
     res.locals.lcIsAuthenticated = req.session.isAuthenticated;
     res.locals.lcAuthUser = req.session.authUser;
-    console.log("HIIIIIIIIIIIIIIIIIIII")
     console.log(res.locals.lcAuthUser)
 
     next();
