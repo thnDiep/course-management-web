@@ -8,6 +8,8 @@ import hbs_sections from "express-handlebars-sections";
 import numeral from "numeral";
 import methodOverride from "method-override";
 import session from "express-session";
+import activate_locals from './middlewares/locals.mdw.js';
+
 
 // get __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -58,7 +60,9 @@ app.engine(
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
+activate_locals(app);
 route(app);
+
 
 app.listen(3000, () => {
   console.log("Listening: http://localhost:3000");

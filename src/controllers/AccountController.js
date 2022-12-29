@@ -49,7 +49,7 @@ class AccountController {
         console.log("AC")
         req.session.isAuthenticated = true;
       [req.session.authUser] = await accountModel.findByEmailToGetDetail(req.body.email);
-        return res.redirect("/profile")
+        return res.redirect("/profile") 
       }
       else{
         return res.render('login',{

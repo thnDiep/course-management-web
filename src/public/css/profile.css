@@ -9,6 +9,19 @@ body {
   -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75); }
   .card-body {
     font-size: 1.5rem; }
+    @media only screen and (max-width: 31.25em) {
+      .card-body .usernameCard1 {
+        margin-bottom: 0 !important;
+        font-size: 3rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .card-body .positionCard1 {
+        font-size: 1.8rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .card-body .titleCard2 {
+        font-size: 1.6rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .card-body .inputName, .card-body .inputEmail, .card-body .inputPass, .card-body .inputNewPass {
+        font-size: 1.5rem; } }
 
 .flex-card {
   display: flex;
@@ -22,6 +35,20 @@ img {
   .Edit:hover, .Edit:active {
     margin-top: 0.5rem;
     cursor: pointer; }
+  @media only screen and (max-width: 31.25em) {
+    .Edit {
+      margin-left: 0;
+      float: right;
+      position: relative;
+      top: -2.4rem;
+      margin-bottom: 0; } }
+  @media only screen and (max-width: 31.25em) {
+    .Edit-currpass {
+      margin-left: 0;
+      float: right;
+      position: relative;
+      top: -4rem;
+      margin-bottom: 0; } }
 
 #edit {
   bottom: 0 !important; }
