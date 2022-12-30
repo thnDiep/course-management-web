@@ -19,19 +19,9 @@
     <i class="fas fa-search search__icon"></i>
   </button>
 </form>
-
 <nav class="user-nav">
-  <div class="user-nav__acc">
-    <a class="btn btn--border user-nav__link" href="/login" role="button">
-      <i class="fas fa-sign-in-alt mr-3"></i>
-      Login</a>
-  </div>
-  <div class="user-nav__acc">
-    <a class="btn btn--primary user-nav__link" href="/signup" role="button">
-      <i class="fas fa-user-plus mr-3"></i>
-      Sign up</a>
-  </div>
-  {{! <div class="user-nav__icon-box">
+  {{#if lcIsAuthenticated}}
+  {{!-- <div class="user-nav__icon-box">
     <svg class="user-nav__icon">
       <use xlink:href="img/sprite.svg#icon-bookmark"></use>
     </svg>
@@ -44,7 +34,19 @@
     <span class="user-nav__notification">13</span>
   </div>
   <div class="user-nav__user">
-    <img src="img/user.jpg" alt="User photo" class="user-nav__user-photo" />
-    <span class="user-nav__user-name">Jonas</span>
-  </div> }}
+    <img src="{{lcAuthUser}}" alt="User photo" class="user-nav__user-photo" />
+    <span class="user-nav__user-name">{{lcAuthUser.name}}</span>
+  </div>  --}}
+  {{else}}
+   <div class="user-nav__acc">
+    <a class="btn btn--border user-nav__link" href="/login" role="button">
+      <i class="fas fa-sign-in-alt mr-3"></i>
+      Login</a>
+  </div>
+  <div class="user-nav__acc">
+    <a class="btn btn--primary user-nav__link" href="/signup" role="button">
+      <i class="fas fa-user-plus mr-3"></i>
+      Sign up</a>
+  </div>
+  {{/if}}
 </nav>

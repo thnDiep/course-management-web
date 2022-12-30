@@ -17,6 +17,33 @@ body {
 
   &-body {
     font-size: 1.5rem;
+    .usernameCard1{
+      @media only screen and (max-width: 31.25em) {
+        margin-bottom: 0 !important;
+        font-size:3rem ;
+      }
+    }
+    .positionCard1{
+      @media only screen and (max-width: 31.25em) {
+        font-size:1.8rem ;
+      }
+    }
+    .titleCard2{
+      @media only screen and (max-width: 31.25em) {
+        font-size:1.6rem ;
+      }
+    }
+    .input{
+      &Name,
+      &Email,
+      &Pass,
+      &NewPass{
+        @media only screen and (max-width: 31.25em) {
+          font-size:1.5rem ;
+        }
+      }
+    }
+    
   }
 }
 
@@ -37,6 +64,22 @@ img{
   &:active {
     margin-top: 0.5rem;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 31.25em) {
+    margin-left: 0;
+    float: right;
+    position: relative;
+    top: -2.4rem;
+    margin-bottom: 0;
+  }
+  &-currpass{
+    @media only screen and (max-width: 31.25em) {
+      margin-left: 0;
+    float: right;
+    position: relative;
+    top: -4rem;
+    margin-bottom: 0;
+    }
   }
 }
 #edit{
@@ -118,8 +161,8 @@ img{
 }
 input {
   border: none;
+ 
 }
-
 .btnEdit{
   padding: 0.5rem 5rem;
   margin-top: 1rem;
