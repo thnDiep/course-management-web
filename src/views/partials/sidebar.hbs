@@ -1,9 +1,7 @@
 {{#section "js"}}
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
+  <script>
+    $(function () { $('[data-toggle="tooltip"]').tooltip() })
+  </script>
 {{/section}}
 {{#if check}}
   <nav class="sidebar1">
@@ -32,10 +30,10 @@
         </a>
       </li>
       <li class="side-nav__item">
-        <buton class="side-nav__link">
+        <a href="/profile/learning" class="side-nav__link">
           <i class="fas fa-book side-nav__icon"></i>
-          <span>Course</span>
-        </buton>
+          <span>Learning</span>
+        </a>
       </li>
       <li class="side-nav__item">
         <a href="#" class="side-nav__link">
@@ -70,35 +68,65 @@
       <span class="text-primary__light">LIGHT</span>
     </div>
 
-    <ul class="side-nav" >
+    <ul class="side-nav">
 
       <li class="side-nav__item side-nav__item--active">
-        <a href="/" class="side-nav__link" >
-          <i class="fas fa-home side-nav__icon" data-toggle="tooltip"data-html="true" data-placement="right" title="<h5>Home</h5>"></i>
-          <span class="hidden" >Home</span>
+        <a href="/" class="side-nav__link">
+          <i
+            class="fas fa-home side-nav__icon"
+            data-toggle="tooltip"
+            data-html="true"
+            data-placement="right"
+            title="<h5>Home</h5>"
+          ></i>
+          <span class="hidden">Home</span>
         </a>
       </li>
       <li class="side-nav__item">
         <a href="/courses" class="side-nav__link">
-          <i class="fas fa-th-list side-nav__icon" data-toggle="tooltip"data-html="true" data-placement="right" title="<h5>Category</h5>"></i>
+          <i
+            class="fas fa-th-list side-nav__icon"
+            data-toggle="tooltip"
+            data-html="true"
+            data-placement="right"
+            title="<h5>Category</h5>"
+          ></i>
           <span class="hidden">Category</span>
         </a>
       </li>
       <li class="side-nav__item">
-        <buton class="side-nav__link" >
-          <i class="fas fa-book side-nav__icon" data-toggle="tooltip"data-html="true" data-placement="right" title="<h5>Course</h5>"></i>
-          <span class="hidden">Course</span>
-        </buton>
+        <a href="/profile/learning" class="side-nav__link">
+          <i
+            class="fas fa-book side-nav__icon"
+            data-toggle="tooltip"
+            data-html="true"
+            data-placement="right"
+            title="<h5>Learning</h5>"
+          ></i>
+          <span class="hidden">Learning</span>
+        </a>
       </li>
       <li class="side-nav__item">
         <a href="#" class="side-nav__link">
-          <i class="fas fa-heart side-nav__icon" data-toggle="tooltip"data-html="true" data-placement="right" title="<h5>Watch List</h5>"></i>
+          <i
+            class="fas fa-heart side-nav__icon"
+            data-toggle="tooltip"
+            data-html="true"
+            data-placement="right"
+            title="<h5>Watch List</h5>"
+          ></i>
           <span class="hidden">Watch List</span>
         </a>
       </li>
       <li class="side-nav__item">
         <a href="/profile" class="side-nav__link">
-          <i class="fas fa-address-card side-nav__icon" data-toggle="tooltip"data-html="true" data-placement="right" title="<h5>Profile</h5>"></i>
+          <i
+            class="fas fa-address-card side-nav__icon"
+            data-toggle="tooltip"
+            data-html="true"
+            data-placement="right"
+            title="<h5>Profile</h5>"
+          ></i>
           <span class="hidden">profile</span>
         </a>
       </li>

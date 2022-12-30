@@ -103,6 +103,12 @@ img {
   margin-right: 0.8rem; }
 
 .carousel-item__detail--name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 2.6rem;
+  height: 5.2rem;
   font-size: 1.7rem;
   font-weight: 700; }
 
