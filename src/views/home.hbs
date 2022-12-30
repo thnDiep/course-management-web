@@ -20,6 +20,7 @@
   <div class="content__title">Trending Course
   </div>
   <div class="carousel-inner">
+    
     {{#each trending}}
     {{#if @first}}
     <div class="carousel-item active">
@@ -398,30 +399,16 @@
       </div> --}}
 
       <div class="d-flex justify-content-around flex-wrap">
-        <a href="/" class="card">
-          <div class="image">
-            <img src="https://s.udemycdn.com/home/top-categories/lohp-category-design-v2.jpg" alt="" srcset="">
-          </div>
-          <span>Design</span>
-        </a>
-        <a href="/" class="card">
-          <div class="image" >
-            <img src="https://s.udemycdn.com/home/top-categories/lohp-category-design-v2.jpg" alt="" srcset="">
-          </div>
-          <span>Design</span>
-        </a>
-        <a href="/" class="card">
-          <div class="image" >
-            <img src="https://s.udemycdn.com/home/top-categories/lohp-category-design-v2.jpg" alt="" srcset="">
-          </div>
-          <span>Design</span>
-        </a>
-        <a href="/" class="card">
-          <div class="image" >
-            <img src="https://s.udemycdn.com/home/top-categories/lohp-category-design-v2.jpg" alt="" srcset="">
-          </div>
-          <span>Design</span>
-        </a>
+        {{#each topCategory}}
+          <a href="/courses?id={{id}}" class="card">
+            <div class="image">
+              <img src="{{image}}" alt="" srcset="">
+            </div>
+            <span>{{name}}</span>
+          </a>
+        {{/each}}
+        
+       
       </div>
 
     </div>

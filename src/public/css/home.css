@@ -5,13 +5,22 @@ body {
   margin-top: 0;
   margin-top: 65px; }
 
+.margin {
+  margin-right: 135px; }
+  @media only screen and (max-width: 31.25em) {
+    .margin {
+      margin-right: -15px; } }
+
+.card-img-top {
+  height: 16rem; }
+
 .content {
   margin-top: 0rem;
   padding: 0;
   margin-left: 150px;
   display: flex;
   flex-direction: column;
-  width: 90%; }
+  width: 100%; }
   @media only screen and (max-width: 31.25em) {
     .content {
       margin-left: 0 !important;
@@ -663,7 +672,11 @@ body {
   margin-top: 5rem;
   justify-content: space-between;
   height: 10rem;
-  align-items: center; }
+  align-items: center;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding-left: 2rem;
+  padding-right: 2rem; }
   .coures__intro img {
     height: 4rem;
     width: 4rem;
