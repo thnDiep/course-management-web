@@ -8,11 +8,10 @@ const router = express.Router();
 
 router.get("/", HomeController.index);
 
-router.get("/profile",auth, ProfileController.index);
+router.get("/profile", auth, ProfileController.index);
 //router.post("/profile", ProfileController.editProfile);
+router.get("/profile/learning", ProfileController.getLearning);
 
-router.use("/",accountRoute);
-
+router.use("/", accountRoute);
 
 export default router;
- 

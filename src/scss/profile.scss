@@ -17,33 +17,32 @@ body {
 
   &-body {
     font-size: 1.5rem;
-    .usernameCard1{
+    .usernameCard1 {
       @media only screen and (max-width: 31.25em) {
         margin-bottom: 0 !important;
-        font-size:3rem ;
+        font-size: 3rem;
       }
     }
-    .positionCard1{
+    .positionCard1 {
       @media only screen and (max-width: 31.25em) {
-        font-size:1.8rem ;
+        font-size: 1.8rem;
       }
     }
-    .titleCard2{
+    .titleCard2 {
       @media only screen and (max-width: 31.25em) {
-        font-size:1.6rem ;
+        font-size: 1.6rem;
       }
     }
-    .input{
+    .input {
       &Name,
       &Email,
       &Pass,
-      &NewPass{
+      &NewPass {
         @media only screen and (max-width: 31.25em) {
-          font-size:1.5rem ;
+          font-size: 1.5rem;
         }
       }
     }
-    
   }
 }
 
@@ -51,12 +50,13 @@ body {
   display: flex;
   justify-content: space-between;
 }
-img{
-  border:2px solid linear-gradient(
-    324deg,
-    rgba(248, 215, 82, 1) 0%,
-    rgba(34, 193, 195, 1) 50% !important
-  );
+img {
+  border: 2px solid
+    linear-gradient(
+      324deg,
+      rgba(248, 215, 82, 1) 0%,
+      rgba(34, 193, 195, 1) 50% !important
+    );
 }
 .Edit {
   margin-left: 2rem;
@@ -72,17 +72,17 @@ img{
     top: -2.4rem;
     margin-bottom: 0;
   }
-  &-currpass{
+  &-currpass {
     @media only screen and (max-width: 31.25em) {
       margin-left: 0;
-    float: right;
-    position: relative;
-    top: -4rem;
-    margin-bottom: 0;
+      float: right;
+      position: relative;
+      top: -4rem;
+      margin-bottom: 0;
     }
   }
 }
-#edit{
+#edit {
   bottom: 0 !important;
 }
 .titleTransition {
@@ -133,7 +133,7 @@ img{
 
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  width:37rem;
+  width: 37rem;
   height: 43.1rem;
 }
 
@@ -150,6 +150,12 @@ img{
 
   &__detail {
     &--name {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      line-height: 2.6rem;
+      height: 5.2rem;
       font-size: 1.7rem;
       font-weight: 700;
     }
@@ -161,10 +167,8 @@ img{
 }
 input {
   border: none;
- 
 }
-.btnEdit{
+.btnEdit {
   padding: 0.5rem 5rem;
   margin-top: 1rem;
 }
-
