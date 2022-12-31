@@ -1,9 +1,10 @@
 {{#section "css"}}
   <link rel="stylesheet" href="/css/profile.css" />
-  <link rel="stylesheet" href="/css/createLesson.css" />
   <link rel="stylesheet" href="/css/teacherProfile.css" />
+  <link rel="stylesheet" href="/css/createLesson.css" />
 {{/section}}
 {{#section "js"}}
+  <script src="/js/createLesson.js"></script>
   <script src="/js/teacherProfile.js"></script>
 {{/section}}
 <div class="check"></div>
@@ -65,82 +66,101 @@
       <div class="d-flex justify-content-between align-items-center mb-4">
         <p class="lead fw-normal mb-0">Courses</p>
       </div>
-      <div class="formLessonList">
-        <div class="formLessonList__title d-flex justify-content-between">
-          <p class="title">Lesson list</p>
-          <button class="btnAddLesson" type="submit"><i
-              class="fas fa-plus mr-1"
-            ></i>
-            Add new lesson</button>
+      <div class="formCourse">
+        <div>
+          {{! title Course }}
+          <div
+            class="formCourse_title d-flex justify-content-between"
+            data-toggle="collapse"
+            data-target="#course1"
+            aria-expanded="false"
+          >
+            <p><i class="fas fa-book-open"></i>
+              Course 1: Javascript for beginer
+            </p>
+            <div class="mr-4"><i class="fas fa-pen"></i>
+              Edit
+              <i class="fas fa-angle-down course-icon down-icon"></i>
+            </div>
+          </div>
+          {{! chapter in course }}
+          <div class="collapse" id="course1">
 
-        </div>
-        <hr />
-        <div class="formLessonList__content">
-          <div class="formLessionList__mainTitle">
-            <div class="row">
-              <div class="col-lg-12">
+            <div class="chapter__content">
 
-                <div
-                  class="d-flex justify-content-between w-100"
-                  data-toggle="collapse"
-                  data-target="#collapseExample"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  <div>
-                    <p><i class="fas fa-expand-arrows-alt"></i>
-                      Course 1: Javascript for beginers</p>
-                  </div>
-                  <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
-                    Edit
-                    <i class="fas fa-trash"></i>
-                    Delete
-                  </div>
-                </div>
-                <div class="" id="collapseExample">
-                  <hr />
-                  <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+              <div class="row">
+                <div class="col-lg-12">
+                  {{! title Chapter }}
+                  <div
+                    class="chapter__title d-flex justify-content-between w-100"
+                    data-toggle="collapse"
+                    data-target="#chapter1"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                  >
                     <div>
-                      <p><i class="far fa-sticky-note"></i>
-                        Lesson 1: Course structure and projects</p>
+                      <p><i class="fas fa-expand-arrows-alt"></i>
+                        Chapter 1: Hello Javascript</p>
                     </div>
                     <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
                       Edit
                       <i class="fas fa-trash"></i>
                       Delete
+                      <i class="fas fa-angle-down chapter-icon down-icon"></i>
+
                     </div>
                   </div>
-                  <hr />
-                  <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
-                    <div>
-                      <p><i class="far fa-sticky-note"></i>
-                        Lesson 2: Setting up our code editor</p>
-                    </div>
-                    <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
-                      Edit
-                      <i class="fas fa-trash"></i>
-                      Delete
-                    </div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div
-                        class="btnAddChapter ml-4 d-flex justify-content-between"
-                      >
-                        <p style="font-style: italic;">Add more chapter for your
-                          lesson.
-                        </p>
-                        <button class="addChapterBtn p-3 mb-4">
-                          <i class="fas fa-plus mr-2"></i>Add new chapter
-                        </button>
+                  {{! lesson in chapter }}
+                  <div class="collapse" id="chapter1">
+                    <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                      <div>
+                        <p><i class="far fa-sticky-note"></i>
+                          Lesson 1: Course structure and projects</p>
                       </div>
+                      <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
+                        Edit
+                        <i class="fas fa-trash"></i>
+                        Delete
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                      <div>
+                        <p><i class="far fa-sticky-note"></i>
+                          Lesson 2: Setting up our code editor</p>
+                      </div>
+                      <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
+                        Edit
+                        <i class="fas fa-trash"></i>
+                        Delete
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div
+                          class="btnAddLesson ml-4 d-flex justify-content-between"
+                        >
+                          <p style="font-style: italic;">Add more Lesson for
+                            your Chapter.
+                          </p>
+                          <button class="addLessonBtn p-3 mb-4">
+                            <i class="fas fa-plus mr-2"></i>Add new Lesson
+                          </button>
+                        </div>
 
+                      </div>
                     </div>
                   </div>
-                </div>
+                  <div class="chapter__add d-flex justify-content-between">
+                    <p class="title">Add more Chapter for your Course.</p>
+                    <button class="btnAddChapter" type="submit"><i
+                        class="fas fa-plus mr-1"
+                      ></i>
+                      Add new Chapter</button>
 
+                  </div>
+                </div>
               </div>
+
             </div>
 
           </div>

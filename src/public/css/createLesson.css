@@ -6,26 +6,54 @@ label {
   font-size: 2.5rem;
   font-weight: 500; }
 
-.formChapterList {
+.formCourse {
   border: 0.2rem dashed #d8d7dc;
   width: 100%;
   border-radius: 1rem;
   top: 0;
   left: 0;
   background-color: #fff;
-  padding: 3rem; }
-  .formChapterList__title {
-    font-size: 3rem;
-    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
-    font-weight: bold; }
-  .formChapterList__content {
-    margin-left: 1rem;
-    font-size: 1.5rem; }
-    .formChapterList__content p {
-      margin-top: 2rem; }
-      .formChapterList__content p i {
-        font-size: 1.5rem;
-        margin: 0 1rem; }
+  padding: 2rem; }
+
+.formCourse_title {
+  font-size: 1.8rem; }
+  .formCourse_title:hover {
+    cursor: pointer; }
+  .formCourse_title p i {
+    font-size: 1.5rem;
+    margin: 0 1rem; }
+
+.chapter__add {
+  font-size: 3rem;
+  font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-weight: bold; }
+  .chapter__add p {
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-style: italic; }
+
+.up-icon {
+  transform: rotate(-180deg);
+  transition: transform 150ms linear; }
+
+.down-icon {
+  transform: rotate(0deg);
+  transition: transform 150ms linear; }
+
+.fa-trash {
+  color: red; }
+
+.chapter__title:hover {
+  cursor: pointer; }
+
+.chapter__content {
+  margin-left: 1rem;
+  font-size: 1.5rem; }
+  .chapter__content p {
+    margin-top: 2rem; }
+    .chapter__content p i {
+      font-size: 1.5rem;
+      margin: 0 1rem; }
 
 .btnAddChapter {
   background-color: #00d8b2;
