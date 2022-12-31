@@ -40,7 +40,13 @@
             class="form--login__user-email__input"
             name="email"
           />
-          <p class="required-email "></p>
+          {{#if err_message_email}}
+            <p class="required-email">
+              <i class="fas fa-exclamation-circle required-icon"></i>
+              {{err_message_email}}
+            </p>
+          {{/if}}
+          <p class="required-email"></p>
         </div>
         <div class="form--login__user-pass">
           <i class="fas fa-lock form--login__icon"></i>
@@ -50,7 +56,7 @@
             class="form--login__user-pass__input"
             name="password"
           />
-          <p class="required-pass "></p>
+          <p class="required-pass"></p>
         </div>
         <button class="py-3 px-1 form--login__btn ripple">Login to Your Account<i
             class="fas fa-arrow-right form--login__icon-arrow"

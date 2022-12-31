@@ -65,3 +65,16 @@ input {
   max-height: 1.7rem;
   color: #101010;
   margin: 0; }
+
+.course__noLove {
+  color: #f84c5e;
+  font-size: 2.5rem;
+  position: relative;
+  top: -3.5rem;
+  left: 80rem; }
+  .course__noLove:hover, .course__noLove:active {
+    color: #101010; }
+
+.coursePosition {
+  position: relative;
+  top: -2rem; }

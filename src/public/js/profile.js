@@ -21,10 +21,8 @@ icon[1].addEventListener("click", function (e) {
 });
 icon[2].addEventListener("click", function (e) {
   newPassInput.classList.remove("hidden");
+  passInput.value = "";
   edit(passInput, e);
 });
 
-function update () {
-
-}
-
+function update() {}
