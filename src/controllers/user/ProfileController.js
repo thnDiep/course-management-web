@@ -31,5 +31,17 @@ class uProfileController {
       learning,
     });
   }
+  async getWatchList(req, res) {
+    const lesson_love = await profileUserModel.getWatchList(
+      res.locals.lcAuthUser.id
+    );
+    for (let i = 0; i < lesson_love.length; i++) {
+      const rated = await courseModel.getAvgRate(lesson_love[i].id);
+      lesson_love[i].rated = (+rated).toFixed(1);
+    }
+    res.render("watchList", {
+      lesson_love,
+    });
+  }
 }
 export default new uProfileController();

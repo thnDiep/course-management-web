@@ -10,70 +10,6 @@
   <script src="/js/profile.js"></script>
 {{/section}}
 <section>
-  {{!-- <div class="check"></div>
-<form action="">
-  <div class="col-lg-8 container edit" id="edit">
-    <div class="card mb-4">
-      <div class="card-body text-center">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-          class="rounded-circle img-fluid" style="width: 150px;" />
-          <input type="file" id="myfile" name="fileImg">
-        </div>
-        <input type="text" class="my-3 text-center nameOverlay" value={{this.profiles.name}} style="color: #333333;font-size:2.5rem"></input>
-        <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
-          Student</p>
-        <p class="text-muted mb-4">Ho Chi Minh City, Viet Nam</p>
-      </div>
-    </div>
-    <div class="card mb-4">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-3">
-            <p class="mb-0">User Name</p>
-          </div>
-          <div class="col-sm-8">
-            <input type="text" value={{this.profiles.name}} class="nameInput" name="Name" disabled >
-          </div>
-          <div class="col-sm-1">
-            <i class="far fa-edit editPage"></i>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-sm-3">
-            <p class="mb-0">Email</p>
-          </div>
-          <div class="col-sm-8">
-          <input type="email" value={{this.profiles.email}} class="emailInput" name="Email" disabled >
-
-          </div>
-          <div class="col-sm-1">
-            <i class="far fa-edit editPage"></i>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-sm-3">
-            <p class="mb-0">Password</p>
-          </div>
-          <div class="col-sm-8">
-            <input type="password" value={{this.profiles.password}} class="passInput" name="Password" disabled >
-
-          </div>
-          <div class="col-sm-1">
-            <i class="far fa-edit editPage"></i>
-          </div>
-        </div>
-       
-
-      </div>
-    </div>
-    <div class="card mb-4">
-      <button type="submit" class="btn btn--submit">EDIT</button>
-    </div>
-</form>
-  </div> --}}
   <div class="container-fluid py-4 m-0">
     <div class="row">
       <div class="col-lg-4">
@@ -154,14 +90,16 @@
         <div class="row">
           <div class="col-md-6">
             <div class="card mb-4 mb-md-0">
-              <div class="card-body box-slider">
+              <div class="card-body ">
                 <div class="flex-card">
-                  <p
+                  <a href="/profile/learning">
+                    <p
                     data-content="LEARNING"
-                    class="mb-4 me-1 titleTransition"
+                    class="mb-1 me-1 titleTransition"
                     style="font-weight: bold;font-size:2rem"
                   >LEARNING
                     <i class="fas fa-book" style="color: #6e4616;"></i></p>
+                  </a>
                   <a href="/profile/learning"><i
                     class="fas fa-chevron-circle-right"
                     style="font-size: larger;"
@@ -201,19 +139,23 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card mb-4 mb-md-0">
-              <div class="card-body">
+            <div class="card mb-4 mb-md-0" style="height: 100%;">
+              <div class="card-body " >
                 <div class="flex-card">
-                  <p
+                  <a href="/profile/watchList">
+                    <p
                     data-content="WATCH LIST"
-                    class="mb-4 me-1 titleTransitionLove"
+                    class="mb-1 me-1 titleTransitionLove"
                     style="font-weight: bold;font-size:2rem"
                   >WATCH LIST
                     <i class="fab fa-gratipay" style="color: #f84c5e;"></i></p>
-                  <i
+                  </a>
+                  <a href="profile/watchList">
+                    <i
                     class="fas fa-chevron-circle-right"
                     style="font-size: larger;"
                   ></i>
+                  </a>
                 </div>
 
                  <div class="slider" style="overflow: scroll;">
@@ -224,13 +166,13 @@
                   >
                     <div class="carousel-item__img">
                       <img
-                        src={{Img}}
+                        src={{image}}
                         alt=""
                       />
                     </div>
                     <div class="carousel-item__detail">
 
-                      <h1 class="carousel-item__detail--name">{{CourseName}}</h1>
+                      <h1 class="carousel-item__detail--name">{{name}}</h1>
                       <div class="carousel-item__detail--teacher">
                         Teacher
                         <a href="#">{{TeacherName}}</a>
