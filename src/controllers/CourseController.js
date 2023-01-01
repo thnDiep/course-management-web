@@ -60,9 +60,10 @@ class CourseController {
         }
       });
     }
-
+    const isCourse = true;
     courseModel.getBestSellerList(5);
     res.render("courses/index", {
+      isCourse,
       category,
       allCategories,
       courses,
@@ -83,8 +84,11 @@ class CourseController {
       res.redirect("/courses");
     }
     await courseModel.updateView(id);
+    const isCourse = true;
+
     res.render("courseDetail", {
       course,
+      isCourse,
     });
   }
 
@@ -96,8 +100,11 @@ class CourseController {
     if (course === null) {
       res.redirect("/courses");
     }
+    const isCourse = true;
+
     await courseModel.updateView(id);
     res.render("enrollCourse", {
+      isCourse,
       course,
     });
   }
@@ -145,9 +152,11 @@ class CourseController {
         course.new = true;
       }
     }
+    const isCourse = true;
 
     res.render("courses/search", {
       keyWord,
+      isCourse,
       numberResult: courses.length,
       courses,
       isEmpty: courses.length === 0,

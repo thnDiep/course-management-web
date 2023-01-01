@@ -12,25 +12,38 @@ label {
   border-radius: 1rem;
   top: 0;
   left: 0;
-  background-color: #fff;
-  padding: 2rem; }
+  background-color: #fff; }
 
 .formCourse_title {
-  font-size: 1.8rem; }
+  padding-top: 1rem;
+  font-size: 1.6rem; }
   .formCourse_title:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 1rem; }
   .formCourse_title p i {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 0 1rem; }
+
+.fa-angle-down {
+  padding: 0 1rem; }
+
+.icon-lesson {
+  margin-right: 5rem; }
 
 .chapter__add {
   font-size: 3rem;
+  margin-left: 1rem;
   font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   font-weight: bold; }
   .chapter__add p {
     font-size: 1.5rem;
     font-weight: 100;
+    align-self: center;
     font-style: italic; }
+
+.btnAddLesson p {
+  align-self: center; }
 
 .up-icon {
   transform: rotate(-180deg);
@@ -40,19 +53,23 @@ label {
   transform: rotate(0deg);
   transition: transform 150ms linear; }
 
-.fa-trash {
+.delete {
   color: red; }
 
+.edit {
+  color: #6bb41b; }
+
 .chapter__title:hover {
-  cursor: pointer; }
+  cursor: pointer;
+  background-color: #ccc; }
 
 .chapter__content {
   margin-left: 1rem;
   font-size: 1.5rem; }
   .chapter__content p {
-    margin-top: 2rem; }
+    font-size: 1.4rem; }
     .chapter__content p i {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin: 0 1rem; }
 
 .btnAddChapter {
@@ -61,7 +78,6 @@ label {
   color: #fff;
   border-radius: 0.5rem;
   font-size: 1.7rem;
-  margin-left: 2rem;
   margin-top: 1rem;
   margin-right: 1rem; }
   .btnAddChapter:hover, .btnAddChapter:active {
@@ -73,9 +89,7 @@ label {
   color: #fff;
   border-radius: 0.5rem;
   font-size: 1.7rem;
-  margin-left: 2rem;
-  margin-right: 1rem;
-  margin-top: 1rem; }
+  margin-right: 1rem; }
   .addLessonBtn:hover, .addLessonBtn:active {
     cursor: pointer; }
 

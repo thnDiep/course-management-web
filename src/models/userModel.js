@@ -24,6 +24,9 @@ export default {
   },
   ////////////////////////////////
   // teacher
+  updateImage(id, img) {
+    return db("user").where("id", id).update("img", img);
+  },
   async getAllTeacher() {
     const [user] = await db.raw(
       `SELECT us.*, pm.name as ruleName
@@ -101,7 +104,7 @@ export default {
   updateTeacher(teacher) {
     return db("user").where("id", teacher.id).update({
       name: teacher.name,
-      email:teacher.email, 
+      email: teacher.email,
       password: teacher.password,
     });
   },

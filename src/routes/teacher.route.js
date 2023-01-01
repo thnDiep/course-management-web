@@ -12,5 +12,7 @@ router.get("/createLesson", (req, res) => {
     layout: "teacher",
   });
 });
-router.put("/profile",tProfileController.update)
+// const upload = multer({ dest: 'uploads/' })
+
+router.put("/profile/image", tProfileController.update)
 export default router;
