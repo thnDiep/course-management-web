@@ -55,6 +55,10 @@
   }
 }
 
+.img {
+  margin-left: 1rem;
+}
+
 .profile-cover__info {
   .nav {
     margin-right: 2.8rem;
@@ -166,28 +170,35 @@
   color: $black-color !important;
   border: solid 1px $black-color;
 }
+
 .card {
   position: relative;
 }
+
 .fa-times {
   img {
     background-color: #ccc;
     border-radius: 100px;
   }
+
   position: absolute;
   color: $black-color;
   right: 2;
   font-size: 2rem;
+
   &:hover {
     cursor: pointer;
     transform: translateY(2px);
   }
 }
-.col-sm-7>input{
+
+.col-sm-7>input {
   border: 1px solid #000;
 }
-.input{
+
+.input {
   position: relative;
+
   .fa-exclamation-circle {
     top: 0.5rem;
     position: absolute;
@@ -195,11 +206,57 @@
   }
 }
 
-@media (min-width: 576px){
-.modal-dialog {
-    max-width: 800px;
-    margin: 1.75rem auto;
-}}
-.hidden{
+@media (min-width: 576px) {
+  .modal-dialog {
+    // max-width: 800px;
+    // margin: 1.75rem auto;
+  }
+}
+
+.hidden {
   display: none;
+}
+
+.modal-content {
+  width: 80% !important;
+  margin-left: 2rem;
+}
+
+// input file
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile+label {
+  margin-top: 1rem;
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(26, 70, 181);
+  display: inline-block;
+}
+
+
+.inputfile+label {
+  cursor: pointer;
+  /* "hand" cursor */
+}
+
+.inputfile+label:hover {
+  background-color: red;
+}
+
+.inputfile:focus+label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile+label * {
+  pointer-events: none;
 }

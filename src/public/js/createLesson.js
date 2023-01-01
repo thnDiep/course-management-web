@@ -29,25 +29,25 @@ check_Chapter.addEventListener("click", function () {
 //   });
 // }
 
-overlay1.addEventListener("click", function () {
-  overlay1.classList.toggle("overlay");
-  formLessonAdded.style.display = "none";
-});
+// overlay1.addEventListener("click", function () {
+//   overlay1.classList.toggle("overlay");
+//   formLessonAdded.style.display = "none";
+// });
 
-const editLayer = () => {
-  overlay1.classList.toggle("overlay");
-  formLessonAdded.style.display = "block";
-};
+// const editLayer = () => {
+//   overlay1.classList.toggle("overlay");
+//   formLessonAdded.style.display = "block";
+// };
 
-btnAddLesson.addEventListener("click", editLayer);
+// btnAddLesson.addEventListener("click", editLayer);
 
-overlay2.addEventListener("click", function () {
-  overlay2.classList.toggle("overlay");
-  formChapterAdded.style.display = "none";
-});
-const editLayer2 = () => {
-  overlay2.classList.toggle("overlay");
-  formChapterAdded.style.display = "block";
-};
+// overlay2.addEventListener("click", function () {
+//   overlay2.classList.toggle("overlay");
+//   formChapterAdded.style.display = "none";
+// });
+// const editLayer2 = () => {
+//   overlay2.classList.toggle("overlay");
+//   formChapterAdded.style.display = "block";
+// };
 
-btnAddChapter.addEventListener("click", editLayer2);
+// btnAddChapter.addEventListener("click", editLayer2);

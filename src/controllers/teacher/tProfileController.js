@@ -1,6 +1,9 @@
 import courseModel from "../../models/courseModel.js";
 import userModel from "../../models/userModel.js";
 import accountModel from "../../models/accountModel.js";
+import multer from 'multer'
+import bcrypt from "bcryptjs";
+
 class tProfileController {
   async index(req, res) {
     const course = await userModel.getAllCourseOfTeacher(3);
@@ -27,21 +30,29 @@ class tProfileController {
       layout: "teacher",
     });
   }
-  async update(req,res){
-    let teacherId = 1;
-    const realPass = accountModel.findByEmailToCheckPassword(req.email);
-    if(realPass === req.body.currentPassword)
-    { 
-      const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync(req.body.password, salt);
-      const teacher = {
-        id: teacherId,
-        name: req.body.name,
-        email: req.body.email,
-        password: hash,
-        permissionID: 3
+  async update(req, res) {
+    console.log("-------------")
+
+    const storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+        cb(null, 'src/public/images/teacherPictures')
+      },
+      filename: function (req, file, cb) {
+        cb(null, file.fieldname + "-" + "1" + ".jpg")
       }
-    }
+    })
+    const upload = multer({ storage: storage });
+    upload.single('image')(req, res, async function (err) {
+      await userModel.updateImage(3, "/images/teacherPictures/" + req.file.filename)
+
+      console.log("/images/teacherPictures/" + req.file.filename)
+      console.log("-------------")
+      if (err)
+        console.error(err)
+      else
+        return res.redirect("back")
+    })
+
   }
 }
 

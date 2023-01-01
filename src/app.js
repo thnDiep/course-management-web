@@ -10,7 +10,6 @@ import methodOverride from "method-override";
 import session from "express-session";
 import activate_locals from './middlewares/locals.mdw.js';
 
-
 // get __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

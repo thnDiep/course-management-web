@@ -13,7 +13,9 @@ class uProfileController {
     const lesson_love = await profileUserModel.getWatchList(
       res.locals.lcAuthUser.id
     );
+    const isProfile = true;
     res.render("profile", {
+      isProfile,
       profiles,
       lesson_learned,
       lesson_love,
@@ -27,7 +29,9 @@ class uProfileController {
       const rated = await courseModel.getAvgRate(learning[i].id);
       learning[i].rated = (+rated).toFixed(1);
     }
+    const isLearning = true;
     res.render("learningCourses", {
+      isLearning,
       learning,
     });
   }
