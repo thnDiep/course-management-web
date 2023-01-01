@@ -5,8 +5,9 @@ export default {
     return db("category");
   },
 
-  getLast() {
-    return db("category").orderBy("id", "desc").limit(1);
+  async getLast() {
+    const lastCategory = await db("category").orderBy("id", "desc").limit(1);
+    return lastCategory[0];
   },
 
   // get hierarchical list category

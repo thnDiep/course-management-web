@@ -31,28 +31,21 @@ export default {
       });
     }
 
-    return await db("course")
-      .whereIn("idCategory", ids)
-      .limit(limit)
-      .offset(offset);
+    return await db("course").whereIn("idCategory", ids);
   },
 
   async getSummaryByCategoryId(id) {
-    // get courses of this category
-    let list = await db("course").select("id", "name").where("idCategory", id);
-
-    // get courses of this category's child
     const category = await categoryModel.getById(id);
+    const ids = [id];
+
     if (category.parentID === null) {
       const childCategories = await categoryModel.getChildByParentID(id);
-      for (const child of childCategories) {
-        const coursesOfChildCategory = await db("course")
-          .select("id", "name")
-          .where("idCategory", child.id);
-        list.push(...coursesOfChildCategory);
-      }
+      childCategories.forEach((childCategory) => {
+        ids.push(childCategory.id);
+      });
     }
-    return list;
+
+    return await db("course").select("id", "name").whereIn("idCategory", ids);
   },
 
   async getPageByCategoryId(id, limit, offset) {

@@ -94,15 +94,17 @@
     </div>
 
     <div class="courses__footer">
-      <div class="courses__pagination">
-          <a href="/courses?id={{this.category.id}}&page={{minus currentPage 1}}" {{#if this.isFirstPage}}class="link--disabled"{{/if}}>&laquo;</a>
+      {{#if this.pageInfo.numbers}}
+        <div class="courses__pagination">
+          <a href="/courses?id={{this.category.id}}&page={{minus this.pageInfo.current 1}}" {{#if this.pageInfo.isFirst}}class="link--disabled"{{/if}}>&laquo;</a>
           
-          {{#each this.pageNumbers}}
+          {{#each this.pageInfo.numbers}}
             <a href="/courses?id={{@root.category.id}}&page={{value}}" {{#if isActive}}class="active"{{/if}}>{{value}}</a>
           {{/each}}
 
-          <a href="/courses?id={{this.category.id}}&page={{add currentPage 1}}" {{#if this.isLastPage}}class="link--disabled"{{/if}}>&raquo;</a>
+          <a href="/courses?id={{this.category.id}}&page={{add this.pageInfo.current 1}}" {{#if this.pageInfo.isLast}}class="link--disabled"{{/if}}>&raquo;</a>
       </div>
+      {{/if}}
     </div>
     {{/if}}
   </div>

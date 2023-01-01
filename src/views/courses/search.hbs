@@ -3,6 +3,10 @@
   <link rel="stylesheet" href="/css/courses.css" />
 {{/section}}
 
+{{#section "js"}}
+  <script src="/js/courses/search.js"></script>
+{{/section}}
+
 <div class="courses__header">
   <h1 class="courses__title">
     <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -50,7 +54,6 @@
 
 <div class="courses__body">
   {{#each this.courses}}
- 
     <div class="course course--horizontal {{#if bestSeller}}course--best-seller{{/if}}  {{#if new}}course--new{{/if}}">
       <a href="/courses/detail?id={{id}}" class="course__link"></a>
 
@@ -138,7 +141,6 @@
     </div>
   {{/each}}
 </div>
-{{!-- 
-<div class="courses__pagination">
-  {{> pagination}}
-</div> --}}
+
+<a id="searchForm" action="/courses/search?keyword={{this.keyWord}}"></a>
+
