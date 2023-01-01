@@ -4,7 +4,6 @@ export default {
   getAll() {
     return db("user");
   },
-
   async findById(id) {
     const list = await db('user').where('id', id);
     if (list.length === 0)
@@ -35,10 +34,28 @@ export default {
 
     return list[0];
   },
+  async findByEmailToCheckPassword(email) {
+    let list = null
+    if(this.findByEmail(email)!== null)
+    {
+      list = await db.raw(`SELECT password FROM user WHERE email = ?`, email);
+    }
+
+    return list[0];
+  },
+  async findByEmailToGetDetail(email) {
+    let list = null
+    if(this.findByEmail(email)!== null)
+    {
+      list = await db.raw(`SELECT * FROM user WHERE email = ?`, email);
+    }
+
+    return list[0];
+  },
   add(user) {
+    console.log(user.password)
     return db('user').insert(user);
   },
-
   del(id) {
     return db('user').where('id', id).del();
   },

@@ -20,6 +20,7 @@
   <div class="content__title">Trending Course
   </div>
   <div class="carousel-inner">
+    
     {{#each trending}}
     {{#if @first}}
     <div class="carousel-item active">
@@ -388,7 +389,7 @@
     </div>
     <div class="courses__featured">
       <div class="courses__title mt-5">
-        <h2>Featured topics by category</h2>
+        <h2>Top category</h2>
       </div>
       {{!-- <div class="row text-center mt-3">
         <div class="col-md-12">
@@ -397,51 +398,17 @@
         </div>
       </div> --}}
 
-      <div class="d-flex justify-content-between flex-wrap">
-        <a href="/" class="card">
-          <div class="row">
-            <div class="col-sm-4">
-              <img class="d-block w-100" src="https://i.ytimg.com/vi/e6UImq0YH_I/maxresdefault.jpg" alt="" />
+      <div class="d-flex justify-content-around flex-wrap">
+        {{#each topCategory}}
+          <a href="/courses?id={{id}}" class="card">
+            <div class="image">
+              <img src="{{image}}" alt="" srcset="">
             </div>
-            <div class="col-sm-8 d-flex flex-column justify-content-center">
-              <div class="card__name">Javascript</div>
-              <div class="card__number">1126 students</div>
-            </div>
-          </div>
-        </a>
-        <a href="/" class="card">
-          <div class="row">
-            <div class="col-sm-4">
-              <img class="d-block w-100" src="https://i.ytimg.com/vi/e6UImq0YH_I/maxresdefault.jpg" alt="" />
-            </div>
-            <div class="col-sm-8 d-flex flex-column justify-content-center">
-              <div class="card__name">Javascript</div>
-              <div class="card__number">1126 students</div>
-            </div>
-          </div>
-        </a>
-        <a href="/" class="card">
-          <div class="row">
-            <div class="col-sm-4">
-              <img class="d-block w-100" src="https://i.ytimg.com/vi/e6UImq0YH_I/maxresdefault.jpg" alt="" />
-            </div>
-            <div class="col-sm-8 d-flex flex-column justify-content-center">
-              <div class="card__name">Javascript</div>
-              <div class="card__number">1126 students</div>
-            </div>
-          </div>
-        </a>
-        <a href="/" class="card">
-          <div class="row">
-            <div class="col-sm-4">
-              <img class="d-block w-100" src="https://i.ytimg.com/vi/e6UImq0YH_I/maxresdefault.jpg" alt="" />
-            </div>
-            <div class="col-sm-8 d-flex flex-column justify-content-center">
-              <div class="card__name">Javascript</div>
-              <div class="card__number">1126 students</div>
-            </div>
-          </div>
-        </a>
+            <span>{{name}}</span>
+          </a>
+        {{/each}}
+        
+       
       </div>
 
     </div>

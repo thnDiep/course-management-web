@@ -1,6 +1,7 @@
 import homeModel from "../models/homeModel.js";
 import courseModel from "../models/courseModel.js";
 import userModel from "../models/userModel.js";
+import categoryModel from "../models/categoryModel.js";
 class homeController {
   // GET categories list
   async index(req, res) {
@@ -19,9 +20,10 @@ class homeController {
       }
     };
     const [trending] = await homeModel.getTrending();
-    console.log(trending)
     const [views] = await homeModel.getViews();
     const [lastest] = await homeModel.getLatest();
+    const topCategory = await homeModel.getTopCategory();
+   
     await getAll(trending);
     await getAll(views);
     await getAll(lastest);
@@ -45,6 +47,7 @@ class homeController {
       arrayViewed,
       arrayLastest,
       trending,
+      topCategory,
     });
   }
 }

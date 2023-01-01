@@ -12,4 +12,5 @@ router.get("/createLesson", (req, res) => {
     layout: "teacher",
   });
 });
+router.put("/profile",tProfileController.update)
 export default router;

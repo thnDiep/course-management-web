@@ -7,57 +7,8 @@
   />
 {{/section}}
 {{#section "js"}}
-  <script
-    src="https://cdn.tiny.cloud/1/y16lx8krusdxb9jurdcxz9xr6r24nrd6vgz4231m0rgoezfz/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/fileinput.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"
-  ></script>
-  <script>
-    $('#fuMain').fileinput({ maxFileCount: 1, theme: 'fa5',
-    allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"], showRemove:
-    false, showUpload: false, });
-  </script>
-  <script>
-    $('#fuSub').fileinput({
-       dropZoneEnabled: false, 
-       maxFileCount: 1,
-        theme:'fa5',
-         allowedFileExtensions: ['jpg', 'png', 'gif'],
-          browseOnZoneClick:false, 
-          showRemove: false, 
-          showUpload: false, 
-          browseOnZoneClick: true, 
-          });
-  </script>
-
-  <script>
-    tinymce.init({ 
-        selector: 'textarea', 
-        menubar: false, 
-        plugins: 'paste image link autolink lists table media', 
-        toolbar: [ 'undo redo | bold italicunderline strikethrough | numlist bullist | alignleft aligncenter alignright| forecolor backcolor | table link image media', ], 
-      });
-  </script>
   <script src="/js/createLesson.js"></script>
 {{/section}}
-
 <div class="check"></div>
 <div class="check2"></div>
 <div class="row justify-content-center ml-2">
@@ -88,84 +39,115 @@
     </div>
   </div>
   <div class="col-lg-10">
-    <div class="formLessonList">
-      <div class="formLessonList__title d-flex justify-content-between">
-        <p class="title">Lesson list</p>
-        <button class="btnAddLesson" type="submit"><i
-            class="fas fa-plus mr-1"
-          ></i>
-          Add new lesson</button>
-
-      </div>
-      <hr />
-      <div class="formLessonList__content">
-        <div class="formLessionList__mainTitle">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p><i class="fas fa-expand-arrows-alt"></i>
-                    Part 1: Hello Javascript</p>
-                </div>
-                <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
-                  Edit
-                  <i class="fas fa-trash"></i>
-                  Delete
-                </div>
-              </div>
-
-              <hr />
-              <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
-                <div>
-                  <p><i class="far fa-sticky-note"></i>
-                    Lesson 1: Course structure and projects</p>
-                </div>
-                <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
-                  Edit
-                  <i class="fas fa-trash"></i>
-                  Delete
-                </div>
-              </div>
-              <hr />
-              <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
-                <div>
-                  <p><i class="far fa-sticky-note"></i>
-                    Lesson 2: Setting up our code editor</p>
-                </div>
-                <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
-                  Edit
-                  <i class="fas fa-trash"></i>
-                  Delete
-                </div>
-              </div>
-              <hr />
-
-            </div>
+    <div class="formCourse">
+      <div>
+        {{! title Course }}
+        <div
+          class="formCourse_title d-flex justify-content-between"
+          data-toggle="collapse"
+          data-target="#course1"
+          aria-expanded="false"
+        >
+          <p><i class="fas fa-book-open"></i>
+            Course 1: Javascript for beginer
+          </p>
+          <div class="mr-4"><i class="fas fa-pen"></i>
+            Edit
+            <i class="fas fa-angle-down course-icon down-icon"></i>
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="btnAddChapter ml-4 d-flex justify-content-between">
-                <p style="font-style: italic;">Add more chapter for your lesson.
-                </p>
-                <button class="addChapterBtn p-3 mb-4">
-                  <i class="fas fa-plus mr-2"></i>Add new chapter
-                </button>
-              </div>
+        </div>
+        {{! chapter in course }}
+        <div class="collapse" id="course1">
 
+          <div class="chapter__content">
+
+            <div class="row">
+              <div class="col-lg-12">
+                {{! title Chapter }}
+                <div
+                  class="chapter__title d-flex justify-content-between w-100"
+                  data-toggle="collapse"
+                  data-target="#chapter1"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <div>
+                    <p><i class="fas fa-expand-arrows-alt"></i>
+                      Chapter 1: Hello Javascript</p>
+                  </div>
+                  <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
+                    Edit
+                    <i class="fas fa-trash"></i>
+                    Delete
+                    <i class="fas fa-angle-down chapter-icon down-icon"></i>
+
+                  </div>
+                </div>
+                {{! lesson in chapter }}
+                <div class="collapse" id="chapter1">
+                  <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                    <div>
+                      <p><i class="far fa-sticky-note"></i>
+                        Lesson 1: Course structure and projects</p>
+                    </div>
+                    <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
+                      Edit
+                      <i class="fas fa-trash"></i>
+                      Delete
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                    <div>
+                      <p><i class="far fa-sticky-note"></i>
+                        Lesson 2: Setting up our code editor</p>
+                    </div>
+                    <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
+                      Edit
+                      <i class="fas fa-trash"></i>
+                      Delete
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div
+                        class="btnAddLesson ml-4 d-flex justify-content-between"
+                      >
+                        <p style="font-style: italic;">Add more Lesson for your
+                          Chapter.
+                        </p>
+                        <button class="addLessonBtn p-3 mb-4">
+                          <i class="fas fa-plus mr-2"></i>Add new Lesson
+                        </button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="chapter__add d-flex justify-content-between">
+                  <p class="title">Add more Chapter for your Course.</p>
+                  <button class="btnAddChapter" type="submit"><i
+                      class="fas fa-plus mr-1"
+                    ></i>
+                    Add new Chapter</button>
+
+                </div>
+              </div>
             </div>
+
           </div>
+
         </div>
       </div>
     </div>
   </div>
-  <form class="lesson col-lg-10 hidden">
+  <form class="Chapter col-lg-10 hidden">
     <div class="form-group">
-      <label for="title-lesson">Tiltle Of Lesson</label>
+      <label for="title-Chapter">Tiltle Of Chapter</label>
       <input
         type="text"
         class="form-control p-4"
-        id="title-lesson"
-        name="title-lesson"
+        id="title-Chapter"
+        name="title-Chapter"
       />
     </div>
     <button
@@ -175,29 +157,30 @@
     ><i class="fa fa-plus"></i> Add</button>
   </form>
 
-  <form class="chapter col-lg-10 hidden">
+  <form class="Lesson col-lg-10 hidden">
     <div class="form-group2">
-      <label for="title-chapter">Tiltle Of Chapter</label>
+      <label for="title-Lesson">Tiltle Of Lesson</label>
       <input
         type="text"
         class="form-control p-4"
-        id="title-chapter"
-        name="title-chapter"
+        id="title-Lesson"
+        name="title-Lesson"
       />
     </div>
     <div class="form-group2">
-      <label for="video-chapter">Video Of Chapter</label>
+      <label for="video-Lesson">Video Of Lesson</label>
       <input
         type="file"
         class="form-control p-4"
-        id="video-chapter"
-        name="video-chapter"
+        id="video-Lesson"
+        name="video-Lesson"
       />
     </div>
     <button
       type="submit"
       class="btn btn-primary mt-3"
       style="border-color: black;"
-    ><i class="fa fa-plus"></i> Add</button>
+    ><i class="fa fa-plus"></i>
+      Add</button>
   </form>
 </div>

@@ -10,178 +10,100 @@
   <script src="/js/profile.js"></script>
 {{/section}}
 <section>
-  <div class="check"></div>
-<form action="">
-  <div class="col-lg-8 container edit" id="edit">
-    <div class="card mb-4">
-      <div class="card-body text-center">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-          class="rounded-circle img-fluid" style="width: 150px;" />
-          <input type="file" id="myfile" name="fileImg">
-        </div>
-        <input type="text" class="my-3 text-center nameOverlay" value={{this.profiles.name}} style="color: #333333;font-size:2.5rem"></input>
-        <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
-          Student</p>
-        <p class="text-muted mb-4">Ho Chi Minh City, Viet Nam</p>
-      </div>
-    </div>
-    <div class="card mb-4">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-3">
-            <p class="mb-0">User Name</p>
-          </div>
-          <div class="col-sm-8">
-            <input type="text" value={{this.profiles.name}} class="nameInput" name="Name" disabled >
-          </div>
-          <div class="col-sm-1">
-            <i class="far fa-edit editPage"></i>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-sm-3">
-            <p class="mb-0">Email</p>
-          </div>
-          <div class="col-sm-8">
-          <input type="email" value={{this.profiles.email}} class="emailInput" name="Email" disabled >
-
-          </div>
-          <div class="col-sm-1">
-            <i class="far fa-edit editPage"></i>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-sm-3">
-            <p class="mb-0">Password</p>
-          </div>
-          <div class="col-sm-8">
-            <input type="password" value={{this.profiles.password}} class="passInput" name="Password" disabled >
-
-          </div>
-          <div class="col-sm-1">
-            <i class="far fa-edit editPage"></i>
-          </div>
-        </div>
-       
-
-      </div>
-    </div>
-    <div class="card mb-4">
-      <button type="submit" class="btn btn--submit">EDIT</button>
-    </div>
-</form>
-  </div>
   <div class="container-fluid py-4 m-0">
     <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center d-flex flex-column">
             <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-              alt="avatar"
+              src={{lcAuthUser.img}}
+              alt="Avatar"
               class="rounded-circle img-fluid img_ava"
               style="width: 150px;margin:auto"
             />
-            <input type="text" value={{this.profiles.name}} class="my-3" style="font-size: 2.4rem; color:#333333;text-align:center" disabled >
-            <p class="text-muted mb-1"><i class="fas fa-graduation-cap"></i>
+            <input type="text" value={{lcAuthUser.name}} class="usernameCard1 my-3" style="font-size: 2.4rem; color:#333333;text-align:center" disabled >
+            <p class="text-muted mb-1 positionCard1"><i class="fas fa-graduation-cap"></i>
               Student</p>
-            <p class="text-muted mb-4">Ho Chi Minh City, Viet Nam</p>
+            <p class="text-muted mb-4 positionCard1">Ho Chi Minh City, Viet Nam</p>
           </div>
         </div>
-        <div class="card mb-4 mb-lg-0">
+        <form method="post">
+          <div class="card mb-4 mb-lg-0">
           <div class="card-body">
-            <ul class="list-group list-group-flush rounded-3">
-             
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center p-3"
-              >
-                <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-                <p class="mb-0">mdbootstrap</p>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center p-3"
-              >
-                <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-                <p class="mb-0">@mdbootstrap</p>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center p-3"
-              >
-                <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                <p class="mb-0">mdbootstrap</p>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center p-3"
-              >
-                <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                <p class="mb-0">mdbootstrap</p>
-              </li>
-            </ul>
-            
+            <div class="row">
+              <div class="col-sm-4">
+                <p class="mb-0 titleCard2">User name</p>
+              </div>
+              <div class="col-sm-6">
+                <input type="text" value={{lcAuthUser.name}} class="inputName input" name="username" disabled >
+              </div>
+              <div class="col-sm-2">
+                <i class="far fa-edit Edit"></i>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-4">
+                <p class="mb-0 titleCard2">Email</p>
+              </div>
+              <div class="col-sm-6">
+                <input type="email" value={{lcAuthUser.email}} class="inputEmail input" name="email" disabled >
+              </div>
+              <div class="col-sm-2">
+                <i class="far fa-edit Edit"></i>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-4">
+                <p class="mb-0 titleCard2">Current Password</p>
+              </div>
+              <div class="col-sm-6">
+                <input type="password" value={{lcAuthUser.password}} class="inputPass input mt-3" name="currentPassword" disabled >
+              </div>
+              <div class="col-sm-2">
+                <i class="far fa-edit Edit Edit-currpass mt-4"></i>
+              </div>
+            </div> 
+            <hr />
+            <div class="row rowNewPass hidden">
+              <div class="col-sm-4">
+                <p class="mb-0 titleCard2">New Password</p>
+              </div>
+              <div class="col-sm-6">
+                <input type="password" value="" class="inputNewPass input" style="border: 1px solid #333333;" name="newPassword" >
+              </div>
+              <div class="col-sm-2">
+                <i class="far fa-edit Edit"></i>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-sm-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn--submit btnEdit" onclick="update()">EDIT</button>
+              </div>
+            </div>
           </div>
         </div>
+        </form>
       </div>
       <div class="col-lg-8">
-        <div class="card mb-4">
-          <div class="card-body">
-            
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">User Name</p>
-              </div>
-              <div class="col-sm-8">
-                <input type="text" value={{this.profiles.name}} class="inputName" disabled >
-              </div>
-              <div class="col-sm-1">
-                <i class="far fa-edit Edit"></i>
-              </div>
-            </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Email</p>
-              </div>
-              <div class="col-sm-8">
-                <input type="email" value={{this.profiles.email}} class="inputEmail" disabled >
-              </div>
-              <div class="col-sm-1">
-                <i class="far fa-edit Edit"></i>
-              </div>
-            </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Password</p>
-              </div>
-              <div class="col-sm-8">
-                <input type="password" value={{this.profiles.password}} class="inputPass" disabled >
-              </div>
-              <div class="col-sm-1">
-                <i class="far fa-edit Edit"></i>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        
         <div class="row">
           <div class="col-md-6">
             <div class="card mb-4 mb-md-0">
-              <div class="card-body box-slider">
+              <div class="card-body ">
                 <div class="flex-card">
-                  <p
+                  <a href="/profile/learning">
+                    <p
                     data-content="LEARNING"
-                    class="mb-4 me-1 titleTransition"
+                    class="mb-1 me-1 titleTransition"
                     style="font-weight: bold;font-size:2rem"
                   >LEARNING
                     <i class="fas fa-book" style="color: #6e4616;"></i></p>
-                  <i
+                  </a>
+                  <a href="/profile/learning"><i
                     class="fas fa-chevron-circle-right"
                     style="font-size: larger;"
-                  ></i>
+                  ></i></a>
                   {{! <a href="#" class="load-more-new">&nbsp;</a> }}
 
                 </div>
@@ -193,13 +115,13 @@
                   >
                     <div class="carousel-item__img">
                       <img
-                        src={{Img}}
+                        src={{image}}
                         alt=""
                       />
                     </div>
                     <div class="carousel-item__detail">
 
-                      <h1 class="carousel-item__detail--name">{{CourseName}}</h1>
+                      <h1 class="carousel-item__detail--name">{{name}}</h1>
                       <div class="carousel-item__detail--teacher">
                         Teacher
                         <a href="#">{{TeacherName}}</a>
@@ -217,19 +139,23 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card mb-4 mb-md-0">
-              <div class="card-body">
+            <div class="card mb-4 mb-md-0" style="height: 100%;">
+              <div class="card-body " >
                 <div class="flex-card">
-                  <p
+                  <a href="/profile/watchList">
+                    <p
                     data-content="WATCH LIST"
-                    class="mb-4 me-1 titleTransitionLove"
+                    class="mb-1 me-1 titleTransitionLove"
                     style="font-weight: bold;font-size:2rem"
                   >WATCH LIST
                     <i class="fab fa-gratipay" style="color: #f84c5e;"></i></p>
-                  <i
+                  </a>
+                  <a href="profile/watchList">
+                    <i
                     class="fas fa-chevron-circle-right"
                     style="font-size: larger;"
                   ></i>
+                  </a>
                 </div>
 
                  <div class="slider" style="overflow: scroll;">
@@ -240,13 +166,13 @@
                   >
                     <div class="carousel-item__img">
                       <img
-                        src={{Img}}
+                        src={{image}}
                         alt=""
                       />
                     </div>
                     <div class="carousel-item__detail">
 
-                      <h1 class="carousel-item__detail--name">{{CourseName}}</h1>
+                      <h1 class="carousel-item__detail--name">{{name}}</h1>
                       <div class="carousel-item__detail--teacher">
                         Teacher
                         <a href="#">{{TeacherName}}</a>

@@ -7,6 +7,7 @@ body {
     rgba(255, 192, 67, 0.5) 94.1%
   );
   background-size: cover;
+  background-size: 100% 100%;
 }
 
 .card {
@@ -14,9 +15,34 @@ body {
   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
-
   &-body {
     font-size: 1.5rem;
+    .usernameCard1 {
+      @media only screen and (max-width: 31.25em) {
+        margin-bottom: 0 !important;
+        font-size: 3rem;
+      }
+    }
+    .positionCard1 {
+      @media only screen and (max-width: 31.25em) {
+        font-size: 1.8rem;
+      }
+    }
+    .titleCard2 {
+      @media only screen and (max-width: 31.25em) {
+        font-size: 1.6rem;
+      }
+    }
+    .input {
+      &Name,
+      &Email,
+      &Pass,
+      &NewPass {
+        @media only screen and (max-width: 31.25em) {
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }
 
@@ -24,21 +50,39 @@ body {
   display: flex;
   justify-content: space-between;
 }
-img{
-  border:2px solid linear-gradient(
-    324deg,
-    rgba(248, 215, 82, 1) 0%,
-    rgba(34, 193, 195, 1) 50% !important
-  );
+img {
+  border: 2px solid
+    linear-gradient(
+      324deg,
+      rgba(248, 215, 82, 1) 0%,
+      rgba(34, 193, 195, 1) 50% !important
+    );
 }
 .Edit {
+  margin-left: 2rem;
   &:hover,
   &:active {
     margin-top: 0.5rem;
     cursor: pointer;
   }
+  @media only screen and (max-width: 31.25em) {
+    margin-left: 0;
+    float: right;
+    position: relative;
+    top: -2.4rem;
+    margin-bottom: 0;
+  }
+  &-currpass {
+    @media only screen and (max-width: 31.25em) {
+      margin-left: 0;
+      float: right;
+      position: relative;
+      top: -4rem;
+      margin-bottom: 0;
+    }
+  }
 }
-#edit{
+#edit {
   bottom: 0 !important;
 }
 .titleTransition {
@@ -89,8 +133,8 @@ img{
 
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  width:35.95rem;
-  height: 38.4rem;
+  width: 37rem;
+  height: 43.1rem;
 }
 
 .slides > div:target {
@@ -106,6 +150,12 @@ img{
 
   &__detail {
     &--name {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      line-height: 2.6rem;
+      height: 5.2rem;
       font-size: 1.7rem;
       font-weight: 700;
     }
@@ -117,4 +167,8 @@ img{
 }
 input {
   border: none;
+}
+.btnEdit {
+  padding: 0.5rem 5rem;
+  margin-top: 1rem;
 }

@@ -16,6 +16,46 @@ const mailformat =
 const nameformat = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
 video.playbackRate = 0.5;
 
+email.oninput = (e)=>{
+  rEmail.innerHTML=""
+}
+email.onblur = (e)=>{
+  console.log(email.value.length)
+  if(email.value.length === 0){
+    rEmail.innerHTML ="Please fill out this field";
+    email.focus();
+  }
+}
+pass.oninput = (e)=>{
+  rPass.innerHTML=""
+}
+pass.onblur = (e)=>{
+  console.log(pass.value.length)
+  if(pass.value.length === 0){
+    rPass.innerHTML ="Please fill out this field";
+    pass.focus();
+  }
+}
+rePass.oninput = (e)=>{
+  rRePass.innerHTML=""
+}
+rePass.onblur = (e)=>{
+  console.log(rePass.value.length)
+  if(rePass.value.length === 0){
+    rRePass.innerHTML ="Please fill out this field";
+    rePass.focus();
+  }
+}
+name.oninput = (e)=>{
+  rName.innerHTML=""
+}
+name.onblur = (e)=>{
+  console.log(name.value.length)
+  if(name.value.length === 0){
+    rName.innerHTML ="Please fill out this field";
+    name.focus();
+  }
+}
 const submit = (e) => {
 
   if (email.value.length === 0) {
@@ -53,6 +93,7 @@ const submit = (e) => {
     rRePass.innerHTML =""
 
   }
+ 
 
   if (name.value.length === 0) {
     rName.innerHTML =
@@ -68,5 +109,10 @@ const submit = (e) => {
   else {
     rName.innerHTML =""
   }
+ 
 };
 btn.addEventListener("click", submit);
+
+document.getElementById("resend").innerHTML = `Don't receive the code? 
+  <span class="font-weight-bold text-color cursor" onclick="timer(60)">Resend
+  </span>`;

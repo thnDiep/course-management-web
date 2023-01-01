@@ -178,4 +178,36 @@ body {
       transition: background 0s;
     }
   }
+ 
+}
+.cardOtp {
+  width: 350px;
+  padding: 10px;
+  border-radius: 20px;
+  background: whitesmoke;
+  border: none;
+  position: relative;
+}
+.containerOtp {
+  height: 100vh;
+}
+.text-color {
+  color: #145a32;
+}
+.mobile-text {
+  color: #cd5c5c;
+  font-size: 15px;
+}
+.form-control {
+  margin-right: 20px;
+  &:focus {
+    color: #495057;
+    background-color: #d4efdf;
+    border-color: black;
+    outline: 0;
+    box-shadow: none;
+  }
+}
+.cursor {
+  cursor: pointer;
 }

@@ -1,6 +1,7 @@
 body {
   background: linear-gradient(191deg, rgba(255, 192, 67, 0) 5.02%, rgba(255, 192, 67, 0.5) 94.1%);
-  background-size: cover; }
+  background-size: cover;
+  background-size: 100% 100%; }
 
 .card {
   border-radius: 0.8rem;
@@ -9,6 +10,19 @@ body {
   -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75); }
   .card-body {
     font-size: 1.5rem; }
+    @media only screen and (max-width: 31.25em) {
+      .card-body .usernameCard1 {
+        margin-bottom: 0 !important;
+        font-size: 3rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .card-body .positionCard1 {
+        font-size: 1.8rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .card-body .titleCard2 {
+        font-size: 1.6rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .card-body .inputName, .card-body .inputEmail, .card-body .inputPass, .card-body .inputNewPass {
+        font-size: 1.5rem; } }
 
 .flex-card {
   display: flex;
@@ -17,9 +31,25 @@ body {
 img {
   border: 2px solid linear-gradient(324deg, #f8d752 0%, #22c1c3 50% !important); }
 
-.Edit:hover, .Edit:active {
-  margin-top: 0.5rem;
-  cursor: pointer; }
+.Edit {
+  margin-left: 2rem; }
+  .Edit:hover, .Edit:active {
+    margin-top: 0.5rem;
+    cursor: pointer; }
+  @media only screen and (max-width: 31.25em) {
+    .Edit {
+      margin-left: 0;
+      float: right;
+      position: relative;
+      top: -2.4rem;
+      margin-bottom: 0; } }
+  @media only screen and (max-width: 31.25em) {
+    .Edit-currpass {
+      margin-left: 0;
+      float: right;
+      position: relative;
+      top: -4rem;
+      margin-bottom: 0; } }
 
 #edit {
   bottom: 0 !important; }
@@ -62,8 +92,8 @@ img {
   scroll-snap-type: mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  width: 35.95rem;
-  height: 38.4rem; }
+  width: 37rem;
+  height: 43.1rem; }
 
 .slides > div:target {
   transform: scale(0.8); }
@@ -74,6 +104,12 @@ img {
   margin-right: 0.8rem; }
 
 .carousel-item__detail--name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 2.6rem;
+  height: 5.2rem;
   font-size: 1.7rem;
   font-weight: 700; }
 
@@ -82,3 +118,7 @@ img {
 
 input {
   border: none; }
+
+.btnEdit {
+  padding: 0.5rem 5rem;
+  margin-top: 1rem; }

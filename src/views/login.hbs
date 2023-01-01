@@ -32,15 +32,21 @@
           courses with new additions
           <div>published every second month</div>
         </span>
-        <div class="form--login__user-name">
+        <div class="form--login__user-email">
           <i class="fas fa-user form--login__icon"></i>
           <input
             type="text"
-            placeholder="User name"
-            class="form--login__user-name__input"
-            name="name"
+            placeholder="Email"
+            class="form--login__user-email__input"
+            name="email"
           />
-          <p class="required-name "></p>
+          {{#if err_message_email}}
+            <p class="required-email">
+              <i class="fas fa-exclamation-circle required-icon"></i>
+              {{err_message_email}}
+            </p>
+          {{/if}}
+          <p class="required-email"></p>
         </div>
         <div class="form--login__user-pass">
           <i class="fas fa-lock form--login__icon"></i>
@@ -50,7 +56,7 @@
             class="form--login__user-pass__input"
             name="password"
           />
-          <p class="required-pass "></p>
+          <p class="required-pass"></p>
         </div>
         <button class="py-3 px-1 form--login__btn ripple">Login to Your Account<i
             class="fas fa-arrow-right form--login__icon-arrow"

@@ -76,9 +76,9 @@
       Add teacher</a>
   </div>
   <div class="choose d-flex">
-    <div><a class="active" href="/admin/listAccount">All</a></div>
-    <div><a href="/admin/listAccount?id=3">Teachers</a></div>
-    <div><a href="/admin/listAccount?id=2">Students</a></div>
+    <div><a {{#ifEquals isActive 1}}class="active"{{/ifEquals}} href="/admin/listAccount">All</a></div>
+    <div><a {{#ifEquals isActive 3}}class="active"{{/ifEquals}}  href="/admin/listAccount?id=3">Teachers</a></div>
+    <div><a {{#ifEquals isActive 2}}class="active"{{/ifEquals}} href="/admin/listAccount?id=2">Students</a></div>
   </div>
   <form action="/admin/listAccount/deleteByCheckbox" method="post">
 

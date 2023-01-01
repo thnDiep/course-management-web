@@ -5,13 +5,26 @@ body {
   margin-top: 0;
   margin-top: 65px; }
 
+.margin {
+  margin-right: 135px; }
+  @media only screen and (max-width: 31.25em) {
+    .margin {
+      margin-right: -15px; } }
+
+.card-img-top {
+  height: 16rem; }
+
 .content {
   margin-top: 0rem;
   padding: 0;
   margin-left: 150px;
   display: flex;
   flex-direction: column;
-  width: 90%; }
+  width: 100%; }
+  @media only screen and (max-width: 31.25em) {
+    .content {
+      margin-left: 0 !important;
+      width: 100%; } }
   .content__title {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -280,30 +293,6 @@ body {
     font-weight: 400;
     margin-left: 1.4rem;
     color: #555; }
-
-.courses__featured img {
-  height: 8rem;
-  width: 30rem; }
-
-.courses__featured .card {
-  margin-top: 2rem;
-  width: 36rem;
-  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
-  -webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06); }
-  .courses__featured .card:hover {
-    text-decoration: none;
-    box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44);
-    -webkit-box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44); }
-  .courses__featured .card__name {
-    font-family: "Source Sans Pro", Arial, sans-serif;
-    color: #1f1f1f;
-    font-weight: bold;
-    font-size: 1.4rem; }
-  .courses__featured .card__number {
-    font-size: 1.4rem;
-    font-family: "Source Sans Pro", Arial, sans-serif;
-    color: #1f1f1f; }
 
 .coures__intro {
   background-color: #f5f7f8;
@@ -576,6 +565,12 @@ body {
 .swiper-button-next {
   right: 10px !important; }
 
+.courses__viewed > .container-fluid {
+  margin-top: 0 !important; }
+
+.courses__lastest > .container-fluid {
+  margin-top: 0 !important; }
+
 .courses__choose h2 {
   font-size: 3rem;
   text-align: left;
@@ -628,29 +623,48 @@ body {
     margin-left: 1.4rem;
     color: #555; }
 
-.courses__featured img {
-  height: 8rem;
-  width: 30rem; }
-
-.courses__featured .card {
-  margin-top: 2rem;
-  width: 36rem;
-  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
-  -webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.06); }
-  .courses__featured .card:hover {
-    text-decoration: none;
-    box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44);
-    -webkit-box-shadow: -7px 0px 59px -24px rgba(0, 0, 0, 0.44); }
-  .courses__featured .card__name {
-    font-family: "Source Sans Pro", Arial, sans-serif;
-    color: #1f1f1f;
-    font-weight: bold;
-    font-size: 1.4rem; }
-  .courses__featured .card__number {
-    font-size: 1.4rem;
-    font-family: "Source Sans Pro", Arial, sans-serif;
-    color: #1f1f1f; }
+.courses__featured {
+  margin-top: 5rem; }
+  .courses__featured h2 {
+    margin-top: 4rem; }
+  .courses__featured a:hover {
+    filter: brightness(100%); }
+  .courses__featured .card {
+    border: none;
+    margin-top: 2rem; }
+    .courses__featured .card .image {
+      overflow: hidden;
+      width: 25rem;
+      height: 25rem;
+      background-color: #f5f7f8; }
+      @media only screen and (max-width: 31.25em) {
+        .courses__featured .card .image {
+          width: 20rem;
+          height: 20rem; } }
+      .courses__featured .card .image img {
+        width: 100%;
+        height: 100%;
+        background-color: #f5f7f8;
+        filter: grayscale(0.3);
+        transition: .3s; }
+        .courses__featured .card .image img:hover {
+          filter: grayscale(0);
+          transform: scale(1.2) rotate(3deg); }
+    .courses__featured .card span {
+      font-size: 2rem;
+      color: #0d1017;
+      bottom: 0;
+      margin-top: 1rem;
+      font-weight: 600; }
+    .courses__featured .card__name {
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      color: #1f1f1f;
+      font-weight: bold;
+      font-size: 1.4rem; }
+    .courses__featured .card__number {
+      font-size: 1.4rem;
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      color: #1f1f1f; }
 
 .coures__intro {
   background-color: #f5f7f8;
@@ -658,7 +672,11 @@ body {
   margin-top: 5rem;
   justify-content: space-between;
   height: 10rem;
-  align-items: center; }
+  align-items: center;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding-left: 2rem;
+  padding-right: 2rem; }
   .coures__intro img {
     height: 4rem;
     width: 4rem;
@@ -685,7 +703,8 @@ body {
     flex-direction: column;
     text-align: center;
     font-size: 2rem;
-    font-weight: bold; }
+    font-weight: bold;
+    margin-bottom: 4rem; }
     .reason .txt-reason span {
       font-weight: 100;
       font-size: 1.4rem; }

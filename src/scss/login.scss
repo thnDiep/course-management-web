@@ -59,7 +59,7 @@
           margin-top: -0.5rem;
         }
       }
-      &__user-name,
+
       &__user-pass,
       &__user-email {
         &__input {
@@ -121,7 +121,6 @@
   }
 
   .required {
-    &-name,
     &-email,
     &-pass {
       color: red;

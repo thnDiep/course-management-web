@@ -95,6 +95,15 @@ export default {
   async getNumberCourseOfTeacher(id) {
     const [views] = await db("course_of_teacher").count("courseID as count").where("teacherID", id);
     return views.count;
-  }
+  },
+
+  // update teacher
+  updateTeacher(teacher) {
+    return db("user").where("id", teacher.id).update({
+      name: teacher.name,
+      email:teacher.email, 
+      password: teacher.password,
+    });
+  },
 
 };

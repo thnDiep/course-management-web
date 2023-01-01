@@ -5,9 +5,10 @@ const router = express.Router();
 router.get("/login", (req, res) => {
   res.render("login");
 });
-router.post("/login", AccountController.index2)
+router.post("/login", AccountController.index2);
+
 router.get("/signup", function (req, res) {
-    res.render('signUp');
-  });
-router.post("/signup", AccountController.index)
+  res.render("signUp");
+});
+router.post("/signup", AccountController.index);
 export default router;
