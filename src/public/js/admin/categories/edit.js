@@ -1,35 +1,37 @@
 // Show row when add
+const template = document.getElementById("templateFormAdd").innerHTML;
 $("#addChildCategory").on("click", (e) => {
   e.preventDefault();
   $("#addChildCategory").off("click");
-  $("#childCategoryTable tr:last").after(`
-      <tr>
-        <td></td>
-        <td></td>
-        <td>
-          <input
-            class="form-addChildInput"
-            type="text"
-            id="name"
-            name="name"
-          />
-        </td>
-        <td></td> 
-        <td class="d-flex">
-          <a href="" class="d-flex mr-5 link--success">
-            <i class="fa fa-plus mr-2" aria-hidden="true"></i>
-            add
-          </a>
-
-          <a href="" class="d-flex link--danger">
-            <i class="fa fa-window-close mr-2" aria-hidden="true"></i>
-            cancel
-          </a>
-        </td>
-      </tr>
-    `);
+  $("#childCategoryTable tr:last").after(template);
 
   $(".form-addChildInput").focus();
+
+  // add category
+  const addCategoryForm = document.getElementById("addCategoryForm");
+  const addCategoryBtn = document.getElementById("addCategoryBtn");
+  addCategoryBtn.onclick = function (e) {
+    const addNameInput = document.getElementById("addName");
+    const nameValue = addNameInput.value.trim();
+    if (nameValue.length === 0) {
+      // formGroup.classList.add("invalid");
+      // formMsg.innerText = "Please fill category name";
+      console.log("trung ten");
+    } else {
+      $.getJSON(
+        `/admin/categories/add/is-available?name=${nameValue}`,
+        function (data) {
+          if (data === false) {
+            $("#failedAddModel").modal("show");
+          } else {
+            const parentID = document.getElementById("id");
+            addCategoryForm.action = `/admin/categories/addChild?name=${addNameInput.value}&parentID=${parentID.value}`;
+            addCategoryForm.submit();
+          }
+        }
+      );
+    }
+  };
 });
 
 // check box delete category
@@ -48,10 +50,9 @@ function renderSubmitDeleteBtnCategory() {
   }
 }
 
-
 checkboxAllCategory.onchange = (e) => {
   checkboxsCategory.forEach((checkbox) => {
-    if(!checkbox.disabled){
+    if (!checkbox.disabled) {
       checkbox.checked = e.target.checked;
     }
   });
@@ -61,9 +62,13 @@ checkboxAllCategory.onchange = (e) => {
 
 checkboxsCategory.forEach((checkbox) => {
   checkbox.onchange = (e) => {
-    const checked = document.querySelectorAll("input[name='idCategories']:checked");
-    const enabled = document.querySelectorAll("input[name='idCategories']:enabled");
-    
+    const checked = document.querySelectorAll(
+      "input[name='idCategories']:checked"
+    );
+    const enabled = document.querySelectorAll(
+      "input[name='idCategories']:enabled"
+    );
+
     const isCheckedAll = enabled.length === checked.length;
     checkboxAllCategory.checked = isCheckedAll;
     renderSubmitDeleteBtnCategory();
@@ -85,7 +90,6 @@ $("#deleteCategoryBtn").on("click", () => {
   deleteCategoryForm.submit();
 });
 
-
 // check box delete course
 const deleteBtnCourse = document.querySelector(".multiDeleteCourse");
 const checkboxAllCourse = document.getElementById("checkboxAllCourse");
@@ -104,7 +108,7 @@ function renderSubmitDeleteBtnCourse() {
 
 checkboxAllCourse.onchange = (e) => {
   checkboxsCourse.forEach((checkbox) => {
-    if(!checkbox.disabled){
+    if (!checkbox.disabled) {
       checkbox.checked = e.target.checked;
     }
   });
@@ -114,15 +118,18 @@ checkboxAllCourse.onchange = (e) => {
 
 checkboxsCourse.forEach((checkbox) => {
   checkbox.onchange = (e) => {
-    const checked = document.querySelectorAll("input[name='idCourses']:checked");
-    const enabled = document.querySelectorAll("input[name='idCourses']:enabled");
-    
+    const checked = document.querySelectorAll(
+      "input[name='idCourses']:checked"
+    );
+    const enabled = document.querySelectorAll(
+      "input[name='idCourses']:enabled"
+    );
+
     const isCheckedAll = enabled.length === checked.length;
     checkboxAllCourse.checked = isCheckedAll;
     renderSubmitDeleteBtnCourse();
   };
 });
-
 
 // Confirm delete course
 let idCourse;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Jan 01, 2023 at 10:16 PM
+-- Generation Time: Jan 01, 2023 at 11:42 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -54,7 +54,10 @@ INSERT INTO `category` (`id`, `name`, `parentID`, `image`) VALUES
 (13, 'Branding', 10, NULL),
 (14, 'Music', NULL, 'music1672607336438.jpg'),
 (15, 'Vocal', 14, NULL),
-(16, 'Music Production', 14, NULL);
+(16, 'Music Production', 14, NULL),
+(17, 'NodeJS', NULL, NULL),
+(20, 'child', 17, NULL),
+(21, 'child2', 17, NULL);
 
 -- --------------------------------------------------------
 
@@ -550,7 +553,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `chapter`
