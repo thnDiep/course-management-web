@@ -12,18 +12,16 @@
           type="text"
           class="form-input"
           name="name"
-          style="width: 500px;"
           placeholder="Enter category name"
         />
         <span class="form-message"></span>
       </div>
 
       <div class="admin__form-group">
-        <label class="admin__label" for="parentID">Select parent category</label>
+        <label class="admin__label" for="parentID">Parent category</label>
         <select
           name="parentID"
           class="form-input"
-          style="width: 500px;"
         >
           <option value="0">None</option>
           {{#each this.parentCategories}}
@@ -50,7 +48,8 @@
   <script src="/js/admin/addCategory.js"></script>
 {{/section}}
 
-<div class="container-fluid mt-5">
+
+<div class="container mt-5">
   <div class="admin__header">
     <a href="/admin/categories" class="btn btn--danger">Back</a>
 
@@ -60,7 +59,6 @@
         type="number"
         id="numberAddInput"
         class="admin__form-number-input"
-        name="numberAdd"
         value="1"
         min="1" 
         max="10"
@@ -68,7 +66,7 @@
       <label class="admin__label ml-2">category</label>
     </div>
 
-    <button id="addAllBtn" type="submit" class="btn btn--success">Add all</button>
+    {{!-- <button id="addAllBtn" type="submit" class="btn btn--success">Add all</button> --}}
   </div>
 
   <div id="addCatForms">
@@ -84,18 +82,16 @@
           type="text"
           class="form-input"
           name="name"
-          style="width: 500px;"
           placeholder="Enter category name"
         />
         <span class="form-message"></span>
       </div>
 
       <div class="admin__form-group">
-        <label class="admin__label" for="parentID">Select parent category</label>
+        <label class="admin__label" for="parentID">Parent category</label>
         <select
           name="parentID"
           class="form-input"
-          style="width: 500px;"
         >
           <option value="0">None</option>
           {{#each this.parentCategories}}

@@ -12,6 +12,7 @@ router.get(
   aCategoryController.isAvailableToAdd
 );
 router.post("/categories/add", aCategoryController.store);
+// router.post("/categories/multiAdd", aCategoryController.multiStore);
 
 // delete CATEGORY
 router.delete("/categories", aCategoryController.delete);

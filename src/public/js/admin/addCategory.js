@@ -76,51 +76,51 @@ inputNumber.onchange = function (e) {
   handleInvalid(); 
 };
 
-addAllBtn.onclick = function (e) {
-  updateForms();
-  const nameInputs = [];
-  let isValid = true;
+// addAllBtn.onclick = function (e) {
+//   updateForms();
+//   const nameInputs = [];
+//   let isValid = true;
   
-  forms.forEach(form => {
-    const formGroup = form.querySelector(".addCatFormGroup")
-    const formMsg = form.querySelector(".form-message");
-    const nameInput = form.querySelector("input[name='name']");
-    let nameValue;
+//   forms.forEach(form => {
+//     const formGroup = form.querySelector(".addCatFormGroup")
+//     const formMsg = form.querySelector(".form-message");
+//     const nameInput = form.querySelector("input[name='name']");
+//     let nameValue;
 
-    nameValue = nameInput.value.trim();
-    if (nameValue.length === 0) {
-      formGroup.classList.add("invalid");
-      formMsg.innerText = "Please fill category name";
-      isValid = false;
-      return;
-    }
+//     nameValue = nameInput.value.trim();
+//     if (nameValue.length === 0) {
+//       formGroup.classList.add("invalid");
+//       formMsg.innerText = "Please fill category name";
+//       isValid = false;
+//       return;
+//     }
 
-    $.getJSON(
-      `/admin/categories/add/is-available?name=${nameValue}`,
-      function (data) {
-        if (data === false) {
-          $("#failedAddModel").modal("show");
-          isValid = false;
-          return;
-        }
-      }
-    );
+//     $.getJSON(
+//       `/admin/categories/add/is-available?name=${nameValue}`,
+//       function (data) {
+//         if (data === false) {
+//           $("#failedAddModel").modal("show");
+//           isValid = false;
+//           return;
+//         }
+//       }
+//     );
     
-    if(nameInputs.includes(nameValue)){
-      isValid = false;
-      return;
-    }
+//     if(nameInputs.includes(nameValue)){
+//       isValid = false;
+//       return;
+//     }
 
-    nameInputs.push(nameValue);
-  })
+//     nameInputs.push(nameValue);
+//   })
 
-  if(isValid){
-    forms.forEach(form => {
-      console.log(form)
-      form.submit()}
-      );
-  }
-}
+//   if(isValid){
+//     forms.forEach(form => {
+//       console.log(form)
+//       form.submit()}
+//       );
+//   }
+// }
 
 
 

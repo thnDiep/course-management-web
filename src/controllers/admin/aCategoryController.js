@@ -67,13 +67,24 @@ class ACategoryController {
     });
   }
 
+  // // POST /admin/categories/multiAdd
+  // multiStore(req, res) {
+  //   console.log(req.body);
+  //   res.redirect("back");
+  // }
+
   // DELETE /admin/categories?id=
   async delete(req, res) {
     const category = await categoryModel.getById(req.query.id);
 
     if (category.image !== null && category.image !== '') {
       const filePath = "./src/public/images/category/" + category.image;
-      fs.unlinkSync(filePath);
+      try {
+        fs.unlinkSync(filePath);
+      }
+      catch(err){
+        console.log(err);
+      }
     }
     
     await categoryModel.delete(req.query.id);
