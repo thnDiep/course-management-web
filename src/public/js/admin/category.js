@@ -16,7 +16,9 @@ function renderSubmitDeleteBtn() {
 
 checkboxAll.onchange = (e) => {
   checkboxs.forEach((checkbox) => {
-    checkbox.checked = e.target.checked;
+    if(!checkbox.disabled){
+      checkbox.checked = e.target.checked;
+    }
   });
 
   renderSubmitDeleteBtn();
@@ -24,8 +26,10 @@ checkboxAll.onchange = (e) => {
 
 checkboxs.forEach((checkbox) => {
   checkbox.onchange = (e) => {
-    const isCheckedAll =
-      checkboxs.length === $("input[name='idCategories']:checked").length;
+    const checked = document.querySelectorAll("input[name='idCategories']:checked");
+    const enabled = document.querySelectorAll("input[name='idCategories']:enabled");
+    
+    const isCheckedAll = enabled.length === checked.length;
     checkboxAll.checked = isCheckedAll;
     renderSubmitDeleteBtn();
   };

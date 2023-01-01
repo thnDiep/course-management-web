@@ -27,6 +27,19 @@
 .admin__container {
   margin: auto; }
 
+.admin__form-number-input {
+  width: 40px;
+  height: 30px;
+  padding-left: 6px;
+  font-size: 1.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  color: #101010;
+  outline: none; }
+  .admin__form-number-input:focus {
+    outline: none !important;
+    color: #101010; }
+
 .admin__form {
   font-size: 1.6rem;
   width: 100%;
@@ -35,37 +48,55 @@
   border-radius: 2px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #fff; }
-  .admin__form .form-group {
-    margin-bottom: 16px; }
-    .admin__form .form-group.invalid label,
-    .admin__form .form-group.invalid .form-message {
-      color: #fe4343; }
-    .admin__form .form-group.invalid input {
-      border-color: #fe4343; }
+  .admin__form.admin__form-add {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 130px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; }
+  .admin__form .form-input {
+    width: 100%;
+    height: 38px;
+    padding-left: 6px;
+    font-size: 1.6rem;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    color: #101010;
+    outline: none; }
+    .admin__form .form-input:focus {
+      outline: none !important;
+      color: #101010; }
   .admin__form .form-message {
     font-size: 1.4rem;
     padding-left: 4px; }
-  .admin__form select {
-    padding: 8px;
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    border-radius: 2px;
-    color: #101010; }
-  .admin__form label {
-    font-size: 1.8rem;
-    font-weight: 600; }
-  .admin__form input {
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    font-size: 1.6rem;
-    color: #101010;
-    outline: none; }
-    .admin__form input:focus {
-      outline: none !important;
-      color: #101010; }
   .admin__form .btn {
     margin-top: 8px;
     width: 100%;
     padding: 6px; }
+
+.admin__form-group {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  .admin__form-group.invalid label,
+  .admin__form-group.invalid .form-message {
+    color: #fe4343; }
+  .admin__form-group.invalid input {
+    border-color: #fe4343; }
+
+.admin__form-btn {
+  display: flex;
+  align-self: center;
+  margin: 0;
+  margin-bottom: 10px; }
+  .admin__form-btn .btn {
+    width: 60px;
+    margin: 0; }
+
+.admin__label {
+  font-size: 1.8rem;
+  font-weight: 600; }
 
 .form-addChildInput {
   width: 100%;

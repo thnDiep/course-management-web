@@ -37,6 +37,21 @@
   margin: auto;
 }
 
+.admin__form-number-input {
+  width: 40px;
+  height: 30px;
+  padding-left: 6px;
+  font-size: 1.6rem;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  color: $text-color;
+  outline: none;
+  &:focus {
+    outline: none !important;
+    color: $text-color;
+  }
+}
+
 .admin__form {
   font-size: 1.6rem;
   width: 100%;
@@ -46,16 +61,26 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: $white-color;
 
-  .form-group {
-    margin-bottom: 16px;
-    &.invalid {
-      label,
-      .form-message {
-        color: $danger-color;
-      }
-      input {
-        border-color: $danger-color;
-      }
+  &.admin__form-add {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 130px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .form-input {
+    width: 100%;
+    height: 38px;
+    padding-left: 6px;
+    font-size: 1.6rem;
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    color: $text-color;
+    outline: none;
+    &:focus {
+      outline: none !important;
+      color: $text-color;
     }
   }
 
@@ -64,36 +89,43 @@
     padding-left: 4px;
   }
 
-  select {
-    padding: 8px;
-    width: 100%;
-    border: 1px solid $border-color;
-    border-radius: 2px;
-    color: $text-color;
-  }
-
-  label {
-    font-size: 1.8rem;
-    font-weight: 600;
-  }
-
-  input {
-    border: 1px solid $border-color;
-    font-size: 1.6rem;
-    color: $text-color;
-    outline: none;
-
-    &:focus {
-      outline: none !important;
-      color: $text-color;
-    }
-  }
-
   .btn {
     margin-top: 8px;
     width: 100%;
     padding: 6px;
   }
+}
+
+.admin__form-group {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  &.invalid {
+    label,
+    .form-message {
+      color: $danger-color;
+    }
+    input {
+      border-color: $danger-color;
+    }
+  }
+}
+
+.admin__form-btn {
+  display: flex;
+  align-self: center;
+  margin: 0;
+  margin-bottom: 10px;
+  .btn {
+    width: 60px;
+    margin: 0;
+  }
+}
+
+.admin__label {
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .form-addChildInput {

@@ -113,6 +113,8 @@ a {
   a:hover {
     text-decoration: none;
     filter: brightness(90%); }
+  a.link--gold {
+    color: #e59819; }
   a.link--info {
     color: #5c5cff; }
   a.link--danger {

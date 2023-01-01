@@ -172,6 +172,10 @@ a {
     filter: brightness(90%);
   }
 
+  &.link--gold {
+    color: $gold-color;
+  }
+
   &.link--info {
     color: $info-color;
   }

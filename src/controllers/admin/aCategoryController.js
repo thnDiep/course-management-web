@@ -69,13 +69,14 @@ class ACategoryController {
 
   // DELETE /admin/categories?id=
   async delete(req, res) {
-    await categoryModel.delete(req.query.id);
-
     const category = await categoryModel.getById(req.query.id);
-    if (category.image !== null) {
+
+    if (category.image !== null && category.image !== '') {
       const filePath = "./src/public/images/category/" + category.image;
       fs.unlinkSync(filePath);
     }
+    
+    await categoryModel.delete(req.query.id);
     res.redirect("back");
   }
 
