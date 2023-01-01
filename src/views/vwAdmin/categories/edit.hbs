@@ -1,5 +1,5 @@
 {{#section "js"}}
-<script src="/js/admin/editCategory.js"></script>
+<script src="/js/admin/categories/edit.js"></script>
 {{/section}}
 
 <div class="container-fluid mt-0">
@@ -22,12 +22,11 @@
         <h1 class="admin__title">Edit</h1>
       </div>
       <form class="admin__form" method="post" action="/admin/categories/edit">
-
-        <div class="form-group">
+        <div class="admin__form-group">
           <label for="nameCat">ID Category</label>
           <input
             type="text"
-            class="form-control"
+            class="form-input"
             id="id"
             name="id"
             value="{{this.category.id}}"
@@ -35,11 +34,11 @@
           />
         </div>
 
-        <div class="form-group">
+        <div class="admin__form-group">
           <label for="nameCat">Name Category</label>
           <input
             type="text"
-            class="form-control"
+            class="form-input"
             id="name"
             name="name"
             value="{{this.category.name}}"
@@ -47,9 +46,9 @@
           />
         </div>
 
-        <div class="form-group">
+        <div class="admin__form-group">
           <label for="parentID">Parent category</label>
-          <select name="parentID" id="parentID" {{#unless this.category.parentID}}disabled{{/unless}}>
+          <select class="form-input" name="parentID" id="parentID" {{#unless this.category.parentID}}disabled{{/unless}}>
             <option value="0">None</option>
 
             {{#each this.parentCategories}}
@@ -59,8 +58,8 @@
         </div>
 
         <div class="d-flex">
-          <button type="submit" class="btn btn--success mr-5">Save</button>
-          <a href="/admin/categories" class="btn btn--danger">Cancel</a>
+          <a href="/admin/categories" class="btn btn--danger mr-5">Cancel</a>
+          <button type="submit" class="btn btn--success">Save</button>
         </div>
       </form>
     </div>
@@ -69,7 +68,7 @@
     <div class="col-lg-5">
       <form class="container" method="post" action="/admin/categories/deleteByCheckbox">
         <div class="admin__header">
-          <button type="submit" class="admin__btn btn btn--icon btn--danger btn--disabled submitDeleteByCheckBox" disabled>
+          <button type="submit" class="admin__btn btn btn--icon btn--danger btn--disabled multiDeleteCategory" disabled>
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
           <h1 class="admin__title">Child Categories
@@ -84,7 +83,7 @@
           <thead class="thead-light">
             <tr>
               <th>
-                  <input type="checkbox" id="checkboxAll">
+                  <input type="checkbox" id="checkboxAllCategory">
               </th>
               <th>#</th>
               <th>Category</th>
@@ -103,7 +102,7 @@
                 <td>{{name}}</td>
                 <td>{{numberCourse}}</td>
                 <td class="d-flex">
-                  <a href="/admin/categories/edit?id={{id}}" class="d-flex mr-5 link--success" id="edit">
+                  <a href="/admin/categories/edit?id={{id}}" class="d-flex mr-5 link--gold" id="edit">
                     <i class="fa fa-paint-brush mr-2" aria-hidden="true"></i>
                     edit
                   </a>
@@ -126,7 +125,7 @@
         <div class="admin__header">
           <button
             type="submit"
-            class="admin__btn btn btn--icon btn--danger btn--disabled submitDeleteByCheckBox"
+            class="admin__btn btn btn--icon btn--danger btn--disabled multiDeleteCourse"
             disabled
           >
             <i class="fa fa-trash" aria-hidden="true"></i>
@@ -139,7 +138,7 @@
           <thead class="thead-light">
             <tr>
               <th>
-                <input type="checkbox" id="checkboxAll" />
+                <input type="checkbox" id="checkboxAllCourse" />
               </th>
               <th>#</th>
               <th>Course Name</th>

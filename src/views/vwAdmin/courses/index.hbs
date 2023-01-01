@@ -6,7 +6,7 @@
   <div class="admin__header">
     <button
       type="submit"
-      class="admin__btn btn btn--icon btn--danger btn--disabled submitDeleteByCheckBox"
+      class="admin__btn btn btn--icon btn--danger btn--disabled multiDeleteCourse"
       disabled
     >
       <i class="fa fa-trash" aria-hidden="true"></i>
@@ -19,11 +19,10 @@
     <thead class="thead-light">
       <tr>
         <th>
-          <input type="checkbox" id="checkboxAll" />
+          <input type="checkbox" id="checkboxAllCourse" />
         </th>
         <th>#</th>
         <th>Course Name</th>
-        <th>Category</th>
         <th>Options</th>
       </tr>
     </thead>
@@ -40,7 +39,6 @@
           </td>
           <td scope="row">{{id}}</td>
           <td>{{name}}</td>
-          <td>{{category}}</td>
           <td class="col-btn">
             <a
               href="#"
