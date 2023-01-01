@@ -29,23 +29,6 @@
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"
   ></script>
-  <script>
-    $('#fuMain').fileinput({ maxFileCount: 1, theme: 'fa5',
-    allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"], showRemove:
-    false, showUpload: false, });
-  </script>
-  <script>
-    $('#fuSub').fileinput({ dropZoneEnabled: false, maxFileCount: 1, theme:
-    'fa5', allowedFileExtensions: ['jpg', 'png', 'gif'], browseOnZoneClick:
-    false, showRemove: false, showUpload: false, browseOnZoneClick: true, });
-  </script>
-
-  <script>
-    tinymce.init ({ selector: 'textarea', menubar: false, plugins: 'paste image
-    link autolink lists table media', toolbar: [ 'undo redo | bold italic
-    underline strikethrough | numlist bullist | alignleft aligncenter
-    alignright| forecolor backcolor | table link image media', ], });
-  </script>
   <script src="/js/createCourse.js"></script>
 {{/section}}
 
@@ -104,7 +87,7 @@
             <label for="">Main Category</label>
             <select class="inputField">
               {{#each this.parentCourse}}
-                <option>{{name}}</option>
+                <option value="parentName">{{name}}</option>
               {{/each}}
             </select>
 
@@ -161,7 +144,7 @@
             type="text"
             placeholder="Summary of course"
             class="inputField input"
-            name="summay"
+            name="summary"
           />
         </div>
 
@@ -190,84 +173,15 @@
           ></textarea>
         </div>
         <div class="formCreate__videoLesson mt-3">
-          <label for="fuMain">Upload Video Documents</label>
+          <label>Upload Video Documents</label>
           <input
-            id="fuMain"
-            type="file"
-            class="file"
-            data-preview-file-type="text"
-            multiple
+            type="text"
+            placeholder="URL Video Document"
+            class="inputField input"
+            name="videoID"
           />
 
         </div>
-        {{! <div class="formLessonList">
-          <div class="formLessonList__title d-flex justify-content-between">
-            <label class="title">Lesson list</label>
-            <button class="btnClick"><i class="fas fa-plus"></i>
-              Add new lesson</button>
-
-          </div>
-          <hr />
-          <div class="formLessonList__content ">
-            <div class="formLessionList__mainTitle">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <p><i class="fas fa-expand-arrows-alt"></i>
-                        Part 1: Hello Javascript</p>
-                    </div>
-                    <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
-                      Edit
-                      <i class="fas fa-trash"></i>
-                      Delete
-                    </div>
-                  </div>
-
-                  <hr />
-                  <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
-                    <div>
-                      <p><i class="far fa-sticky-note"></i>
-                        Lesson 1: Course structure and projects</p>
-                    </div>
-                    <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
-                      Edit
-                      <i class="fas fa-trash"></i>
-                      Delete
-                    </div>
-                  </div>
-                  <hr />
-                  <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
-                    <div>
-                      <p><i class="far fa-sticky-note"></i>
-                        Lesson 2: Setting up our code editor</p>
-                    </div>
-                    <div class="mt-4 mr-4"><i class="fas fa-pen"></i>
-                      Edit
-                      <i class="fas fa-trash"></i>
-                      Delete
-                    </div>
-                  </div>
-                  <hr />
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="btnAddLesson ml-4 d-flex justify-content-between">
-                    <p style="font-style: italic;">Add more chapter for your
-                      lesson.
-                    </p>
-                    <button class="btnClick p-3" style="background-color:#6BB41B; border-color:transparent">
-                      <i class="fas fa-plus"></i>
-                      Add new chapter</button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>  }}
         <div class="formUpload__btn">
           <button class="btnCreate btn btn--submit"><i class="fas fa-check"></i>
             Create Course</button>

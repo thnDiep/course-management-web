@@ -16,11 +16,13 @@ class CourseController {
     const offset = (page - 1) * limit;
 
     const pageNumbers = [];
-    for (let i = 1; i <= maxPage; i++) {
-      if (i === page) {
-        pageNumbers.push({ value: i, isActive: true });
-      } else {
-        pageNumbers.push({ value: i });
+    if (maxPage !== 1) {
+      for (let i = 1; i <= maxPage; i++) {
+        if (i === page) {
+          pageNumbers.push({ value: i, isActive: true });
+        } else {
+          pageNumbers.push({ value: i });
+        }
       }
     }
 
@@ -68,10 +70,12 @@ class CourseController {
       allCategories,
       courses,
       isEmpty: courses.length === 0,
-      pageNumbers,
-      isFirstPage: page === 1,
-      isLastPage: page === maxPage,
-      currentPage: page,
+      pageInfo: {
+        current: page,
+        isFirst: page === 1,
+        isLast: page === maxPage,
+        numbers: pageNumbers,
+      },
     });
   }
 
@@ -111,8 +115,8 @@ class CourseController {
 
   // [GET] /courses/search?keyword=
   async search(req, res) {
+    const courses = await courseModel.getAll();
     const keyWord = req.query.keyword || "";
-    const courses = await courseModel.getAll(); // Function tìm kiếm
     const bestSellerCourses = await courseModel.getBestSellerList(5);
 
     for (const course of courses) {

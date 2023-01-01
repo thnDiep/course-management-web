@@ -18,7 +18,7 @@ export default {
   },
   async getWatchList(id) {
     const list = await db.raw(
-      `SELECT course.name as CourseName,user.name as TeacherName, course.image as Img 
+      `SELECT course.*, student_love_course.*, user.name as TeacherName
       FROM student_love_course,course_of_teacher,user,course 
       WHERE student_love_course.courseID=course_of_teacher.courseID && course_of_teacher.teacherID=user.id && course_of_teacher.courseID=course.id && student_love_course.studentID=?`,
       id

@@ -2,6 +2,7 @@
   <link rel="stylesheet" href="/css/profile.css" />
   <link rel="stylesheet" href="/css/courses.css" />
   <link rel="stylesheet" href="/css/learningCourses.css" />
+  <link rel="stylesheet" href="/css/watchList.css">
   <link rel="stylesheet" href="/css/base.css" />
 {{/section}}
 {{#section "images"}}
@@ -18,19 +19,19 @@
           <div class="card-body box-slider">
             <div class="flex-card">
               <p
-                data-content="LEARNING"
-                class="mb-4 me-1 titleTransition"
+                data-content="WATCH LIST"
+                class="mb-4 me-1 titleTransitionLove"
                 style="font-weight: bold;font-size:2.6rem"
-              >LEARNING
-                <i class="fas fa-book" style="color: #6e4616;"></i></p>
+              >WATCH LIST
+                <i class="fas fa-book" style="color: #f84c5e;"></i></p>
               {{! <a href="#" class="load-more-new">&nbsp;</a> }}
 
             </div>
             <div>
 
-              {{#each learning}}
+              {{#each lesson_love}}
                 <div class="course course--horizontal course--best-seller">
-
+                    
                   <div
                     class="course__img"
                     style="background-image:url({{image}})"
@@ -40,12 +41,14 @@
                     </div> }}
                   </div>
 
-                  <div class="course__body">
-
-                    <h4 class="course__title">{{name}}</h4>
+                  <div class="course__body pt-0">
+                    <div class="course__noLove">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="coursePosition">
+                        <h4 class="course__title">{{name}}</h4>
 
                     <div class="course__detail ">{{tinyDescription}}
-
                     </div>
 
                     <div class="course__teacher">
@@ -59,12 +62,14 @@
                       </div>
                     <div class="course__review-number">(5)</div>
                     </div>
-                    <p>Complete: </p>
+                    {{!-- <p>Complete: </p>
                     <ul class="course__info ">
                       <li class="course__info-item">Chapter {{chapterID}}</li>
                       <li class="course__info-item">Lesson {{lessonID}}</li>
                       <li class="course__info-item">Expert Level</li>
-                    </ul>
+                    </ul> --}}
+                    </div>
+                    
                   </div>
                 </div>
               {{/each}}

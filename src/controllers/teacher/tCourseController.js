@@ -7,7 +7,7 @@ class TCourseController {
     res.render("vwteacher/createCourse", {
       parentCourse,
       childCourse,
-      layout:"teacher",
+      layout: "teacher",
     });
   }
 }

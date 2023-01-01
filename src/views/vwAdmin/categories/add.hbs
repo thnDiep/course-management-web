@@ -6,9 +6,9 @@
   <form
     id="formAddCategory"
     class="admin__form"
-    style="width: 330px;"
     method="post"
     action="/admin/categories/add"
+    enctype="multipart/form-data"
   >
     <div class="form-group">
       <label for="name">Name Category</label>
@@ -31,7 +31,12 @@
         {{/each}}
       </select>
     </div>
-    {{! //check name rỗng }}
+
+    <div class="form-group">
+      <label for="image">Upload image</label>
+      <input type="file" name="image" />
+    </div>
+
     <div class="d-flex">
       <button type="submit" class="btn btn--success mr-5">Add</button>
       <a href="/admin/categories" class="btn btn--danger">Cancel</a>
@@ -39,7 +44,7 @@
   </form>
 </div>
 
-{{! Confirm delete category }}
+{{! The name of the category has already exist }}
 <div
   class="modal fade"
   id="failedAddModel"

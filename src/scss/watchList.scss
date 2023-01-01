@@ -1,0 +1,112 @@
+@import "./global/variable";
+
+body {
+  background: linear-gradient(
+    191deg,
+    rgba(255, 192, 67, 0) 5.02%,
+    rgba(255, 192, 67, 0.5) 94.1%
+  );
+  background-size: cover;
+}
+
+.card {
+  border-radius: 0.8rem;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+
+  &-body {
+    font-size: 1.5rem;
+  }
+}
+
+.flex-card {
+  display: flex;
+  justify-content: space-between;
+}
+img {
+  border: 2px solid
+    linear-gradient(
+      324deg,
+      rgba(248, 215, 82, 1) 0%,
+      rgba(34, 193, 195, 1) 50% !important
+    );
+}
+
+.titleTransition {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+  &Love::before {
+    position: absolute;
+    content: attr(data-content);
+    /* Prints the value of the attribute */
+    color: #f84c5e;
+    text-decoration: underline;
+    overflow: hidden;
+    transition: width 275ms ease;
+    width: 0;
+    white-space: nowrap;
+  }
+
+  &Love:hover::before {
+    width: 100%;
+  }
+}
+
+.carousel-item {
+  &__img img {
+    width: 30rem;
+    height: 30rem;
+    margin-right: 0.8rem;
+  }
+
+  &__detail {
+    margin-left: 2rem;
+    margin-top: 3rem;
+    &--name {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    &--teacher {
+      font-size: 2rem;
+    }
+  }
+}
+input {
+  border: none;
+}
+.btnEdit {
+  padding: 0.5rem 5rem;
+  margin-top: 1rem;
+}
+
+.course__detail {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  font-size: 1.6rem;
+  line-height: 1.7rem;
+  max-height: 1.7rem;
+  color: #101010;
+  margin: 0;
+}
+
+.course__noLove {
+  color: #f84c5e;
+  font-size: 2.5rem;
+  position: relative;
+  top: -3.5rem;
+  left: 80rem;
+  &:hover,
+  &:active {
+    color: #101010;
+  }
+}
+.coursePosition {
+  position: relative;
+  top: -2rem;
+}

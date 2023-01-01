@@ -44,17 +44,53 @@ class AccountController {
     const [passAvailable] = await accountModel.findByEmailToCheckPassword(
       req.body.email
     );
-    const ret = bcrypt.compareSync(req.body.password, passAvailable.password);
-    if (ret) {
-      req.session.isAuthenticated = true;
-      [req.session.authUser] = await accountModel.findByEmailToGetDetail(
-        req.body.email
-      );
-      return res.redirect("/profile");
-    } else {
+    let err_message_name;
+    const check = (name, chec) => {
+      if (name === chec) {
+        err_message_name = `${name} was exist...`;
+        return 0;
+      }
+      return 1;
+    };
+    const emailAvailable = await accountModel.findByEmail(req.body.email);
+
+    if (check(emailAvailable?.email, req.body.email) === 1) {
       return res.render("login", {
-        err_message_name: "Password was wrong...",
+        err_message_name,
       });
+    } else {
+      if (check(emailAvailable?.email, req.body.email) == 0) {
+        //return res.redirect("profile");
+        const ret = bcrypt.compareSync(
+          req.body.password,
+          passAvailable.password
+        );
+        if (ret) {
+          req.session.isAuthenticated = true;
+          if(emailAvailable.permissionID==2)
+          {
+            req.session.isStudent = true;
+            req.session.authUser = emailAvailable;
+            return res.redirect("/");
+          }
+          else if(emailAvailable.permissionID==3)
+          {
+            req.session.isTeacher = true;
+            req.session.authTeacher = emailAvailable;
+            return res.redirect("/teacher/profile");
+          }
+          else if(emailAvailable.permissionID==1)
+          {
+            req.session.isAdmin = true;
+            req.session.authAdmin = emailAvailable;
+            return res.redirect("/admin/listAccount");
+          }
+        } else {
+          return res.render("login", {
+            err_message_name: "Password was wrong...",
+          });
+        }
+      }
     }
   }
 }
