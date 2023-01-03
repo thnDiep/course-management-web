@@ -98,6 +98,17 @@
   font-size: 1.8rem;
   font-weight: 600; }
 
+.admin__image {
+  width: 250;
+  height: 250;
+  margin: auto;
+  margin-bottom: 12px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #000;
+  border-radius: 4px; }
+
 .form-addChildInput {
   width: 100%;
   border: none;

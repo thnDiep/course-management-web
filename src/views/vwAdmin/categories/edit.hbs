@@ -13,10 +13,10 @@
         </td>
         <td></td> 
         <td class="d-flex">
-          <button type="button" id="addCategoryBtn" class="d-flex mr-5">
+          <a href="javascript:void(0)" id="addCategoryBtn" class="d-flex link--success mr-5">
             <i class="fa fa-plus mr-2" aria-hidden="true"></i>
             add
-          </button>
+          </a>
 
           <a href="" class="d-flex link--danger">
             <i class="fa fa-window-close mr-2" aria-hidden="true"></i>
@@ -28,69 +28,8 @@
 <script src="/js/admin/categories/edit.js"></script>
 {{/section}}
 
-<div class="container-fluid mt-0">
-  <div class="admin__bar__option mt-1">
-      <a href="/admin/categories/edit?id={{minus this.category.id 1}}" 
-        class="btn btn--icon btn--border {{#if isFirst}}link--disabled btn--disabled{{/if}}">
-        <i class="fa fa-angle-left mr-3" aria-hidden="true"></i>
-        Previous
-      </a>
-
-      <a href="/admin/categories/edit?id={{add this.category.id 1}}" 
-        class="btn btn--icon btn--border {{#if isLast}}link--disabled btn--disabled{{/if}}">
-        Next
-        <i class="fa fa-angle-right ml-3" aria-hidden="true"></i>
-      </a>
-  </div>
-
+<div class="container-fluid mt-5">
   <div class="row mt-3">
-    <div class="col-lg-3">
-      <div class="admin__header">
-        <h1 class="admin__title">Edit</h1>
-      </div>
-      <form class="admin__form" method="post" action="/admin/categories/edit">
-        <div class="admin__form-group">
-          <label for="nameCat">ID Category</label>
-          <input
-            type="text"
-            class="form-input"
-            id="id"
-            name="id"
-            value="{{this.category.id}}"
-            readonly
-          />
-        </div>
-
-        <div class="admin__form-group">
-          <label for="nameCat">Name Category</label>
-          <input
-            type="text"
-            class="form-input"
-            id="name"
-            name="name"
-            value="{{this.category.name}}"
-            autofocus
-          />
-        </div>
-
-        <div class="admin__form-group">
-          <label for="parentID">Parent category</label>
-          <select class="form-input" name="parentID" id="parentID" {{#unless this.category.parentID}}disabled{{/unless}}>
-            <option value="0">None</option>
-
-            {{#each this.parentCategories}}
-              <option value={{id}} {{#if isSelected}}selected{{/if}}>{{name}}</option>
-            {{/each}}
-          </select>
-        </div>
-
-        <div class="d-flex">
-          <a href="/admin/categories" class="btn btn--danger mr-5">Cancel</a>
-          <button type="submit" class="btn btn--success">Save</button>
-        </div>
-      </form>
-    </div>
-
     {{#unless this.category.parentID}}
     <div class="col-lg-5">
       <form class="container" method="post" action="/admin/categories/deleteByCheckbox">
@@ -98,12 +37,12 @@
           <button type="submit" class="admin__btn btn btn--icon btn--danger btn--disabled multiDeleteCategory" disabled>
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
-          <h1 class="admin__title">Child Categories
-            <a href="javascript:void(0)" class="link--success" id="addChildCategory" disabled>
+          <h1 class="admin__title">Child Categories</h1>
+          <div class="admin__title mr-3">
+            <a href="javascript:void(0)" class="link--gold" id="addChildCategory" disabled>
               <i class="ml-3 fa fa-plus" aria-hidden="true"></i>
             </a>
-          </h1>
-          <div></div>
+          </div>
         </div>
 
         <table id="childCategoryTable" class="table table-bordered table--categories">
@@ -146,6 +85,70 @@
       </form>
     </div>
     {{/unless}}
+  
+    <div class="col-lg-3">
+      <div class="admin__header">
+        <h1 class="admin__title">Edit</h1>
+      </div>
+      <form class="admin__form" 
+            method="post" 
+            enctype="multipart/form-data"     
+            action="/admin/categories/edit?{{this.category.id}}&_method=PUT">
+        <div class="admin__form-group">
+          <label for="nameCat">ID Category</label>
+          <input
+            type="text"
+            class="form-input"
+            id="id"
+            name="id"
+            value="{{this.category.id}}"
+            readonly
+          />
+        </div>
+
+        <div class="admin__form-group">
+          <label for="nameCat">Name Category</label>
+          <input
+            type="text"
+            class="form-input"
+            id="name"
+            name="name"
+            value="{{this.category.name}}"
+            autofocus
+          />
+        </div>
+
+        <div class="admin__form-group">
+          <label for="parentID">Parent category</label>
+          <select class="form-input" name="parentID" id="parentID" {{#unless this.category.enabledEditParentID}}disabled{{/unless}}>
+            <option value="0">None</option>
+
+            {{#each this.parentCategories}}
+              <option value={{id}} {{#if isSelected}}selected{{/if}}>{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+
+        <div class="admin__form-group">
+          <label class="admin__label">Upload image</label>
+          {{#if this.category.image}}
+            <div class="admin__image" style="background-image: url(/images/category/{{this.category.image}});"></div>
+          {{/if}}
+          
+          <input
+            type="file"
+            name="image"
+            class="form-input"
+            data-preview-file-type="text"
+          />
+        </div>
+
+        <div class="d-flex">
+          <a href="/admin/categories" class="btn btn--danger mr-5">Back</a>
+          <button type="submit" class="btn btn--success">Save</button>
+        </div>
+      </form>
+    </div>
 
     <div class="col-lg-{{#unless this.category.parentID}}4{{else}}9{{/unless}}">
       <form class="container" method="post" action="/admin/courses/deleteByCheckbox">
@@ -275,7 +278,6 @@
     </div>
   </div>
 </div>
-
 
 {{! The name of the category has already exist }}
 <div
