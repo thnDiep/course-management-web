@@ -30,7 +30,6 @@ submit.addEventListener("click", function (e) {
     e.preventDefault();
   }
 
-
 })
 input.forEach(element => {
   element.oninput = (e) => {
