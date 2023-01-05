@@ -60,3 +60,9 @@ h1 {
     text-align: left !important;
   }
 }
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}

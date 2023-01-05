@@ -32,3 +32,8 @@ h1 {
   .thead th {
     padding-top: 1.5rem !important;
     text-align: left !important; }
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5; }
