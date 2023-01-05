@@ -22,9 +22,10 @@ label {
 }
 
 .formCourse_title {
+
   &:hover {
     cursor: pointer;
-    background-color: #ccc;
+    background-color: #d8d7dc;
     border-radius: 1rem;
   }
 
@@ -88,6 +89,10 @@ label {
 
 .edit {
   color: #6bb41b;
+}
+
+.chapter__title {
+  padding-top: 1rem;
 }
 
 .chapter__title:hover {
@@ -168,4 +173,8 @@ label {
   .form-control {
     font-size: 1.5rem;
   }
+}
+
+.background-color {
+  background-color: #d8d7dc;
 }

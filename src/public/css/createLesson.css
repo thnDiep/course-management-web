@@ -19,7 +19,7 @@ label {
   font-size: 1.6rem; }
   .formCourse_title:hover {
     cursor: pointer;
-    background-color: #ccc;
+    background-color: #d8d7dc;
     border-radius: 1rem; }
   .formCourse_title p i {
     font-size: 1.4rem;
@@ -58,6 +58,9 @@ label {
 
 .edit {
   color: #6bb41b; }
+
+.chapter__title {
+  padding-top: 1rem; }
 
 .chapter__title:hover {
   cursor: pointer;
@@ -115,3 +118,6 @@ label {
   .Chapter .form-control,
   .Lesson .form-control {
     font-size: 1.5rem; }
+
+.background-color {
+  background-color: #d8d7dc; }

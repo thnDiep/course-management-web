@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="/css/createLesson.css" />
 {{/section}}
 {{#section "js"}}
-<script src="/js/createLesson.js"></script>
-<script src="/js/teacherProfile.js"></script>
+<script src="/js/teacher/createLesson.js"></script>
+<script src="/js/teacher/teacherProfile.js"></script>
 {{#if err_message_password}}
 <script>
   $('#modal_profile').modal('show')
@@ -68,7 +68,7 @@
               <a class="edit" href="http://"><i class="fas fa-pen"></i>
                 Edit</a>
 
-              <i class="fas fa-angle-down course-icon down-icon"></i>
+              <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
             </div>
           </div>
           {{! chapter in course }}
@@ -92,7 +92,7 @@
                       <a class="delete" href="http://">
                         <i class="fas fa-trash"></i>
                         Delete</a>
-                      <i class="fas fa-angle-down chapter-icon down-icon"></i>
+                      <i class="fas fa-angle-down chapter-icon{{index}} down-icon"></i>
 
                     </div>
                   </div>

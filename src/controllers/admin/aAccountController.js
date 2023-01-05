@@ -2,9 +2,8 @@ import userModel from "../../models/userModel.js";
 import sgMail from "@sendgrid/mail"
 import bcrypt from 'bcryptjs';
 import accountModel from "../../models/accountModel.js";
-import * as dotenv from 'dotenv'
-dotenv.config()
-import express from 'express'
+import sendMail from "../../middlewares/email.mdw.js"
+
 class AAccountController {
   async index(req, res) {
     let users;
@@ -47,7 +46,6 @@ class AAccountController {
   }
   async addTeacher(req, res) {
     console.log(process.env.SENDGRID_API_KEY)
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
     const randomPassword = Math.random().toString(36).slice(-8);
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(randomPassword, salt);
@@ -87,14 +85,11 @@ class AAccountController {
         html: `<div><strong>username:${req.body.name}</strong></div>
                <div><strong>password:${randomPassword}</strong></div>`,
       }
-      sgMail
-        .send(message)
-        .then(() => {
-          console.log('Email sent')
-        })
-        .catch((error) => {
-          console.error(error)
-        })
+      let emailSend = await sendMail(message)
+      // emailSend.then(async (val) => {
+      //   console.log('Email sent')
+
+      // })
       await accountModel.add(teacher);
       return res.redirect("back")
     }

@@ -3,14 +3,19 @@ import AccountController from "../controllers/AccountController.js";
 const router = express.Router();
 
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", {
+    layout: false,
+  });
 });
 router.post("/login", AccountController.login);
 
 router.get("/signup", function (req, res) {
-  res.render("signUp");
+  res.render("signUp", {
+    layout: false,
+
+  });
 });
 router.post("/signup", AccountController.signUp);
 
-router.get("/signup/otp", AccountController.otp);
+router.post("/signup/otp", AccountController.otp);
 export default router;
