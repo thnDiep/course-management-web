@@ -43,6 +43,12 @@ label {
   padding: 1rem;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  &Mini{
+    width:80%;
+    padding: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  }
 }
 
 // .icon {
@@ -152,4 +158,10 @@ label {
     font-size: 1.1rem;
     margin-top: 1.3rem;
   }
+}
+.required,.requiredImg{
+  color: red;
+  font-size: 1.6rem;
+  font-weight: bold;
+  align-self: center;
 }

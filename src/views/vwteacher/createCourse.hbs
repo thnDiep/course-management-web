@@ -1,27 +1,56 @@
 {{#section "css"}}
-<link rel="stylesheet" href="/css/createCourse.css" />
-<link rel="stylesheet" href="/css/teacherProfile.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/css/fileinput.min.css" />
+  <link rel="stylesheet" href="/css/createCourse.css" />
+  <link rel="stylesheet" href="/css/teacherProfile.css" />
+  <link
+    href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput.min.css"
+    media="all"
+    rel="stylesheet"
+    type="text/css"
+  />
 {{/section}}
 {{#section "js"}}
-<script src="https://cdn.tiny.cloud/1/y16lx8krusdxb9jurdcxz9xr6r24nrd6vgz4231m0rgoezfz/tinymce/6/tinymce.min.js"
-  referrerpolicy="origin"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/fileinput.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"></script>
-<script src="/js/createCourse.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.tiny.cloud/1/t8nah5tn0cpxgd8k8raf0zzt0c4pxf3rl54o1ys4xfto7k0a/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/fileinput.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"
+  ></script>
+  <script src="/js/createCourse.js"></script>
+
 {{/section}}
 
 <div class="row justify-content-center ml-5 mt-0">
   <div class="col-lg-10">
     <div class="profile-cover">
       <div class="profile-cover__img">
-        <a class="profile-cover__img--baner" style="
+        <a
+          class="profile-cover__img--baner"
+          style="
                   background-image: url('{{this.teacher.img}}');
-                " data-toggle="modal" data-target="#exampleModalCenter"></a>
+                "
+          data-toggle="modal"
+          data-target="#exampleModalCenter"
+        ></a>
         <h3 class="h3">Henry Foster</h3>
       </div>
       <div class="profile-cover__action bg--img" data-overlay="0.3">
@@ -50,22 +79,33 @@
         <p>Create Course Lesson</p>
       </div>
       <hr />
-      <form action="" class="formCourse">
+      <form
+        action="/teacher/createCourse"
+        class="formCourse"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <div class="formCreate__titleCourse">
           <div class="d-flex justify-content-between">
             <label>Course Title</label>
-            <p class="subLabel subLabel-title hidden">This feild can't be
-              empty...</p>
+            <p class="required"></p>
           </div>
-          <input type="text" placeholder="Name of course" class="inputField input" name="title" />
+
+          <input
+            type="text"
+            placeholder="Name of course"
+            class="inputField input"
+            name="name"
+          />
+
         </div>
-        <div class="formCreate__categoryLesson d-flex flex-wrap justify-content-between">
+        <div class="formCreate__categoryLesson d-flex justify-content-between">
           <div class="topics">
 
             <label for="">Main Category</label>
-            <select class="inputField">
+            <select name="nameParent" class="inputFieldMini">
               {{#each this.parentCourse}}
-              <option value="parentName">{{name}}</option>
+                <option value="parentName">{{name}}</option>
               {{/each}}
             </select>
 
@@ -74,9 +114,9 @@
           <div class="subTopics">
 
             <label for="">Sub Category</label>
-            <select class="inputField">
+            <select name="nameChild" class="inputFieldMini">
               {{#each this.childCourse}}
-              <option>{{name}}</option>
+                <option>{{name}}</option>
               {{/each}}
             </select>
 
@@ -84,50 +124,122 @@
 
           <div class="price">
             <div class="d-flex justify-content-between">
-              <label for="">Price</label>
-              <p class="subLabel subLabel-price hidden">This feild can't be
-                empty...</p>
+              <label for="">Price Original</label>
             </div>
 
             <div>
-              <input type="text" name="currency-field" id="currency-field" value="" placeholder="VNĐ1,000,000.00"
-                class="inputField" />
+              <input
+                type="text"
+                data-type="currency"
+                name="feeO"
+                id="currency-field"
+                value=""
+                placeholder="VNĐ1,000,000.00"
+                class="inputFieldMini"
+              />
+            </div>
+          </div>
+          <div class="price">
+            <div class="d-flex justify-content-between">
+              <label for="">Price Discount</label>
+            </div>
+
+            <div>
+
+              <input
+                type="text"
+                data-type="currency"
+                name="fee"
+                id="currency-field"
+                value=""
+                placeholder="VNĐ1,000,000.00"
+                class="inputFieldMini"
+              />
             </div>
           </div>
         </div>
         <div class="updatePicture">
-          <label for="fuSub">Update Picture</label>
-          <input id="fuSub" type="file" class="file" data-preview-file-type="text" multiple />
+          <div class="d-flex justify-content-between">
+            <label for="fuSub">Update Picture</label>
+            <p class="requiredImg"></p>
+          </div>
+          <input
+            id="fuSub"
+            type="file"
+            class="inputField1 file"
+            name="image"
+            data-preview-file-type="text"
+          />
         </div>
         <div class="formCreate__summaryCourse">
 
           <div class="d-flex justify-content-between">
             <label>Summary</label>
-            <p class="subLabel subLabel-summary hidden">This feild can't be
-              empty...</p>
+            <p class="required"></p>
           </div>
-          <input type="text" placeholder="Summary of course" class="inputField input" name="summary" />
+          <input
+            type="text"
+            placeholder="Summary of course"
+            class="inputField input"
+            name="tinyDescription"
+          />
         </div>
 
         <div class="formCreate__descriptionCourse">
-          <label>Description</label>
-          <textarea id="descriptionTextArea" placeholder="My Text Area" name="desciption"></textarea>
+          <div class="d-flex justify-content-between">
+            <label>Description</label>
+            <p class="required"></p>
+          </div>
+          <textarea style="width: 100%;height:10rem; font-size:1.6rem"
+            {{!-- id="descriptionTextArea" --}}
+            placeholder="My Text Area"
+            name="fullDesciption"
+          ></textarea>
         </div>
         <div class="formCreate__benefitCourse">
-          <label>Benefit</label>
-          <textarea id="benefitTextArea" placeholder="My Text Area" name="benefit"></textarea>
+          <div class="d-flex justify-content-between">
+            <label>Benefit</label>
+            <p class="required"></p>
+          </div>
+          <textarea
+            id="textarea"
+            placeholder="My Text Area"
+            name="benefit"
+          >
+          <table class="table" style="width: 100%;"><thead><tr><th colspan="2">What will you learn</th</tr></thead><tbody><tr><td><i class="fa fa-check icon" aria-hidden="true"></i></td><td><i class="fa fa-check icon" aria-hidden="true"></i></td></tr><tr><td><i class="fa fa-check icon" aria-hidden="true"></i></td><td><i class="fa fa-check icon" aria-hidden="true"></i></td></tr><tr><td><i class="fa fa-check icon" aria-hidden="true"></i></td><td><i class="fa fa-check icon" aria-hidden="true"></i></td></tr><tr><td><i class="fa fa-check icon" aria-hidden="true"></i></td><td><i class="fa fa-check icon" aria-hidden="true"></i></td></tr></tbody></table>
+          
+          </textarea>
         </div>
         <div class="formCreate__requiredCourse">
-          <label>Required</label>
-          <textarea id="requiredTextArea" placeholder="My Text Area" name="required"></textarea>
+          <div class="d-flex justify-content-between">
+            <label>Required</label>
+            <p class="required"></p>
+          </div>
+          <textarea style="width: 100%;height:10rem; font-size:1.5rem"
+            id="requiredTextArea"
+            placeholder="My Text Area"
+            name="required"
+          ></textarea>
+          
         </div>
         <div class="formCreate__videoLesson mt-3">
-          <label>Upload Video Documents</label>
-          <input type="text" placeholder="URL Video Document" class="inputField input" name="videoID" />
+
+          <div class="d-flex justify-content-between">
+            <label>Upload Video Documents</label>
+            <p class="required"></p>
+          </div>
+          <input
+            type="text"
+            placeholder="URL Video Document"
+            class="inputField input"
+            name="videoID"
+          />
 
         </div>
         <div class="formUpload__btn">
-          <button class="btnCreate btn btn--submit"><i class="fas fa-check"></i>
+          <button class="btnCreate btn btn--submit" type="submit"><i
+              class="fas fa-check"
+            ></i>
             Create Course</button>
         </div>
       </form>

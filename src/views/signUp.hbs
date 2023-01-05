@@ -46,8 +46,9 @@
             <i class="fas fa-exclamation-circle required-icon"></i>
           {{err_message_name}}
           </p>
-          {{/if}} 
+          {{else}} 
           <p class="required-name "></p>
+          {{/if}} 
         </div>
 
         <div class="formSignUp__user-email">
@@ -62,10 +63,10 @@
             {{#if err_message_email}}
           <p class="required-email"><i
               class="fas fa-exclamation-circle required-icon"
-            ></i>
-            {{err_message_email}}</p>{{/if}} 
+            ></i>{{err_message_email}}</p>
+          {{else}} 
           <p class="required-email "></p>
-
+            {{/if}} 
         </div>
 
         <div class="formSignUp__user-pass">

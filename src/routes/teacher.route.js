@@ -16,4 +16,5 @@ router.get("/createLesson", (req, res) => {
 
 router.put("/profile/account", tProfileController.updateAccount)
 router.put("/profile/image", tProfileController.updateImage)
+router.post("/createCourse",tCourseController.create)
 export default router;
