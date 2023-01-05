@@ -24,6 +24,7 @@ router.post(
 
 // update CATEGORY
 router.get("/categories/edit", aCategoryController.edit);
+router.put("/categories/edit", aCategoryController.update);
 
 // show list CATEGORY
 router.get("/categories", aCategoryController.index);

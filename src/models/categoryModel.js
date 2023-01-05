@@ -73,6 +73,10 @@ export default {
     return db("category").where("id", id).del();
   },
 
+  update(category) {
+    return db("category").where("id", category.id).update(category);
+  },
+
   async isNameExist(name) {
     const list = await db("category").where("name", name);
     if (list.length === 0) return false;
