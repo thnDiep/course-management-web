@@ -38,20 +38,33 @@
 .profile-cover__img {
   position: absolute;
   top: 120px;
-  left: 30px;
+  left: 25px;
   text-align: center;
   z-index: 1;
+  transition: 2s;
 
-  img {
+  &--baner {
+    position: absolute;
+    width: 12rem;
+    height: 13rem;
+    // background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
     max-width: 120px;
     border: 5px solid #fff;
     border-radius: 50%;
   }
 
+
+
   .h3 {
+    top: 13rem;
     color: #393939;
+    position: absolute;
     font-size: 20px;
-    line-height: 30px;
+    line-height: 24px;
+    width: 12rem;
   }
 }
 
@@ -217,10 +230,10 @@
   display: none;
 }
 
-.modal-content {
-  width: 80% !important;
-  margin-left: 2rem;
-}
+// .modal-content {
+//   width: 80% !important;
+//   margin-left: 2rem;
+// }
 
 // input file
 
@@ -234,12 +247,13 @@
 }
 
 .inputfile+label {
-  margin-top: 1rem;
+  margin-top: 13rem;
   font-size: 1.25em;
   font-weight: 700;
   color: white;
   background-color: rgb(26, 70, 181);
   display: inline-block;
+  padding: 0.5rem;
 }
 
 
@@ -259,4 +273,17 @@
 
 .inputfile+label * {
   pointer-events: none;
+}
+
+// 
+.rounded-circle {
+  position: absolute;
+
+  width: 12rem;
+  height: 13rem;
+  right: 20rem;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
 }

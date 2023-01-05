@@ -1,23 +1,23 @@
 {{#section "js"}}
-  <script src="/js/admin/category.js"></script>
+  <script src="/js/admin/categories/index.js"></script>
 {{/section}}
 
 <form class="container" method="post" action="/admin/categories/deleteByCheckbox">
   <div class="admin__header">
-    <button type="submit" class="admin__btn btn btn--icon btn--danger btn--disabled submitDeleteByCheckBox" disabled>
+    <button type="submit" class="admin__btn btn btn--icon btn--danger btn--disabled multiDeleteCategory" disabled>
       <i class="fa fa-trash" aria-hidden="true"></i>
     </button>
     <h1 class="admin__title">Categories</h1>
-    <a href="/admin/categories/add" class="btn btn--icon btn--success">
+    <a href="/admin/categories/add" class="btn btn--icon btn--primary">
       <i class="fa fa-plus mr-3" aria-hidden="true"></i>
       Add category</a>
   </div>
 
-  <table class="table table-bordered table--categories">
+  <table id="childCategoryTable" class="table table-bordered table--categories">
     <thead class="thead-light">
       <tr>
         <th>
-            <input type="checkbox" id="checkboxAll">
+            <input type="checkbox" id="checkboxAllCategory">
         </th>
         <th>#</th>
         <th>Category</th>
@@ -26,7 +26,6 @@
       </tr>
     </thead>
     <tbody>
-    
       {{#each this.categories}}
         <tr>
           <td>
@@ -36,7 +35,7 @@
           <td>{{name}}</td>
           <td>{{numberCourse}}</td>
           <td class="d-flex">
-            <a href="/admin/categories/edit?id={{id}}" class="d-flex mr-5 link--success" id="edit">
+            <a href="/admin/categories/edit?id={{id}}" class="d-flex mr-5 link--gold" id="edit">
               <i class="fa fa-paint-brush mr-2" aria-hidden="true"></i>
               edit
             </a>

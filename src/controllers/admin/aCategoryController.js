@@ -67,15 +67,32 @@ class ACategoryController {
     });
   }
 
+  // POST /admin/categoris/addChild?name=&parentID=
+  async storeChild(req, res) {
+    await categoryModel.add(req.query);
+    res.redirect("back");
+  }
+
+  // // POST /admin/categories/multiAdd
+  // multiStore(req, res) {
+  //   console.log(req.body);
+  //   res.redirect("back");
+  // }
+
   // DELETE /admin/categories?id=
   async delete(req, res) {
-    await categoryModel.delete(req.query.id);
-
     const category = await categoryModel.getById(req.query.id);
-    if (category.image !== null) {
+
+    if (category.image !== null && category.image !== "") {
       const filePath = "./src/public/images/category/" + category.image;
-      fs.unlinkSync(filePath);
+      try {
+        fs.unlinkSync(filePath);
+      } catch (err) {
+        console.log(err);
+      }
     }
+
+    await categoryModel.delete(req.query.id);
     res.redirect("back");
   }
 

@@ -1,47 +1,120 @@
 {{#section "js"}}
-  <script src="/js/admin/addCategory.js"></script>
+  <script id="templateForm" type="text/x-template">
+      <form
+      class="addCatForm admin__form admin__form-add"
+      method="post"
+      action="/admin/categories/add"
+      enctype="multipart/form-data"
+    >
+      <div class="addCatFormGroup admin__form-group">
+        <label class="admin__label" for="name">Name Category</label>
+        <input
+          type="text"
+          class="form-input"
+          name="name"
+          placeholder="Enter category name"
+        />
+        <span class="form-message"></span>
+      </div>
+
+      <div class="admin__form-group">
+        <label class="admin__label" for="parentID">Parent category</label>
+        <select
+          name="parentID"
+          class="form-input"
+        >
+          <option value="0">None</option>
+          {{#each this.parentCategories}}
+            <option value={{id}}>{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="admin__form-group">
+        <label class="admin__label">Upload image</label>
+        <input
+          type="file"
+          name="image"
+          class="form-input"
+          data-preview-file-type="text"
+        />
+      </div>
+
+      <div class="admin__form-btn">
+        <button type="submit" class="btn btn--success">Add</button>
+      </div>
+    </form>
+  </script>
+  <script src="/js/admin/categories/add.js"></script>
 {{/section}}
 
-<div class="admin__container">
-  <form
-    id="formAddCategory"
-    class="admin__form"
-    method="post"
-    action="/admin/categories/add"
-    enctype="multipart/form-data"
-  >
-    <div class="form-group">
-      <label for="name">Name Category</label>
+
+<div class="container mt-5">
+  <div class="admin__header">
+    <a href="/admin/categories" class="btn btn--danger">Back</a>
+
+    <div class="admin__form-number">
+      <label class="admin__label mr-2">Add with </label>
       <input
-        type="text"
-        class="form-control"
-        id="name"
-        name="name"
-        placeholder="Enter category name"
+        type="number"
+        id="numberAddInput"
+        class="admin__form-number-input"
+        value="1"
+        min="1" 
+        max="10"
       />
-      <span class="form-message"></span>
+      <label class="admin__label ml-2">category</label>
     </div>
 
-    <div class="form-group">
-      <label for="parentID">Select parent category</label>
-      <select name="parentID" id="parentID">
-        <option value="0">None</option>
-        {{#each this.parentCategories}}
-          <option value={{id}}>{{name}}</option>
-        {{/each}}
-      </select>
-    </div>
+    {{!-- <button id="addAllBtn" type="submit" class="btn btn--success">Add all</button> --}}
+  </div>
 
-    <div class="form-group">
-      <label for="image">Upload image</label>
-      <input type="file" name="image" />
-    </div>
+  <div id="addCatForms">
+    <form
+      class="addCatForm admin__form admin__form-add"
+      method="post"
+      action="/admin/categories/add"
+      enctype="multipart/form-data"
+    >
+      <div class="addCatFormGroup admin__form-group">
+        <label class="admin__label" for="name">Name Category</label>
+        <input
+          type="text"
+          class="form-input"
+          name="name"
+          placeholder="Enter category name"
+        />
+        <span class="form-message"></span>
+      </div>
 
-    <div class="d-flex">
-      <button type="submit" class="btn btn--success mr-5">Add</button>
-      <a href="/admin/categories" class="btn btn--danger">Cancel</a>
-    </div>
-  </form>
+      <div class="admin__form-group">
+        <label class="admin__label" for="parentID">Parent category</label>
+        <select
+          name="parentID"
+          class="form-input"
+        >
+          <option value="0">None</option>
+          {{#each this.parentCategories}}
+            <option value={{id}}>{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="admin__form-group">
+        <label class="admin__label">Upload image</label>
+        <input
+          type="file"
+          name="image"
+          class="form-input"
+          data-preview-file-type="text"
+        />
+      </div>
+
+      <div class="admin__form-btn">
+        <button type="submit" class="btn btn--success">Add</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 {{! The name of the category has already exist }}

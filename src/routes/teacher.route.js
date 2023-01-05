@@ -14,5 +14,6 @@ router.get("/createLesson", (req, res) => {
 });
 // const upload = multer({ dest: 'uploads/' })
 
-router.put("/profile/image", tProfileController.update)
+router.put("/profile/account", tProfileController.updateAccount)
+router.put("/profile/image", tProfileController.updateImage)
 export default router;

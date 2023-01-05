@@ -1,42 +1,27 @@
 {{#section "css"}}
-  <link rel="stylesheet" href="/css/createCourse.css" />
-  <link rel="stylesheet" href="/css/teacherProfile.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/css/fileinput.min.css"
-  />
+<link rel="stylesheet" href="/css/createCourse.css" />
+<link rel="stylesheet" href="/css/teacherProfile.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/css/fileinput.min.css" />
 {{/section}}
 {{#section "js"}}
-  <script
-    src="https://cdn.tiny.cloud/1/y16lx8krusdxb9jurdcxz9xr6r24nrd6vgz4231m0rgoezfz/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/fileinput.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"
-  ></script>
-  <script src="/js/createCourse.js"></script>
+<script src="https://cdn.tiny.cloud/1/y16lx8krusdxb9jurdcxz9xr6r24nrd6vgz4231m0rgoezfz/tinymce/6/tinymce.min.js"
+  referrerpolicy="origin"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/fileinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"></script>
+<script src="/js/createCourse.js"></script>
 {{/section}}
 
 <div class="row justify-content-center ml-5 mt-0">
   <div class="col-lg-10">
     <div class="profile-cover">
       <div class="profile-cover__img">
-        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
+        <a class="profile-cover__img--baner" style="
+                  background-image: url('{{this.teacher.img}}');
+                " data-toggle="modal" data-target="#exampleModalCenter"></a>
         <h3 class="h3">Henry Foster</h3>
       </div>
       <div class="profile-cover__action bg--img" data-overlay="0.3">
@@ -72,22 +57,15 @@
             <p class="subLabel subLabel-title hidden">This feild can't be
               empty...</p>
           </div>
-          <input
-            type="text"
-            placeholder="Name of course"
-            class="inputField input"
-            name="title"
-          />
+          <input type="text" placeholder="Name of course" class="inputField input" name="title" />
         </div>
-        <div
-          class="formCreate__categoryLesson d-flex flex-wrap justify-content-between"
-        >
+        <div class="formCreate__categoryLesson d-flex flex-wrap justify-content-between">
           <div class="topics">
 
             <label for="">Main Category</label>
             <select class="inputField">
               {{#each this.parentCourse}}
-                <option value="parentName">{{name}}</option>
+              <option value="parentName">{{name}}</option>
               {{/each}}
             </select>
 
@@ -98,7 +76,7 @@
             <label for="">Sub Category</label>
             <select class="inputField">
               {{#each this.childCourse}}
-                <option>{{name}}</option>
+              <option>{{name}}</option>
               {{/each}}
             </select>
 
@@ -112,26 +90,14 @@
             </div>
 
             <div>
-              <input
-                type="text"
-                name="currency-field"
-                id="currency-field"
-                value=""
-                placeholder="VNĐ1,000,000.00"
-                class="inputField"
-              />
+              <input type="text" name="currency-field" id="currency-field" value="" placeholder="VNĐ1,000,000.00"
+                class="inputField" />
             </div>
           </div>
         </div>
         <div class="updatePicture">
           <label for="fuSub">Update Picture</label>
-          <input
-            id="fuSub"
-            type="file"
-            class="file"
-            data-preview-file-type="text"
-            multiple
-          />
+          <input id="fuSub" type="file" class="file" data-preview-file-type="text" multiple />
         </div>
         <div class="formCreate__summaryCourse">
 
@@ -140,46 +106,24 @@
             <p class="subLabel subLabel-summary hidden">This feild can't be
               empty...</p>
           </div>
-          <input
-            type="text"
-            placeholder="Summary of course"
-            class="inputField input"
-            name="summary"
-          />
+          <input type="text" placeholder="Summary of course" class="inputField input" name="summary" />
         </div>
 
         <div class="formCreate__descriptionCourse">
           <label>Description</label>
-          <textarea
-            id="descriptionTextArea"
-            placeholder="My Text Area"
-            name="desciption"
-          ></textarea>
+          <textarea id="descriptionTextArea" placeholder="My Text Area" name="desciption"></textarea>
         </div>
         <div class="formCreate__benefitCourse">
           <label>Benefit</label>
-          <textarea
-            id="benefitTextArea"
-            placeholder="My Text Area"
-            name="benefit"
-          ></textarea>
+          <textarea id="benefitTextArea" placeholder="My Text Area" name="benefit"></textarea>
         </div>
         <div class="formCreate__requiredCourse">
           <label>Required</label>
-          <textarea
-            id="requiredTextArea"
-            placeholder="My Text Area"
-            name="required"
-          ></textarea>
+          <textarea id="requiredTextArea" placeholder="My Text Area" name="required"></textarea>
         </div>
         <div class="formCreate__videoLesson mt-3">
           <label>Upload Video Documents</label>
-          <input
-            type="text"
-            placeholder="URL Video Document"
-            class="inputField input"
-            name="videoID"
-          />
+          <input type="text" placeholder="URL Video Document" class="inputField input" name="videoID" />
 
         </div>
         <div class="formUpload__btn">

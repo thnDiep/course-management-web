@@ -8,7 +8,7 @@
 <script src="/js/teacherProfile.js"></script>
 {{#if err_message_password}}
 <script>
-  $('#exampleModalCenter').modal('show')
+  $('#modal_profile').modal('show')
 </script>
 {{/if}}
 {{/section}}
@@ -19,7 +19,10 @@
   <div class="col-lg-12">
     <div class="profile-cover">
       <div class="profile-cover__img">
-        <img src="{{this.teacher.img}}" alt="" data-toggle="modal" data-target="#exampleModalCenter" />
+        <a class="profile-cover__img--baner" style="
+                  background-image: url('{{this.teacher.img}}');
+                " data-toggle="modal" data-target="#exampleModalCenter"></a>
+        {{!-- <img src="{{this.teacher.img}}" alt="" data-toggle="modal" data-target="#exampleModalCenter" /> --}}
         <h3 class="h3">{{this.teacher.name}}</h3>
       </div>
       <div class="profile-cover__action bg--img" data-overlay="0.3">
@@ -45,22 +48,7 @@
       <div class="mb-5">
         <p class="lead fw-normal mb-1">About</p>
         <div class="p-4" style="background-color: #f8f9fa;">
-          <p class="font-italic mb-1" style="font-size: 1.5rem;">Jose Marcial
-            Portilla has a BS and MS in Mechanical Engineering from Santa Clara
-            University and years of experience as a professional instructor and
-            trainer for Data Science, Machine Learning and Python Programming.
-            He has publications and patents in various fields such as
-            microfluidics, materials science, and data science. Over the course
-            of his career he has developed a skill set in analyzing data and he
-            hopes to use his experience in teaching and data science to help
-            other people learn the power of programming, the ability to analyze
-            data, and the skills needed to present the data in clear and
-            beautiful visualizations. Currently he works as the Head of Data
-            Science for Pierian Training and provides in-person data science and
-            python programming training courses to employees working at top
-            companies, including General Electric, Cigna, The New York Times,
-            Credit Suisse, McKinsey and many more. Feel free to check out the
-            website link to find out more information about training offerings.</p>
+          <p class="font-italic mb-1" style="font-size: 1.5rem;">{{this.teacher.about}}</p>
 
         </div>
       </div>
@@ -69,11 +57,12 @@
       </div>
       <div class="formCourse">
         <div>
+          {{#each course}}
           {{! title Course }}
-          <div class="formCourse_title d-flex justify-content-between" data-toggle="collapse" data-target="#course1"
-            aria-expanded="false">
+          <div class="formCourse_title d-flex justify-content-between" data-toggle="collapse"
+            data-target="#course{{index}}" aria-expanded="false">
             <p><i class="fas fa-book-open"></i>
-              Course 1: Javascript for beginer
+              Course {{index}}: {{name}}
             </p>
             <div class="mr-4">
               <a class="edit" href="http://"><i class="fas fa-pen"></i>
@@ -83,18 +72,19 @@
             </div>
           </div>
           {{! chapter in course }}
-          <div class="collapse" id="course1">
+          <div class="collapse" id="course{{index}}">
 
             <div class="chapter__content">
 
               <div class="row">
                 <div class="col-lg-12">
+                  {{#each chapter}}
                   {{! title Chapter }}
                   <div class="chapter__title d-flex justify-content-between w-100" data-toggle="collapse"
-                    data-target="#chapter1" aria-expanded="false" aria-controls="collapseExample">
+                    data-target="#chapter{{index}}" aria-expanded="false" aria-controls="collapseExample">
                     <div>
                       <p><i class="fas fa-expand-arrows-alt"></i>
-                        Chapter 1: Hello Javascript</p>
+                        Chapter {{index}}: {{name}}</p>
                     </div>
                     <div class=" mr-4 ">
                       <a class="edit" href="http://"><i class="fas fa-pen"></i>
@@ -107,11 +97,13 @@
                     </div>
                   </div>
                   {{! lesson in chapter }}
-                  <div class="collapse" id="chapter1">
+                  <div class="collapse" id="chapter{{index}}">
+                    {{#each lesson}}
+
                     <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
                       <div>
                         <p><i class="far fa-sticky-note"></i>
-                          Lesson 1: Course structure and projects</p>
+                          Lesson {{index}}: {{name}}</p>
                       </div>
                       <div class="icon-lesson">
                         <a class="edit" href="http://"><i class="fas fa-pen"></i>
@@ -121,19 +113,8 @@
                           Delete</a>
                       </div>
                     </div>
-                    <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
-                      <div>
-                        <p><i class="far fa-sticky-note"></i>
-                          Lesson 2: Setting up our code editor</p>
-                      </div>
-                      <div class="icon-lesson">
-                        <a class="edit" href="http://"><i class="fas fa-pen"></i>
-                          Edit</a>
-                        <a class="delete" href="http://">
-                          <i class="fas fa-trash"></i>
-                          Delete</a>
-                      </div>
-                    </div>
+                    {{/each}}
+
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="btnAddLesson ml-4 d-flex justify-content-between">
@@ -148,6 +129,9 @@
                       </div>
                     </div>
                   </div>
+
+                  {{/each}}
+
                   <div class="chapter__add d-flex justify-content-between">
                     <p class="title">Add more Chapter for your Course.</p>
                     <button class="btnAddChapter p-2" type="submit"><i class="fas fa-plus mr-1"></i>
@@ -160,6 +144,8 @@
             </div>
 
           </div>
+          {{/each}}
+
         </div>
       </div>
 
@@ -180,7 +166,11 @@
       <div class="modal-body">
         <div id="edit" class="d-flex justify-content-around">
           <div class="card-body text-center">
-            <img src="{{this.teacher.img}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;" />
+            <a class="rounded-circle" style="
+                  background-image: url('{{this.teacher.img}}');
+                "> </a>
+            {{!-- <img src="{{this.teacher.img}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;" />
+            --}}
             <br />
             <form name="profileImageForm" method="post" enctype="multipart/form-data">
               <input type="file" name="image" id="file" class="inputfile" accept="image/png, image/gif, image/jpeg" />
@@ -189,19 +179,13 @@
             <h1 class="my-3">{{this.teacher.name}}</h1>
             <p class="mb-1"><i class="fas fa-graduation-cap"></i>
               Teacher</p>
-            {{! <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Follow</button>
-              <button type="button" class="btn btn-outline-primary ms-1">Message</button>
-            </div> }}
+
           </div>
 
         </div>
       </div>
 
-      {{!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary submit">Save changes</button>
-      </div> --}}
+
 
     </div>
   </div>
@@ -220,7 +204,7 @@
       </div>
       <div class="modal-body">
         <div id="edit" class="d-flex justify-content-around">
-          <form method="POST" action="/teacher/profile/?_method=PUT" enctype="multipart/form-data">
+          <form method="POST" action="/teacher/profile/account/?_method=PUT">
 
             <div class="card mb-5">
               <div class="card-body">
@@ -300,11 +284,28 @@
                 </div>
 
               </div>
-              <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary submit">Save changes</button>
+            </div>
+            <div class="card mb-5">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <p class="lead fw-normal mb-1">About</p>
+                    <div class="p-4" style="background-color: #f8f9fa;">
+                      <textarea id="w3review" rows="6" cols="50" name="about">{{this.teacher.about}}</textarea>
+                      {{!-- <p class="font-italic mb-1" style="font-size: 1.5rem;">{{this.teacher.about}}</p> --}}
+
+                    </div>
+                  </div>
+
+                </div>
+                <br />
               </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary submit">Save changes</button>
             </div>
           </form>
 

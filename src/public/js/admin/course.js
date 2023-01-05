@@ -1,33 +1,41 @@
-// Checkbox
-const checkboxAll = document.getElementById("checkboxAll");
-const checkboxs = document.querySelectorAll(".checkboxCourse");
-const deleteBtn = document.querySelector(".submitDeleteByCheckBox");
+// check box delete course
+const deleteBtnCourse = document.querySelector(".multiDeleteCourse");
+const checkboxAllCourse = document.getElementById("checkboxAllCourse");
+const checkboxsCourse = document.querySelectorAll(".checkboxCourse");
 
-function renderSubmitDeleteBtn() {
+function renderSubmitDeleteBtnCourse() {
   let checkedNumber = $("input[name='idCourses']:checked").length;
   if (checkedNumber > 0) {
-    deleteBtn.classList.remove("btn--disabled");
-    deleteBtn.disabled = false;
+    deleteBtnCourse.classList.remove("btn--disabled");
+    deleteBtnCourse.disabled = false;
   } else {
-    deleteBtn.classList.add("btn--disabled");
-    deleteBtn.disabled = true;
+    deleteBtnCourse.classList.add("btn--disabled");
+    deleteBtnCourse.disabled = true;
   }
 }
 
-checkboxAll.onchange = (e) => {
-  checkboxs.forEach((checkbox) => {
-    checkbox.checked = e.target.checked;
+checkboxAllCourse.onchange = (e) => {
+  checkboxsCourse.forEach((checkbox) => {
+    if (!checkbox.disabled) {
+      checkbox.checked = e.target.checked;
+    }
   });
 
-  renderSubmitDeleteBtn();
+  renderSubmitDeleteBtnCourse();
 };
 
-checkboxs.forEach((checkbox) => {
+checkboxsCourse.forEach((checkbox) => {
   checkbox.onchange = (e) => {
-    const isCheckedAll =
-      checkboxs.length === $("input[name='idCourses']:checked").length;
-    checkboxAll.checked = isCheckedAll;
-    renderSubmitDeleteBtn();
+    const checked = document.querySelectorAll(
+      "input[name='idCourses']:checked"
+    );
+    const enabled = document.querySelectorAll(
+      "input[name='idCourses']:enabled"
+    );
+
+    const isCheckedAll = enabled.length === checked.length;
+    checkboxAllCourse.checked = isCheckedAll;
+    renderSubmitDeleteBtnCourse();
   };
 });
 

@@ -10,54 +10,51 @@
   const checkboxAccount = document.querySelectorAll('.checkboxAccount');
   const check_btn = document.querySelector('.check_btn')
   checkboxAll.onchange = (e) => {
-   checkboxAll.checked===true ? check_btn.removeAttribute("disabled") : check_btn.setAttribute("disabled","")
-   if(document.querySelector('.checkboxAccount')===null){
-    check_btn.setAttribute("disabled","")
-   }
+    checkboxAll.checked === true ? check_btn.removeAttribute("disabled") : check_btn.setAttribute("disabled", "")
+    if (document.querySelector('.checkboxAccount') === null) {
+      check_btn.setAttribute("disabled", "")
+    }
     checkboxAccount.forEach((checkbox) => {
-      e.target.checked===true ? check_btn.removeAttribute("disabled"): check_btn.setAttribute("disabled","")
+      e.target.checked === true ? check_btn.removeAttribute("disabled") : check_btn.setAttribute("disabled", "")
       checkbox.checked = e.target.checked;
     });
 
   };
-  const checkAllFalse = ()=>
-  {
-    for(const check of checkboxAccount){
-      if(check.checked === true){
-        checkboxAll.checked=false
+  const checkAllFalse = () => {
+    for (const check of checkboxAccount) {
+      if (check.checked === true) {
+        checkboxAll.checked = false
         return false
-        }
+      }
     }
     return true
   }
-   const checkAllTrue = ()=>
-  {
-    for(const check of checkboxAccount){
-      if(check.checked === false){
+  const checkAllTrue = () => {
+    for (const check of checkboxAccount) {
+      if (check.checked === false) {
         return;
-        }
+      }
     }
-    checkboxAll.checked=true
+    checkboxAll.checked = true
   }
-  
+
   checkboxAccount.forEach((checkbox) => {
-    checkbox.addEventListener('change',function handleClick(event) {
-      if(checkbox.checked ===true){
+    checkbox.addEventListener('change', function handleClick(event) {
+      if (checkbox.checked === true) {
         check_btn.removeAttribute("disabled")
         checkAllTrue()
       }
-      else{
+      else {
         console.log(checkAllFalse())
-        if(checkAllFalse()===true)
-         { 
-          check_btn.setAttribute("disabled","")
-          checkboxAll.checked=false
+        if (checkAllFalse() === true) {
+          check_btn.setAttribute("disabled", "")
+          checkboxAll.checked = false
         }
       }
     })
-  
-      
-    });
+
+
+  });
   $("#deleteAccountModal").on('show.bs.modal', function (e) {
     idAccount = e.relatedTarget.getAttribute("data-id")
   });
@@ -76,13 +73,14 @@
       Add teacher</a>
   </div>
   <div class="choose d-flex">
-    <div><a {{#ifEquals isActive 1}}class="active"{{/ifEquals}} href="/admin/listAccount">All</a></div>
-    <div><a {{#ifEquals isActive 3}}class="active"{{/ifEquals}}  href="/admin/listAccount?id=3">Teachers</a></div>
-    <div><a {{#ifEquals isActive 2}}class="active"{{/ifEquals}} href="/admin/listAccount?id=2">Students</a></div>
+    <div><a {{#ifEquals isActive 1}}class="active" {{/ifEquals}} href="/admin/listAccount">All</a></div>
+    <div><a {{#ifEquals isActive 3}}class="active" {{/ifEquals}} href="/admin/listAccount?id=3">Teachers</a></div>
+    <div><a {{#ifEquals isActive 2}}class="active" {{/ifEquals}} href="/admin/listAccount?id=2">Students</a></div>
   </div>
   <form action="/admin/listAccount/deleteByCheckbox" method="post">
 
-    <button type="submit" class="admin__btn btn btn--icon check_btn" style="background-color: #dc3545; margin-bottom:3px" disabled>
+    <button type="submit" class="admin__btn btn btn--icon check_btn"
+      style="background-color: #dc3545; margin-bottom:3px" disabled>
       <i class="fa fa-trash" aria-hidden="true"></i>
     </button>
     <table class="table table-bordered">
@@ -100,8 +98,8 @@
       <tbody>
         {{#each users}}
         <tr>
-          <td style="width:5rem; text-align:center"><input class="mt-4 {{#if sumCourse}}{{else}}checkboxAccount{{/if}} " {{#if sumCourse}}disabled{{/if}}  type="checkbox"
-              name="idAccounts" value={{id}} />
+          <td style="width:5rem; text-align:center"><input class="mt-4 {{#if sumCourse}}{{else}}checkboxAccount{{/if}} "
+              {{#if sumCourse}}disabled{{/if}} type="checkbox" name="idAccounts" value={{id}} />
           </td>
           <td style="text-align:center">{{id}}</td>
           <td class="d-flex">
@@ -111,8 +109,8 @@
             <div class="d-flex flex-column justify-content-between">
               <div>{{name}}</div>
               <div>
-                <a class="pl-2 text-danger" data-toggle="modal" data-id={{id}} data-target="#deleteAccountModal"
-                  href="#"><i class="fas fa-trash"></i>
+                <a class="pl-2 text-danger {{#if sumCourse}}disabled{{/if}}" data-toggle="modal" data-id={{id}}
+                  data-target="#deleteAccountModal" href="#"><i class="fas fa-trash"></i>
                   Delete</a>
               </div>
             </div>

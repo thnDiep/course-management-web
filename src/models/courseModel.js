@@ -132,4 +132,12 @@ export default {
   //   async isComplete(id) {
   //     const status = await db("course").where()
   //   }
+  async getAllChapterOfCourse(id) {
+    const chapter = await db("chapter").where("courseID", id);
+    return chapter;
+  },
+  async getAllLessonOfChapter(id) {
+    const lesson = await db("Lesson").where("chapterID", id);
+    return lesson;
+  },
 };
