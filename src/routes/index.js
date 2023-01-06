@@ -10,4 +10,7 @@ export default function route(app) {
   // student
   app.use("/", studentRoute);
   //
+  app.get('/requireLogin', (req, res) => {
+    res.render('requireLogin');
+});
 }

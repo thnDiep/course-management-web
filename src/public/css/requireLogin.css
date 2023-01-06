@@ -1,0 +1,41 @@
+.frame {
+  height: 40rem;
+  justify-content: center; }
+
+.icon {
+  font-size: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.notification {
+  font-size: 6rem;
+  font-weight: bold;
+  font-style: italic;
+  justify-content: center;
+  align-items: center;
+  display: flex; }
+
+.frameBtn {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-bottom: 3rem; }
+
+.loginBtn {
+  font-size: 2rem;
+  width: 10rem;
+  height: 6rem;
+  background-color: aquamarine;
+  justify-content: center;
+  align-items: center; }
+
+.convertToSignUp {
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  display: flex; }
+  .convertToSignUp a {
+    color: blue;
+    text-decoration: underline;
+    margin-right: 1rem; }
