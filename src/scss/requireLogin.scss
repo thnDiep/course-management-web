@@ -1,0 +1,103 @@
+.requireLogin_frame{
+    padding-top: 10rem;
+    height: 60rem;
+    // align-items: center;
+    margin-left: 25rem;
+    display: flex;
+
+}
+.requireLogin_content_frame{
+    // border: 1px solid black;
+    border-radius: 1rem;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px;
+    height: 23rem;
+    // background-color: bisque;
+    margin-left: 8rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    .requireLogin_content{
+        // background-color: aquamarine;
+        margin-left: 1rem;
+    }
+}
+
+img{
+    // padding-top: 2rem;
+    margin-top: 1rem;
+    height: 20rem;
+}
+.requireLogin_icon {
+    font-size: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.requireLogin_notification{
+    font-size: 5.8rem;
+    font-weight:bold;
+    font-style:italic;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.requireLogin_frameBtn{
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.requireLogin_loginBtn {
+    font-size: 2rem;
+    width: 10rem;
+    height: 6rem;
+    background-color:darkgray;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3rem;
+    // padding-right: 4rem;
+}
+
+.requireLogin_convertToLogin {
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    // a {
+    //     // color: blue;
+    //     // text-decoration: underline;
+    //     margin-right: 1rem;
+    // }
+    .requireLogin_loginBtn{
+        border-radius: 0.5rem;
+        height: 3.3rem;
+        background-color: white;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;  
+        &:hover{
+            background-color:black;
+            a{
+                color: white;
+            }
+        }
+    }
+}
+
+.requireLogin_convertToSignUp {
+    margin-top: 5rem;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    a {
+        color: blue;
+        text-decoration: underline;
+        margin-right: 1rem;
+    }
+}
+
