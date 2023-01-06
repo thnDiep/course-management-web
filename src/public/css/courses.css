@@ -19,10 +19,10 @@
   margin-bottom: 20px; }
   .courses__tool .courses__sort {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.05);
-    padding: 12px;
     display: flex;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 12px;
     border-radius: 4px; }
     .courses__tool .courses__sort .courses__sort__label {
       margin: 0;
@@ -62,6 +62,27 @@
     .courses__pagination a:hover:not(.active) {
       background-color: #ddd; }
 
+.courses__sort--mobile {
+  display: none;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 4px; }
+  .courses__sort--mobile .dropdown-toggle::after {
+    content: "";
+    display: none; }
+  .courses__sort--mobile .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .courses__sort--mobile .dropdown-menu {
+    font-size: 1.8rem;
+    width: 100%;
+    z-index: 10;
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px; }
+  .courses__sort--mobile .dropdown-item {
+    padding: 8px 12px; }
+
 .course {
   transition: 0.2s ease;
   border-radius: 6px;
@@ -81,6 +102,8 @@
     display: block; }
   .course .card-body {
     padding-bottom: 0; }
+  .course.course--mobile {
+    display: none; }
 
 .course__best-seller-label {
   display: none;
@@ -294,3 +317,17 @@
   text-transform: uppercase; }
   .course__buttons .btn {
     height: 50px; }
+
+@media only screen and (max-width: 31.25em) {
+  .courses__body {
+    margin-right: 2rem; }
+  .courses__tool {
+    display: none; }
+  .course__category-link {
+    font-size: 1.6rem; }
+  .course.course--horizontal {
+    display: none; }
+  .course.course--mobile {
+    display: block; }
+  .courses__sort--mobile {
+    display: block; } }

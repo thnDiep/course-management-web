@@ -1,13 +1,15 @@
-// import courseModel from "../../../models/courseModel";
+$(".dropdown.courses__sort--mobile").on("hide.bs.dropdown", function () {
+  $(".btn").html(
+    `<h3 class="courses__sort__label">Sort by</h3>
+    <i class="fa fa-angle-down" aria-hidden="true"></i>`
+  );
+  console.log("hide");
+});
 
-const searchForm = document.getElementById("searchForm");
-const coursesElement = document.querySelector(".courses__body");
-console.log(coursesElement);
-window.onscroll = async function (e) {
-  if (this.innerHeight + this.pageYOffset >= document.body.scrollHeight) {
-    // const courses = await courseModel.getPageByCategoryId(1, limit, offset); // Function tìm kiếm
-    // searchForm.action = '/courses/search?'
-    // console.log(searchForm.action);
-    // searchForm.submit();
-  }
-};
+$(".dropdown.courses__sort--mobile").on("show.bs.dropdown", function () {
+  $(".btn").html(
+    `<h3 class="courses__sort__label">Sort by</h3>
+    <i class="fa fa-angle-up" aria-hidden="true"></i>`
+  );
+  console.log("show");
+});
