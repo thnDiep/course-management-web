@@ -85,6 +85,13 @@ class CourseController {
     const course = await courseModel.getById(id);
 
     const isComplete = await courseModel.isComplete(id);
+    const teacher = await courseModel.teacherOfCourse(id);
+    const numberOfStudent = await userModel.getNumberStudentByCourse(id);
+    const updateTime = await courseModel.getUpdateTime(id);
+    const numberStudentOfTeacher = await userModel.getNumberStudentOfTeacher(id);
+    const NumberCourseOfTeacher = await userModel.getNumberCourseOfTeacher(id);
+    const listSimilarCourse = await courseModel.getSimilarCourse(id);
+    console.log(listSimilarCourse);
 
     if (course === null) {
       res.redirect("/courses");
@@ -92,10 +99,16 @@ class CourseController {
     await courseModel.updateView(id);
     const isCourse = true;
 
-    res.render("courseDetail", {
+    res.render("courses/courseDetail", {
       course,
       isCourse,
       isComplete,
+      teacher,
+      numberOfStudent,
+      updateTime,
+      numberStudentOfTeacher,
+      NumberCourseOfTeacher,
+      listSimilarCourse,
     });
   }
 
@@ -110,7 +123,7 @@ class CourseController {
     const isCourse = true;
 
     await courseModel.updateView(id);
-    res.render("enrollCourse", {
+    res.render("courses/enrollCourse", {
       isCourse,
       course,
     });

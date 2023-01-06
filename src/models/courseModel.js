@@ -1,4 +1,5 @@
 import { link } from "fs";
+import moment from "moment";
 import db from "../utils/db.js";
 import categoryModel from "./categoryModel.js";
 
@@ -143,14 +144,33 @@ export default {
     else return false;
   },
 
+  async teacherOfCourse(id){
+    const teacherID = await db.select("teacherID").from("course_of_teacher").where("courseID", id);
+    const teacher = await db("user").where("id", teacherID[0].teacherID);
+    return teacher[0];
+  },
+
+  async getUpdateTime(id){
+    const Time = await db.select("updateTime").from("course").where("id", id);
+    const updateTime = moment(Time[0].updateTime).format("YYYY-MM-DD");
+    return updateTime;
+  },
+
+  async getSimilarCourse(id) {
+    return await db
+      .select(id)
+      .table("course as C")
+      .groupBy("C.idCategory")
+  },
+
+
   async updateView(id) {
     let [getView] = await db.select("views").from("course").where("id", id);
-    console.log(getView.views);
+    // console.log(getView.views);
     await db("course").where("id", id).update("views", ++getView.views);
   },
-  //   async isComplete(id) {
-  //     const status = await db("course").where()
-  //   }
+
+  
   async getAllChapterOfCourse(id) {
     const chapter = await db("chapter").where("courseID", id);
     return chapter;

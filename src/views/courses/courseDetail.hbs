@@ -40,12 +40,18 @@
 
         <div class="course__teacher">
           Teacher
-          <a class="courseD__intro__link" href="/teacherProfile">Dollar Design
-            School</a>
+          <a class="courseD__intro__link" href="/teacherProfile">{{this.teacher.name}}</a>
         </div>
 
         <div class="course__review">
-          {{> barStar this.course.rated}}
+            <div class="course__review-score">
+              {{> barStar}}
+            </div>
+
+            <div class="course__review-number">({{numberRated}})</div>
+          </div>
+
+        <div class="courseDetail_course__review">
           {{!-- <div class="course__review-ratings">
             {{this.course.rated}}
             <i class="fa fa-star star" aria-hidden="true"></i>
@@ -54,15 +60,20 @@
             <i class="fa fa-star star"  aria-hidden="true"></i>
             <i class="fa fa-star-half star" aria-hidden="true"></i>
           </div> --}}
-          <a class="course__review-number" href="#">1336 ratings</a>
-          11396 students
+          <a class="courseDetail_course__review-number" href="#">1336 ratings</a>
+          {{this.numberOfStudent}} students
+          {{!-- {{#if (gt this.numberOfStudent '>' 1 )}}
+           students
+          {{else}}
+            student
+            {{/if}} --}}
         </div>
 
         <div class="courseD__intro__footer">
           <div class="mr-5">
             <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-            Last updated
-             {{!-- {{this.course.updateTime}}  --}}
+            Last updated: 
+              {{this.updateTime}} 
           </div>
           {{!-- <div>
             <i class="fa fa-globe" aria-hidden="true"></i>
@@ -197,9 +208,27 @@
     </div>
     <div class="right">
       <p>Similar course</p>
+      
       <div class="similar_courses">
         <dl>
-          <dt>
+          {{#each this.listSimilarCourse}}
+            <dt>
+              <a
+                href="/courses/detail?id={{id}}"
+                role="button"
+                class="similar_course-button"
+              >
+                <img
+                  src={{img}}
+                  class="similar_course-image"
+                  alt="Cinque Terre"
+                />
+                <p class="similar_course_name">{{name}}</p>
+                <p class="similar_course-price">{{format_number fee}}</p>
+              </a>
+            </dt>
+
+          {{!-- <dt>
             <a
               href="/courses/courseDetail"
               role="button"
@@ -261,23 +290,9 @@
               <p class="similar_course_name">Javascript for beginers</p>
               <p class="similar_course-price">đ 389.000</p>
             </a>
-          </dt>
-
-          <dt>
-            <a
-              href="/courses/courseDetail"
-              role="button"
-              class="similar_course-button"
-            >
-              <img
-                src="https://cafedev.vn/wp-content/uploads/2020/05/cafedevn_html.png"
-                class="similar_course-image"
-                alt="Cinque Terre"
-              />
-              <p class="similar_course_name">Javascript for beginers</p>
-              <p class="similar_course-price">đ 389.000</p>
-            </a>
-          </dt>
+          </dt> --}}
+          
+          {{/each}}
         </dl>
       </div>
     </div>
@@ -285,27 +300,29 @@
 
   <div class="teacher">
     <p class="teacher_title">Teacher</p>
-    <a class="teacher_review" href="/teacherProfile" role="button">
+    <div class="teacher_review" href="/teacherProfile" role="button">
       <img
-        src="/images/userPictures/photoCV.jpg"
+        src={{this.teacher.img}}
         class="teacher_avt  "
         alt="Picture of teacher"
       />
       <div class="teacher_information">
-        <p href="#" class="teacher_name-link">Jame Scott</p>
-        <p class="teacher_role">Associate Professor</p>
-        <p class="teacher_specialization">Department of Computer Science and
-          Engineering</p>
+        <p class="teacher_name">{{this.teacher.name}}</p>
+        <p>{{this.teacher.about}}</p>
+        <p class="teacher_contact">Contact: {{this.teacher.email}}</p>
+        {{!-- <p class="teacher_role">Associate Professor</p> --}}
+        {{!-- <p class="teacher_specialization">Department of Computer Science and
+          Engineering</p> --}}
         <div class="teacher_learner-courses">
           <i class="fa fa-user" aria-hidden="true"></i>
-          &nbsp;603 585 leaners
+          &nbsp;&nbsp;{{this.numberStudentOfTeacher}} leaners
         </div>
         <div class="teacher_learner-courses">
           <i class="fa fa-book" aria-hidden="true"></i>
-          &nbsp;&nbsp;12 courses
+          &nbsp;&nbsp;{{this.NumberCourseOfTeacher}} courses
         </div>
       </div>
-    </a>
+    </div>
   </div>
 
   <div class="feedback">

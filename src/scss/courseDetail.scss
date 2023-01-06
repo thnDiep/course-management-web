@@ -98,18 +98,18 @@
     margin: 0;
   }
 
-  .course__review {
+  .courseDetail_course__review {
     font-size: 1.4rem;
     font-weight: 600;
     margin: 1rem 0;
     margin-top: 1.5rem;
-    .course__review-ratings {
+    .courseDetail_course__review-ratings {
       color: $gold-color;
       .star {
         color: $primary-color;
       }
     }
-    .course__review-number {
+    .courseDetail_course__review-number {
       color: black;
       margin-right: 2rem;
     }
@@ -298,16 +298,20 @@
   }
   .teacher_review {
     display: flex;
-    margin-top: 2rem;
-    height: 29rem;
-    width: 50%;
+    // margin-top: 2rem;
+    // height: 29rem;
+    width: 85%;
     color: black;
     &:hover {
       text-decoration: none;
     }
     .teacher_avt {
-      margin-top: 2rem;
-      clip-path: circle(80px at 50% 30%);
+      margin-top: 3rem;
+      height: 20rem;
+      // clip-path: circle(80px at 50% 30%);
+    }
+    p{
+      font-size: 1.4rem;
     }
   }
   .teacher_information {
@@ -319,8 +323,13 @@
       font-size: 1.8rem;
     }
 
-    .teacher_name-link {
-      font-size: 2rem;
+    .teacher_contact{
+      font-size: 1.6rem;
+      text-decoration: underline;
+    }
+
+    .teacher_name {
+      font-size: 2.7rem;
       font-weight: bold;
       text-decoration: underline;
       color: blue;
@@ -346,7 +355,7 @@
   font-weight: bold;
 }
 .feedback {
-  margin-top: 7rem;
+  margin-top: 15rem;
   display: flex;
   background-color: #f5f7fa;
 }
