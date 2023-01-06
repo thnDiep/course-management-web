@@ -1,25 +1,41 @@
 {{#section "css"}}
   <link rel="stylesheet" href="/css/requireLogin.css" />
+  {{! <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> }}
 {{/section}}
 
-<div class="frame">
-  <img
-    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvKrjX0uY-NI9oIT9jtdm_bIr65RNFaoZcew&usqp=CAU"
-  />
-  <i class="fa fa-exclamation-triangle icon" aria-hidden="true"></i>
-  <div class="notification">
-    Join my course
-  </div>
-  <div class="convertToSignUp">
-    Please login to continue
-  </div>
-  <div class="frameBtn">
-    <button class="loginBtn">Login</button>
-    <button class="loginBtn">Back</button>
+<div class="requireLogin_frame">
+  <div>
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvKrjX0uY-NI9oIT9jtdm_bIr65RNFaoZcew&usqp=CAU"
+    />
   </div>
 
-  <div class="convertToSignUp">
-    <a href="./signUp.hbs">Sign up </a>
-    if you don't have any account
+  <div class="requireLogin_content_frame">
+    <div class="requireLogin_content">
+      {{! <i
+        class="fa fa-exclamation-triangle requireLogin_icon"
+        aria-hidden="true"
+      ></i> }}
+      <div class="requireLogin_notification">
+        Join my course
+      </div>
+      <div class="requireLogin_convertToLogin">
+        Please
+        <button class="requireLogin_loginBtn">
+          <a href="./login">log in</a></button>
+        to continue
+      </div>
+      {{! <div class="requireLogin_frameBtn">
+        <button class="requireLogin_loginBtn">Login</button>
+        <button class="requireLogin_loginBtn">Back</button>
+      </div> }}
+
+      <div class="requireLogin_convertToSignUp">
+        <a href="./signUp">Sign up </a>
+        if you don't have any account
+      </div>
+    </div>
+
   </div>
+
 </div>
