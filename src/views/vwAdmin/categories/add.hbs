@@ -1,53 +1,24 @@
 {{#section "js"}}
   <script id="templateForm" type="text/x-template">
-      <form
-      class="addCatForm admin__form admin__form-add"
-      method="post"
-      action="/admin/categories/add"
-      enctype="multipart/form-data"
-    >
-      <div class="addCatFormGroup admin__form-group">
-        <label class="admin__label" for="name">Name Category</label>
-        <input
-          type="text"
-          class="form-input"
-          name="name"
-          placeholder="Enter category name"
-        />
-        <span class="form-message"></span>
-      </div>
-
-      <div class="admin__form-group">
-        <label class="admin__label" for="parentID">Parent category</label>
-        <select
-          name="parentID"
-          class="form-input"
-        >
-          <option value="0">None</option>
-          {{#each this.parentCategories}}
-            <option value={{id}}>{{name}}</option>
-          {{/each}}
-        </select>
-      </div>
-
-      <div class="admin__form-group">
-        <label class="admin__label">Upload image</label>
-        <input
-          type="file"
-          name="image"
-          class="form-input"
-          data-preview-file-type="text"
-        />
-      </div>
-
-      <div class="admin__form-btn">
-        <button type="submit" class="btn btn--success">Add</button>
-      </div>
-    </form>
+    <form class="addCatForm admin__form admin__form-add" method="post"
+    action="/admin/categories/add" enctype="multipart/form-data" > <div
+    class="addCatFormGroup admin__form-group"> <label class="admin__label"
+    for="name">Name Category</label> <input type="text" class="form-input"
+    name="name" placeholder="Enter category name" /> <span
+    class="form-message"></span> </div> <div class="admin__form-group"> <label
+    class="admin__label" for="parentID">Parent category</label> <select
+    name="parentID" class="form-input" > <option value="0">None</option>
+    {{#each this.parentCategories}}
+      <option value={{id}}>{{name}}</option>
+    {{/each}}
+    </select> </div> <div class="admin__form-group"> <label
+    class="admin__label">Upload image</label> <input type="file" name="image"
+    class="form-input" data-preview-file-type="text" /> </div> <div
+    class="admin__form-btn"> <button type="submit" class="btn
+    btn--success">Add</button> </div> </form>
   </script>
   <script src="/js/admin/categories/add.js"></script>
 {{/section}}
-
 
 <div class="container mt-5">
   <div class="admin__header">
@@ -60,13 +31,13 @@
         id="numberAddInput"
         class="admin__form-number-input"
         value="1"
-        min="1" 
+        min="1"
         max="10"
       />
       <label class="admin__label ml-2">category</label>
     </div>
 
-    {{!-- <button id="addAllBtn" type="submit" class="btn btn--success">Add all</button> --}}
+    <button id="addAllBtn" class="btn btn--success">Add all</button>
   </div>
 
   <div id="addCatForms">
@@ -89,10 +60,7 @@
 
       <div class="admin__form-group">
         <label class="admin__label" for="parentID">Parent category</label>
-        <select
-          name="parentID"
-          class="form-input"
-        >
+        <select name="parentID" class="form-input">
           <option value="0">None</option>
           {{#each this.parentCategories}}
             <option value={{id}}>{{name}}</option>
@@ -116,6 +84,13 @@
     </form>
   </div>
 </div>
+
+<form
+  id="addAllForm"
+  action="/admin/categories/multi-add"
+  method="post"
+  enctype="multipart/form-data"
+></form>
 
 {{! The name of the category has already exist }}
 <div

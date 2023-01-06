@@ -13,7 +13,7 @@ router.get(
 );
 router.post("/categories/add", aCategoryController.store);
 router.post("/categories/addChild", aCategoryController.storeChild);
-// router.post("/categories/multiAdd", aCategoryController.multiStore);
+router.post("/categories/multi-add", aCategoryController.multiStore);
 
 // delete CATEGORY
 router.delete("/categories", aCategoryController.delete);
