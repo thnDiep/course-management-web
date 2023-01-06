@@ -1,5 +1,10 @@
 @import "../global/variable";
 
+// .category__bar {
+//   position: relative;
+//   display: block;
+// }
+
 .category__heading {
   margin: 0;
   padding: 0 0 16px 20px;
@@ -72,5 +77,45 @@
   &:hover {
     transform: translateX(2px);
     color: $link-color;
+  }
+}
+
+.category__bar--mobile__btn {
+  display: none;
+  padding: 0 12px;
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: $text-color;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+.category__nav-input:checked ~ .category__bar {
+  right: 0;
+}
+
+.category__nav-input:checked ~ .nav__overlay {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  z-index: 9;
+}
+
+@media screen and (max-width: 1200px) {
+  .category__bar {
+    position: fixed;
+    top: calc(#{$header-height} - 1px);
+    right: -100%;
+    padding-top: 15px;
+    background-color: $white-color;
+    width: 50%;
+    z-index: 10;
+    transition: right 0.5s ease-in;
+  }
+
+  .category__bar--mobile__btn {
+    display: block;
   }
 }

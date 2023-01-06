@@ -54,3 +54,34 @@
   .category-item__link:hover {
     transform: translateX(2px);
     color: #0000ee; }
+
+.category__bar--mobile__btn {
+  display: none;
+  padding: 0 12px;
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: #101010; }
+  .category__bar--mobile__btn:hover {
+    background-color: #ddd; }
+
+.category__nav-input:checked ~ .category__bar {
+  right: 0; }
+
+.category__nav-input:checked ~ .nav__overlay {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  z-index: 9; }
+
+@media screen and (max-width: 1200px) {
+  .category__bar {
+    position: fixed;
+    top: calc(65px - 1px);
+    right: -100%;
+    padding-top: 15px;
+    background-color: #fff;
+    width: 50%;
+    z-index: 10;
+    transition: right 0.5s ease-in; }
+  .category__bar--mobile__btn {
+    display: block; } }

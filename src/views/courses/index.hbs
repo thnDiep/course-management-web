@@ -1,23 +1,58 @@
 {{#section "css"}}
   <link rel="stylesheet" href="/css/courses.css" />
+  <link rel="stylesheet" href="css/partials/categoryBar.css" />
 {{/section}}
 
 <div class="row mb-5">
-  <div class="col-lg-2">
-    {{> categoryBar this.allCategories}}
+  <div class="col-xl-2">
+    <input type="checkbox" class='category__nav-input' name="" id="category__nav-input" hidden>
+    <label for="category__nav-input" class="nav__overlay">
+    </label>
+    <nav class="category__bar">
+      <h3 class="category__heading">
+        <i class="category__heading-icon fa fa-list" aria-hidden="true"></i>
+        <span>Categories</span>
+      </h3>
+
+      {{! add category-item--active class for actived li}}
+      <ul class="category-list category-list--l1">
+        {{#each this.allCategories}}
+          <li class="category-item category-item--l1 {{#if isActive}}category-item--active{{/if}}">
+            <a
+              href="{{#if isActive}}javascript:void(0){{else}}/courses?id={{id}}{{/if}}"
+              class="category-item__link category-item__link--l1"
+            >{{name}}</a>
+
+            <ul class="category-list category-list--l2">
+              {{#each childs}}
+                <li class="category-item category-item--l2 {{#if isActive}}category-item--active{{/if}}">
+                  <a
+                    href="{{#if isActive}}javascript:void(0){{else}}/courses?id={{id}}{{/if}}"
+                    class="category-item__link category-item__link--l2"
+                  >{{name}}</a>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+    </nav>
   </div>
 
-  <div class="col-lg-10">
+  <div class="col-12 col-xl-10">
     <div class="courses__header">
       <h1 class="courses__title">{{this.category.name}}</h1>
+      <label for="category__nav-input" class="category__bar--mobile__btn mr-3">
+        <i class="category__heading-icon fa fa-list" aria-hidden="true"></i>
+      </label>
     </div>
     
     {{#if this.isEmpty}}
       <h1>Don't have any courses</h1>
     {{else}}
-    <div class="row w-100 mt-4">
+    <div class="row mt-4 mr-1">
       {{#each this.courses}}
-        <div class="col-lg-3 col-sm-6">
+        <div class=" col-sm-6 col-lg-4 col-xl-3 col-12  ">
           <div class="card course {{#if bestSeller}}course--best-seller{{/if}}">
             <a href="/courses/detail?id={{id}}" class="course__link"></a>
 
