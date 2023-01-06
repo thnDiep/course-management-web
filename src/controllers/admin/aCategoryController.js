@@ -2,7 +2,6 @@ import multer from "multer";
 import categoryModel from "../../models/categoryModel.js";
 import courseModel from "../../models/courseModel.js";
 import fs from "fs";
-import { NULL } from "node-sass";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -90,11 +89,33 @@ class ACategoryController {
     res.redirect("back");
   }
 
-  // // POST /admin/categories/multiAdd
-  // multiStore(req, res) {
-  //   console.log(req.body);
-  //   res.redirect("back");
-  // }
+  // POST /admin/categories/multi-add
+  async multiStore(req, res) {
+    upload.array("image", 10)(req, res, async function (err) {
+      console.log(req.files);
+      console.log(req.body);
+
+      const length = req.body.name.length;
+      const categories = [];
+      for (let i = 0; i < length; i++) {
+        categories.push({
+          name: req.body.name[i],
+          parentID: req.body.parentID[i],
+          // image: req.files.filename[i],
+        });
+      }
+
+      for (const category of categories) {
+        await categoryModel.add(category);
+      }
+
+      if (err) {
+        console.error(err);
+      } else {
+        res.redirect("back");
+      }
+    });
+  }
 
   // DELETE /admin/categories?id=
   async delete(req, res) {
@@ -105,7 +126,7 @@ class ACategoryController {
       try {
         fs.unlinkSync(filePath);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     }
 
@@ -166,7 +187,7 @@ class ACategoryController {
   async update(req, res) {
     upload.single("image")(req, res, async function (err) {
       if (parseInt(req.body.parentID) === 0) {
-        req.body.parentID = "NULL";
+        req.body.parentID = null;
       }
 
       if (req.file !== undefined) {
