@@ -22,6 +22,7 @@ label {
   left: 0;
   background-color: #fff;
   padding: 3rem;
+  margin-top: 12rem;
 
   &__title {
     font-size: 3rem;
@@ -43,11 +44,12 @@ label {
   padding: 1rem;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  &Mini{
-    width:80%;
+
+  &Mini {
+    width: 80%;
     padding: 1rem;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -56,6 +58,16 @@ label {
 //   margin-bottom: 1rem;
 //   color: #d1d1d5;
 // }
+.profile-cover__img {
+  &--baner {
+    top: 0 !important;
+  }
+
+  .h3 {
+    top: 13.3rem !important;
+  }
+
+}
 
 .msg {
   &-1 {
@@ -141,25 +153,29 @@ label {
   }
 }
 
-.btn{
-&Input{
+.btn {
+  &Input {
     border: 0.2rem solid #d1d1d5 !important;
     padding: 1rem !important;
     color: #d8d7dc !important;
-  
+
+  }
 }
-}
-.subLabel{
+
+.subLabel {
   font-size: 1.5rem;
   color: red;
   margin-top: 1rem;
   font-weight: bold;
-  &-price{
+
+  &-price {
     font-size: 1.1rem;
     margin-top: 1.3rem;
   }
 }
-.required,.requiredImg{
+
+.required,
+.requiredImg {
   color: red;
   font-size: 1.6rem;
   font-weight: bold;

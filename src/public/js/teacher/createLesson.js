@@ -11,8 +11,8 @@ const check_Chapter = document.querySelectorAll(".chapter__title");
 check_Course.forEach((e) => {
   e.addEventListener("click", function () {
     e.classList.toggle("background-color")
-    e.children[1].children[1].classList.toggle("down-icon");
-    e.children[1].children[1].classList.toggle("up-icon");
+    e.children[1].children[0].classList.toggle("down-icon");
+    e.children[1].children[0].classList.toggle("up-icon");
   })
 })
 // check_Course.addEventListener("click", function () {
@@ -23,8 +23,11 @@ check_Course.forEach((e) => {
 check_Chapter.forEach((e) => {
   e.addEventListener("click", function () {
     // e.classList.toggle("background-color")
-    e.children[1].children[2].classList.toggle("down-icon");
-    e.children[1].children[2].classList.toggle("up-icon");
+    e.classList.toggle("background-color")
+    e.nextElementSibling.classList.toggle("background-color")
+
+    e.children[1].children[0].classList.toggle("down-icon");
+    e.children[1].children[0].classList.toggle("up-icon");
   })
 })
 // check_Chapter.addEventListener("click", function () {

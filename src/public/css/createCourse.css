@@ -13,7 +13,8 @@ label {
   top: 0;
   left: 0;
   background-color: #fff;
-  padding: 3rem; }
+  padding: 3rem;
+  margin-top: 12rem; }
   .formCreate__title {
     font-size: 3rem;
     font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
@@ -29,6 +30,12 @@ label {
     padding: 1rem;
     font-size: 1.5rem;
     margin-bottom: 0.5rem; }
+
+.profile-cover__img--baner {
+  top: 0 !important; }
+
+.profile-cover__img .h3 {
+  top: 13.3rem !important; }
 
 .msg-1 {
   font-size: 1.4rem;
@@ -102,7 +109,8 @@ label {
     font-size: 1.1rem;
     margin-top: 1.3rem; }
 
-.required, .requiredImg {
+.required,
+.requiredImg {
   color: red;
   font-size: 1.6rem;
   font-weight: bold;

@@ -12,9 +12,18 @@ router.get("/createLesson", (req, res) => {
     layout: "teacher",
   });
 });
+
+router.put("/course/chapter", tCourseController.editChapter);
+router.put("/course/lesson", tCourseController.editLesson);
+router.delete("/course/chapter", tCourseController.deleteChapter);
+router.delete("/course/lesson", tCourseController.deleteLesson);
+
+router.post("/course/addChapter", tCourseController.addChapter);
+router.post("/course/addLesson", tCourseController.addLesson);
+
 // const upload = multer({ dest: 'uploads/' })
 
 router.put("/profile/account", tProfileController.updateAccount)
 router.put("/profile/image", tProfileController.updateImage)
-router.post("/createCourse",tCourseController.create)
+router.post("/createCourse", tCourseController.create)
 export default router;

@@ -113,11 +113,21 @@ export default {
   add(course) {
     return db("course").insert(course);
   },
-
+  addChapter(chapter) {
+    return db("chapter").insert(chapter);
+  },
+  addLesson(lesson) {
+    return db("lesson").insert(lesson);
+  },
   delete(id) {
     return db("course").where("id", id).del();
   },
-
+  deleteChapter(id) {
+    return db("chapter").where("id", id).del();
+  },
+  deleteLesson(id) {
+    return db("lesson").where("id", id).del();
+  },
   async join(id) {
     const list = await db("lesson").where("id", id);
     if (list.length === 0) return null;
@@ -140,4 +150,11 @@ export default {
     const lesson = await db("Lesson").where("chapterID", id);
     return lesson;
   },
+  updateChapter(chapter) {
+    return db("chapter").where("id", chapter.id).update(chapter);
+  },
+  updateLesson(lesson) {
+    return db("lesson").where("id", lesson.id).update(lesson);
+  }
+
 };

@@ -1,8 +1,5 @@
 body {
-  background: linear-gradient(191deg,
-      rgba(255, 192, 67, 0) 5.02%,
-      rgba(255, 192, 67, 0.5) 94.1%);
-  background-size: cover;
+  background: rgba(255, 192, 67, 0.5)
 }
 
 label {
@@ -47,7 +44,7 @@ label {
 }
 
 .icon-lesson {
-  margin-right: 6rem;
+  // margin-right: 6rem;
 }
 
 .chapter__add {
@@ -101,7 +98,7 @@ label {
 }
 
 .chapter__content {
-  margin-left: 1rem;
+  // padding-left: 1rem;
   // border: 0.1rem solid #d1d1d5;
   font-size: 1.5rem;
 
@@ -110,7 +107,7 @@ label {
 
     i {
       font-size: 1.4rem;
-      margin: 0 1rem;
+      padding: 0 2rem;
     }
   }
 }
@@ -167,7 +164,7 @@ label {
   padding: 3rem;
   background-color: whitesmoke;
   border-radius: 1rem;
-  position: fixed !important;
+  // position: fixed !important;
   z-index: 10;
 
   .form-control {

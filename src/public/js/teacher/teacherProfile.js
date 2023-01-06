@@ -50,3 +50,20 @@ $('#file').change(function (e) {
     "/teacher/profile/image/" + "?_method=PUT";
   profileImageForm.submit();
 })
+const deleteChapterForm = document.forms["deleteChapterForm"];
+const deleteChapter = document.querySelector(".deleteChapter")
+deleteChapter?.addEventListener("click", function (e) {
+  id = deleteChapter.getAttribute("data-id");
+  deleteChapterForm.action =
+    "/teacher/course/chapter?id=" + id + "&_method=DELETE";
+  deleteChapterForm.submit();
+})
+
+const deleteLessonForm = document.forms["deleteLessonForm"];
+const deleteLesson = document.querySelector(".deleteLesson")
+deleteLesson.addEventListener("click", function (e) {
+  id = deleteLesson.getAttribute("data-id");
+  deleteLessonForm.action =
+    "/teacher/course/lesson?id=" + id + "&_method=DELETE";
+  deleteLessonForm.submit();
+})

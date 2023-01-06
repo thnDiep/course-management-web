@@ -17,12 +17,13 @@ class tProfileController {
       for (let i = 0; i < chapter.length; i++) {
         chapter[i].index = i + 1;
         chapter[i].lesson = await courseModel.getAllLessonOfChapter(chapter[i].id);
-        console.log(chapter[i].lesson.length)
         for (let j = 0; j < chapter[i].lesson.length; j++) {
           chapter[i].lesson[j].index = j + 1;
+          j === chapter[i].lesson.length - 1 && i === chapter.length - 1 ? chapter[i].lesson[j].checkLesson = true : chapter[i].lesson[j].checkLesson = false;
         }
+        i === chapter.length - 1 && chapter[i].lesson.length === 0 ? chapter[i].checkChapter = true : chapter[i].checkChapter = false;
+        i === chapter.length - 1 ? chapter[i].check = true : chapter[i].check = false;
       }
-      console.log(chapter)
       course[i].chapter = chapter;
       course[i].rated = (+Rated).toFixed(1);
       course[i].sumRate = (+sumRate).toFixed(0);
@@ -40,7 +41,6 @@ class tProfileController {
     });
   }
   async updateImage(req, res) {
-    console.log("-------------")
 
     const storage = multer.diskStorage({
       destination: function (req, file, cb) {
@@ -54,8 +54,6 @@ class tProfileController {
     upload.single('image')(req, res, async function (err) {
       await userModel.updateImage(3, "/images/teacherPictures/" + req.file.filename)
 
-      console.log("/images/teacherPictures/" + req.file.filename)
-      console.log("-------------")
       if (err)
         console.error(err)
       else
@@ -64,9 +62,6 @@ class tProfileController {
 
   }
   async updateAccount(req, res) {
-    console.log("-------------1111")
-    console.log(req.body.about)
-
     const [password] = await userModel.getInforTeacherByID(3)
     const ret = bcrypt.compareSync(req.body.passwordCurrent, password.password);
 
@@ -98,7 +93,6 @@ class tProfileController {
       const [teacher] = await userModel.getInforTeacherByID(3);
       teacher.name = req.body.name;
       teacher.email = req.body.email;
-      // console.log(course);
       teacher.courses = course.length;
       teacher.student = await userModel.getNumberStudentOfTeacher(3);
       teacher.countReview = await userModel.getNumberViewsOfTeacher(3);

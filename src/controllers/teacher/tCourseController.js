@@ -38,7 +38,6 @@ class TCourseController {
       let month = date.getMonth() + 1;
       let year = date.getFullYear();
       let currentDate = `${year}-${month}-${day}`;
-      console.log(req.body.fee); // "17-6-2022"
       const fee = req.body.fee.slice(1);
       let x = fee.split(",");
       let check = "";
@@ -78,6 +77,60 @@ class TCourseController {
       return res.redirect("back");
     });
   }
+  async editChapter(req, res) {
+    const chapter = {
+      id: req.query.id,
+      name: req.body.name,
+      courseID: req.body.courseID
+    }
+    await courseModel.updateChapter(chapter)
+    return res.redirect("back");
+  }
+  async editLesson(req, res) {
+    const split = req.body.videoID.split("/");
+    req.body.videoID = split[split.length - 1];
+    const lesson = {
+      id: req.query.id,
+      name: req.body.name,
+      chapterID: req.body.chapterID,
+      videoID: req.body.videoID,
+    }
+    await courseModel.updateLesson(lesson)
+    return res.redirect("back");
+  }
+
+  async deleteChapter(req, res) {
+    await courseModel.deleteChapter(req.query.id)
+    return res.redirect("back");
+  }
+  async deleteLesson(req, res) {
+    console.log("-------");
+    console.log(req.query.id);
+    await courseModel.deleteLesson(req.query.id)
+    return res.redirect("back");
+  }
+  async addChapter(req, res) {
+    const chapter = {
+      name: req.body.name,
+      courseID: req.body.courseID
+    }
+    await courseModel.addChapter(chapter)
+
+    return res.redirect("back");
+  }
+  async addLesson(req, res) {
+    console.log("-------");
+    const split = req.body.videoID.split("/");
+    req.body.videoID = split[split.length - 1];
+    const lesson = {
+      name: req.body.name,
+      chapterID: req.body.chapterID,
+      videoID: req.body.videoID,
+    }
+    await courseModel.addLesson(lesson)
+    return res.redirect("back");
+  }
+
 }
 
 export default new TCourseController();

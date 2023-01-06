@@ -65,10 +65,11 @@
               Course {{index}}: {{name}}
             </p>
             <div class="mr-4">
+              <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
+
               <a class="edit" href="http://"><i class="fas fa-pen"></i>
                 Edit</a>
 
-              <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
             </div>
           </div>
           {{! chapter in course }}
@@ -81,23 +82,27 @@
                   {{#each chapter}}
                   {{! title Chapter }}
                   <div class="chapter__title d-flex justify-content-between w-100" data-toggle="collapse"
-                    data-target="#chapter{{index}}" aria-expanded="false" aria-controls="collapseExample">
+                    data-target="#{{../index}}chapter{{index}}" aria-expanded="false" aria-controls="collapseExample">
                     <div>
                       <p><i class="fas fa-expand-arrows-alt"></i>
                         Chapter {{index}}: {{name}}</p>
                     </div>
                     <div class=" mr-4 ">
-                      <a class="edit" href="http://"><i class="fas fa-pen"></i>
-                        Edit</a>
-                      <a class="delete" href="http://">
-                        <i class="fas fa-trash"></i>
-                        Delete</a>
                       <i class="fas fa-angle-down chapter-icon{{index}} down-icon"></i>
+
+                      <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
+                        data-target="#course{{../index}}chapter{{index}}"><i class="fas fa-pen"></i> Edit
+                      </a>
+                      {{#if checkChapter}}
+                      <a class="deleteChapter" style="color: red" data-id={{id}}>
+                        <i class="fas fa-trash"></i>
+                      </a>
+                      {{/if}}
 
                     </div>
                   </div>
                   {{! lesson in chapter }}
-                  <div class="collapse" id="chapter{{index}}">
+                  <div class="collapse" id="{{../index}}chapter{{index}}">
                     {{#each lesson}}
 
                     <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
@@ -105,36 +110,45 @@
                         <p><i class="far fa-sticky-note"></i>
                           Lesson {{index}}: {{name}}</p>
                       </div>
-                      <div class="icon-lesson">
-                        <a class="edit" href="http://"><i class="fas fa-pen"></i>
-                          Edit</a>
-                        <a class="delete" href="http://">
-                          <i class="fas fa-trash"></i>
-                          Delete</a>
+                      <div class="icon-lesson mr-4">
+                        <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
+                          data-target="#course{{../../index}}chapter{{../index}}lesson{{index}}"><i
+                            class="fas fa-pen"></i> Edit
+                        </a>
+                        {{#if checkLesson}}
+
+                        <a class="deleteLesson" style="color: red" data-id={{id}}>
+                          <i class="fas fa-trash"></i> Delete
+                        </a>
+                        {{/if}}
                       </div>
                     </div>
                     {{/each}}
-
+                    {{#if check}}
                     <div class="row">
                       <div class="col-lg-12">
-                        <div class="btnAddLesson ml-4 d-flex justify-content-between">
-                          <p style="font-style: italic;">Add more Lesson for
-                            your Chapter.
-                          </p>
-                          <button class="addLessonBtn p-1">
+                        <div class="btnAddLesson ml-4 d-flex">
+                          <button class="addLessonBtn p-1" data-toggle="modal"
+                            data-target="#addLessonCourse{{../index}}Chapter{{index}}">
                             <i class="fas fa-plus mr-2"></i>Add new Lesson
                           </button>
+                          <p style="font-style: italic;padding-top:0.5rem">Add more Lesson for
+                            your Chapter.
+                          </p>
+
                         </div>
 
                       </div>
                     </div>
+                    {{/if}}
                   </div>
 
                   {{/each}}
 
                   <div class="chapter__add d-flex justify-content-between">
                     <p class="title">Add more Chapter for your Course.</p>
-                    <button class="btnAddChapter p-2" type="submit"><i class="fas fa-plus mr-1"></i>
+                    <button class="btnAddChapter p-2" data-toggle="modal" data-target="#addChapterCourse{{index}}"><i
+                        class="fas fa-plus mr-1"></i>
                       Add new Chapter</button>
 
                   </div>
@@ -153,6 +167,10 @@
   </div>
 </div>
 
+<form name="deleteChapterForm" method="post"></form>
+<form name="deleteLessonForm" method="post"></form>
+
+{{!-- edit image --}}
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -191,7 +209,7 @@
   </div>
 </div>
 
-
+{{!-- edit account --}}
 <div class="modal fade" id="modal_profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -320,3 +338,132 @@
     </div>
   </div>
 </div>
+
+{{!-- edit chapter --}}
+{{#each course}}
+{{!-- Add Chapter --}}
+<div class="modal fade" id="addChapterCourse{{index}}" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 2rem;">Edit Chapter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="Chapter col-lg-12" method="post" action="/teacher/course/addChapter">
+          <div class="form-group">
+            <label for="title-Chapter">Tiltle Of Chapter </label>
+            <input type="text" class="form-control p-4" id="title-Chapter" name="name" />
+            <input type="text" class="hidden" name="courseID" value="{{id}}" />
+          </div>
+          <button type="submit" class="btn btn-primary" style="border-color: black;"><i class="fa fa-plus"></i>
+            ADD</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{#each chapter}}
+{{!-- add Lesson --}}
+<div class="modal fade" id="addLessonCourse{{../index}}Chapter{{index}}" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 2rem;">Add Chapter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="Lesson col-lg-12" method="post" action="/teacher/course/addLesson">
+          <div class="form-group2">
+            <label for="title-Lesson">Tiltle Of Lesson</label>
+            <input type="text" class="form-control p-4" id="title-Lesson" name="name" />
+          </div>
+          <div class="form-group2">
+            <label for="video-Lesson">Video Of Lesson</label>
+            <input type="text" class="form-control p-4" id="video-Lesson" name="videoID"
+              placeholder="input link video" />
+            <input type="text" class="hidden" name="chapterID" value="{{id}}" />
+
+          </div>
+          <button type="submit" class="btn btn-primary mt-3" style="border-color: black;"><i class="fa fa-plus"></i>
+            Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="course{{../index}}chapter{{index}}" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 2rem;">Edit Chapter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="Chapter col-lg-12" method="post" action="/teacher/course/chapter?id={{id}}&_method=PUT">
+          <div class="form-group">
+            <label for="title-Chapter">Tiltle Of Chapter {{index}}</label>
+            <input type="text" class="form-control p-4" id="title-Chapter" name="name" value="{{name}}" />
+            <input type="text" class="hidden" name="courseID" value="{{../id}}" />
+          </div>
+          <button type="submit" class="btn btn-primary" style="border-color: black;"><i class="fa fa-plus"></i>
+            Edit</button>
+        </form>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+{{#each lesson}}
+<div class="modal fade" id="course{{../../index}}chapter{{../index}}lesson{{index}}" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="Lesson col-lg-12" method="post" action="/teacher/course/lesson?id={{id}}&_method=PUT">
+          <div class="form-group2">
+            <label for="title-Lesson">Tiltle Of Lesson {{index}}</label>
+            <input type="text" class="form-control p-4" id="title-Lesson" name="name" value="{{name}}" />
+          </div>
+          <div class="form-group2">
+            <label for="video-Lesson">Video Of Lesson</label>
+            <input type="text" class="form-control p-4" id="video-Lesson" name="videoID" placeholder="input link video"
+              value="https://youtu.be/{{videoID}}" />
+            {{!-- <input type="file" class="form-control p-4" id="video-Lesson" name="video-Lesson" /> --}}
+          </div>
+          <input type="text" class="hidden" name="chapterID" value="{{../id}}" />
+
+          <button type="submit" class="btn btn-primary mt-3" style="border-color: black;"><i class="fa fa-plus"></i>
+            Edit</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{/each}}
+{{/each}}
+{{/each}}
+
+{{!-- add chapter --}}
+
+
+{{!-- add Lesson --}}

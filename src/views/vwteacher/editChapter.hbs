@@ -1,0 +1,53 @@
+{{#section "css"}}
+<link rel="stylesheet" href="/css/profile.css" />
+<link rel="stylesheet" href="/css/teacherProfile.css" />
+<link rel="stylesheet" href="/css/createLesson.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/css/fileinput.min.css" />
+{{/section}}
+<div class="container">
+
+    <div class="col-lg-12">
+        <div class="profile-cover">
+            <div class="profile-cover__img">
+                <a class="profile-cover__img--baner" style="
+                  background-image: url('{{this.teacher.img}}');
+                " data-toggle="modal" data-target="#exampleModalCenter"></a>
+                {{!-- <img src="{{this.teacher.img}}" alt="" data-toggle="modal" data-target="#exampleModalCenter" />
+                --}}
+                <h3 class="h3">{{this.teacher.name}}</h3>
+            </div>
+            <div class="profile-cover__action bg--img" data-overlay="0.3">
+                <button class="btn btn-rounded btn-edit" data-toggle="modal" data-target="#modal_profile">
+                    <i class="fa fa-comment"></i>
+                    <span>Edit profile</span>
+                </button>
+                <a href="/teacher/createCourse" class="btn btn-rounded">
+                    <i role="img" class="fa fa-plus"></i>
+                    <span>Add new course</span>
+                </a>
+            </div>
+            <div class="profile-cover__info">
+                <ul class="nav">
+                    <li><strong>{{this.teacher.countReview}}</strong>Reviews</li>
+                    <li><strong>{{this.teacher.student}}</strong>Students</li>
+                    <li><strong>{{this.teacher.courses}}</strong>Courses</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="card-body p-4 text-black d-flex justify-content-center">
+            <div class="mb-5">
+                <form class="Chapter col-lg-10">
+                    <div class="form-group">
+                        <label for="title-Chapter">Tiltle Of Chapter</label>
+                        <input type="text" class="form-control p-4" id="title-Chapter" name="title-Chapter" />
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="border-color: black;"><i
+                            class="fa fa-plus"></i> Edit</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>

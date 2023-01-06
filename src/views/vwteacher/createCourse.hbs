@@ -1,41 +1,20 @@
 {{#section "css"}}
-  <link rel="stylesheet" href="/css/createCourse.css" />
-  <link rel="stylesheet" href="/css/teacherProfile.css" />
-  <link
-    href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput.min.css"
-    media="all"
-    rel="stylesheet"
-    type="text/css"
-  />
+<link rel="stylesheet" href="/css/createCourse.css" />
+<link rel="stylesheet" href="/css/teacherProfile.css" />
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput.min.css" media="all"
+  rel="stylesheet" type="text/css" />
 {{/section}}
 {{#section "js"}}
-  <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.tiny.cloud/1/t8nah5tn0cpxgd8k8raf0zzt0c4pxf3rl54o1ys4xfto7k0a/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/fileinput.min.js"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"
-  ></script>
-  <script src="/js/teacher/createCourse.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.tiny.cloud/1/t8nah5tn0cpxgd8k8raf0zzt0c4pxf3rl54o1ys4xfto7k0a/tinymce/6/tinymce.min.js"
+  referrerpolicy="origin"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/fileinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"></script>
+<script src="/js/teacher/createCourse.js"></script>
 
 {{/section}}
 
@@ -43,33 +22,22 @@
   <div class="col-lg-10">
     <div class="profile-cover">
       <div class="profile-cover__img">
-        <a
-          class="profile-cover__img--baner"
-          style="
+        <a class="profile-cover__img--baner" style="
                   background-image: url('{{this.teacher.img}}');
-                "
-          data-toggle="modal"
-          data-target="#exampleModalCenter"
-        ></a>
+                " data-toggle="modal" data-target="#exampleModalCenter"></a>
         <h3 class="h3">Henry Foster</h3>
       </div>
       <div class="profile-cover__action bg--img" data-overlay="0.3">
-        <button class="btn btn-rounded">
+        {{!-- <button class="btn btn-rounded">
           <i class="fa fa-comment"></i>
           <span>Edit profile</span>
         </button>
         <button class="btn btn-rounded">
           <i class="fa fa-plus"></i>
           <span>Add new course</span>
-        </button>
+        </button> --}}
       </div>
-      <div class="profile-cover__info">
-        <ul class="nav">
-          <li><strong>76,134</strong>Reviews</li>
-          <li><strong>925,657</strong>Students</li>
-          <li><strong>16</strong>Courses</li>
-        </ul>
-      </div>
+
 
     </div>
   </div>
@@ -79,24 +47,14 @@
         <p>Create Course Lesson</p>
       </div>
       <hr />
-      <form
-        action="/teacher/createCourse"
-        class="formCourse"
-        method="post"
-        enctype="multipart/form-data"
-      >
+      <form action="/teacher/createCourse" class="formCourse" method="post" enctype="multipart/form-data">
         <div class="formCreate__titleCourse">
           <div class="d-flex justify-content-between">
             <label>Course Title</label>
             <p class="required"></p>
           </div>
 
-          <input
-            type="text"
-            placeholder="Name of course"
-            class="inputField input"
-            name="name"
-          />
+          <input type="text" placeholder="Name of course" class="inputField input" name="name" />
 
         </div>
         <div class="formCreate__categoryLesson d-flex justify-content-between">
@@ -105,7 +63,7 @@
             <label for="">Main Category</label>
             <select name="nameParent" class="inputFieldMini">
               {{#each this.parentCourse}}
-                <option value="parentName">{{name}}</option>
+              <option value="parentName">{{name}}</option>
               {{/each}}
             </select>
 
@@ -116,7 +74,7 @@
             <label for="">Sub Category</label>
             <select name="nameChild" class="inputFieldMini">
               {{#each this.childCourse}}
-                <option>{{name}}</option>
+              <option>{{name}}</option>
               {{/each}}
             </select>
 
@@ -128,15 +86,8 @@
             </div>
 
             <div>
-              <input
-                type="text"
-                data-type="currency"
-                name="feeO"
-                id="currency-field"
-                value=""
-                placeholder="VNĐ1,000,000.00"
-                class="inputFieldMini"
-              />
+              <input type="text" data-type="currency" name="feeO" id="currency-field" value=""
+                placeholder="VNĐ1,000,000.00" class="inputFieldMini" />
             </div>
           </div>
           <div class="price">
@@ -146,15 +97,8 @@
 
             <div>
 
-              <input
-                type="text"
-                data-type="currency"
-                name="fee"
-                id="currency-field"
-                value=""
-                placeholder="VNĐ1,000,000.00"
-                class="inputFieldMini"
-              />
+              <input type="text" data-type="currency" name="fee" id="currency-field" value=""
+                placeholder="VNĐ1,000,000.00" class="inputFieldMini" />
             </div>
           </div>
         </div>
@@ -163,13 +107,7 @@
             <label for="fuSub">Update Picture</label>
             <p class="requiredImg"></p>
           </div>
-          <input
-            id="fuSub"
-            type="file"
-            class="inputField1 file"
-            name="image"
-            data-preview-file-type="text"
-          />
+          <input id="fuSub" type="file" class="inputField1 file" name="image" data-preview-file-type="text" />
         </div>
         <div class="formCreate__summaryCourse">
 
@@ -177,12 +115,7 @@
             <label>Summary</label>
             <p class="required"></p>
           </div>
-          <input
-            type="text"
-            placeholder="Summary of course"
-            class="inputField input"
-            name="tinyDescription"
-          />
+          <input type="text" placeholder="Summary of course" class="inputField input" name="tinyDescription" />
         </div>
 
         <div class="formCreate__descriptionCourse">
@@ -190,22 +123,15 @@
             <label>Description</label>
             <p class="required"></p>
           </div>
-          <textarea style="width: 100%;height:10rem; font-size:1.6rem"
-            {{!-- id="descriptionTextArea" --}}
-            placeholder="My Text Area"
-            name="fullDesciption"
-          ></textarea>
+          <textarea style="width: 100%;height:10rem; font-size:1.6rem" {{!-- id="descriptionTextArea" --}}
+            placeholder="My Text Area" name="fullDesciption"></textarea>
         </div>
         <div class="formCreate__benefitCourse">
           <div class="d-flex justify-content-between">
             <label>Benefit</label>
             <p class="required"></p>
           </div>
-          <textarea
-            id="textarea"
-            placeholder="My Text Area"
-            name="benefit"
-          >
+          <textarea id="textarea" placeholder="My Text Area" name="benefit">
           <table class="table" style="width: 100%;"><thead><tr><th colspan="2">What will you learn</th</tr></thead><tbody><tr><td><i class="fa fa-check icon" aria-hidden="true"></i></td><td><i class="fa fa-check icon" aria-hidden="true"></i></td></tr><tr><td><i class="fa fa-check icon" aria-hidden="true"></i></td><td><i class="fa fa-check icon" aria-hidden="true"></i></td></tr><tr><td><i class="fa fa-check icon" aria-hidden="true"></i></td><td><i class="fa fa-check icon" aria-hidden="true"></i></td></tr><tr><td><i class="fa fa-check icon" aria-hidden="true"></i></td><td><i class="fa fa-check icon" aria-hidden="true"></i></td></tr></tbody></table>
           
           </textarea>
@@ -215,12 +141,9 @@
             <label>Required</label>
             <p class="required"></p>
           </div>
-          <textarea style="width: 100%;height:10rem; font-size:1.5rem"
-            id="requiredTextArea"
-            placeholder="My Text Area"
-            name="required"
-          ></textarea>
-          
+          <textarea style="width: 100%;height:10rem; font-size:1.5rem" id="requiredTextArea" placeholder="My Text Area"
+            name="required"></textarea>
+
         </div>
         <div class="formCreate__videoLesson mt-3">
 
@@ -228,18 +151,11 @@
             <label>Upload Video Documents</label>
             <p class="required"></p>
           </div>
-          <input
-            type="text"
-            placeholder="URL Video Document"
-            class="inputField input"
-            name="videoID"
-          />
+          <input type="text" placeholder="URL Video Document" class="inputField input" name="videoID" />
 
         </div>
         <div class="formUpload__btn">
-          <button class="btnCreate btn btn--submit" type="submit"><i
-              class="fas fa-check"
-            ></i>
+          <button class="btnCreate btn btn--submit" type="submit"><i class="fas fa-check"></i>
             Create Course</button>
         </div>
       </form>
