@@ -1,5 +1,6 @@
 import profileUserModel from "../../models/profileUserModel.js";
 import AccountController from "../AccountController.js";
+import bcrypt from "bcryptjs";
 import courseModel from "../../models/courseModel.js";
 class uProfileController {
   // GET categories list
@@ -8,8 +9,6 @@ class uProfileController {
     const lesson_learned = await profileUserModel.getLessonLearning(
       res.locals.lcAuthUser.id
     );
-    // console.log("BARRRRRRRRRRRRRRRRRRRRRR")
-    // console.log(lesson_learned)
     const lesson_love = await profileUserModel.getWatchList(
       res.locals.lcAuthUser.id
     );
@@ -46,6 +45,48 @@ class uProfileController {
     res.render("watchList", {
       lesson_love,
     });
+  }
+  async updateProfile(req, res) {
+    const student = profileUserModel.getById(res.locals.lcAuthUser.id);
+    console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+    console.log(res.locals.lcAuthUser);
+
+    const ret = bcrypt.compareSync(
+      req.body.password,
+      res.locals.lcAuthUser.password
+    );
+    console.log(ret);
+
+    if (ret) {
+      const salt = bcrypt.genSaltSync(10);
+      const hash = bcrypt.hashSync(req.body.newPassword, salt);
+      const user = {
+        id: res.locals.lcAuthUser.id,
+        name: req.body.name,
+        email: req.body.email,
+        password: hash,
+      };
+      await profileUserModel.updateUser(user);
+      return res.redirect("/login");
+    } else {
+      const [profiles] = await profileUserModel.getById(
+        res.locals.lcAuthUser.id
+      );
+      const lesson_learned = await profileUserModel.getLessonLearning(
+        res.locals.lcAuthUser.id
+      );
+      const lesson_love = await profileUserModel.getWatchList(
+        res.locals.lcAuthUser.id
+      );
+      const isProfile = true;
+      return res.render("profile", {
+        err_message_password: "Password is not correct...",
+        isProfile,
+        profiles,
+        lesson_learned,
+        lesson_love,
+      });
+    }
   }
 }
 export default new uProfileController();

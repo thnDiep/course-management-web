@@ -25,12 +25,11 @@ export default {
     );
     return list[0];
   },
-  // async updateProfile (id){
-  //   const list = await db.raw(
-  //     `UPDATE user
-  //     SET name = "haha122"
-  //     WHERE email= "vylee2905@gmail.com=?`, id
-  //   );
-  //   return list[0];
-  // },
+  updateUser(user) {
+    return db("user").where({ id: user.id }).update({
+      name: user.name,
+      email: user.email,
+      password: user.password,
+    });
+  },
 };

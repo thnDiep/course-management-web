@@ -1,10 +1,11 @@
 const icon = document.querySelectorAll(".Edit");
-const editInfor = document.querySelectorAll(".btnEdit");
+const editInfor = document.querySelector(".btnEdit");
 
 const nameInput = document.querySelector(".inputName");
 const emailInput = document.querySelector(".inputEmail");
 const passInput = document.querySelector(".inputPass");
 const newPassInput = document.querySelector(".rowNewPass");
+const input = document.querySelectorAll(".input");
 
 const pageEdit = document.querySelector("#edit");
 const overlay1 = document.querySelector(".check");
@@ -23,6 +24,21 @@ icon[2].addEventListener("click", function (e) {
   newPassInput.classList.remove("hidden");
   passInput.value = "";
   edit(passInput, e);
+});
+console.log(input);
+editInfor.addEventListener("click", function (e) {
+  input.forEach((element) => {
+    console.log(element.value.length);
+    if (element.value.length === 0) {
+      element.classList.toggle("border");
+      e.preventDefault();
+    }
+  });
+});
+input.forEach((element) => {
+  element.oninput = (e) => {
+    element.classList.remove("border");
+  };
 });
 
 function update() {}
