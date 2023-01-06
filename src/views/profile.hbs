@@ -27,7 +27,7 @@
             <p class="text-muted mb-4 positionCard1">Ho Chi Minh City, Viet Nam</p>
           </div>
         </div>
-        <form method="post">
+        <form method="post" action="/profile">
           <div class="card mb-4 mb-lg-0">
           <div class="card-body">
             <div class="row">
@@ -35,7 +35,7 @@
                 <p class="mb-0 titleCard2">User name</p>
               </div>
               <div class="col-sm-6">
-                <input type="text" value={{lcAuthUser.name}} class="inputName input" name="username" disabled >
+                <input type="text" value={{lcAuthUser.name}} class="inputName input" name="name" disabled >
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit"></i>
@@ -59,7 +59,7 @@
                 <p class="mb-0 titleCard2">Current Password</p>
               </div>
               <div class="col-sm-6">
-                <input type="password" value={{lcAuthUser.password}} class="inputPass input mt-3" name="currentPassword" disabled >
+                <input type="password" value="xxxxxx" class="inputPass input mt-3 {{#if err_message_password}}border{{/if}}" name="password" disabled >
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit Edit-currpass mt-4"></i>
@@ -79,7 +79,7 @@
             </div> 
             <div class="row">
               <div class="col-sm-12 d-flex justify-content-center">
-                <button type="submit" class="btn btn--submit btnEdit" onclick="update()">EDIT</button>
+                <button type="submit" class="btn btn--submit btnEdit">EDIT</button>
               </div>
             </div>
           </div>
