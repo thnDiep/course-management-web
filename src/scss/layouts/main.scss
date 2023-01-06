@@ -53,14 +53,9 @@ html {
   }
 
   .content {
-    margin-left: 0rem;
-    margin-top: 11.5rem;
-  }
-}
-
-@media only screen and (max-width: 31.25em) {
-  .content {
-    margin-top: 8rem;
+    margin-left: 3rem;
+    // margin-top: 11.5rem;
+    margin-top: 0rem;
     flex-direction: column;
   }
 }

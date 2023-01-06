@@ -25,10 +25,10 @@
 
   .courses__sort {
     flex: 1;
-    background-color: rgba($color: $black-color, $alpha: 0.05);
-    padding: 12px;
     display: flex;
     align-items: center;
+    background-color: rgba($color: $black-color, $alpha: 0.05);
+    padding: 12px;
     border-radius: 4px;
 
     .courses__sort__label {
@@ -57,12 +57,10 @@
     }
   }
 }
-
 .courses__footer {
   text-align: center;
   margin: 10px 0 50px 0;
 }
-
 .courses__pagination {
   display: inline-block;
 
@@ -85,6 +83,37 @@
     &:hover:not(.active) {
       background-color: $hover-color;
     }
+  }
+}
+
+.courses__sort--mobile {
+  display: none;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 4px;
+
+  .dropdown-toggle::after {
+    content: "";
+    display: none;
+  }
+  .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dropdown-menu {
+    font-size: 1.8rem;
+    width: 100%;
+    z-index: 10;
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px,
+      rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px,
+      rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+  }
+
+  .dropdown-item {
+    padding: 8px 12px;
   }
 }
 
@@ -117,6 +146,10 @@
 
   .card-body {
     padding-bottom: 0;
+  }
+
+  &.course--mobile {
+    display: none;
   }
 }
 
@@ -397,5 +430,26 @@
   text-transform: uppercase;
   .btn {
     height: 50px;
+  }
+}
+
+@media only screen and (max-width: 31.25em) {
+  .courses__body {
+    margin-right: 2rem;
+  }
+  .courses__tool {
+    display: none;
+  }
+  .course__category-link {
+    font-size: 1.6rem;
+  }
+  .course.course--horizontal {
+    display: none;
+  }
+  .course.course--mobile {
+    display: block;
+  }
+  .courses__sort--mobile {
+    display: block;
   }
 }
