@@ -134,6 +134,15 @@ export default {
     return list[0];
   },
 
+  
+  async isComplete(id) {
+    const status = await db.select("status").from("course").where("id", id);
+    if (status[0].status === 1) {
+      return true;
+    }
+    else return false;
+  },
+
   async updateView(id) {
     let [getView] = await db.select("views").from("course").where("id", id);
     console.log(getView.views);

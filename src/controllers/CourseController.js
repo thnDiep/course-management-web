@@ -84,6 +84,8 @@ class CourseController {
     const id = parseInt(req.query.id) || 1;
     const course = await courseModel.getById(id);
 
+    const isComplete = await courseModel.isComplete(id);
+
     if (course === null) {
       res.redirect("/courses");
     }
@@ -93,6 +95,7 @@ class CourseController {
     res.render("courseDetail", {
       course,
       isCourse,
+      isComplete,
     });
   }
 
