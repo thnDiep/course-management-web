@@ -48,7 +48,7 @@
 
         <div class="course__teacher">
           Teacher
-          <a class="courseD__intro__link" href="/teacherProfile">{{this.teacher.name}}</a>
+          <a class="courseD__intro__link" >{{this.teacher.name}}</a>
         </div>
 
         <div class="course__review">
@@ -423,6 +423,10 @@
     </div>
   </div>
 
+  
+  {{#if lcAuthTeacher}}
+  <div style="font-size: 2rem;background-color:#f8d752" class="btn w-100"><a href="/teacher/editCourse/?id={{course.id}}">EDIT</a></div>
+  {{else}}
   <div class="feedback">
     <div class="col-md-3">
       <div class="feedback-left">
@@ -469,7 +473,6 @@
         </div>
       </div>
     </div>
-
     <div id="feedback" class="col-md-8">
       {{#each this.allFeedback}}
         <div  class="feedback-right">
@@ -564,4 +567,5 @@
       >See more</a>
     </div>
   </div>
+  {{/if}}
 </div>

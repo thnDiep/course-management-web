@@ -1,12 +1,15 @@
 import express from "express";
 import tCourseController from "../controllers/teacher/tCourseController.js";
 import tProfileController from "../controllers/teacher/tProfileController.js";
-
+import courseController from "../controllers/CourseController.js";
 const router = express.Router();
 
 router.get("/profile", tProfileController.index);
 
 router.get("/createCourse", tCourseController.index);
+router.get("/editCourse", tCourseController.editCourse);
+router.put("/editCourse", tCourseController.edit);
+router.get("/course/detail", courseController.detail);
 
 router.put("/course/chapter", tCourseController.editChapter);
 router.put("/course/lesson", tCourseController.editLesson);
