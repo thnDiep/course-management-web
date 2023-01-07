@@ -169,7 +169,7 @@
 
       <div class="description">
         <p class="description-title">Course content</p>
-        <ul class="course_content_table">
+        {{!-- <ul class="course_content_table">
 
           <li class="chapter">
             <a class="chapter-name" href="#">Javascript for beginers</a>
@@ -211,7 +211,97 @@
             <a class="chapter-name" href="#">Chapter 7: Working with Arrays</a>
             <p class="chapter-information">8 lessons. 50 minutes</p>
           </li>
-        </ul>
+        </ul> --}}
+        <div class="formCourse">
+          <div>
+            {{#each courseContent}}
+            {{! title Course }}
+            <div class="formCourse_title d-flex justify-content-between" data-toggle="collapse"
+              data-target="#course{{index}}" aria-expanded="false">
+              <p><i class="fas fa-book-open"></i>
+                Course {{index}}: {{name}}
+              </p>
+              <div class="mr-4">
+                <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
+
+                {{!-- <a class="edit" href="http://"><i class="fas fa-pen"></i>
+                  Edit</a> --}}
+
+              </div>
+            </div>
+            {{! chapter in course }}
+            <div class="collapse" id="course{{index}}">
+
+              <div class="chapter__content">
+
+                <div class="row">
+                  <div class="col-lg-12">
+                    {{#each chapter}}
+                    {{! title Chapter }}
+                    <div class="chapter__title d-flex justify-content-between w-100" data-toggle="collapse"
+                      data-target="#{{../index}}chapter{{index}}" aria-expanded="false" aria-controls="collapseExample">
+                      <div>
+                        <p><i class="fas fa-expand-arrows-alt"></i>
+                          Chapter {{index}}: {{name}}</p>
+                      </div>
+                      <div class=" mr-4 ">
+                        <i class="fas fa-angle-down chapter-icon{{index}} down-icon"></i>
+
+                        {{!-- <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
+                          data-target="#course{{../index}}chapter{{index}}"><i class="fas fa-pen"></i> Edit
+                        </a> --}}
+
+                      </div>
+                    </div>
+                    {{! lesson in chapter }}
+                    <div class="collapse" id="{{../index}}chapter{{index}}">
+                      {{#each lesson}}
+
+                      <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                        <div>
+                          <p><i class="far fa-sticky-note"></i>
+                            Lesson {{index}}: {{name}}</p>
+                        </div>
+                        <div class="icon-lesson mr-4">
+                          {{!-- <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
+                            data-target="#course{{../../index}}chapter{{../index}}lesson{{index}}"><i
+                              class="fas fa-pen"></i> Edit
+                          </a> --}}
+                          {{#if checkLesson}}
+                          {{/if}}
+                        </div>
+                      </div>
+                      {{/each}}
+                      {{!-- {{#if check}}
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="btnAddLesson ml-4 d-flex">
+                            <button class="addLessonBtn p-1" data-toggle="modal"
+                              data-target="#addLessonCourse{{../index}}Chapter{{index}}">
+                              <i class="fas fa-plus mr-2"></i>Add new Lesson
+                            </button>
+                            <p style="font-style: italic;padding-top:0.5rem">Add more Lesson for
+                              your Chapter.
+                            </p>
+
+                          </div>
+
+                        </div>
+                      </div>
+                      {{/if}} --}}
+                    </div>
+
+                    {{/each}}
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            {{/each}}
+
+          </div>
+      </div>
       </div>
     </div>
     <div class="right">
@@ -380,14 +470,32 @@
       </div>
     </div>
 
-    <div class="col-md-8">
-      <div class="feedback-right">
+    <div id="feedback" class="col-md-8">
+      {{#each this.allFeedback}}
+        <div  class="feedback-right">
+          <div class="feedback-right-star">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half" aria-hidden="true"></i>
+          </div>
+          <div class="display_flex">
+            <p>By. John Matt {{studentID}} &nbsp;</p>
+            <p>&nbsp; {{time}}</p>
+          </div>
+          <p>{{feedback}}</p>
+        </div>
+      {{/each}}
+      
+
+      {{!-- <div class="feedback-right">
         <div class="feedback-right-star">
           <i class="fa fa-star" aria-hidden="true"></i>
           <i class="fa fa-star" aria-hidden="true"></i>
           <i class="fa fa-star" aria-hidden="true"></i>
           <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star-half" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
         </div>
         <div class="display_flex">
           <p>By. John Matt &nbsp;</p>
@@ -447,28 +555,11 @@
         <p>Excellent course for anyone who is familiar with html, css, but
           cannot organise the subject in their mind. This course excellently
           teaches you the what is what, and how to do things in the correct way</p>
-      </div>
-
-      <div class="feedback-right">
-        <div class="feedback-right-star">
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-        </div>
-        <div class="display_flex">
-          <p>By. John Matt &nbsp;</p>
-          <p>&nbsp; March 3. 2022</p>
-        </div>
-        <p>Excellent course for anyone who is familiar with html, css, but
-          cannot organise the subject in their mind. This course excellently
-          teaches you the what is what, and how to do things in the correct way</p>
-      </div>
+      </div> --}}
       <a
         id="see_more_feedbacks-btn"
         class="btn btn--border see_more_feedbacks-btn"
-        href="#"
+        href="#feedback"
         role="button"
       >See more</a>
     </div>

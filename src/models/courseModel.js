@@ -157,10 +157,57 @@ export default {
   },
 
   async getSimilarCourse(id) {
+    // lay categoryID
     const idCategory = await db.select("idCategory").from("course").where("id", id);
-    let listSimilarCourse = await db("course").where("idCategory", idCategory[0].idCategory);
-    
-    return listSimilarCourse;
+    //lay categoryId parent
+    const idCategoryParent = await db.select("parentID").from("category").where("id", idCategory[0].idCategory);
+    const result = [];
+    if (idCategoryParent[0].parentID !== null) {
+      // lay list cac category child
+      const childCategory = await db.select("id").from("category").where("parentID", idCategoryParent[0].parentID);
+      // voi moi child category ==> add course vao list
+      const listSimilarCourse = [];
+      
+      const course = await db("course").where("idCategory", idCategoryParent[0].parentID);
+      listSimilarCourse.push(course);
+
+      for (const child of childCategory) {
+        const course = await db("course").where("idCategory", child.id);
+        listSimilarCourse.push(course);
+      }
+      
+      for (const child of listSimilarCourse) {
+        for (const similarCoure of child) {
+          if (similarCoure.id != id) {
+            result.push(similarCoure);
+          }
+        }
+      }   
+    }
+    else{
+      const childCategory = await db.select("id").from("category").where("parentID", idCategory[0].idCategory);
+      // voi moi child category ==> add course vao list
+      const listSimilarCourse = [];
+      
+      const course = await db("course").where("idCategory", idCategory[0].idCategory);
+      listSimilarCourse.push(course);
+
+      for (const child of childCategory) {
+        const course = await db("course").where("idCategory", child.id);
+        listSimilarCourse.push(course);
+      }
+
+
+      
+      for (const child of listSimilarCourse) {
+        for (const similarCoure of child) {
+          if (similarCoure.id != id) {
+            result.push(similarCoure);
+          }
+        }
+      }   
+    }
+    return result;
   },
 
 
@@ -168,17 +215,39 @@ export default {
   async percent_star(id, numberStar) {
     const rateAll = await db.raw(`Select count(id) as sumRate from rating where rating.courseID = ${id}`);
     const sumRate = rateAll[0][0].sumRate;
-    console.log(sumRate);
 
-    
     const rate_star = await db.raw(`Select count(id) as sumRate from rating where rating.courseID = ${id} and rating.star = ${numberStar}`);
     const sumRate_star = rate_star[0][0].sumRate;
-    console.log(sumRate_star);
 
     const percentStar = sumRate_star*1.0/sumRate;
-
-    console.log(percentStar);
     return percentStar * 100;
+  },
+
+  // id course
+  async getAllFeedback(id){
+    const allFeedback = await db("rating").where("courseID", id);
+    return allFeedback;
+  },
+
+  // async getTimeOfFeedback(id){
+  //   const time = await db
+  //     .from("rating")
+  //     .select("time")
+  //     .where("courseID", id);
+  //     // .andWhere("studentID",idStudent);
+
+  //   const feedbackTime = this.convertFormatDate(time);
+  //   return feedbackTime;
+  // },
+
+  async convertFormatDate(date){
+    return moment(date).format("YYYY-MM-DD");
+  },
+
+  // id student
+  async infoStudentOfFeedback(idStd){
+    const infoStudent = await db("user").where("id", idStd);
+    return infoStudent;
   },
 
   async updateView(id) {
