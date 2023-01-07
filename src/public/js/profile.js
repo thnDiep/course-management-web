@@ -21,13 +21,14 @@ icon[1].addEventListener("click", function (e) {
   edit(emailInput, e);
 });
 icon[2].addEventListener("click", function (e) {
-  newPassInput.classList.remove("hidden");
   passInput.value = "";
   edit(passInput, e);
 });
 console.log(input);
 editInfor.addEventListener("click", function (e) {
+  console.log(input[0].value);
   input.forEach((element) => {
+    element.removeAttribute("disabled");
     console.log(element.value.length);
     if (element.value.length === 0) {
       element.classList.toggle("border");
