@@ -769,7 +769,9 @@ body {
     // text-decoration: none;
     transition: all 0.4s ease;
   }
-
+  .btn-love {
+    background: white;
+  }
   .btn:hover,
   .btn:focus {
     background: var(--gradient) !important;
@@ -778,6 +780,10 @@ body {
     border: 3px solid #fff !important;
     box-shadow: #222 1px 0 10px;
     text-decoration: none;
+  }
+  .active {
+    color: #f84c5e;
+    background-color: #f5f7f8;
   }
 }
 .btnLove {

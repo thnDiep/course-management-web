@@ -51,11 +51,9 @@ class AccountController {
         text: "and easy to do anywhere, even with Node.js",
         html: `<div><strong>OTP:${OTP}</strong></div>`,
       };
-      console.log("hello2232");
 
       let emailSend = await sendMail(message);
       // res.status(200).send(emailSend);
-      console.log("hello");
       return res.render("otp", {
         layout: false,
       });
@@ -151,6 +149,14 @@ class AccountController {
         input4: req.body.input4,
       });
     }
+  }
+  async logout(req, res) {
+    res.locals.lcAuthUser = null;
+    req.session.isAuthenticated = false;
+    console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+    console.log("PROOOOOOOOOOOO" + res.locals.lcAuthUser);
+    console.log(req.session.isAuthenticated);
+    return res.redirect("/login");
   }
 }
 

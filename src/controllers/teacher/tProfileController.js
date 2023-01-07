@@ -3,6 +3,7 @@ import userModel from "../../models/userModel.js";
 import accountModel from "../../models/accountModel.js";
 import multer from "multer";
 import bcrypt from "bcryptjs";
+import { searchOptions } from "../CourseController.js";
 
 class tProfileController {
   async index(req, res) {
@@ -43,6 +44,7 @@ class tProfileController {
     teacher.student = await userModel.getNumberStudentOfTeacher(3);
     teacher.countReview = await userModel.getNumberViewsOfTeacher(3);
     res.render("vwteacher/teacherProfile", {
+      searchOptions,
       course,
       teacher,
       layout: "teacher",
@@ -103,6 +105,7 @@ class tProfileController {
       teacher.student = await userModel.getNumberStudentOfTeacher(3);
       teacher.countReview = await userModel.getNumberViewsOfTeacher(3);
       return res.render("vwteacher/teacherProfile", {
+        searchOptions,
         course,
         teacher,
         layout: "teacher",

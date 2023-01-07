@@ -164,6 +164,7 @@ export default {
       .select("teacherID")
       .from("course_of_teacher")
       .where("courseID", id);
+    if (teacherID === null) return null;
     const teacher = await db("user").where("id", teacherID[0].teacherID);
     return teacher[0];
   },

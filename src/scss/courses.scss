@@ -102,7 +102,10 @@
     align-items: center;
     justify-content: space-between;
   }
-
+  .active {
+    color: #f84c5e !important;
+    background: white !important;
+  }
   .dropdown-menu {
     font-size: 1.8rem;
     width: 100%;

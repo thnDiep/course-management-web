@@ -23,6 +23,7 @@
     {{#each this.searchOptions}}
       <option class="search__option-item" value="{{value}}" {{#if isSelected}}selected{{/if}}>{{name}}</option>
     {{/each}}
+    {{! <option class="search__option-item" value="1">Search by Category</option> }}
   </select>
   {{! </div> }}
 
@@ -42,22 +43,16 @@
 
 <nav class="user-nav">
   {{#if lcIsAuthenticated}}
-    {{!-- <div class="user-nav__icon-box">
-    <svg class="user-nav__icon">
-      <use xlink:href="img/sprite.svg#icon-bookmark"></use>
-    </svg>
-    <span class="user-nav__notification">7</span>
-  </div>
   <div class="user-nav__icon-box">
     <svg class="user-nav__icon">
       <use xlink:href="img/sprite.svg#icon-chat"></use>
     </svg>
-    <span class="user-nav__notification">13</span>
+    <span class="user-nav__notification"></span>
   </div>
   <div class="user-nav__user">
-    <img src="{{lcAuthUser}}" alt="User photo" class="user-nav__user-photo" />
-    <span class="user-nav__user-name">{{lcAuthUser.name}}</span>
-  </div>  --}}
+    <img src="{{lcAuthUser.img}}" alt="User photo" class="user-nav__user-photo" />
+    <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}</span>
+  </div>  
   {{else}}
     <div class="user-nav__acc">
       <a class="btn btn--border user-nav__link" href="/login" role="button">
