@@ -56,6 +56,12 @@ class CourseController {
     const id = parseInt(req.query.id) || 1;
     const course = await courseModel.getById(id);
 
+    const avgRated = await courseModel.getAvgRate(course.id);
+    course.rated = (+avgRated).toFixed(1);
+
+    const numberRated = await courseModel.getCountFeedback(course.id);
+    course.numberRated = (+numberRated).toFixed(0);
+
     const isComplete = await courseModel.isComplete(id);
     const teacher = await courseModel.teacherOfCourse(id);
     const numberOfStudent = await userModel.getNumberStudentByCourse(id);
@@ -65,13 +71,59 @@ class CourseController {
     );
     const NumberCourseOfTeacher = await userModel.getNumberCourseOfTeacher(id);
     const listSimilarCourse = await courseModel.getSimilarCourse(id);
-    console.log(listSimilarCourse);
+    const listSimilar = [];
+    for (const course of listSimilarCourse) {
+      if (course.id !== id){
+        listSimilar.push(course);
+      }
+    }
+
+    const numberRating = await courseModel.getCountFeedback(id);
+
+    const percent_5star = await courseModel.percent_star(id, 5);
+    const percent_4star = await courseModel.percent_star(id, 4);
+    const percent_3star = await courseModel.percent_star(id, 3);
+    const percent_2star = await courseModel.percent_star(id, 2);
+    const percent_1star = await courseModel.percent_star(id, 1);
+
+    const percentInfo = [{
+      index: 5,
+      percent: percent_5star
+    },
+    {
+      index: 4,
+      percent: percent_4star
+    },
+    {
+      index: 3,
+      percent: percent_3star
+    },
+    {
+      index: 2,
+      percent: percent_2star
+    },
+    {
+      index: 1,
+      percent: percent_1star
+    }]
+    // console.log(listSimilarCourse);
 
     if (course === null) {
       res.redirect("/courses");
     }
     await courseModel.updateView(id);
     const isCourse = true;
+
+    const category = await categoryModel.getById(course.idCategory);
+    const linkCategories = [];
+    if (category.parentID !== null) {
+      const parentCategory = await categoryModel.getById(category.parentID);
+      linkCategories.push(parentCategory);
+    }
+    linkCategories.push(category);
+    // console.log(linkCategories);
+
+    // course.linkCategories = linkCategories;
 
     res.render("courses/courseDetail", {
       course,
@@ -82,7 +134,10 @@ class CourseController {
       updateTime,
       numberStudentOfTeacher,
       NumberCourseOfTeacher,
-      listSimilarCourse,
+      listSimilar,
+      linkCategories,
+      numberRating,
+      percentInfo,
     });
   }
 

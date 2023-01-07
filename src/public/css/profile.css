@@ -96,7 +96,7 @@ img {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   width: 37rem;
-  height: 43.1rem; }
+  height: 50.1rem; }
 
 .slides > div:target {
   transform: scale(0.8); }

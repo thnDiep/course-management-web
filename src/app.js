@@ -45,6 +45,9 @@ app.engine(
       format_number(value) {
         return numeral(value).format("0,0");
       },
+      format_float_number(value) {
+        return numeral(value).format("0.0");
+      },
       add(value1, value2) {
         return value1 + value2;
       },

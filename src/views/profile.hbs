@@ -35,7 +35,11 @@
                 <p class="mb-0 titleCard2">User name</p>
               </div>
               <div class="col-sm-6">
-                <input type="text" value={{lcAuthUser.name}} class="inputName input" name="name" disabled >
+                {{#if err_message_name}}
+                  <input type="text" value={{lcAuthUser.name}} class="inputName input" name="name" style="border: 1px solid red;" disabled >
+                {{else}}
+                  <input type="text" value={{lcAuthUser.name}} class="inputName input" name="name" disabled >
+                {{/if}}
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit"></i>
@@ -47,7 +51,12 @@
                 <p class="mb-0 titleCard2">Email</p>
               </div>
               <div class="col-sm-6">
-                <input type="email" value={{lcAuthUser.email}} class="inputEmail input" name="email" disabled >
+               {{#if err_message_email}}
+                  <input type="email" value={{lcAuthUser.email}} class="inputEmail input" name="email" style="border: 1px solid red;" disabled >
+                {{err_message_email}}
+                {{else}}
+                  <input type="email" value={{lcAuthUser.email}} class="inputEmail input" name="email" disabled >
+                {{/if}} 
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit"></i>
@@ -66,12 +75,12 @@
               </div>
             </div> 
             <hr />
-            <div class="row rowNewPass hidden">
+            <div class="row rowNewPass">
               <div class="col-sm-4">
                 <p class="mb-0 titleCard2">New Password</p>
               </div>
               <div class="col-sm-6">
-                <input type="password" value="" class="inputNewPass input" style="border: 1px solid #333333;" name="newPassword" >
+                <input type="password" value="" class="inputNewPass input" name="newPassword" >
               </div>
               <div class="col-sm-2">
                 <i class="far fa-edit Edit"></i>

@@ -175,7 +175,35 @@ export default {
   },
 
   async getSimilarCourse(id) {
-    return await db.select(id).table("course as C").groupBy("C.idCategory");
+    const idCategory = await db
+      .select("idCategory")
+      .from("course")
+      .where("id", id);
+    let listSimilarCourse = await db("course").where(
+      "idCategory",
+      idCategory[0].idCategory
+    );
+
+    return listSimilarCourse;
+  },
+
+  async percent_star(id, numberStar) {
+    const rateAll = await db.raw(
+      `Select count(id) as sumRate from rating where rating.courseID = ${id}`
+    );
+    const sumRate = rateAll[0][0].sumRate;
+    console.log(sumRate);
+
+    const rate_star = await db.raw(
+      `Select count(id) as sumRate from rating where rating.courseID = ${id} and rating.star = ${numberStar}`
+    );
+    const sumRate_star = rate_star[0][0].sumRate;
+    console.log(sumRate_star);
+
+    const percentStar = (sumRate_star * 1.0) / sumRate;
+
+    console.log(percentStar);
+    return percentStar * 100;
   },
 
   async updateView(id) {
