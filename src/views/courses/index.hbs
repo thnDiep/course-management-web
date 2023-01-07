@@ -52,8 +52,8 @@
     {{else}}
     <div class="row mt-4 mr-1">
       {{#each this.courses}}
-        <div class=" col-sm-6 col-lg-4 col-xl-3 col-12  ">
-          <div class="card course {{#if bestSeller}}course--best-seller{{/if}}">
+        <div class=" col-sm-6 col-lg-4 col-xl-3 col-12">
+          <div class="card course {{#if bestSeller}}course--best-seller{{/if}} {{#if new}}course--new{{/if}} {{#if trending}}course--trending{{/if}}">
             <a href="/courses/detail?id={{id}}" class="course__link"></a>
 
             <div class="course__img" style="background-image: url({{image}})">
@@ -122,6 +122,9 @@
               >
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
               </a>
+               <div class="course__new-label">
+                <span>news</span>
+              </div>
             </div>
           </div>
         </div>

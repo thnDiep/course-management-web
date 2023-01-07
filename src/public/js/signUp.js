@@ -118,6 +118,4 @@ name.oninput = () => {
 };
 btn.addEventListener("click", submit);
 
-// document.getElementById("resend").innerHTML = `Don't receive the code?
-//   <span class="font-weight-bold text-color cursor" onclick="timer(60)">Resend
-//   </span>`;
+

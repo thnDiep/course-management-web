@@ -21,6 +21,10 @@ export default {
     return list[0];
   },
 
+  async getDirectByCategoryId(id) {
+    return await db("course").where("idCategory", id);
+  },
+
   async getByCategoryId(id) {
     const category = await categoryModel.getById(id);
     const ids = [id];
@@ -66,6 +70,7 @@ export default {
       .offset(offset);
   },
 
+  // Lượt bán nhiều nhất
   async getBestSellerList(limit) {
     return await db
       .select("id")
@@ -73,6 +78,18 @@ export default {
       .groupBy("C.id")
       .join("course_of_student as buyed", "buyed.courseID", "C.id")
       .count("buyed.courseID as count")
+      .orderBy("count", "DESC")
+      .limit(limit);
+  },
+
+  // Lượt đánh giá nhiều nhất
+  async getTrendingList(limit) {
+    return await db
+      .select("C.id")
+      .table("course as C")
+      .groupBy("C.id")
+      .join("rating as R", "R.courseID", "C.id")
+      .count("R.id as count")
       .orderBy("count", "DESC")
       .limit(limit);
   },
@@ -158,7 +175,35 @@ export default {
   },
 
   async getSimilarCourse(id) {
-    return await db.select(id).table("course as C").groupBy("C.idCategory");
+    const idCategory = await db
+      .select("idCategory")
+      .from("course")
+      .where("id", id);
+    let listSimilarCourse = await db("course").where(
+      "idCategory",
+      idCategory[0].idCategory
+    );
+
+    return listSimilarCourse;
+  },
+
+  async percent_star(id, numberStar) {
+    const rateAll = await db.raw(
+      `Select count(id) as sumRate from rating where rating.courseID = ${id}`
+    );
+    const sumRate = rateAll[0][0].sumRate;
+    console.log(sumRate);
+
+    const rate_star = await db.raw(
+      `Select count(id) as sumRate from rating where rating.courseID = ${id} and rating.star = ${numberStar}`
+    );
+    const sumRate_star = rate_star[0][0].sumRate;
+    console.log(sumRate_star);
+
+    const percentStar = (sumRate_star * 1.0) / sumRate;
+
+    console.log(percentStar);
+    return percentStar * 100;
   },
 
   async updateView(id) {
@@ -186,5 +231,26 @@ export default {
       updateTime: updateTime,
       status: status,
     });
+  },
+
+  // SEARCH COURSE
+  async searchByName(name) {
+    const result = await db.raw(
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}");`
+    );
+    return result[0];
+  },
+
+  async searchByCategory(category) {
+    const categories = await db.raw(
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${category}");`
+    );
+
+    let results = [];
+    for (const category of categories[0]) {
+      const courses = await this.getDirectByCategoryId(category.id);
+      results.push(...courses);
+    }
+    return results;
   },
 };

@@ -6,14 +6,22 @@
 
 <div class="courseD__container">
   <div class="courseD__intro">
-    <ul class="course__category">
+    {{!-- <ul class="course__category">
       <li class="course__category-item">
         <a href="#" class="courseD__intro__link">Web Development</a>
       </li>
       <li class="course__category-item">
         <a href="#" class="courseD__intro__link">Javascript</a>
       </li>
-    </ul>
+    </ul> --}}
+
+    <ul class="course__category">
+    {{#each linkCategories}}
+      <li class="course__category-item">
+        <a href="/courses?id={{id}}" class="courseD__intro__category">{{name}}</a>
+      </li>
+    {{/each}}
+  </ul>
 
     <div class="d-flex align-items-center">
       <div class="courseD__intro__avt" style="background-image: url({{this.course.image}})"></div>
@@ -45,10 +53,10 @@
 
         <div class="course__review">
             <div class="course__review-score">
-              {{> barStar}}
+              {{> barStar this.course}}
             </div>
 
-            <div class="course__review-number">({{numberRated}})</div>
+            <div class="course__review-number">({{this.course.numberRated}})</div>
           </div>
 
         <div class="courseDetail_course__review">
@@ -60,7 +68,7 @@
             <i class="fa fa-star star"  aria-hidden="true"></i>
             <i class="fa fa-star-half star" aria-hidden="true"></i>
           </div> --}}
-          <a class="courseDetail_course__review-number" href="#">1336 ratings</a>
+          <a class="courseDetail_course__review-number" href="#">{{this.numberRating}} ratings</a>
           {{this.numberOfStudent}} students
           {{!-- {{#if (gt this.numberOfStudent '>' 1 )}}
            students
@@ -209,9 +217,9 @@
     <div class="right">
       <p>Similar course</p>
       
-      <div class="similar_courses">
+      <div>
         <dl>
-          {{#each this.listSimilarCourse}}
+          {{#each this.listSimilar}}
             <dt>
               <a
                 href="/courses/detail?id={{id}}"
@@ -219,7 +227,7 @@
                 class="similar_course-button"
               >
                 <img
-                  src={{img}}
+                  src={{image}}
                   class="similar_course-image"
                   alt="Cinque Terre"
                 />
@@ -330,7 +338,15 @@
       <div class="feedback-left">
         <p class="feedback-title">Feedbacks</p>
         <div class="feedback_review">
-          <p class="feedback_review-numberRate">{{this.course.rated}}</p>
+          <div class="course__review">
+            <div class="course__review-score">
+              {{> barStar this.course}}
+            </div>
+
+            <div class="course__review-number">({{this.course.numberRated}})</div>
+          </div>
+
+          {{!-- <p class="feedback_review-numberRate">{{this.course.rated}}</p>
           <div>
             <div class="feedback_review-ratings">
               <i class="fa fa-star" aria-hidden="true"></i>
@@ -340,73 +356,25 @@
               <i class="fa fa-star-half" aria-hidden="true"></i>
             </div>
             <a class="feedback_review-ratings_links" href="#">1336 ratings</a>
-          </div>
+          </div> --}}
         </div>
 
         <div class="reviews-bar-graph">
           <ul>
+            {{#each this.percentInfo}}
             <li class="reviews-bar-graph-per_line">
-              <p class="col-sm-2 numberStar">5 stars</p>
-              <div class="col-sm-7">
-                <div class="line">
-                  <div class="straightLine">
-                  </div>
-                  <div class="lineStar" style="width: 81%">
+              <p class="col-sm-2 numberStar">{{index}} stars</p>
+                <div class="col-sm-7">
+                  <div class="line">
+                    <div class="straightLine">
+                    </div>
+                    <div class="lineStar" style="width: {{percent}}%">
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-1">81,37%</div>
-            </li>
-
-            <li class="reviews-bar-graph-per_line">
-              <p class="col-sm-2 numberStar">4 stars</p>
-              <div class="col-sm-7">
-                <div class="line">
-                  <div class="straightLine">
-                  </div>
-                  <div class="lineStar" style="width: 15%;">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-1">15.47%</div>
-            </li>
-
-            <li class="reviews-bar-graph-per_line">
-              <p class="col-sm-2 numberStar">3 stars</p>
-              <div class="col-sm-7">
-                <div class="line">
-                  <div class="straightLine">
-                  </div>
-                  <div class="lineStar" style="width: 1.7%;">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-1">1,7%</div>
-            </li>
-            <li class="reviews-bar-graph-per_line">
-              <p class="col-sm-2 numberStar">2 stars</p>
-              <div class="col-sm-7">
-                <div class="line">
-                  <div class="straightLine">
-                  </div>
-                  <div class="lineStar" style="width: 0.5%;">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-1">0,5%</div>
-            </li>
-            <li class="reviews-bar-graph-per_line">
-              <p class="col-sm-2 numberStar">1 stars</p>
-              <div class="col-sm-7">
-                <div class="line">
-                  <div class="straightLine">
-                  </div>
-                  <div class="lineStar" style="width: 0.94%;">
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-1">0,94%</div>
-            </li>
+              <div class="col-sm-1">{{format_float_number percent}}%</div>
+            </li>       
+            {{/each}}
           </ul>
         </div>
       </div>
