@@ -22,9 +22,7 @@ class uProfileController {
     });
   }
   async getLearning(req, res) {
-    const learning = await profileUserModel.getLessonLearning(
-      res.locals.lcAuthUser.id
-    );
+    const learning = await profileUserModel.getLessonLearning(29);
     for (let i = 0; i < learning.length; i++) {
       const rated = await courseModel.getAvgRate(learning[i].id);
       learning[i].rated = (+rated).toFixed(1);
@@ -36,9 +34,7 @@ class uProfileController {
     });
   }
   async getWatchList(req, res) {
-    const lesson_love = await profileUserModel.getWatchList(
-      res.locals.lcAuthUser.id
-    );
+    const lesson_love = await profileUserModel.getWatchList(29);
     for (let i = 0; i < lesson_love.length; i++) {
       const rated = await courseModel.getAvgRate(lesson_love[i].id);
       lesson_love[i].rated = (+rated).toFixed(1);

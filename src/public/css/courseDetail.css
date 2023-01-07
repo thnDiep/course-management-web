@@ -8,6 +8,8 @@
   padding-top: 5px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(/images/background/tech.jpg);
   position: relative; }
+  .courseD__intro .path {
+    margin-right: 2rem; }
   .courseD__intro .courseD__intro__info {
     margin-left: 5rem;
     padding-top: 2rem; }
@@ -83,12 +85,18 @@
     .courseD__intro .courseDetail_course__review .courseDetail_course__review-number {
       color: black;
       margin-right: 2rem; }
+  .courseD__intro .courseD__intro__category {
+    color: #917b00;
+    margin-right: 1rem;
+    margin-left: 1rem; }
+    .courseD__intro .courseD__intro__category:hover {
+      color: blue; }
   .courseD__intro .courseD__intro__link {
     color: #917b00;
     margin-right: 1rem;
     margin-left: 1rem; }
     .courseD__intro .courseD__intro__link:hover {
-      color: #cdc1fd; }
+      color: blue; }
   .courseD__intro .courseD__intro__footer {
     display: flex;
     align-items: center;
@@ -179,11 +187,13 @@
     .courseD__content .right .similar_course-button {
       display: flex;
       margin-bottom: 4rem;
+      margin-left: 5rem;
       margin-top: 2rem;
       border-color: white;
       background-color: white;
       border-bottom: 1px solid black;
-      width: 100%;
+      width: 86%;
+      height: 8rem;
       box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px; }
       .courseD__content .right .similar_course-button:hover {
         cursor: pointer;
@@ -195,8 +205,8 @@
         padding-left: 2rem;
         color: black; }
       .courseD__content .right .similar_course-button .similar_course-image {
-        height: 6rem;
-        width: 10rem; }
+        height: 8rem;
+        width: 11rem; }
       .courseD__content .right .similar_course-button .similar_course-price {
         font-size: 1.8rem;
         color: red;
