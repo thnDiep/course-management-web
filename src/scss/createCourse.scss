@@ -1,9 +1,11 @@
 @import "./global/variable";
 
 body {
-  background: linear-gradient(191deg,
-      rgba(255, 192, 67, 0) 5.02%,
-      rgba(255, 192, 67, 0.5) 94.1%);
+  background: linear-gradient(
+    191deg,
+    rgba(255, 192, 67, 0) 5.02%,
+    rgba(255, 192, 67, 0.5) 94.1%
+  );
   background-size: cover;
 }
 
@@ -46,7 +48,7 @@ label {
   margin-bottom: 0.5rem;
 
   &Mini {
-    width: 80%;
+    width: 100%;
     padding: 1rem;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
@@ -66,7 +68,6 @@ label {
   .h3 {
     top: 13.3rem !important;
   }
-
 }
 
 .msg {
@@ -158,7 +159,6 @@ label {
     border: 0.2rem solid #d1d1d5 !important;
     padding: 1rem !important;
     color: #d8d7dc !important;
-
   }
 }
 

@@ -48,7 +48,14 @@ router.post(
   "/listAccount/deleteByCheckbox",
   aAccountController.deleteByCheckbox
 );
+// edit Account
+router.put("/listAccount/edit", aAccountController.edit);
+
 // add Teacher
 router.post("/listAccount/add", aAccountController.addTeacher);
+
+// acitve
+router.put("/account/active1", aAccountController.active1);
+router.put("/account/active0", aAccountController.active0);
 
 export default router;

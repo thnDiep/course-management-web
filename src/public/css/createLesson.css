@@ -34,8 +34,8 @@ label {
   font-weight: bold; }
   .chapter__add p {
     font-size: 1.5rem;
-    font-weight: 100;
-    align-self: center;
+    font-weight: 600;
+    align-self: flex-end;
     font-style: italic; }
 
 .btnAddLesson p {
@@ -70,15 +70,17 @@ label {
       font-size: 1.4rem;
       padding: 0 2rem; }
 
-.btnAddChapter {
+.btnAddChapter,
+.btnComplete {
   background-color: #00d8b2;
   border-color: transparent;
   color: #fff;
   border-radius: 0.5rem;
   font-size: 1.7rem;
-  margin-top: 1rem;
   margin-right: 1rem; }
-  .btnAddChapter:hover, .btnAddChapter:active {
+  .btnAddChapter:hover, .btnAddChapter:active,
+  .btnComplete:hover,
+  .btnComplete:active {
     cursor: pointer; }
 
 .addLessonBtn {
