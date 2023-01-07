@@ -42,12 +42,14 @@
         <span>profile</span>
       </a>
     </li>
+    {{#if lcIsAuthenticated}}
     <li class="side-nav__item">
       <a href="/logout" class="side-nav__link">
        <i class="fas fa-sign-out-alt side-nav__icon"></i>
         <span>Log out</span>
       </a>
     </li>
+    {{/if}}
   </ul>
   <button class="sidebar1__search">
     <i class="fas fa-search sidebar1__icon"></i>
@@ -106,6 +108,7 @@
         <span class="hidden">profile</span>
       </a>
     </li>
+    {{#if lcIsAuthenticated}}
     <li class="side-nav__item ">
       <a href="/logout" class="side-nav__link">
       <i class="fas fa-sign-out-alt side-nav__icon" data-toggle="tooltip" data-html="true" data-placement="right"
@@ -113,6 +116,7 @@
         <span class="hidden">Log Out</span>
       </a>
     </li>
+    {{/if}}
   </ul>
   <button class="sidebar1__search">
     <i class="fas fa-search sidebar1__icon"></i>
