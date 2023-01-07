@@ -11,8 +11,8 @@ const storage = multer.diskStorage({
     cb(null, filename[0] + Date.now() + "." + filename[1]);
   },
 });
-
 const upload = multer({ storage });
+
 class TCourseController {
   async index(req, res) {
     const parentCourse = await categoryModel.getParent();
@@ -24,13 +24,15 @@ class TCourseController {
     });
   }
   async create(req, res) {
-    upload.single("image")(req, res, async function (err) {
-      let category;
-      if (req.body.nameChild !== "null") {
-        category = await categoryModel.getByName(req.body.nameChild);
-      } else {
-        category = await categoryModel.getByName(req.body.nameParent);
-      }
+    upload.fields([
+      { name: "image", maxCount: 1 },
+      { name: "videoID", maxCount: 1 },
+    ])(req, res, async function (err) {
+      // Xác định category cho khóa học
+      console.log("-----------");
+      console.log(req.body.nameCategory);
+      console.log(req.body.nameParent);
+      const category = await categoryModel.getByName(req.body.nameCategory);
 
       const date = new Date();
 
@@ -38,6 +40,8 @@ class TCourseController {
       let month = date.getMonth() + 1;
       let year = date.getFullYear();
       let currentDate = `${year}-${month}-${day}`;
+
+      // Format số tiền đã nhập lưu db
       const fee = req.body.fee.slice(1);
       let x = fee.split(",");
       let check = "";
@@ -53,9 +57,9 @@ class TCourseController {
         check1 += y[i];
       }
       req.body.feeO = check1;
-
-      if (req.file !== undefined) {
-        req.body.image = "/images/course/" + req.file.filename;
+      if (req.files !== undefined) {
+        req.body.image = "/images/course/" + req.files["image"][0].filename;
+        req.body.videoID = "/images/course/" + req.files["videoID"][0].filename;
       }
       const course = {
         name: req.body.name,
@@ -104,8 +108,7 @@ class TCourseController {
     return res.redirect("back");
   }
   async deleteLesson(req, res) {
-    console.log("-------");
-    console.log(req.query.id);
+    console.log(req.body.nameChild);
     await courseModel.deleteLesson(req.query.id);
     return res.redirect("back");
   }
@@ -119,7 +122,7 @@ class TCourseController {
     return res.redirect("back");
   }
   async addLesson(req, res) {
-    console.log("-------");
+    console.log(req.body.nameChild);
     const split = req.body.videoID.split("/");
     req.body.videoID = split[split.length - 1];
     const lesson = {
