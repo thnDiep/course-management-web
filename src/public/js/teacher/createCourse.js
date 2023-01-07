@@ -164,7 +164,7 @@ btnSubmit.addEventListener("click", function (e) {
   }
   input1.forEach((element) => {
     if (element.value.length == 0) {
-      element.style.border = "2px solid red";
+      element.style.border = "2px solid red ";
       e.preventDefault();
     }
   });

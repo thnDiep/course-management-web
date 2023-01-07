@@ -50,8 +50,8 @@
     <span class="user-nav__notification"></span>
   </div>
   <div class="user-nav__user">
-    <img src="{{lcAuthUser.img}}" alt="User photo" class="user-nav__user-photo" />
-    <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}</span>
+    <img src="{{lcAuthUser.img}}{{lcAuthTeacher.img}}" alt="User photo" class="user-nav__user-photo" />
+    <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}{{lcAuthTeacher.name}}</span>
   </div>  
   {{else}}
     <div class="user-nav__acc">
