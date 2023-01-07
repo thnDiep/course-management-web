@@ -20,11 +20,13 @@ tinymce.init({
   ],
 });
 $("#fuMain").fileinput({
+  dropZoneEnabled: true,
   maxFileCount: 1,
   theme: "fa5",
   allowedFileExtensions: ["mp4", "avi", "ogg", "wmv", "flv"],
-  showRemove: false,
+  showRemove: true,
   showUpload: false,
+  fileActionSettings: { showZoom: false },
 });
 $("#fuSub").fileinput({
   dropZoneEnabled: false,
@@ -45,7 +47,6 @@ const btnSubmit = document.querySelector(".btnCreate");
 const formatter = new Intl.NumberFormat("vi-VN", {
   style: "currency",
   currency: "VND",
-  //minimumFractionDigits: 2
 });
 
 $("input[data-type='currency']").on({
@@ -56,13 +57,14 @@ $("input[data-type='currency']").on({
     formatCurrency($(this), "blur");
   },
 });
+// Thêm , cho số tiền
 function formatNumber(n) {
   // format number 1000000 to 1,234,567
   return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function formatCurrency(input, blur) {
-  // appends $ to value, validates decimal side
+  // appends đ to value, validates decimal side
   // and puts cursor back in right position.
 
   // get input value

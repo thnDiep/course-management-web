@@ -61,24 +61,17 @@
           <div class="topics">
 
             <label for="">Main Category</label>
-            <select name="nameParent" class="inputFieldMini">
+            <select name="nameCategory" class="inputFieldMini">
               {{#each this.parentCourse}}
-              <option value="parentName">{{name}}</option>
+              <option >{{name}}</option>
               {{/each}}
-            </select>
-
-          </div>
-
-          <div class="subTopics">
-
-            <label for="">Sub Category</label>
-            <select name="nameChild" class="inputFieldMini">
               {{#each this.childCourse}}
-              <option>{{name}}</option>
+              <option >{{name}}</option>
               {{/each}}
             </select>
 
           </div>
+
 
           <div class="price">
             <div class="d-flex justify-content-between">
@@ -123,8 +116,7 @@
             <label>Description</label>
             <p class="required"></p>
           </div>
-          <textarea style="width: 100%;height:10rem; font-size:1.6rem" {{!-- id="descriptionTextArea" --}}
-            placeholder="My Text Area" name="fullDesciption"></textarea>
+            <textarea id="textarea" placeholder="Description about your course..." name="fullDesciption">  </textarea>
         </div>
         <div class="formCreate__benefitCourse">
           <div class="d-flex justify-content-between">
@@ -141,9 +133,7 @@
             <label>Required</label>
             <p class="required"></p>
           </div>
-          <textarea style="width: 100%;height:10rem; font-size:1.5rem" id="requiredTextArea" placeholder="My Text Area"
-            name="required"></textarea>
-
+            <textarea id="textarea" placeholder="Requirements of your course..." name="required" id="requiredTextArea">  </textarea>
         </div>
         <div class="formCreate__videoLesson mt-3">
 
@@ -151,8 +141,16 @@
             <label>Upload Video Documents</label>
             <p class="required"></p>
           </div>
-          <input type="text" placeholder="URL Video Document" class="inputField input" name="videoID" />
-
+          <input
+            id="fuMain"
+            type="file"
+            class="file"
+            data-preview-file-type="text"
+            type="text"
+            placeholder="URL Video Document"
+            class="inputField input"
+            name="videoID"
+          />
         </div>
         <div class="formUpload__btn">
           <button class="btnCreate btn btn--submit" type="submit"><i class="fas fa-check"></i>

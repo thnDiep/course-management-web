@@ -1,5 +1,5 @@
 body {
-  background: rgba(255, 192, 67, 0.5)
+  background: rgba(255, 192, 67, 0.5);
 }
 
 label {
@@ -19,7 +19,6 @@ label {
 }
 
 .formCourse_title {
-
   &:hover {
     cursor: pointer;
     background-color: #d8d7dc;
@@ -57,9 +56,9 @@ label {
   p {
     // margin-top: 1rem;
     font-size: 1.5rem;
-    font-weight: 100;
+    font-weight: 600;
     // justify-self: center;
-    align-self: center;
+    align-self: flex-end;
     font-style: italic;
   }
 }
@@ -112,14 +111,14 @@ label {
   }
 }
 
-.btnAddChapter {
+.btnAddChapter,
+.btnComplete {
   background-color: #00d8b2;
   border-color: transparent;
   color: #fff;
   border-radius: 0.5rem;
   font-size: 1.7rem;
   // margin-left: 2rem;
-  margin-top: 1rem;
   margin-right: 1rem;
 
   &:hover,

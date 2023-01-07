@@ -2,6 +2,8 @@ import courseModel from "../models/courseModel.js";
 import categoryModel from "../models/categoryModel.js";
 import userModel from "../models/userModel.js";
 import moment from "moment/moment.js";
+import homeModel from "../models/homeModel.js";
+
 class CourseController {
   // [GET] /courses?id=
   async index(req, res) {
@@ -29,46 +31,16 @@ class CourseController {
     const category = await categoryModel.getById(id);
     const courses = await courseModel.getPageByCategoryId(id, limit, offset);
     const allCategories = await categoryModel.getAllWithHierarchy(id); // use in category side bar
-    const bestSellerCourses = await courseModel.getBestSellerList(5);
-
-    for (const course of courses) {
-      const avgRated = await courseModel.getAvgRate(course.id);
-      course.rated = (+avgRated).toFixed(1);
-
-      const numberRated = await courseModel.getCountFeedback(course.id);
-      course.numberRated = (+numberRated).toFixed(0);
-
-      const teacher = await userModel.getNameTeacher(course.id);
-      course.teacher = teacher;
-
-      const category = await categoryModel.getById(course.idCategory);
-      const linkCategories = [];
-
-      if (category.parentID !== null) {
-        const parentCategory = await categoryModel.getById(category.parentID);
-        linkCategories.push(parentCategory);
-      }
-      linkCategories.push(category);
-
-      course.linkCategories = linkCategories;
-
-      if (course.fee !== course.feeO) {
-        course.discount = true;
-      }
-
-      bestSellerCourses.forEach((element) => {
-        if (element.id === course.id) {
-          course.bestSeller = true;
-        }
-      });
-    }
     const isCourse = true;
-    courseModel.getBestSellerList(5);
+
+    await getInfoCourse(courses);
+
     res.render("courses/index", {
       isCourse,
       category,
-      allCategories,
       courses,
+      allCategories,
+
       isEmpty: courses.length === 0,
       pageInfo: {
         current: page,
@@ -137,7 +109,9 @@ class CourseController {
     const teacher = await courseModel.teacherOfCourse(id);
     const numberOfStudent = await userModel.getNumberStudentByCourse(id);
     const updateTime = await courseModel.getUpdateTime(id);
-    const numberStudentOfTeacher = await userModel.getNumberStudentOfTeacher(id);
+    const numberStudentOfTeacher = await userModel.getNumberStudentOfTeacher(
+      id
+    );
     const NumberCourseOfTeacher = await userModel.getNumberCourseOfTeacher(id);
     const listSimilarCourse = await courseModel.getSimilarCourse(id);
     const listSimilar = [];
@@ -250,46 +224,28 @@ class CourseController {
 
   // [GET] /courses/search?keyword=
   async search(req, res) {
-    const courses = await courseModel.getAll();
     const keyWord = req.query.keyword || "";
-    const bestSellerCourses = await courseModel.getBestSellerList(5);
+    let searchOption = 0;
+    let courses;
 
-    for (const course of courses) {
-      const avgRated = await courseModel.getAvgRate(course.id);
-      course.rated = (+avgRated).toFixed(1);
+    if (req.query.searchBy) {
+      searchOption = parseInt(req.query.searchBy);
+    }
 
-      const numberRated = await courseModel.getCountFeedback(course.id);
-      course.numberRated = (+numberRated).toFixed(0);
+    switch (searchOption) {
+      case 0:
+        courses = await courseModel.searchByName(keyWord);
+        break;
+      case 1:
+        courses = await courseModel.searchByCategory(keyWord);
+        break;
+      default:
+        courses = null;
+        break;
+    }
 
-      const teacher = await userModel.getNameTeacher(course.id);
-      course.teacher = teacher;
-
-      const category = await categoryModel.getById(course.idCategory);
-      const linkCategories = [];
-
-      if (category.parentID !== null) {
-        const parentCategory = await categoryModel.getById(category.parentID);
-        linkCategories.push(parentCategory);
-      }
-      linkCategories.push(category);
-
-      course.linkCategories = linkCategories;
-
-      if (course.fee !== course.feeO) {
-        course.discount = true;
-      }
-
-      bestSellerCourses.forEach((element) => {
-        if (element.id === course.id) {
-          course.bestSeller = true;
-        }
-      });
-
-      const now = moment();
-      const createTime = moment(course.updateTime); // change to createTime later
-      if (now.diff(createTime, "days") < 7) {
-        course.new = true;
-      }
+    if (courses !== null) {
+      await getInfoCourse(courses);
     }
     const isCourse = true;
 
@@ -302,5 +258,63 @@ class CourseController {
     });
   }
 }
+
+const getInfoCourse = async function (courses) {
+  // Lấy 5 khóa học bán chạy nhất trong các khóa học
+  const bestSellerCourses = await courseModel.getBestSellerList(5);
+  const trendingCourses = await courseModel.getTrendingList(5);
+
+  for (const course of courses) {
+    // Lấy trung bình rating của khóa học
+    const avgRated = await courseModel.getAvgRate(course.id);
+    course.rated = (+avgRated).toFixed(1);
+
+    // Lấy số lượng feedback của khóa học
+    const numberRated = await courseModel.getCountFeedback(course.id);
+    course.numberRated = (+numberRated).toFixed(0);
+
+    // Lấy tên teacher của khóa học
+    const teacher = await userModel.getNameTeacher(course.id);
+    course.teacher = teacher;
+
+    // Lấy category của khóa học
+    const category = await categoryModel.getById(course.idCategory);
+
+    // Lấy đường dẫn category của khóa học (nếu khóa học thuộc category cấp lĩnh vực 2)
+    const linkCategories = [];
+    if (category.parentID !== null) {
+      const parentCategory = await categoryModel.getById(category.parentID);
+      linkCategories.push(parentCategory);
+    }
+    linkCategories.push(category);
+    course.linkCategories = linkCategories;
+
+    // Khóa học nổi bật (được đánh giá nhiều nhất)
+    trendingCourses.forEach((element) => {
+      if (element.id === course.id) {
+        course.trending = true;
+      }
+    });
+
+    // Khóa học có khuyến mại
+    if (course.fee !== course.feeO) {
+      course.discount = true;
+    }
+
+    // Khóa học nằm trong top 5 khóa học bán chạy nhất
+    bestSellerCourses.forEach((element) => {
+      if (element.id === course.id) {
+        course.bestSeller = true;
+      }
+    });
+
+    // Khóa học mới được thêm trong 7 ngày
+    const now = moment();
+    const createTime = moment(course.createTime);
+    if (now.diff(createTime, "days") < 7) {
+      course.new = true;
+    }
+  }
+};
 
 export default new CourseController();

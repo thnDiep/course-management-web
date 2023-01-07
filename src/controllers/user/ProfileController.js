@@ -2,6 +2,7 @@ import profileUserModel from "../../models/profileUserModel.js";
 import AccountController from "../AccountController.js";
 import bcrypt from "bcryptjs";
 import courseModel from "../../models/courseModel.js";
+import accountModel from "../../models/accountModel.js";
 class uProfileController {
   // GET categories list
   async index(req, res) {
@@ -43,16 +44,18 @@ class uProfileController {
     });
   }
   async updateProfile(req, res) {
-    const student = profileUserModel.getById(res.locals.lcAuthUser.id);
-    console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-    console.log(res.locals.lcAuthUser);
-
     const ret = bcrypt.compareSync(
       req.body.password,
       res.locals.lcAuthUser.password
     );
-    console.log(ret);
-
+    const [profiles] = await profileUserModel.getById(res.locals.lcAuthUser.id);
+    const lesson_learned = await profileUserModel.getLessonLearning(
+      res.locals.lcAuthUser.id
+    );
+    const lesson_love = await profileUserModel.getWatchList(
+      res.locals.lcAuthUser.id
+    );
+    const isProfile = true;
     if (ret) {
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(req.body.newPassword, salt);
@@ -62,19 +65,45 @@ class uProfileController {
         email: req.body.email,
         password: hash,
       };
-      await profileUserModel.updateUser(user);
-      return res.redirect("/login");
+
+      let err_message_name, err_message_email, err_message;
+      const check = (name, check, i) => {
+        if (name === check) {
+          i === 0
+            ? (err_message_name = `${name} was exist...`)
+            : (err_message_email = `${name} was exist...`);
+          return 0;
+        }
+        return 1;
+      };
+      const userAvailable = await accountModel.findByUsername(req.body.name);
+      const emailAvailable = await accountModel.findByEmail(req.body.email);
+      console.log(profiles.name);
+      // profile = res.locals.lcAuthUser
+      if (
+        (check(userAvailable?.name, user.name, 0) === 1 ||
+          user.name === profiles.name) &&
+        (check(emailAvailable?.email, user.email, 1) === 1 ||
+          user.email === profiles.email)
+      ) {
+        await profileUserModel.updateUser(user);
+        res.locals.lcAuthUser.email = user.email;
+        res.locals.lcAuthUser.name = user.name;
+        res.locals.lcAuthUser.password = user.password;
+
+        return res.redirect("/profile");
+      } else {
+        return res.render("profile", {
+          // layout: false,
+          isProfile,
+          profiles,
+          lesson_learned,
+          lesson_love,
+          err_message_name,
+          err_message_email,
+        });
+      }
     } else {
-      const [profiles] = await profileUserModel.getById(
-        res.locals.lcAuthUser.id
-      );
-      const lesson_learned = await profileUserModel.getLessonLearning(
-        res.locals.lcAuthUser.id
-      );
-      const lesson_love = await profileUserModel.getWatchList(
-        res.locals.lcAuthUser.id
-      );
-      const isProfile = true;
       return res.render("profile", {
         err_message_password: "Password is not correct...",
         isProfile,

@@ -7,11 +7,6 @@ const router = express.Router();
 router.get("/profile", tProfileController.index);
 
 router.get("/createCourse", tCourseController.index);
-router.get("/createLesson", (req, res) => {
-  res.render("vwteacher/createLesson", {
-    layout: "teacher",
-  });
-});
 
 router.put("/course/chapter", tCourseController.editChapter);
 router.put("/course/lesson", tCourseController.editLesson);
@@ -21,9 +16,11 @@ router.delete("/course/lesson", tCourseController.deleteLesson);
 router.post("/course/addChapter", tCourseController.addChapter);
 router.post("/course/addLesson", tCourseController.addLesson);
 
+router.post("/course/complete", tCourseController.complete);
+router.post("/course/editComplete", tCourseController.editComplete);
 // const upload = multer({ dest: 'uploads/' })
 
-router.put("/profile/account", tProfileController.updateAccount)
-router.put("/profile/image", tProfileController.updateImage)
-router.post("/createCourse", tCourseController.create)
+router.put("/profile/account", tProfileController.updateAccount);
+router.put("/profile/image", tProfileController.updateImage);
+router.post("/createCourse", tCourseController.create);
 export default router;

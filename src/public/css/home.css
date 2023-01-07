@@ -132,10 +132,10 @@ body {
   .courses__title h2 {
     font-weight: bold;
     font-size: 4rem;
-    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses__title p {
     font-size: 2rem;
-    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses .active {
     color: #1c1d1f; }
   .courses button {
@@ -217,6 +217,8 @@ body {
     border-image-source: var(--gradient) !important;
     text-decoration: none;
     transition: all 0.4s ease; }
+    .swiper-slide .btn .fa-heart {
+      font-size: 1.8rem; }
   .swiper-slide .btn:hover,
   .swiper-slide .btn:focus {
     background: var(--gradient) !important;
@@ -224,12 +226,14 @@ body {
     -webkit-text-fill-color: #1b1616 !important;
     border: 5px solid #fff !important;
     box-shadow: #222 1px 0 10px;
-    text-decoration: underline; }
+    text-decoration: none; }
 
 :root {
-  --gradient: linear-gradient(to left top,
+  --gradient: linear-gradient(
+    to left top,
     #f8d752 10%,
-    #f8d752 90%) !important; }
+    #f8d752 90%
+  ) !important; }
 
 .swiper-button-next,
 .swiper-button-prev {
@@ -246,7 +250,7 @@ body {
   font-size: 3rem;
   text-align: left;
   margin-top: 3rem;
-  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   font-weight: bold; }
 
 .course__teacher {
@@ -452,10 +456,10 @@ body {
   .courses__title h2 {
     font-weight: bold;
     font-size: 4rem;
-    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses__title p {
     font-size: 2rem;
-    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses .active {
     color: #1c1d1f; }
   .courses button {
@@ -544,12 +548,14 @@ body {
     -webkit-text-fill-color: #1b1616 !important;
     border: 5px solid #fff !important;
     box-shadow: #222 1px 0 10px;
-    text-decoration: underline; }
+    text-decoration: none; }
 
 :root {
-  --gradient: linear-gradient(to left top,
+  --gradient: linear-gradient(
+    to left top,
     #f8d752 10%,
-    #f8d752 90%) !important; }
+    #f8d752 90%
+  ) !important; }
 
 .swiper-button-next,
 .swiper-button-prev {
@@ -575,7 +581,7 @@ body {
   font-size: 3rem;
   text-align: left;
   margin-top: 3rem;
-  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   font-weight: bold; }
 
 .course__teacher {
@@ -646,7 +652,7 @@ body {
         height: 100%;
         background-color: #f5f7f8;
         filter: grayscale(0.3);
-        transition: .3s; }
+        transition: 0.3s; }
         .courses__featured .card .image img:hover {
           filter: grayscale(0);
           transform: scale(1.2) rotate(3deg); }
