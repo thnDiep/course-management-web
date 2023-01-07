@@ -29,9 +29,6 @@ class TCourseController {
       { name: "videoID", maxCount: 1 },
     ])(req, res, async function (err) {
       // Xác định category cho khóa học
-      console.log("-----------");
-      console.log(req.body.nameCategory);
-      console.log(req.body.nameParent);
       const category = await categoryModel.getByName(req.body.nameCategory);
 
       const date = new Date();
@@ -108,7 +105,6 @@ class TCourseController {
     return res.redirect("back");
   }
   async deleteLesson(req, res) {
-    console.log(req.body.nameChild);
     await courseModel.deleteLesson(req.query.id);
     return res.redirect("back");
   }
@@ -122,7 +118,6 @@ class TCourseController {
     return res.redirect("back");
   }
   async addLesson(req, res) {
-    console.log(req.body.nameChild);
     const split = req.body.videoID.split("/");
     req.body.videoID = split[split.length - 1];
     const lesson = {
