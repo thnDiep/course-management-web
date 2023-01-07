@@ -112,6 +112,9 @@
                 <a class="pl-2 text-danger {{#if sumCourse}}disabled{{/if}}" data-toggle="modal" data-id={{id}}
                   data-target="#deleteAccountModal" href="#"><i class="fas fa-trash"></i>
                   Delete</a>
+                  <a class="pl-2" style="color: rgb(0, 115, 255);" data-toggle="modal" data-id={{id}}
+                  data-target="#editAccountModal{{id}}" href="#"><i class="fas fa-pen"></i>
+                  Edit</a>
               </div>
             </div>
           </td>
@@ -155,3 +158,87 @@
     </div>
   </div>
 </div>
+{{#each users}}
+  <div class="modal fade" id="editAccountModal{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 2rem;">Edit Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">EDIT {{#ifEquals permissionID 3}}TEACHER{{else}}STUDENT{{/ifEquals}} id {{id}}</h2>
+
+                <form action="/admin/listAccount/edit/?_method=PUT" method="post">
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg" style="font-size: 2rem;">FullName</label>
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      class="form-control form-control-lg"
+                      name="name"
+                      value="{{name}}"
+                    />
+                    <p class="required" style="height:2rem;font-size: 2rem;color: red">{{err_message_name}}</p>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3cg" style="font-size: 2rem;">Email</label>
+                    <input
+                      type="text"
+                      id="form3Example3cg"
+                      class="form-control form-control-lg"
+                      name="email"
+                      value="{{email}}"
+                    />
+                  <p class="required " style="height:2rem;font-size: 2rem;color: red">{{err_message_email}}</p>
+                  </div>
+
+                  <div class="d-flex justify-content-center">
+                    <button
+                      type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    >Submit</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+{{/each}}
+{{!-- <div class="modal fade" id="editAccountModal" tabindex="-1" role="dialog" aria-labelledby="editAccountModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editAccountModal">
+          <h2>Confirm delete</h2>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Are you sure to delete this account?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="editAccount" type="button" class="btn btn-primary"
+          style="background-color: brown;">Delete</button>
+      </div>
+    </div>
+  </div>
+</div> --}}
