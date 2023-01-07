@@ -10,7 +10,7 @@
 <div class="courses__header">
   <h1 class="courses__title">
     <i class="fa fa-info-circle" aria-hidden="true"></i>
-    {{this.numberResult}} results for "{{this.keyWord}}"
+    {{this.totalResult}} results for "{{this.keyWord}}"
   </h1>
 </div>
 
@@ -227,7 +227,20 @@
       </div>
     </div>
   {{/each}}
-</div>
+  <div class="courses__footer">
+      {{#if this.pageInfo.numbers}}
+        <div class="courses__pagination">
+          <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&page={{minus this.pageInfo.current 1}}" {{#if this.pageInfo.isFirst}}class="link--disabled"{{/if}}>&laquo;</a>
+          
+          {{#each this.pageInfo.numbers}}
+            <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&page={{value}}" {{#if isActive}}class="active"{{/if}}>{{value}}</a>
+          {{/each}}
+
+          <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&page={{add this.pageInfo.current 1}}" {{#if this.pageInfo.isLast}}class="link--disabled"{{/if}}>&raquo;</a>
+      </div>
+      {{/if}}
+    </div>
+</div>  
 
 <a id="searchForm" action="/courses/search?keyword={{this.keyWord}}"></a>
 

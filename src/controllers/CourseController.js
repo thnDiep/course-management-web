@@ -2,8 +2,32 @@ import courseModel from "../models/courseModel.js";
 import categoryModel from "../models/categoryModel.js";
 import userModel from "../models/userModel.js";
 import moment from "moment/moment.js";
-import homeModel from "../models/homeModel.js";
 
+const computeMaxPage = function (limit, total) {
+  let maxPage = Math.floor(total / limit);
+  if (total % limit) maxPage++;
+  return maxPage;
+};
+
+const computePageNumbers = function (currentPage, maxPage) {
+  const pageNumbers = [];
+  if (maxPage !== 1) {
+    for (let i = 1; i <= maxPage; i++) {
+      if (i === currentPage) {
+        pageNumbers.push({ value: i, isActive: true });
+      } else {
+        pageNumbers.push({ value: i });
+      }
+    }
+  }
+
+  return pageNumbers;
+};
+
+const searchOptions = [
+  { value: 0, name: "Search by Name" },
+  { value: 1, name: "Search by Category" },
+];
 class CourseController {
   // [GET] /courses?id=
   async index(req, res) {
@@ -11,22 +35,11 @@ class CourseController {
 
     const limit = 8;
     const totalCourses = await courseModel.countByCategoryId(id);
-    let maxPage = Math.floor(totalCourses / limit);
-    if (totalCourses % limit) maxPage++;
-
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * limit;
 
-    const pageNumbers = [];
-    if (maxPage !== 1) {
-      for (let i = 1; i <= maxPage; i++) {
-        if (i === page) {
-          pageNumbers.push({ value: i, isActive: true });
-        } else {
-          pageNumbers.push({ value: i });
-        }
-      }
-    }
+    const maxPage = computeMaxPage(limit, totalCourses);
+    const pageNumbers = computePageNumbers(page, maxPage);
 
     const category = await categoryModel.getById(id);
     const courses = await courseModel.getPageByCategoryId(id, limit, offset);
@@ -73,7 +86,7 @@ class CourseController {
     const listSimilarCourse = await courseModel.getSimilarCourse(id);
     const listSimilar = [];
     for (const course of listSimilarCourse) {
-      if (course.id !== id){
+      if (course.id !== id) {
         listSimilar.push(course);
       }
     }
@@ -86,26 +99,28 @@ class CourseController {
     const percent_2star = await courseModel.percent_star(id, 2);
     const percent_1star = await courseModel.percent_star(id, 1);
 
-    const percentInfo = [{
-      index: 5,
-      percent: percent_5star
-    },
-    {
-      index: 4,
-      percent: percent_4star
-    },
-    {
-      index: 3,
-      percent: percent_3star
-    },
-    {
-      index: 2,
-      percent: percent_2star
-    },
-    {
-      index: 1,
-      percent: percent_1star
-    }]
+    const percentInfo = [
+      {
+        index: 5,
+        percent: percent_5star,
+      },
+      {
+        index: 4,
+        percent: percent_4star,
+      },
+      {
+        index: 3,
+        percent: percent_3star,
+      },
+      {
+        index: 2,
+        percent: percent_2star,
+      },
+      {
+        index: 1,
+        percent: percent_1star,
+      },
+    ];
     // console.log(listSimilarCourse);
 
     if (course === null) {
@@ -160,6 +175,11 @@ class CourseController {
 
   // [GET] /courses/search?keyword=
   async search(req, res) {
+    const limit = 3;
+    const page = parseInt(req.query.page) || 1;
+    const offset = (page - 1) * limit;
+    let totalResult;
+
     const keyWord = req.query.keyword || "";
     let searchOption = 0;
     let courses;
@@ -168,29 +188,54 @@ class CourseController {
       searchOption = parseInt(req.query.searchBy);
     }
 
+    searchOptions.forEach((option) => {
+      if (option.value === searchOption) {
+        option.isSelected = true;
+      } else {
+        option.isSelected = false;
+      }
+    });
+
     switch (searchOption) {
       case 0:
-        courses = await courseModel.searchByName(keyWord);
+        totalResult = await courseModel.totalResultByName(keyWord);
+        courses = await courseModel.searchPageByName(keyWord, limit, offset);
         break;
       case 1:
-        courses = await courseModel.searchByCategory(keyWord);
+        totalResult = await courseModel.totalResultByCategory(keyWord);
+        courses = await courseModel.searchPageByCategory(
+          keyWord,
+          limit,
+          offset
+        );
         break;
       default:
         courses = null;
         break;
     }
 
+    const maxPage = computeMaxPage(limit, totalResult);
+    const pageNumbers = computePageNumbers(page, maxPage);
+
     if (courses !== null) {
       await getInfoCourse(courses);
     }
-    const isCourse = true;
 
+    const isCourse = true;
     res.render("courses/search", {
       keyWord,
-      isCourse,
-      numberResult: courses.length,
+      searchOption,
+      searchOptions,
       courses,
+      totalResult,
       isEmpty: courses.length === 0,
+      pageInfo: {
+        current: page,
+        isFirst: page === 1,
+        isLast: page === maxPage,
+        numbers: pageNumbers,
+      },
+      isCourse,
     });
   }
 }

@@ -227,7 +227,14 @@ export default {
     return db("lesson").where("id", lesson.id).update(lesson);
   },
 
-  // SEARCH COURSE
+  // SEARCH COURSE BY NAME COURSE
+  async totalResultByName(name) {
+    const result = await db.raw(
+      `SELECT count(id) as count FROM course WHERE MATCH(name) AGAINST("${name}");`
+    );
+    return result[0][0].count;
+  },
+
   async searchByName(name) {
     const result = await db.raw(
       `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}");`
@@ -235,16 +242,56 @@ export default {
     return result[0];
   },
 
-  async searchByCategory(category) {
+  async searchPageByName(name, limit, offset) {
+    const result = await db.raw(
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") LIMIT ${limit} OFFSET ${offset};`
+    );
+    return result[0];
+  },
+
+  // SEARCH COURSE BY NAME CATEGORY
+  async totalResultByCategory(name) {
     const categories = await db.raw(
-      `SELECT id FROM category WHERE MATCH(name) AGAINST("${category}");`
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${name}");`
     );
 
-    let results = [];
+    let result = 0;
     for (const category of categories[0]) {
-      const courses = await this.getDirectByCategoryId(category.id);
-      results.push(...courses);
+      const number = await db.raw(
+        `SELECT count(id) as count FROM course WHERE course.idCategory = ${category.id};`
+      );
+
+      result += number[0][0].count;
     }
-    return results;
+
+    return result;
+  },
+
+  async searchByCategory(name) {
+    const categories = await db.raw(
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${name}");`
+    );
+
+    let ids = [];
+    for (const category of categories[0]) {
+      ids.push(category.id);
+    }
+    return await db("course").whereIn("idCategory", ids);
+  },
+
+  async searchPageByCategory(name, limit, offset) {
+    const categories = await db.raw(
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${name}");`
+    );
+
+    let ids = [];
+    for (const category of categories[0]) {
+      ids.push(category.id);
+    }
+
+    return await db("course")
+      .whereIn("idCategory", ids)
+      .limit(limit)
+      .offset(offset);
   },
 };
