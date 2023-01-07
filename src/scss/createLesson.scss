@@ -19,6 +19,7 @@ label {
 }
 
 .formCourse_title {
+  border: 1px solid #d1d7dc;
   &:hover {
     cursor: pointer;
     background-color: #d8d7dc;
@@ -89,6 +90,7 @@ label {
 
 .chapter__title {
   padding-top: 1rem;
+  border: 1px solid #d1d7dc;
 }
 
 .chapter__title:hover {
@@ -173,4 +175,7 @@ label {
 
 .background-color {
   background-color: #d8d7dc;
+}
+.background-color1 {
+  background-color: #f7f9fa;
 }

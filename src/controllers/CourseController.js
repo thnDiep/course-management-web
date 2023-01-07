@@ -203,6 +203,7 @@ class CourseController {
     // course.linkCategories = linkCategories;
 
     res.render("courses/courseDetail", {
+      // layout: "teacher",
       course,
       courseContent,
       isCourse,

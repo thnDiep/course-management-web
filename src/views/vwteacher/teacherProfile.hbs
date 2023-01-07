@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="/css/profile.css" />
 <link rel="stylesheet" href="/css/teacherProfile.css" />
 <link rel="stylesheet" href="/css/createLesson.css" />
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput.min.css" media="all"
+  rel="stylesheet" type="text/css" />
 {{/section}}
 {{#section "js"}}
 <script src="/js/teacher/createLesson.js"></script>
@@ -11,7 +13,44 @@
   $('#modal_profile').modal('show')
 </script>
 {{/if}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.tiny.cloud/1/t8nah5tn0cpxgd8k8raf0zzt0c4pxf3rl54o1ys4xfto7k0a/tinymce/6/tinymce.min.js"
+  referrerpolicy="origin"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/buffer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/filetype.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/piexif.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/js/plugins/sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/fileinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"></script>
+<script>
+  tinymce.init({
+    selector: "#textarea",
+    menubar: false,
+    //plugins: "paste image link autolink lists table media",
+    plugins: ["image", "code", "table", "link", "media", "codesample"],
+    toolbar: [
+      "undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright| forecolor backcolor | table link image media codesample",
+    ],
+    codesample_languages: [
+      { text: "HTML/XML", value: "markup" },
+      { text: "JavaScript", value: "javascript" },
+      { text: "CSS", value: "css" },
+      { text: "PHP", value: "php" },
+      { text: "Ruby", value: "ruby" },
+      { text: "Python", value: "python" },
+      { text: "Java", value: "java" },
+      { text: "C", value: "c" },
+      { text: "C#", value: "csharp" },
+      { text: "C++", value: "cpp" },
+    ],
+  });
+</script>
 {{/section}}
+
+
+
+
+
 <div class="check"></div>
 
 <div class="container">
@@ -48,7 +87,7 @@
       <div class="mb-5">
         <p class="lead fw-normal mb-1">About</p>
         <div class="p-4" style="background-color: #f8f9fa;">
-          <p class="font-italic mb-1" style="font-size: 1.5rem;">{{this.teacher.about}}</p>
+          {{{this.teacher.about}}}
 
         </div>
       </div>
@@ -67,7 +106,7 @@
             <div class="mr-4">
               <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
 
-              <a class="edit" href="http://"><i class="fas fa-pen"></i>
+              <a class="edit" href="/teacher/course/detail/?id={{id}}"><i class="fas fa-pen"></i>
                 Edit</a>
 
             </div>
@@ -331,7 +370,7 @@
                   <div class="col-sm-12">
                     <p class="lead fw-normal mb-1">About</p>
                     <div class="p-4" style="background-color: #f8f9fa;">
-                      <textarea id="w3review" rows="6" cols="50" name="about">{{this.teacher.about}}</textarea>
+                      <textarea id="textarea"  name="about">{{this.teacher.about}}</textarea>
                       {{!-- <p class="font-italic mb-1" style="font-size: 1.5rem;">{{this.teacher.about}}</p> --}}
 
                     </div>
@@ -396,22 +435,23 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 2rem;">Add Chapter</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 2rem;">Add Lesson</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form class="Lesson col-lg-12" method="post" action="/teacher/course/addLesson">
+      <div class="modal-body"> 
+        <form class="Lesson col-lg-12" method="post" enctype="multipart/form-data" action="/teacher/course/addLesson">
           <div class="form-group2">
             <label for="title-Lesson">Tiltle Of Lesson</label>
             <input type="text" class="form-control p-4" id="title-Lesson" name="name" />
           </div>
+            <input type="text" class="hidden" name="chapterID" value="{{id}}" />
+
           <div class="form-group2">
             <label for="video-Lesson">Video Of Lesson</label>
-            <input type="text" class="form-control p-4" id="video-Lesson" name="videoID"
-              placeholder="input link video" />
-            <input type="text" class="hidden" name="chapterID" value="{{id}}" />
+            {{!-- <input type="file"  class="form-control p-4" name="videoID" /> --}}
+            <input type="file" name="videoID" class="form-control p-4" accept="video/mp4,video/x-m4v,video/*" />
 
           </div>
           <button type="submit" class="btn btn-primary mt-3" style="border-color: black;"><i class="fa fa-plus"></i>
@@ -461,16 +501,16 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="Lesson col-lg-12" method="post" action="/teacher/course/lesson?id={{id}}&_method=PUT">
+        <form class="Lesson col-lg-12" enctype="multipart/form-data" method="post" action="/teacher/course/lesson?id={{id}}&_method=PUT">
           <div class="form-group2">
             <label for="title-Lesson">Tiltle Of Lesson {{index}}</label>
             <input type="text" class="form-control p-4" id="title-Lesson" name="name" value="{{name}}" />
           </div>
           <div class="form-group2">
             <label for="video-Lesson">Video Of Lesson</label>
-            <input type="text" class="form-control p-4" id="video-Lesson" name="videoID" placeholder="input link video"
-              value="https://youtu.be/{{videoID}}" />
-            {{!-- <input type="file" class="form-control p-4" id="video-Lesson" name="video-Lesson" /> --}}
+            {{!-- <input type="text" class="form-control p-4" id="video-Lesson" name="videoID" placeholder="input link video"
+              value="https://youtu.be/{{videoID}}" /> --}}
+            <input type="file" class="form-control p-4" id="video-Lesson" name="videoID" />
           </div>
           <input type="text" class="hidden" name="chapterID" value="{{../id}}" />
 

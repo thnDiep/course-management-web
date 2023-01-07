@@ -4,7 +4,7 @@ const editInfor = document.querySelector(".btnEdit");
 const nameInput = document.querySelector(".inputName");
 const emailInput = document.querySelector(".inputEmail");
 const passInput = document.querySelector(".inputPass");
-const newPassInput = document.querySelector(".rowNewPass");
+const newPassInput = document.querySelector(".inputNewPass");
 const input = document.querySelectorAll(".input");
 
 const pageEdit = document.querySelector("#edit");
@@ -23,6 +23,10 @@ icon[1].addEventListener("click", function (e) {
 icon[2].addEventListener("click", function (e) {
   passInput.value = "";
   edit(passInput, e);
+});
+icon[3].addEventListener("click", function (e) {
+  newPassInput.value = "";
+  edit(newPassInput, e);
 });
 console.log(input);
 editInfor.addEventListener("click", function (e) {

@@ -110,7 +110,8 @@ label {
     margin-top: 1.3rem; }
 
 .required,
-.requiredImg {
+.requiredImg,
+.requiredEmail {
   color: red;
   font-size: 1.6rem;
   font-weight: bold;

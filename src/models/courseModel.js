@@ -303,6 +303,9 @@ export default {
   updateChapter(chapter) {
     return db("chapter").where("id", chapter.id).update(chapter);
   },
+  updateCourse(course) {
+    return db("course").where("id", course.id).update(course);
+  },
   updateLesson(lesson) {
     return db("lesson").where("id", lesson.id).update(lesson);
   },
