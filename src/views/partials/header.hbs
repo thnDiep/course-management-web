@@ -1,3 +1,7 @@
+{{#section "js"}}
+  <script src="/js/layout/search.js"></script>
+{{/section}}
+
 <a href="/" class="logo">
   <img
     src="https://previews.123rf.com/images/captainvector/captainvector1703/captainvector170309493/74165387-academy-logo-element.jpg"
@@ -9,19 +13,36 @@
 </a>
 
 <form action="/courses/search" class="search">
+  <div class="search__option">
+    <div class="btn search__option-btn">
+      <span class="search__option-current">Search by Name</span>
+      <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </div>
+
+    <ul class="search__option-list">
+      <li class="search__option-item" data-type="0">Search by Name</li>
+      <li class="search__option-item" data-type="1">Search by Category</li>
+      <li class="search__option-item" data-type="2">Name & Category</li>
+    </ul>
+  </div>
+
+  <input type="hidden" class="search__input" name="searchBy" value="0" />
+
   <input
     type="text"
     class="search__input"
     placeholder="Search course"
     name="keyword"
   />
-  <button class="search__button">
+
+  <button type="submit" class="search__button">
     <i class="fas fa-search search__icon"></i>
   </button>
 </form>
+
 <nav class="user-nav">
   {{#if lcIsAuthenticated}}
-  {{!-- <div class="user-nav__icon-box">
+    {{!-- <div class="user-nav__icon-box">
     <svg class="user-nav__icon">
       <use xlink:href="img/sprite.svg#icon-bookmark"></use>
     </svg>
@@ -38,15 +59,15 @@
     <span class="user-nav__user-name">{{lcAuthUser.name}}</span>
   </div>  --}}
   {{else}}
-   <div class="user-nav__acc">
-    <a class="btn btn--border user-nav__link" href="/login" role="button">
-      <i class="fas fa-sign-in-alt mr-3"></i>
-      Login</a>
-  </div>
-  <div class="user-nav__acc">
-    <a class="btn btn--primary user-nav__link" href="/signup" role="button">
-      <i class="fas fa-user-plus mr-3"></i>
-      Sign up</a>
-  </div>
+    <div class="user-nav__acc">
+      <a class="btn btn--border user-nav__link" href="/login" role="button">
+        <i class="fas fa-sign-in-alt mr-3"></i>
+        Login</a>
+    </div>
+    <div class="user-nav__acc">
+      <a class="btn btn--primary user-nav__link" href="/signup" role="button">
+        <i class="fas fa-user-plus mr-3"></i>
+        Sign up</a>
+    </div>
   {{/if}}
 </nav>

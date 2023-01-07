@@ -21,6 +21,10 @@ export default {
     return list[0];
   },
 
+  async getDirectByCategoryId(id) {
+    return await db("course").where("idCategory", id);
+  },
+
   async getByCategoryId(id) {
     const category = await categoryModel.getById(id);
     const ids = [id];
@@ -66,6 +70,7 @@ export default {
       .offset(offset);
   },
 
+  // Lượt bán nhiều nhất
   async getBestSellerList(limit) {
     return await db
       .select("id")
@@ -73,6 +78,18 @@ export default {
       .groupBy("C.id")
       .join("course_of_student as buyed", "buyed.courseID", "C.id")
       .count("buyed.courseID as count")
+      .orderBy("count", "DESC")
+      .limit(limit);
+  },
+
+  // Lượt đánh giá nhiều nhất
+  async getTrendingList(limit) {
+    return await db
+      .select("C.id")
+      .table("course as C")
+      .groupBy("C.id")
+      .join("rating as R", "R.courseID", "C.id")
+      .count("R.id as count")
       .orderBy("count", "DESC")
       .limit(limit);
   },
@@ -135,34 +152,31 @@ export default {
     return list[0];
   },
 
-  
   async isComplete(id) {
     const status = await db.select("status").from("course").where("id", id);
     if (status[0].status === 1) {
       return true;
-    }
-    else return false;
+    } else return false;
   },
 
-  async teacherOfCourse(id){
-    const teacherID = await db.select("teacherID").from("course_of_teacher").where("courseID", id);
+  async teacherOfCourse(id) {
+    const teacherID = await db
+      .select("teacherID")
+      .from("course_of_teacher")
+      .where("courseID", id);
     const teacher = await db("user").where("id", teacherID[0].teacherID);
     return teacher[0];
   },
 
-  async getUpdateTime(id){
+  async getUpdateTime(id) {
     const Time = await db.select("updateTime").from("course").where("id", id);
     const updateTime = moment(Time[0].updateTime).format("YYYY-MM-DD");
     return updateTime;
   },
 
   async getSimilarCourse(id) {
-    return await db
-      .select(id)
-      .table("course as C")
-      .groupBy("C.idCategory")
+    return await db.select(id).table("course as C").groupBy("C.idCategory");
   },
-
 
   async updateView(id) {
     let [getView] = await db.select("views").from("course").where("id", id);
@@ -170,7 +184,6 @@ export default {
     await db("course").where("id", id).update("views", ++getView.views);
   },
 
-  
   async getAllChapterOfCourse(id) {
     const chapter = await db("chapter").where("courseID", id);
     return chapter;
@@ -184,6 +197,26 @@ export default {
   },
   updateLesson(lesson) {
     return db("lesson").where("id", lesson.id).update(lesson);
-  }
+  },
 
+  // SEARCH COURSE
+  async searchByName(name) {
+    const result = await db.raw(
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}");`
+    );
+    return result[0];
+  },
+
+  async searchByCategory(category) {
+    const categories = await db.raw(
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${category}");`
+    );
+
+    let results = [];
+    for (const category of categories[0]) {
+      const courses = await this.getDirectByCategoryId(category.id);
+      results.push(...courses);
+    }
+    return results;
+  },
 };
