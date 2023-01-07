@@ -3,7 +3,14 @@
 {{/section}}
 
 {{#section "js"}}
+{{#if idUser}}
 <script>
+  const userId = $("#my-name").val();
+  $(`#editAccountModal${userId}`).modal('show')
+</script>
+{{/if}}
+<script>
+  
   let idAccount;
   const deleteAccountForm = document.forms["deleteAccountForm"];
   const checkboxAll = document.querySelector('#checkboxAll')
@@ -64,6 +71,22 @@
       "/admin/account?id=" + idAccount + "&_method=DELETE";
     deleteAccountForm.submit();
   })
+   const activeAccountForm = document.forms["activeAccountForm"];
+   const active = document.querySelectorAll(".isActive")
+   console.log(active)
+   active.forEach(element =>{
+    element.addEventListener("click",function(){
+      console.log("hello")
+      if(element.checked===false){
+        activeAccountForm.action =  "/admin/account/active0?id=" + element.value + "&_method=PUT";
+      }else{
+        activeAccountForm.action =  "/admin/account/active1?id=" + element.value + "&_method=PUT";
+      }   
+      activeAccountForm.submit();
+    })
+
+
+   })
 </script>
 {{/section}}
 <div class="container">
@@ -93,6 +116,7 @@
           <th>Email</th>
           <th>Role</th>
           <th>Course</th>
+          <th>Active</th>
         </tr>
       </thead>
       <tbody>
@@ -121,6 +145,9 @@
           <td class="text-primary">{{email}}</td>
           <td>{{ruleName}}</td>
           <td style="width: 1rem; text-align:center"><a href="">{{sumCourse}}</a></td>
+          <td style="width:5rem; text-align:center"><input class="mt-4 isActive"
+               type="checkbox" name="isActive" {{#ifEquals isActive 1}}checked{{/ifEquals}} value={{id}} />
+          </td>
         </tr>
         {{/each}}
 
@@ -131,6 +158,7 @@
 </form>
 
 <form name="deleteAccountForm" method="post"></form>
+<form name="activeAccountForm" method="post"></form>
 
 {{!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
@@ -174,7 +202,7 @@
               <div class="card-body p-5">
                 <h2 class="text-uppercase text-center mb-5">EDIT {{#ifEquals permissionID 3}}TEACHER{{else}}STUDENT{{/ifEquals}} id {{id}}</h2>
 
-                <form action="/admin/listAccount/edit/?_method=PUT" method="post">
+                <form action="/admin/listAccount/edit/?id={{id}}&_method=PUT" method="post">
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example1cg" style="font-size: 2rem;">FullName</label>
@@ -183,9 +211,15 @@
                       id="form3Example1cg"
                       class="form-control form-control-lg"
                       name="name"
-                      value="{{name}}"
+                      value="{{#if ../idUser}}{{../name1}}{{else}}{{name}}{{/if}}"
                     />
-                    <p class="required" style="height:2rem;font-size: 2rem;color: red">{{err_message_name}}</p>
+                    <input
+                      type="text"
+                      name="id"
+                      value="{{isActive}}"
+                        hidden
+                    />
+                    <p class="required" style="height:2rem;font-size: 1.2rem;color: red">{{../err_message_name}}</p>
                   </div>
 
                   <div class="form-outline mb-4">
@@ -195,9 +229,9 @@
                       id="form3Example3cg"
                       class="form-control form-control-lg"
                       name="email"
-                      value="{{email}}"
+                      value="{{#ifEquals ../idUser id}}{{../email1}}{{else}}{{email}}{{/ifEquals}}"
                     />
-                  <p class="required " style="height:2rem;font-size: 2rem;color: red">{{err_message_email}}</p>
+                  <p class="required " style="height:2rem;font-size: 1.2rem;color: red">{{#ifEquals ../idUser id}}{{../err_message_email}}{{/ifEquals}}</p>
                   </div>
 
                   <div class="d-flex justify-content-center">
@@ -242,3 +276,7 @@
     </div>
   </div>
 </div> --}}
+{{#if idUser}}
+<input type="text" value="{{idUser}}" id="my-name" hidden>
+
+{{/if}}

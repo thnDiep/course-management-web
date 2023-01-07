@@ -81,9 +81,9 @@ class TCourseController {
     const chapter = {
       id: req.query.id,
       name: req.body.name,
-      courseID: req.body.courseID
-    }
-    await courseModel.updateChapter(chapter)
+      courseID: req.body.courseID,
+    };
+    await courseModel.updateChapter(chapter);
     return res.redirect("back");
   }
   async editLesson(req, res) {
@@ -94,27 +94,27 @@ class TCourseController {
       name: req.body.name,
       chapterID: req.body.chapterID,
       videoID: req.body.videoID,
-    }
-    await courseModel.updateLesson(lesson)
+    };
+    await courseModel.updateLesson(lesson);
     return res.redirect("back");
   }
 
   async deleteChapter(req, res) {
-    await courseModel.deleteChapter(req.query.id)
+    await courseModel.deleteChapter(req.query.id);
     return res.redirect("back");
   }
   async deleteLesson(req, res) {
     console.log("-------");
     console.log(req.query.id);
-    await courseModel.deleteLesson(req.query.id)
+    await courseModel.deleteLesson(req.query.id);
     return res.redirect("back");
   }
   async addChapter(req, res) {
     const chapter = {
       name: req.body.name,
-      courseID: req.body.courseID
-    }
-    await courseModel.addChapter(chapter)
+      courseID: req.body.courseID,
+    };
+    await courseModel.addChapter(chapter);
 
     return res.redirect("back");
   }
@@ -126,11 +126,34 @@ class TCourseController {
       name: req.body.name,
       chapterID: req.body.chapterID,
       videoID: req.body.videoID,
-    }
-    await courseModel.addLesson(lesson)
+    };
+    await courseModel.addLesson(lesson);
     return res.redirect("back");
   }
+  async complete(req, res) {
+    const date = new Date();
 
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let currentDate = `${year}-${month}-${day}`;
+
+    await courseModel.updateCompleteCourse(req.body.id, 1, currentDate);
+
+    return res.redirect("back");
+  }
+  async editComplete(req, res) {
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let currentDate = `${year}-${month}-${day}`;
+
+    await courseModel.updateCompleteCourse(req.body.id, 0, currentDate);
+
+    return res.redirect("back");
+  }
 }
 
 export default new TCourseController();

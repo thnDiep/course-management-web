@@ -57,15 +57,14 @@
     border-radius: 50%;
   }
 
-
-
   .h3 {
     top: 20rem;
     color: #393939;
     position: absolute;
     font-size: 20px;
     line-height: 24px;
-    width: 12rem;
+    width: 46rem;
+    text-align: left;
   }
 }
 
@@ -173,11 +172,9 @@
   }
 }
 
-
 .overlay {
   top: 0;
 }
-
 
 .btn-default,
 .btn-primary {
@@ -206,7 +203,7 @@
   }
 }
 
-.col-sm-7>input {
+.col-sm-7 > input {
   border: 1px solid #000;
 }
 
@@ -222,8 +219,8 @@
 
 @media (min-width: 576px) {
   .modal-dialog {
-    // max-width: 800px;
-    // margin: 1.75rem auto;
+    max-width: 100rem;
+    margin: 1.75rem auto;
   }
 }
 
@@ -247,7 +244,7 @@
   z-index: -1;
 }
 
-.inputfile+label {
+.inputfile + label {
   margin-top: 13rem;
   font-size: 1.25em;
   font-weight: 700;
@@ -257,26 +254,25 @@
   padding: 0.5rem;
 }
 
-
-.inputfile+label {
+.inputfile + label {
   cursor: pointer;
   /* "hand" cursor */
 }
 
-.inputfile+label:hover {
+.inputfile + label:hover {
   background-color: red;
 }
 
-.inputfile:focus+label {
+.inputfile:focus + label {
   outline: 1px dotted #000;
   outline: -webkit-focus-ring-color auto 5px;
 }
 
-.inputfile+label * {
+.inputfile + label * {
   pointer-events: none;
 }
 
-// 
+//
 .rounded-circle {
   position: absolute;
 

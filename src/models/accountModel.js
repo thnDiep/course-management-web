@@ -56,4 +56,10 @@ export default {
   update(user) {
     return db("user").where("id", user.id).update(user);
   },
+  updateActive(user) {
+    console.log(user.isActive);
+    return db("user").where("id", user.id).update({
+      isActive: user.isActive,
+    });
+  },
 };

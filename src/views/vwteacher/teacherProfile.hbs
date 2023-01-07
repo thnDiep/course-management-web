@@ -115,15 +115,19 @@
                           data-target="#course{{../../index}}chapter{{../index}}lesson{{index}}"><i
                             class="fas fa-pen"></i> Edit
                         </a>
+                  {{#ifEquals ../../status 0}}
                         {{#if checkLesson}}
-
                         <a class="deleteLesson" style="color: red" data-id={{id}}>
                           <i class="fas fa-trash"></i> Delete
                         </a>
                         {{/if}}
+                  {{/ifEquals}}
+
                       </div>
                     </div>
                     {{/each}}
+                  {{#ifEquals ../status 0}}
+
                     {{#if check}}
                     <div class="row">
                       <div class="col-lg-12">
@@ -141,17 +145,34 @@
                       </div>
                     </div>
                     {{/if}}
+                  {{/ifEquals}}
+
                   </div>
 
                   {{/each}}
-
+                  
+                  {{#ifEquals status 0}}
                   <div class="chapter__add d-flex justify-content-between">
                     <p class="title">Add more Chapter for your Course.</p>
-                    <button class="btnAddChapter p-2" data-toggle="modal" data-target="#addChapterCourse{{index}}"><i
-                        class="fas fa-plus mr-1"></i>
-                      Add new Chapter</button>
-
+                      <button class="btnAddChapter p-2" data-toggle="modal" data-target="#addChapterCourse{{index}}"><i
+                          class="fas fa-plus mr-1"></i>
+                        Add new Chapter</button>
                   </div>
+                  <form action="/teacher/course/complete" method="post">
+                   <div class="d-flex justify-content-center ">
+                    <input type="text" value="{{id}}" name="id" hidden>
+                      <button class="btnComplete p-2" >
+                        Complete</button>
+                  </div></form>
+                  {{else}}
+                  <form action="/teacher/course/editComplete" method="post">
+                   <div class="d-flex justify-content-center ">
+                    <input type="text" value="{{id}}" name="id" hidden>
+                      <button class="btnComplete p-2" >
+                        EDIT</button>
+                  </div></form>
+                  {{/ifEquals}}
+                  
                 </div>
               </div>
 
@@ -221,10 +242,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <div id="edit" class="d-flex justify-content-around">
+       
           <form method="POST" action="/teacher/profile/account/?_method=PUT">
-
-            <div class="card mb-5">
+<div class="d-flex justify-content-around">
+ <div class="card mb-5">
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-5">
@@ -321,13 +342,15 @@
               </div>
 
             </div>
+</div>
+           
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary submit">Save changes</button>
             </div>
           </form>
 
-        </div>
+        
       </div>
 
       {{!-- <div class="modal-footer">
