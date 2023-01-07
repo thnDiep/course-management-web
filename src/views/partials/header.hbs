@@ -13,20 +13,20 @@
 </a>
 
 <form action="/courses/search" class="search">
-  <div class="search__option">
-    <div class="btn search__option-btn">
+  {{! <div class="search__option"> }}
+  {{! <div class="btn search__option-btn">
       <span class="search__option-current">Search by Name</span>
       <i class="fa fa-angle-down" aria-hidden="true"></i>
-    </div>
+    </div> }}
 
-    <ul class="search__option-list">
-      <li class="search__option-item" data-type="0">Search by Name</li>
-      <li class="search__option-item" data-type="1">Search by Category</li>
-      <li class="search__option-item" data-type="2">Name & Category</li>
-    </ul>
-  </div>
+  <select name="searchBy" class="search__option">
+    {{#each this.searchOptions}}
+      <option class="search__option-item" value="{{value}}" {{#if isSelected}}selected{{/if}}>{{name}}</option>
+    {{/each}}
+  </select>
+  {{! </div> }}
 
-  <input type="hidden" class="search__input" name="searchBy" value="0" />
+  {{! <input type="hidden" class="search__input" name="searchBy" value="0" /> }}
 
   <input
     type="text"

@@ -30,55 +30,23 @@
   background-color: #fff;
   border: 1px solid #777;
   border-radius: 50px; }
-  .search .search__option {
+  .search select.search__option {
     position: relative;
-    min-width: 200px; }
-    .search .search__option:hover .search__option-list {
-      display: block; }
-    .search .search__option::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
-      width: 1px;
-      height: 80%;
-      background-color: #777;
-      z-index: 2; }
-    .search .search__option .search__option-btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      font-size: 1.6rem;
-      font-weight: 600;
-      border-top-left-radius: 50px;
-      border-bottom-left-radius: 50px;
-      border: none; }
-      .search .search__option .search__option-btn:hover {
-        cursor: pointer;
-        background-color: #ddd; }
-      .search .search__option .search__option-btn:focus {
-        outline: none; }
-    .search .search__option .search__option-list {
-      display: none;
-      list-style-type: none;
-      padding: 0;
-      position: absolute;
-      top: 90%;
-      left: 0;
-      width: 100%;
-      font-size: 1.6rem;
-      border: 1px solid #777;
-      border-radius: 4px;
-      background-color: #fff;
-      z-index: 10; }
-      .search .search__option .search__option-list .search__option-item {
-        padding: 6px 0 6px 22px; }
-        .search .search__option .search__option-list .search__option-item:hover {
-          background-color: #ddd;
-          cursor: pointer; }
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    margin: 8px 10px 8px 0;
+    align-self: stretch;
+    min-width: 180px;
+    font-size: 1.6rem;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-right: 1px solid #777;
+    background-color: #fff;
+    z-index: 10;
+    cursor: pointer; }
   .search .search__input {
+    position: relative;
     flex: 1;
     border: none;
     font-size: 1.6rem;
@@ -88,6 +56,15 @@
     background-color: transparent; }
     .search .search__input:focus {
       outline: none; }
+    .search .search__input::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 80%;
+      background-color: #777;
+      z-index: 2; }
   .search .search__button {
     border: none;
     display: block;

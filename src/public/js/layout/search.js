@@ -21,12 +21,12 @@ if (sidebar_button != null) {
   }
 }
 
-const searchOptionList = document.querySelector(".search__option-list");
-const currentOption = document.querySelector(".search__option-current");
-const searchByInput = document.querySelector("input[name='searchBy']");
+// const searchOptionList = document.querySelector(".search__option-list");
+// const currentOption = document.querySelector(".search__option-current");
+// const searchByInput = document.querySelector("input[name='searchBy']");
 
-searchOptionList.onclick = function (e) {
-  currentOption.innerText = e.target.innerText;
-  console.log(searchByInput);
-  searchByInput.value = e.target.dataset.type;
-};
+// searchOptionList.onclick = function (e) {
+//   currentOption.innerText = e.target.innerText;
+//   console.log(searchByInput);
+//   searchByInput.value = e.target.dataset.type;
+// };
