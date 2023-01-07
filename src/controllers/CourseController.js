@@ -24,10 +24,11 @@ const computePageNumbers = function (currentPage, maxPage) {
   return pageNumbers;
 };
 
-const searchOptions = [
+export const searchOptions = [
   { value: 0, name: "Search by Name" },
   { value: 1, name: "Search by Category" },
 ];
+
 class CourseController {
   // [GET] /courses?id=
   async index(req, res) {
@@ -53,7 +54,7 @@ class CourseController {
       category,
       courses,
       allCategories,
-
+      searchOptions,
       isEmpty: courses.length === 0,
       pageInfo: {
         current: page,
@@ -222,6 +223,7 @@ class CourseController {
         isLast: page === maxPage,
         numbers: pageNumbers,
       },
+      searchOptions,
       // feedbackTime,
       // timeOfFeedback,
     });
@@ -241,6 +243,7 @@ class CourseController {
     res.render("courses/enrollCourse", {
       isCourse,
       course,
+      searchOptions,
     });
   }
 
@@ -299,7 +302,7 @@ class CourseController {
       searchOptions,
       courses,
       totalResult,
-      isEmpty: courses.length === 0,
+      isEmpty: totalResult === 0,
       pageInfo: {
         current: page,
         isFirst: page === 1,
