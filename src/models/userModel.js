@@ -103,7 +103,7 @@ export default {
   // update teacher
   updateTeacher(teacher) {
     console.log("-------------");
-    console.log(teacher.id);
+    // console.log(teacher.id);
     return db("user").where({ id: teacher.id }).update({
       name: teacher.name,
       email: teacher.email,

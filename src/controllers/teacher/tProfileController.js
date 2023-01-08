@@ -3,7 +3,6 @@ import userModel from "../../models/userModel.js";
 import accountModel from "../../models/accountModel.js";
 import multer from "multer";
 import bcrypt from "bcryptjs";
-import { searchOptions } from "../CourseController.js";
 
 class tProfileController {
   async index(req, res) {
@@ -52,7 +51,6 @@ class tProfileController {
       res.locals.lcAuthTeacher.id
     );
     res.render("vwteacher/teacherProfile", {
-      searchOptions,
       course,
       teacher,
       layout: "main",
@@ -123,7 +121,6 @@ class tProfileController {
         res.locals.lcAuthTeacher.id
       );
       return res.render("vwteacher/teacherProfile", {
-        searchOptions,
         course,
         teacher,
         // layout: "teacher",

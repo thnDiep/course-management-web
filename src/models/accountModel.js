@@ -47,7 +47,7 @@ export default {
     return list[0];
   },
   add(user) {
-    console.log(user.password);
+    // console.log(user.password);
     return db("user").insert(user);
   },
   del(id) {
@@ -57,7 +57,7 @@ export default {
     return db("user").where("id", user.id).update(user);
   },
   updateActive(user) {
-    console.log(user.isActive);
+    // console.log(user.isActive);
     return db("user").where("id", user.id).update({
       isActive: user.isActive,
     });

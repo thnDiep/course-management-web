@@ -281,10 +281,19 @@
                               <span class="course__price-unit">đ</span>
                             </h4>
                           </div>
-                          {{#if lcAuthTeacher}}{{else}}
-                          <a href="#" class="btn mr-2"><i class="fas fa-shopping-cart"></i>
-                            Buy now</a>
-                          <a href="#" class="btn love "><i class="fas fa-heart"></i></a>
+                          {{#if ../../lcAuthTeacher}}
+                          {{else}}
+                            {{#if ../../lcAuthAdmin}}
+                            {{else}}
+                            {{#if buyed}}
+                            <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
+                              Learning</a>
+                            {{else}}
+                            <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
+                              Buy now</a>
+                            {{/if}}
+                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: pink;"{{/if}} class="fas fa-heart"></i></a>
+                            {{/if}}
                           {{/if}}
                         </div>
                       </div>
@@ -346,10 +355,21 @@
                               <span class="course__price-unit">đ</span>
                             </h4>
                           </div>
-                           {{#if lcAuthTeacher}}{{else}}
-                          <a href="#" class="btn mr-2"><i class="fas fa-shopping-cart"></i>
-                            Buy now</a>
-                          <a href="#" class="btn love "><i class="fas fa-heart"></i></a>
+                           {{#if ../../lcAuthTeacher}}
+                           {{else}}
+                            {{#if ../../lcAuthAdmin}}
+                           {{else}}
+
+                          {{#if buyed}}
+                            <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
+                              Learning</a>
+                            {{else}}
+                            <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
+                              Buy now</a>
+                            {{/if}}
+                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: pink;"{{/if}} class="fas fa-heart"></i></a>
+                           
+                          {{/if}}
                           {{/if}}
                         </div>
                       </div>

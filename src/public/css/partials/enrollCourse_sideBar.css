@@ -8,17 +8,13 @@
   right: 0;
   background-color: #eeeeee;
   overflow-x: hidden;
-  padding-top: 10rem; }
-  .sidenav p {
-    font-size: 2.5rem;
-    margin: 0rem 0rem 1rem 3rem;
-    font-weight: bold; }
+  padding-top: 7rem; }
 
 /* Style the sidenav links and the dropdown button */
 .sidenav a, .dropdown-btn {
-  padding: 6px 8px 18px 16px;
+  padding: 0px 8px 0px 16px;
   text-decoration: none;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   background-color: white;
   color: black;
   display: block;
@@ -66,3 +62,97 @@
     padding-top: 15px; }
   .sidenav a {
     font-size: 18px; } }
+
+.formCourse {
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff; }
+
+.formCourse_title {
+  font-weight: bold;
+  padding-left: 0.5rem;
+  padding-top: 1rem;
+  font-size: 1.8rem; }
+  .formCourse_title:hover {
+    cursor: pointer;
+    background-color: #d8d7dc;
+    border-radius: 1rem; }
+  .formCourse_title p i {
+    font-size: 1.4rem;
+    margin: 0 1rem; }
+
+.fa-angle-down {
+  padding: 0 1rem; }
+
+.chapter__add {
+  font-size: 3rem;
+  margin-left: 1rem;
+  font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-weight: bold; }
+  .chapter__add p {
+    font-size: 1.5rem;
+    font-weight: 100;
+    align-self: center;
+    font-style: italic; }
+
+.up-icon {
+  transform: rotate(-180deg);
+  transition: transform 150ms linear; }
+
+.down-icon {
+  transform: rotate(0deg);
+  transition: transform 150ms linear; }
+
+.delete {
+  color: red; }
+
+.edit {
+  color: #6bb41b; }
+
+.chapter__title {
+  padding-top: 1rem;
+  font-weight: 700;
+  margin-left: 0.7rem; }
+
+.chapter__title:hover {
+  cursor: pointer;
+  background-color: #ccc; }
+
+.chapter__content {
+  font-size: 1.2rem;
+  margin-left: 0.9rem; }
+
+.course__name {
+  font-size: 2rem; }
+
+.chapter__name {
+  font-size: 1.6rem; }
+
+.lesson__name {
+  font-size: 1.5rem; }
+
+.subLabel {
+  font-size: 1.5rem;
+  color: red;
+  margin-top: 1rem;
+  font-weight: bold; }
+  .subLabel-price {
+    font-size: 1.1rem;
+    margin-top: 1.3rem; }
+
+.Chapter,
+.Lesson {
+  top: auto;
+  left: auto;
+  width: 50rem;
+  padding: 3rem;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  z-index: 10; }
+  .Chapter .form-control,
+  .Lesson .form-control {
+    font-size: 1.5rem; }
+
+.background-color {
+  background-color: #d8d7dc; }

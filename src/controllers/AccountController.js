@@ -155,9 +155,6 @@ class AccountController {
     req.session.authTeacher = null;
     req.session.authAdmin = null;
     req.session.isAuthenticated = false;
-    // console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-    // console.log("PROOOOOOOOOOOO" + res.locals.lcAuthUser);
-    // console.log(req.session.isAuthenticated);
     return res.redirect("back");
   }
 }
