@@ -35,9 +35,9 @@ router.post("/courses/deleteByCheckbox", aCourseController.deleteByCheckbox);
 
 // show list COURSE
 router.get("/courses", aCourseController.index);
+router.put("/courses/block", aCourseController.blocked);
 
 router.get("/", aCategoryController.index);
-
 // Accounts Management
 router.get("/listAccount", aAccountController.index);
 // Add teacher

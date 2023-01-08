@@ -51,7 +51,9 @@ export default {
       });
     }
 
-    return await db("course").select("id", "name").whereIn("idCategory", ids);
+    return await db("course")
+      .select("id", "name", "blocked")
+      .whereIn("idCategory", ids);
   },
 
   async getPageByCategoryId(id, limit, offset) {
@@ -69,6 +71,32 @@ export default {
       .whereIn("idCategory", ids)
       .limit(limit)
       .offset(offset);
+  },
+
+  async getSummaryByTeacherId(id) {
+    const courseTeachers = await db("course_of_teacher").where("teacherID", id);
+    const ids = [];
+    courseTeachers.forEach((courseTeacher) => {
+      ids.push(courseTeacher.teacherID);
+    });
+    return await db("course")
+      .select("id", "name", "blocked")
+      .whereIn("id", ids);
+  },
+
+  async getSummaryByCategoryAndTeacherId(idCategory, idTeacher) {
+    const courseTeachers = await db("course_of_teacher").where(
+      "teacherID",
+      idTeacher
+    );
+    const ids = [];
+    courseTeachers.forEach((courseTeacher) => {
+      ids.push(courseTeacher.teacherID);
+    });
+    return await db("course")
+      .select("id", "name", "blocked")
+      .whereIn("id", ids)
+      .andWhere("id", idCategory);
   },
 
   // Lượt bán nhiều nhất
@@ -343,6 +371,11 @@ export default {
     return db("course").where("id", id).update({
       updateTime: updateTime,
       status: status,
+    });
+  },
+  updateCourseBlocked(id, isBlocked) {
+    return db("course").where("id", id).update({
+      blocked: isBlocked,
     });
   },
 
