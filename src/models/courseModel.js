@@ -1,5 +1,6 @@
 import { link } from "fs";
 import moment from "moment";
+import CourseController from "../controllers/CourseController.js";
 import db from "../utils/db.js";
 import categoryModel from "./categoryModel.js";
 
@@ -171,10 +172,11 @@ export default {
 
   async getUpdateTime(id) {
     const Time = await db.select("updateTime").from("course").where("id", id);
-    const updateTime = moment(Time[0].updateTime).format("YYYY/MM/DD");
+    const updateTime = moment(Time[0].updateTime).format("DD/MM/YYYY");
     return updateTime;
   },
 
+  
   async getSimilarCourse(id) {
     // lay categoryID
     const idCategory = await db
@@ -244,6 +246,7 @@ export default {
     return result;
   },
 
+  // star percent for chart rating
   async percent_star(id, numberStar) {
     const rateAll = await db.raw(
       `Select count(id) as sumRate from rating where rating.courseID = ${id}`
@@ -259,7 +262,7 @@ export default {
     return percentStar * 100;
   },
 
-  // id course
+  // id = idCourse
   async getAllFeedback(id) {
     const allFeedback = await db("rating").where("courseID", id);
     return allFeedback;
@@ -285,6 +288,27 @@ export default {
     const infoStudent = await db("user").where("id", idStd);
     return infoStudent;
   },
+
+  //get Chapter of course
+  // async getChapterOfCourse(idCourse){
+  //   const chapters = await db("chapter").where("courseID", idCourse);
+  //   return chapters;
+  // },
+
+  //get lesson of chapter & course
+  async getLessonOfChapter_Course(idCourse, idChapter){
+    const chapters = await db("chapter").where("courseID", idCourse);
+    const lessons = await db("lesson").where("chapterID", chapters[0].id);
+    return lessons;
+  },
+
+  // id = lesson id
+  async getLessonByID(id){
+    const lesson = await db("lesson").where("id", id);
+    return lesson[0];
+  },
+
+
 
   async updateView(id) {
     let [getView] = await db.select("views").from("course").where("id", id);
@@ -315,6 +339,11 @@ export default {
       status: status,
     });
   },
+
+  
+
+
+
 
   // SEARCH COURSE BY NAME COURSE
   async totalResultByName(name) {

@@ -1,6 +1,9 @@
 {{#section "css"}}
   <link rel="stylesheet" href="/css/enrollCourse.css" />
+  {{!-- <link rel="stylesheet" href="/css/courses.css" /> --}}
   <link rel="stylesheet" href="/css/partials/enrollCourse_sideBar.css" />
+  
+  <link rel="stylesheet" href="./partials/barStar.hbs" />
   {{/section}}
 
 <div class="enrollCourse__body">
@@ -16,16 +19,17 @@
       >
       </iframe>
 
+      <div class="lesson_name">{{this.lesson.name}}</div>
+
 
       {{! description }}
       <div class="intro_courseDetail">
-        <ul class="courses__category">
-          <li class="courses__category-item">
-            <a href="#" class="courses__category-link">Web Development</a>
-          </li>
-          <li class="courses__category-item">
-            <a href="#" class="courses__category-link">Javascript</a>
-          </li>
+        <ul class="course__category">
+          {{#each linkCategories}}
+            <li class="course__category-item">
+              <a href="/courses?id={{id}}" class="courseD__intro__category">{{name}}</a>
+            </li>
+          {{/each}}
         </ul>
 
         <div class="d-flex align-items-center">
@@ -37,11 +41,9 @@
           {{! </div> }}
 
           <div class="course-detail__intro-info">
-            <div class="select-button">
-              <div>
+            <div class="enrollCourse__courseName">
                 <h1 class="intro_courseDetail-name">{{this.course.name}}</h1>
                 <p class="intro_courseDetail-item">{{this.course.tinyDescription }}</p>
-              </div>
             </div>
 
             <div class="courses__teacher">
@@ -57,23 +59,27 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star-half" aria-hidden="true"></i>
               </div> --}}
-          <div div class="course__review">
-            <div class="d-plex">
+          <div class="course__review">
+            <div class="course__review-score">
               {{> barStar this.course}}
             </div>
 
             <div class="course__review-number">({{this.course.numberRated}})</div>
           </div>
-
-        <div class="course__review">
-          <a class="course__review-ratings" href="#">{{this.numberRating}} ratings</a>
+        <div class="courseDetail_course__review">
+          <a class="courseDetail_course__review-number" href="#">{{this.numberRating}} ratings</a>
           {{this.numberOfStudent}} students
+          {{!-- {{#if (gt this.numberOfStudent '>' 1 )}}
+           students
+          {{else}}
+            student
+            {{/if}} --}}
         </div>
 
             <div class="footer_intro">
               <div class="footer_intro-item">
                 <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                Last updated {{this.updateTime}}
+                Last updated:  {{this.updateTime}}
               </div>
               <div class="footer_intro-item">
                 <i class="fa fa-globe" aria-hidden="true"></i>
@@ -209,5 +215,5 @@
 
   {{! side bar: list chapter }}
   <div class="col-sm-3">
-   {{> enrollCourse_sideBar}} 
+   {{> enrollCourse_sideBar }} 
   </div>
