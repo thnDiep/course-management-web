@@ -4,11 +4,6 @@ import userModel from "../models/userModel.js";
 import moment from "moment/moment.js";
 import studentCourseModel from "../models/studentCourseModel.js";
 
-export const searchOptions = [
-  { value: 0, name: "Search by Name" },
-  { value: 1, name: "Search by Category" },
-];
-
 class CourseController {
   // [GET] /courses?id=
   async index(req, res) {
@@ -34,7 +29,6 @@ class CourseController {
       category,
       courses,
       allCategories,
-      searchOptions,
       isEmpty: courses.length === 0,
       pageInfo: {
         current: page,
@@ -202,7 +196,6 @@ class CourseController {
         isLast: page === maxPage,
         numbers: pageNumbers,
       },
-      searchOptions,
       // feedbackTime,
       // timeOfFeedback,
     });
@@ -252,7 +245,6 @@ class CourseController {
       numberOfStudent,
       updateTime,
       linkCategories,
-      searchOptions,
     });
   }
 
@@ -307,7 +299,6 @@ class CourseController {
     await getInfoCourse(courses, res);
     res.render("courses/learning", {
       courses,
-      searchOptions,
     });
     // } else {
     // res.render("requireLogin");
@@ -388,7 +379,6 @@ class CourseController {
     await getInfoCourse(courses, res);
     res.render("courses/watchList", {
       courses,
-      searchOptions,
     });
     // } else {
     // res.render("requireLogin");
@@ -515,7 +505,7 @@ class CourseController {
       await getInfoCourse(courses, res);
     }
 
-    searchOptions.forEach((option) => {
+    res.locals.searchOptions.forEach((option) => {
       if (option.value === searchOption) {
         option.isSelected = true;
       } else {
@@ -528,7 +518,6 @@ class CourseController {
       keyWord,
       sortOption,
       searchOption,
-      searchOptions,
       courses,
       totalResult,
       isEmpty: totalResult === 0,

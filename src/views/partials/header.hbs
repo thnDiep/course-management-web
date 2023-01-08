@@ -49,7 +49,7 @@
   {{#if lcIsAuthenticated}}
   <div class="user-nav__user">
     <img src="{{lcAuthUser.img}}{{lcAuthTeacher.img}}{{lcAuthAdmin.img}}" alt="User photo" class="user-nav__user-photo" />
-    <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}{{lcAuthTeacher.name}}Admin</span>
+    <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}{{lcAuthTeacher.name}} {{#if lcAuthAdmin}}Admin{{/if}}</span>
   </div>  
   
   {{else}}
