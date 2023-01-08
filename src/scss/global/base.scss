@@ -1,5 +1,7 @@
 @import "variable";
-
+body {
+  margin-bottom: 0 !important;
+}
 .nav__overlay {
   position: fixed;
   top: 0;
