@@ -93,6 +93,23 @@
     }
   }
 
+  &.btn--heart {
+    i {
+      font-size: 3rem;
+      color: $gray-color;
+    }
+    border-color: $black-color;
+    background-color: $white-color;
+
+    &:hover {
+      filter: brightness(95%);
+    }
+
+    &.active i {
+      color: $danger-color;
+    }
+  }
+
   &.btn--info {
     color: $white-color;
     border-color: $info-color;

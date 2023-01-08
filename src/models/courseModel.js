@@ -82,7 +82,7 @@ export default {
       .limit(limit);
   },
 
-  // Lượt đánh giá nhiều nhất
+  // Lượt click vào nhiều nhất
   async getTrendingList(limit) {
     return await db
       .select("id")

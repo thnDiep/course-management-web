@@ -4,6 +4,12 @@ import auth from "../middlewares/auth.mdw.js";
 
 const router = express.Router();
 import { searchOptions } from "../controllers/CourseController.js";
+router.get("/login/required", (req, res) => {
+  res.render("requireLogin", {
+    searchOptions,
+  });
+});
+
 router.get("/login", (req, res) => {
   res.render("login", {
     searchOptions,

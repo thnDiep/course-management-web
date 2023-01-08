@@ -11,8 +11,6 @@ router.get("/", HomeController.index);
 
 router.get("/profile", auth, ProfileController.index);
 router.post("/profile", ProfileController.updateProfile);
-router.get("/profile/learning", ProfileController.getLearning);
-router.get("/profile/watchList", ProfileController.getWatchList);
 
 router.use("/", accountRoute);
 

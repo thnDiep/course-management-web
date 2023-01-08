@@ -61,6 +61,16 @@
       filter: brightness(95%); }
     .btn.btn--danger.btn--border {
       border-color: #000; }
+  .btn.btn--heart {
+    border-color: #000;
+    background-color: #fff; }
+    .btn.btn--heart i {
+      font-size: 3rem;
+      color: #777; }
+    .btn.btn--heart:hover {
+      filter: brightness(95%); }
+    .btn.btn--heart.active i {
+      color: #fe4343; }
   .btn.btn--info {
     color: #fff;
     border-color: #5c5cff;

@@ -30,7 +30,7 @@ class uProfileController {
       learning[i].rated = (+rated).toFixed(1);
     }
     const isLearning = true;
-    res.render("learningCourses", {
+    res.render("vwStudent/learningCourses", {
       searchOptions,
       isLearning,
       learning,
@@ -42,7 +42,7 @@ class uProfileController {
       const rated = await courseModel.getAvgRate(lesson_love[i].id);
       lesson_love[i].rated = (+rated).toFixed(1);
     }
-    res.render("watchList", {
+    res.render("vwStudent/watchList", {
       searchOptions,
       lesson_love,
     });

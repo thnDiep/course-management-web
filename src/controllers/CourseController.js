@@ -2,6 +2,7 @@ import courseModel from "../models/courseModel.js";
 import categoryModel from "../models/categoryModel.js";
 import userModel from "../models/userModel.js";
 import moment from "moment/moment.js";
+import studentCourseModel from "../models/studentCourseModel.js";
 
 export const searchOptions = [
   { value: 0, name: "Search by Name" },
@@ -26,7 +27,7 @@ class CourseController {
     const allCategories = await categoryModel.getAllWithHierarchy(id); // use in category side bar
     const isCourse = true;
 
-    await getInfoCourse(courses);
+    await getInfoCourse(courses, res);
 
     res.render("courses/index", {
       isCourse,
@@ -224,7 +225,6 @@ class CourseController {
     const numberOfStudent = await userModel.getNumberStudentByCourse(id);
     const updateTime = await courseModel.getUpdateTime(id);
 
-
     if (course === null) {
       res.redirect("/courses");
     }
@@ -239,6 +239,149 @@ class CourseController {
       updateTime,
       searchOptions,
     });
+  }
+
+  // [GET] /courses/enroll?id=
+  async enroll(req, res) {
+    // const idStudent = res.locals.lcAuthUser.id;
+    const studentID = 29;
+    const courseID = parseInt(req.query.id);
+    let exists = false;
+
+    if (courseID && studentID) {
+      const learningCourses = await studentCourseModel.getCourseOfStudent(
+        studentID
+      );
+      learningCourses.forEach((learningCourse) => {
+        if (learningCourse.courseID === courseID) {
+          exists = true;
+          return;
+        }
+      });
+
+      // Nếu chưa có thì add
+      if (!exists) {
+        const now = moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
+        const result = {
+          studentID,
+          courseID,
+          enrollDate: now,
+        };
+        await studentCourseModel.addBuyed(result);
+      }
+      res.redirect("back");
+    } else {
+      res.redirect("back");
+    }
+  }
+
+  // [GET] /courses/learning
+  async learning(req, res) {
+    // if (res.locals.lcAuthUser) {
+    // const studentID = res.locals.lcAuthUser.id;
+    const studentID = 29;
+    const courses = [];
+
+    const learningCourses = await studentCourseModel.getCourseOfStudent(
+      studentID
+    );
+
+    for (const learningCourse of learningCourses) {
+      courses.push(await courseModel.getById(learningCourse.courseID));
+    }
+    await getInfoCourse(courses, res);
+    res.render("courses/learning", {
+      courses,
+      searchOptions,
+    });
+    // } else {
+    // res.render("requireLogin");
+    // }
+  }
+
+  // [GET] /courses/like?id=
+  async like(req, res) {
+    // const studentID = res.locals.lcAuthUser.id;
+    const studentID = 29;
+    const courseID = parseInt(req.query.id);
+    let exists = false;
+
+    if (courseID && studentID) {
+      const lovedCourses = await studentCourseModel.getCourseStudentLove(
+        studentID
+      );
+      lovedCourses.forEach((lovedCourse) => {
+        if (lovedCourse.courseID === courseID) {
+          exists = true;
+          return;
+        }
+      });
+
+      // Nếu chưa có thì add
+      if (!exists) {
+        await studentCourseModel.addLoved({ courseID, studentID });
+      }
+      res.redirect("back");
+    } else {
+      res.redirect("back");
+    }
+  }
+
+  // [GET] /courses/unlike?id=
+  async unlike(req, res) {
+    // const studentID = res.locals.lcAuthUser.id;
+    const studentID = 29;
+    const courseID = parseInt(req.query.id);
+    let exists = false;
+
+    if (courseID && studentID) {
+      const lovedCourses = await studentCourseModel.getCourseStudentLove(
+        studentID
+      );
+      lovedCourses.forEach((lovedCourse) => {
+        console.log(lovedCourse.courseID);
+        console.log(courseID);
+        if (lovedCourse.courseID === courseID) {
+          console.log(courseID);
+          exists = true;
+          return;
+        }
+      });
+
+      // Nếu có thì xóa
+      if (exists) {
+        console.log("delete");
+        await studentCourseModel.removeLoved({ courseID, studentID });
+      }
+
+      res.redirect("back");
+    } else {
+      res.redirect("back");
+    }
+  }
+
+  //[GET] /courses/watch-list
+  async watchList(req, res) {
+    // if (res.locals.lcAuthUser) {
+    // const studentID = res.locals.lcAuthUser.id;
+    const studentID = 29;
+    const courses = [];
+
+    const lovedCourses = await studentCourseModel.getCourseStudentLove(
+      studentID
+    );
+
+    for (const lovedCourse of lovedCourses) {
+      courses.push(await courseModel.getById(lovedCourse.courseID));
+    }
+    await getInfoCourse(courses, res);
+    res.render("courses/watchList", {
+      courses,
+      searchOptions,
+    });
+    // } else {
+    // res.render("requireLogin");
+    // }
   }
 
   // [GET] /courses/search?keyword=
@@ -358,7 +501,7 @@ class CourseController {
     const pageNumbers = computePageNumbers(page, maxPage);
 
     if (courses !== null) {
-      await getInfoCourse(courses);
+      await getInfoCourse(courses, res);
     }
 
     searchOptions.forEach((option) => {
@@ -410,12 +553,38 @@ const computePageNumbers = function (currentPage, maxPage) {
   return pageNumbers;
 };
 
-const getInfoCourse = async function (courses) {
+const getInfoCourse = async function (courses, res) {
+  let learningCourses, lovedCourses;
+  // Lấy các khóa học của student
+  // if (res.locals.lcAuthUser) {
+  // const studentID = res.locals.lcAuthUser.id;
+  // console.log(studentID);
+  const studentID = 29;
+  learningCourses = await studentCourseModel.getCourseOfStudent(studentID);
+  lovedCourses = await studentCourseModel.getCourseStudentLove(studentID);
+  // }
+
   // Lấy 5 khóa học bán chạy nhất trong các khóa học
   const bestSellerCourses = await courseModel.getBestSellerList(5);
+  // Lấy 5 khóa học được click nhiều nhất trong các khóa học
   const trendingCourses = await courseModel.getTrendingList(5);
 
   for (const course of courses) {
+    // Thể hiện khóa học đã mua
+    // if (res.locals.lcAuthUser) {
+    learningCourses.forEach((learningCourse) => {
+      if (learningCourse.courseID === course.id) {
+        course.buyed = true;
+      }
+    });
+
+    lovedCourses.forEach((lovedCourse) => {
+      if (lovedCourse.courseID === course.id) {
+        course.loved = true;
+      }
+    });
+    // }
+
     // Lấy trung bình rating của khóa học
     const avgRated = await courseModel.getAvgRate(course.id);
     course.rated = (+avgRated).toFixed(1);
