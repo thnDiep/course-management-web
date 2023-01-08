@@ -3,27 +3,6 @@ import categoryModel from "../models/categoryModel.js";
 import userModel from "../models/userModel.js";
 import moment from "moment/moment.js";
 
-const computeMaxPage = function (limit, total) {
-  let maxPage = Math.floor(total / limit);
-  if (total % limit) maxPage++;
-  return maxPage;
-};
-
-const computePageNumbers = function (currentPage, maxPage) {
-  const pageNumbers = [];
-  if (maxPage !== 1) {
-    for (let i = 1; i <= maxPage; i++) {
-      if (i === currentPage) {
-        pageNumbers.push({ value: i, isActive: true });
-      } else {
-        pageNumbers.push({ value: i });
-      }
-    }
-  }
-
-  return pageNumbers;
-};
-
 export const searchOptions = [
   { value: 0, name: "Search by Name" },
   { value: 1, name: "Search by Category" },
@@ -252,38 +231,110 @@ class CourseController {
     const limit = 3;
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * limit;
-    let totalResult;
 
     const keyWord = req.query.keyword || "";
-    let searchOption = 0;
+    let searchOption = parseInt(req.query.searchBy) || 0;
+    let sortOption = parseInt(req.query.sortBy) || 0;
+    let totalResult;
     let courses;
-
-    if (req.query.searchBy) {
-      searchOption = parseInt(req.query.searchBy);
-    }
-
-    searchOptions.forEach((option) => {
-      if (option.value === searchOption) {
-        option.isSelected = true;
-      } else {
-        option.isSelected = false;
-      }
-    });
 
     switch (searchOption) {
       case 0:
         totalResult = await courseModel.totalResultByName(keyWord);
-        courses = await courseModel.searchPageByName(keyWord, limit, offset);
+        switch (sortOption) {
+          case 0:
+            courses = await courseModel.searchPageByNameOrderNewest(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          case 1:
+            courses = await courseModel.searchPageByNameMostView(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          case 2:
+            courses = await courseModel.searchPageByNameOrderHighestRated(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          case 3:
+            courses = await courseModel.searchPageByNameOrderAscPrice(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          case 4:
+            courses = await courseModel.searchPageByNameOrderDescPrice(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          default:
+            courses = await courseModel.searchPageByName(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+        }
         break;
       case 1:
         totalResult = await courseModel.totalResultByCategory(keyWord);
-        courses = await courseModel.searchPageByCategory(
-          keyWord,
-          limit,
-          offset
-        );
+        switch (sortOption) {
+          case 0:
+            courses = await courseModel.searchPageByCategoryOrderNewest(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          case 1:
+            courses = await courseModel.searchPageByCategoryMostView(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          case 2:
+            courses = await courseModel.searchPageByCategoryOrderHighestRated(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          case 3:
+            courses = await courseModel.searchPageByCategoryOrderAscPrice(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          case 4:
+            courses = await courseModel.searchPageByCategoryOrderDescPrice(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+          default:
+            courses = await courseModel.searchPageByCategory(
+              keyWord,
+              limit,
+              offset
+            );
+            break;
+        }
         break;
       default:
+        totalResult = 0;
         courses = null;
         break;
     }
@@ -295,9 +346,18 @@ class CourseController {
       await getInfoCourse(courses);
     }
 
+    searchOptions.forEach((option) => {
+      if (option.value === searchOption) {
+        option.isSelected = true;
+      } else {
+        option.isSelected = false;
+      }
+    });
+
     const isCourse = true;
     res.render("courses/search", {
       keyWord,
+      sortOption,
       searchOption,
       searchOptions,
       courses,
@@ -313,6 +373,27 @@ class CourseController {
     });
   }
 }
+
+const computeMaxPage = function (limit, total) {
+  let maxPage = Math.floor(total / limit);
+  if (total % limit) maxPage++;
+  return maxPage;
+};
+
+const computePageNumbers = function (currentPage, maxPage) {
+  const pageNumbers = [];
+  if (maxPage !== 1) {
+    for (let i = 1; i <= maxPage; i++) {
+      if (i === currentPage) {
+        pageNumbers.push({ value: i, isActive: true });
+      } else {
+        pageNumbers.push({ value: i });
+      }
+    }
+  }
+
+  return pageNumbers;
+};
 
 const getInfoCourse = async function (courses) {
   // Lấy 5 khóa học bán chạy nhất trong các khóa học

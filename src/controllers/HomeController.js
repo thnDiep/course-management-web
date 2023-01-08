@@ -23,7 +23,7 @@ class homeController {
     const [views] = await homeModel.getViews();
     const [lastest] = await homeModel.getLatest();
     const topCategory = await homeModel.getTopCategory();
-   
+
     await getAll(trending);
     await getAll(views);
     await getAll(lastest);

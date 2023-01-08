@@ -18,6 +18,7 @@
   display: flex !important;
   flex-direction: row;
 }
+
 .courses__tool {
   display: flex;
   align-items: center;
@@ -42,21 +43,25 @@
     .btn {
       width: $sort-btn-width;
     }
+  }
 
-    .dropdown-menu {
-      font-size: 1.8rem;
-      width: $sort-btn-width;
-    }
-
-    .dropdown-item {
-      padding: 8px 12px;
-
-      &:hover {
-        background-color: rgba($color: $black-color, $alpha: 0.05);
-      }
-    }
+  input[type="radio"]:checked + label {
+    background-color: $primary-color;
   }
 }
+option.sort-by__item {
+  padding: 8px 12px;
+
+  &:hover {
+    background-color: rgba($color: $black-color, $alpha: 0.05);
+  }
+}
+
+select.sort-by__menu {
+  font-size: 1.8rem;
+  width: $sort-btn-width;
+}
+
 .courses__footer {
   text-align: center;
   margin: 10px 0 50px 0;

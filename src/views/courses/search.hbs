@@ -4,7 +4,7 @@
 {{/section}}
 
 {{#section "js"}}
-  <script src="/js/courses/search.js"></script>
+  <script src="/js/search.js"></script>
 {{/section}}
 
 <div class="courses__header">
@@ -22,32 +22,50 @@
     </h3>
 
     <div class="d-flex">
-      <button type="button" class="btn mr-5">
-        Newest
-      </button>
+      {{!-- <input id="sortByNew" type="radio" class="radioInput" name="sortBy" value="0" hidden> --}}
+      {{!-- <label for="sortByNew" class="btn mr-5"> --}}
+        
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=0" 
+          class="btn mr-5 {{#ifEquals sortOption 0}}btn--active{{/ifEquals}}" >
+          Newest
+        </a> 
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=1" 
+          class="btn mr-5 {{#ifEquals sortOption 1}}btn--active{{/ifEquals}}">
+          Most reviewed
+        </a> 
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=2" 
+          class="btn mr-5 {{#ifEquals sortOption 2}}btn--active{{/ifEquals}}">
+          Highest Rated 
+        </a> 
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=3" 
+          class="btn mr-5 {{#ifEquals sortOption 3}}btn--active{{/ifEquals}}">
+          Ascending price
+        </a> 
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=4" 
+          class="btn mr-5 {{#ifEquals sortOption 4}}btn--active{{/ifEquals}}">
+          Descending price
+          </a> 
+      {{!-- </label> --}}
 
-      <button type="button" class="btn btn--active mr-5">
-        Most reviewed
-      </button>
+      {{!-- <input id="sortByReview" type="radio" class="radioInput" name="sortBy" value="1" hidden>
+      <label for="sortByReview" class="btn mr-5">
+          Most reviewed
+      </label>
+      
+      <input id="sortByRate" type="radio" class="radioInput" name="sortBy" value="2" hidden>
+      <label for="sortByRate" class="btn mr-5">
+          Highest Rated
+      </label>
 
-      <button type="button" class="btn mr-5">
-        Highest Rated
-      </button>
+      <input id="sortByAscPrice" type="radio" class="radioInput" name="sortBy" value="3" hidden>
+      <label for="sortByAscPrice" class="btn mr-5">
+          Ascending price
+      </label>
 
-      <div class="btn-group">
-        <button
-          class="btn btn--icon dropdown-toggle"
-          type="button"
-          data-toggle="dropdown"
-        >
-          Price
-        </button>
-
-        <div class="dropdown-menu sort-by__menu">
-          <a class="dropdown-item" href="#">Ascending price</a>
-          <a class="dropdown-item" href="#">Descending price</a>
-        </div>
-      </div>
+      <input id="sortByDescPrice" type="radio" class="radioInput" name="sortBy" value="4" hidden>
+      <label for="sortByDescPrice" class="btn mr-5">
+          Descending price
+      </label> --}}
     </div>
   </div> 
 </div>
@@ -230,17 +248,18 @@
   <div class="courses__footer">
       {{#if this.pageInfo.numbers}}
         <div class="courses__pagination">
-          <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&page={{minus this.pageInfo.current 1}}" {{#if this.pageInfo.isFirst}}class="link--disabled"{{/if}}>&laquo;</a>
+          <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&sortBy={{@root.sortOption}}&page={{minus this.pageInfo.current 1}}" 
+            {{#if this.pageInfo.isFirst}}class="link--disabled"{{/if}}>&laquo;</a>
           
           {{#each this.pageInfo.numbers}}
-            <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&page={{value}}" {{#if isActive}}class="active"{{/if}}>{{value}}</a>
+            <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&sortBy={{@root.sortOption}}&page={{value}}" 
+              {{#if isActive}}class="active"{{/if}}>{{value}}</a>
           {{/each}}
 
-          <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&page={{add this.pageInfo.current 1}}" {{#if this.pageInfo.isLast}}class="link--disabled"{{/if}}>&raquo;</a>
+          <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&sortBy={{@root.sortOption}}&page={{add this.pageInfo.current 1}}" 
+            {{#if this.pageInfo.isLast}}class="link--disabled"{{/if}}>&raquo;</a>
       </div>
       {{/if}}
     </div>
 </div>  
-
-<a id="searchForm" action="/courses/search?keyword={{this.keyWord}}"></a>
 

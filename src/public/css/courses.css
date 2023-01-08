@@ -32,13 +32,17 @@
       text-transform: uppercase; }
     .courses__tool .courses__sort .btn {
       width: 180px; }
-    .courses__tool .courses__sort .dropdown-menu {
-      font-size: 1.8rem;
-      width: 180px; }
-    .courses__tool .courses__sort .dropdown-item {
-      padding: 8px 12px; }
-      .courses__tool .courses__sort .dropdown-item:hover {
-        background-color: rgba(0, 0, 0, 0.05); }
+  .courses__tool input[type="radio"]:checked + label {
+    background-color: #f8d752; }
+
+option.sort-by__item {
+  padding: 8px 12px; }
+  option.sort-by__item:hover {
+    background-color: rgba(0, 0, 0, 0.05); }
+
+select.sort-by__menu {
+  font-size: 1.8rem;
+  width: 180px; }
 
 .courses__footer {
   text-align: center;
