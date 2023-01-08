@@ -132,10 +132,10 @@ body {
   .courses__title h2 {
     font-weight: bold;
     font-size: 4rem;
-    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses__title p {
     font-size: 2rem;
-    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses .active {
     color: #1c1d1f; }
   .courses button {
@@ -203,30 +203,6 @@ body {
       z-index: 1; }
     .swiper-slide .card:hover {
       transform: translateY(-2px); }
-  .swiper-slide .btn {
-    width: 10rem;
-    font-size: 1.4rem;
-    padding: 0;
-    padding: 1rem 0;
-    border: 5px solid;
-    color: #fff;
-    border-image-slice: 1;
-    background: var(--gradient) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    border-image-source: var(--gradient) !important;
-    text-decoration: none;
-    transition: all 0.4s ease; }
-    .swiper-slide .btn .fa-heart {
-      font-size: 1.8rem; }
-  .swiper-slide .btn:hover,
-  .swiper-slide .btn:focus {
-    background: var(--gradient) !important;
-    -webkit-background-clip: none !important;
-    -webkit-text-fill-color: #1b1616 !important;
-    border: 5px solid #fff !important;
-    box-shadow: #222 1px 0 10px;
-    text-decoration: none; }
 
 :root {
   --gradient: linear-gradient(
@@ -250,7 +226,7 @@ body {
   font-size: 3rem;
   text-align: left;
   margin-top: 3rem;
-  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   font-weight: bold; }
 
 .course__teacher {
@@ -456,10 +432,10 @@ body {
   .courses__title h2 {
     font-weight: bold;
     font-size: 4rem;
-    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses__title p {
     font-size: 2rem;
-    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol; }
   .courses .active {
     color: #1c1d1f; }
   .courses button {
@@ -528,27 +504,32 @@ body {
     .swiper-slide .card:hover {
       transform: translateY(-2px); }
   .swiper-slide .btn {
-    width: 10rem;
-    font-size: 1.4rem;
-    padding: 0;
-    padding: 1rem 0;
-    border: 5px solid;
-    color: #fff;
+    border: 3px solid;
+    color: #f8d752;
     border-image-slice: 1;
-    background: var(--gradient) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    border-image-source: var(--gradient) !important;
-    text-decoration: none;
+    background: #222;
     transition: all 0.4s ease; }
+  .swiper-slide .btn-love {
+    background: white; }
   .swiper-slide .btn:hover,
   .swiper-slide .btn:focus {
     background: var(--gradient) !important;
     -webkit-background-clip: none !important;
     -webkit-text-fill-color: #1b1616 !important;
-    border: 5px solid #fff !important;
+    border: 3px solid #fff !important;
     box-shadow: #222 1px 0 10px;
     text-decoration: none; }
+  .swiper-slide .active {
+    color: #f84c5e;
+    background-color: #f5f7f8; }
+
+.btnLove {
+  background: var(--gradient) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #1b1616 !important;
+  border: 3px solid #fff !important;
+  box-shadow: #222 1px 0 10px;
+  text-decoration: none; }
 
 :root {
   --gradient: linear-gradient(
@@ -581,7 +562,7 @@ body {
   font-size: 3rem;
   text-align: left;
   margin-top: 3rem;
-  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   font-weight: bold; }
 
 .course__teacher {

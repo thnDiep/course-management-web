@@ -309,35 +309,6 @@ body {
       transform: translateY(-2px);
     }
   }
-
-  .btn {
-    width: 10rem;
-    font-size: 1.4rem;
-    padding: 0;
-    padding: 1rem 0;
-    border: 5px solid;
-    color: $white-color;
-    border-image-slice: 1;
-    background: var(--gradient) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    border-image-source: var(--gradient) !important;
-    text-decoration: none;
-    transition: all 0.4s ease;
-    .fa-heart {
-      font-size: 1.8rem;
-    }
-  }
-
-  .btn:hover,
-  .btn:focus {
-    background: var(--gradient) !important;
-    -webkit-background-clip: none !important;
-    -webkit-text-fill-color: rgb(27, 22, 22) !important;
-    border: 5px solid #fff !important;
-    box-shadow: #222 1px 0 10px;
-    text-decoration: none;
-  }
 }
 
 :root {
@@ -788,32 +759,41 @@ body {
   }
 
   .btn {
-    width: 10rem;
-    font-size: 1.4rem;
-    padding: 0;
-    padding: 1rem 0;
-    border: 5px solid;
-    color: $white-color;
+    border: 3px solid;
+    color: $primary-color;
     border-image-slice: 1;
-    background: var(--gradient) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    border-image-source: var(--gradient) !important;
-    text-decoration: none;
+    background: #222;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // border-image-source: var(--gradient);
+    // text-decoration: none;
     transition: all 0.4s ease;
   }
-
+  .btn-love {
+    background: white;
+  }
   .btn:hover,
   .btn:focus {
     background: var(--gradient) !important;
     -webkit-background-clip: none !important;
     -webkit-text-fill-color: rgb(27, 22, 22) !important;
-    border: 5px solid #fff !important;
+    border: 3px solid #fff !important;
     box-shadow: #222 1px 0 10px;
     text-decoration: none;
   }
+  .active {
+    color: #f84c5e;
+    background-color: #f5f7f8;
+  }
 }
-
+.btnLove {
+  background: var(--gradient) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: rgb(27, 22, 22) !important;
+  border: 3px solid #fff !important;
+  box-shadow: #222 1px 0 10px;
+  text-decoration: none;
+}
 :root {
   --gradient: linear-gradient(
     to left top,

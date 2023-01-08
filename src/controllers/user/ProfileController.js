@@ -3,6 +3,7 @@ import AccountController from "../AccountController.js";
 import bcrypt from "bcryptjs";
 import courseModel from "../../models/courseModel.js";
 import accountModel from "../../models/accountModel.js";
+import { searchOptions } from "../CourseController.js";
 class uProfileController {
   // GET categories list
   async index(req, res) {
@@ -15,6 +16,7 @@ class uProfileController {
     );
     const isProfile = true;
     res.render("profile", {
+      searchOptions,
       isProfile,
       profiles,
       lesson_learned,
@@ -29,6 +31,7 @@ class uProfileController {
     }
     const isLearning = true;
     res.render("learningCourses", {
+      searchOptions,
       isLearning,
       learning,
     });
@@ -40,6 +43,7 @@ class uProfileController {
       lesson_love[i].rated = (+rated).toFixed(1);
     }
     res.render("watchList", {
+      searchOptions,
       lesson_love,
     });
   }
@@ -78,7 +82,6 @@ class uProfileController {
       };
       const userAvailable = await accountModel.findByUsername(req.body.name);
       const emailAvailable = await accountModel.findByEmail(req.body.email);
-      console.log(profiles.name);
       // profile = res.locals.lcAuthUser
       if (
         (check(userAvailable?.name, user.name, 0) === 1 ||
@@ -95,6 +98,7 @@ class uProfileController {
       } else {
         return res.render("profile", {
           // layout: false,
+          searchOptions,
           isProfile,
           profiles,
           lesson_learned,
@@ -106,6 +110,7 @@ class uProfileController {
     } else {
       return res.render("profile", {
         err_message_password: "Password is not correct...",
+        searchOptions,
         isProfile,
         profiles,
         lesson_learned,

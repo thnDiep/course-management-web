@@ -208,6 +208,8 @@
 }
 
 .input {
+  border: none;
+
   position: relative;
 
   .fa-exclamation-circle {
@@ -216,14 +218,12 @@
     right: 2rem;
   }
 }
-
 @media (min-width: 576px) {
-  .modal-dialog {
-    max-width: 100rem;
+  #modal_profile .modal-dialog {
+    max-width: 125rem;
     margin: 1.75rem auto;
   }
 }
-
 .hidden {
   display: none;
 }

@@ -19,6 +19,7 @@ label {
 }
 
 .formCourse_title {
+  border: 1px solid #d1d7dc;
   &:hover {
     cursor: pointer;
     background-color: #d8d7dc;
@@ -89,8 +90,21 @@ label {
 
 .chapter__title {
   padding-top: 1rem;
+  border: 1px solid #d1d7dc;
+}
+.edit {
+  color: rgb(0, 51, 255);
+}
+.edit:hover {
+  cursor: pointer;
+  color: #6bb41b !important;
 }
 
+.deleteLesson:hover,
+.deleteChapter:hover {
+  cursor: pointer;
+  color: rgba(255, 0, 0, 0.301) !important;
+}
 .chapter__title:hover {
   cursor: pointer;
   background-color: #ccc;
@@ -173,4 +187,7 @@ label {
 
 .background-color {
   background-color: #d8d7dc;
+}
+.background-color1 {
+  background-color: #f7f9fa;
 }

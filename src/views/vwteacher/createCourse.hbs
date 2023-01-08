@@ -23,9 +23,9 @@
     <div class="profile-cover">
       <div class="profile-cover__img">
         <a class="profile-cover__img--baner" style="
-                  background-image: url('{{this.teacher.img}}');
+                  background-image: url('{{lcAuthTeacher.img}}');
                 " data-toggle="modal" data-target="#exampleModalCenter"></a>
-        <h3 class="h3">Henry Foster</h3>
+        <h3 class="h3">{{lcAuthTeacher.name}}</h3>
       </div>
       <div class="profile-cover__action bg--img" data-overlay="0.3">
         {{!-- <button class="btn btn-rounded">
@@ -139,7 +139,7 @@
 
           <div class="d-flex justify-content-between">
             <label>Upload Video Documents</label>
-            <p class="required"></p>
+            <p class="requiredEmail"></p>
           </div>
           <input
             id="fuMain"
