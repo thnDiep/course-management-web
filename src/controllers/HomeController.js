@@ -29,14 +29,17 @@ class homeController {
     await getAll(lastest);
     const getCourse = (views) => {
       let arrayCourse = [];
-      for (let i = 0; i <= views.length / 4; i++) {
-        const citrus = views.slice(0, 4);
-        views.splice(0, 4);
+      let n = views.length / 4;
+      views.length % 4 === 0 ? (n = n - 1) : (n = n);
+      if (views.length !== 0)
+        for (let i = 0; i <= n; i++) {
+          const citrus = views.slice(0, 4);
+          views.splice(0, 4);
 
-        arrayCourse.push({
-          courses: citrus,
-        });
-      }
+          arrayCourse.push({
+            courses: citrus,
+          });
+        }
       return arrayCourse;
     };
     const arrayViewed = getCourse(views);

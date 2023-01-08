@@ -236,10 +236,8 @@ class CourseController {
     }
     linkCategories.push(category);
 
-    const chapters = await courseModel.getC
+    const chapters = await courseModel.getC;
     const lesson = await courseModel.getLessonByID(idLesson);
-
-
 
     if (course === null) {
       res.redirect("/courses");
