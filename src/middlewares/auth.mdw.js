@@ -1,6 +1,6 @@
 export default function (req, res, next) {
   if (!req.session.isAuthenticated) {
-    return res.redirect("/login");
+    return res.redirect("/account/login/required");
   }
   next();
 }

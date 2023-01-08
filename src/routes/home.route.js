@@ -7,12 +7,12 @@ import isUser from "../middlewares/isUser.mdw.js";
 
 const router = express.Router();
 
-router.get("/", HomeController.index);
 // Lấy profile từ db
 router.get("/profile", auth, isUser, ProfileController.index);
 // Edit + Update profile
 router.post("/profile", auth, isUser, ProfileController.updateProfile);
 
-router.use("/", accountRoute);
+router.get("/", HomeController.index);
+// router.get("/:slug", HomeController.index);
 
 export default router;
