@@ -92,7 +92,19 @@ label {
   padding-top: 1rem;
   border: 1px solid #d1d7dc;
 }
+.edit {
+  color: rgb(0, 51, 255);
+}
+.edit:hover {
+  cursor: pointer;
+  color: #6bb41b !important;
+}
 
+.deleteLesson:hover,
+.deleteChapter:hover {
+  cursor: pointer;
+  color: rgba(255, 0, 0, 0.301) !important;
+}
 .chapter__title:hover {
   cursor: pointer;
   background-color: #ccc;

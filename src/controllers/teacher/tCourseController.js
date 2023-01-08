@@ -22,7 +22,7 @@ class TCourseController {
     res.render("vwteacher/createCourse", {
       parentCourse,
       childCourse,
-      layout: "teacher",
+      // layout: "teacher",
     });
   }
   async editCourse(req, res) {
@@ -34,7 +34,7 @@ class TCourseController {
       course,
       parentCourse,
       childCourse,
-      layout: "teacher",
+      // layout: "teacher",
     });
   }
   async edit(req, res) {

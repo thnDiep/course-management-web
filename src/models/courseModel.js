@@ -1,5 +1,6 @@
 import { link } from "fs";
 import moment from "moment";
+import CourseController from "../controllers/CourseController.js";
 import db from "../utils/db.js";
 import categoryModel from "./categoryModel.js";
 
@@ -85,19 +86,16 @@ export default {
   // Lượt đánh giá nhiều nhất
   async getTrendingList(limit) {
     return await db
-      .select("C.id")
-      .table("course as C")
-      .groupBy("C.id")
-      .join("rating as R", "R.courseID", "C.id")
-      .count("R.id as count")
-      .orderBy("count", "DESC")
+      .select("id")
+      .table("course")
+      .orderBy("views", "DESC")
       .limit(limit);
   },
 
   //
   async getAvgRate(id) {
     const [[rate], ...h] = await db.raw(
-      `SELECT AVG(star) as avgRate FROM rating WHERE  rating.courseID = ?`,
+      `SELECT AVG(star) as avgRate FROM rating WHERE rating.courseID = ?`,
       id
     );
     return rate.avgRate;
@@ -171,10 +169,11 @@ export default {
 
   async getUpdateTime(id) {
     const Time = await db.select("updateTime").from("course").where("id", id);
-    const updateTime = moment(Time[0].updateTime).format("YYYY-MM-DD");
+    const updateTime = moment(Time[0].updateTime).format("DD/MM/YYYY");
     return updateTime;
   },
 
+  
   async getSimilarCourse(id) {
     // lay categoryID
     const idCategory = await db
@@ -244,6 +243,7 @@ export default {
     return result;
   },
 
+  // star percent for chart rating
   async percent_star(id, numberStar) {
     const rateAll = await db.raw(
       `Select count(id) as sumRate from rating where rating.courseID = ${id}`
@@ -259,7 +259,7 @@ export default {
     return percentStar * 100;
   },
 
-  // id course
+  // id = idCourse
   async getAllFeedback(id) {
     const allFeedback = await db("rating").where("courseID", id);
     return allFeedback;
@@ -285,6 +285,27 @@ export default {
     const infoStudent = await db("user").where("id", idStd);
     return infoStudent;
   },
+
+  //get Chapter of course
+  // async getChapterOfCourse(idCourse){
+  //   const chapters = await db("chapter").where("courseID", idCourse);
+  //   return chapters;
+  // },
+
+  //get lesson of chapter & course
+  async getLessonOfChapter_Course(idCourse, idChapter){
+    const chapters = await db("chapter").where("courseID", idCourse);
+    const lessons = await db("lesson").where("chapterID", chapters[0].id);
+    return lessons;
+  },
+
+  // id = lesson id
+  async getLessonByID(id){
+    const lesson = await db("lesson").where("id", id);
+    return lesson[0];
+  },
+
+
 
   async updateView(id) {
     let [getView] = await db.select("views").from("course").where("id", id);
@@ -316,7 +337,7 @@ export default {
     });
   },
 
-  // SEARCH COURSE BY NAME COURSE
+  // SEARCH COURSE BY NAME
   async totalResultByName(name) {
     const result = await db.raw(
       `SELECT count(id) as count FROM course WHERE MATCH(name) AGAINST("${name}");`
@@ -338,7 +359,52 @@ export default {
     return result[0];
   },
 
-  // SEARCH COURSE BY NAME CATEGORY
+  async searchPageByNameOrderNewest(name, limit, offset) {
+    const result = await db.raw(
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY createTime DESC LIMIT ${limit} OFFSET ${offset};`
+    );
+    return result[0];
+  },
+
+  async searchPageByNameMostView(name, limit, offset) {
+    const result = await db.raw(
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY views DESC LIMIT ${limit} OFFSET ${offset};`
+    );
+    return result[0];
+  },
+
+  async searchPageByNameOrderHighestRated(name, limit, offset) {
+    const result = await db.raw(
+      `SELECT *
+      FROM course as C
+      JOIN (SELECT C.id, avg(star) as avgRate
+            FROM course as C
+            LEFT JOIN rating as R
+            ON C.id = R.courseID 
+            GROUP BY C.id) as C1
+      ON C.id = C1.ID
+      AND MATCH(C.name) AGAINST("${name}") 
+      ORDER BY C1.avgRate DESC
+      LIMIT ${limit} OFFSET ${offset};`
+    );
+    return result[0];
+  },
+
+  async searchPageByNameOrderAscPrice(name, limit, offset) {
+    const result = await db.raw(
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY fee ASC LIMIT ${limit} OFFSET ${offset};`
+    );
+    return result[0];
+  },
+
+  async searchPageByNameOrderDescPrice(name, limit, offset) {
+    const result = await db.raw(
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY fee DESC LIMIT ${limit} OFFSET ${offset};`
+    );
+    return result[0];
+  },
+
+  // SEARCH COURSE BY CATEGORY
   async totalResultByCategory(name) {
     const categories = await db.raw(
       `SELECT id FROM category WHERE MATCH(name) AGAINST("${name}");`
@@ -380,6 +446,101 @@ export default {
 
     return await db("course")
       .whereIn("idCategory", ids)
+      .limit(limit)
+      .offset(offset);
+  },
+
+  async searchPageByCategoryOrderNewest(name, limit, offset) {
+    const categories = await db.raw(
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${name}");`
+    );
+
+    let ids = [];
+    for (const category of categories[0]) {
+      ids.push(category.id);
+    }
+
+    return await db("course")
+      .whereIn("idCategory", ids)
+      .orderBy("createTime", "desc")
+      .limit(limit)
+      .offset(offset);
+  },
+
+  async searchPageByCategoryMostView(name, limit, offset) {
+    const categories = await db.raw(
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${name}");`
+    );
+
+    let ids = [];
+    for (const category of categories[0]) {
+      ids.push(category.id);
+    }
+
+    return await db("course")
+      .whereIn("idCategory", ids)
+      .orderBy("views", "desc")
+      .limit(limit)
+      .offset(offset);
+  },
+
+  async searchPageByCategoryOrderHighestRated(name, limit, offset) {
+    const categories = await db.raw(
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${name}");`
+    );
+
+    let ids = [];
+    for (const category of categories[0]) {
+      ids.push(category.id);
+    }
+    const idsSql = ids.join(",");
+    const result = await db.raw(
+      `SELECT *
+        FROM course as C
+        JOIN (SELECT C.id, avg(star) as avgRate
+              FROM course as C
+              LEFT JOIN rating as R
+              ON C.id = R.courseID GROUP BY C.id)
+              as C1
+        ON C.id = C1.id
+        AND C.idCategory IN (${idsSql})
+        ORDER BY C1.avgRate DESC
+        LIMIT ${limit} OFFSET ${offset};`
+    );
+
+    return result[0];
+  },
+
+  async searchPageByCategoryOrderAscPrice(name, limit, offset) {
+    const categories = await db.raw(
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${name}");`
+    );
+
+    let ids = [];
+    for (const category of categories[0]) {
+      ids.push(category.id);
+    }
+
+    return await db("course")
+      .whereIn("idCategory", ids)
+      .orderBy("fee", "asc")
+      .limit(limit)
+      .offset(offset);
+  },
+
+  async searchPageByCategoryOrderDescPrice(name, limit, offset) {
+    const categories = await db.raw(
+      `SELECT id FROM category WHERE MATCH(name) AGAINST("${name}");`
+    );
+
+    let ids = [];
+    for (const category of categories[0]) {
+      ids.push(category.id);
+    }
+
+    return await db("course")
+      .whereIn("idCategory", ids)
+      .orderBy("fee", "desc")
       .limit(limit)
       .offset(offset);
   },

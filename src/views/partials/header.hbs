@@ -16,7 +16,7 @@
   <span class="text-primary__light">LIGHT</span>
 </a>
 
-<form action="/courses/search" class="search">
+<form id="searchForm" action="/courses/search" class="search">
   {{! <div class="search__option"> }}
   {{! <div class="btn search__option-btn">
       <span class="search__option-current">Search by Name</span>
@@ -54,8 +54,8 @@
     <span class="user-nav__notification"></span>
   </div>
   <div class="user-nav__user">
-    <img src="{{lcAuthUser.img}}" alt="User photo" class="user-nav__user-photo" />
-    <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}</span>
+    <img src="{{lcAuthUser.img}}{{lcAuthTeacher.img}}" alt="User photo" class="user-nav__user-photo" />
+    <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}{{lcAuthTeacher.name}}</span>
   </div>  
   {{else}}
     <div class="user-nav__acc">

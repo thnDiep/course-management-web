@@ -151,12 +151,14 @@ class AccountController {
     }
   }
   async logout(req, res) {
-    res.locals.lcAuthUser = null;
+    req.session.authUser = null;
+    req.session.authTeacher = null;
+    req.session.authAdmin = null;
     req.session.isAuthenticated = false;
     console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
     console.log("PROOOOOOOOOOOO" + res.locals.lcAuthUser);
     console.log(req.session.isAuthenticated);
-    return res.redirect("/login");
+    return res.redirect("back");
   }
 }
 

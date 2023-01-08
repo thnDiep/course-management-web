@@ -16,12 +16,12 @@
     </ul> --}}
 
     <ul class="course__category">
-    {{#each linkCategories}}
-      <li class="course__category-item">
-        <a href="/courses?id={{id}}" class="courseD__intro__category">{{name}}</a>
-      </li>
-    {{/each}}
-  </ul>
+      {{#each linkCategories}}
+        <li class="course__category-item">
+          <a href="/courses?id={{id}}" class="courseD__intro__category">{{name}}</a>
+        </li>
+      {{/each}}
+    </ul>
 
     <div class="d-flex align-items-center">
       <div class="courseD__intro__avt" style="background-image: url({{this.course.image}})"></div>
@@ -52,22 +52,13 @@
         </div>
 
         <div class="course__review">
-            <div class="course__review-score">
-              {{> barStar this.course}}
-            </div>
-
-            <div class="course__review-number">({{this.course.numberRated}})</div>
+          <div class="course__review-score">
+            {{> barStar this.course}}
           </div>
 
+          <div class="course__review-number">({{this.course.numberRated}})</div>
+          </div>
         <div class="courseDetail_course__review">
-          {{!-- <div class="course__review-ratings">
-            {{this.course.rated}}
-            <i class="fa fa-star star" aria-hidden="true"></i>
-            <i class="fa fa-star star" aria-hidden="true"></i>
-            <i class="fa fa-star star" aria-hidden="true"></i>
-            <i class="fa fa-star star"  aria-hidden="true"></i>
-            <i class="fa fa-star-half star" aria-hidden="true"></i>
-          </div> --}}
           <a class="courseDetail_course__review-number" href="#">{{this.numberRating}} ratings</a>
           {{this.numberOfStudent}} students
           {{!-- {{#if (gt this.numberOfStudent '>' 1 )}}
@@ -127,12 +118,12 @@
           <div class="coursePreview_benefit">
             <h2 class="title">This course include</h2>
             <p class="content">
-              <i class="perLine fa fa-clock" aria-hidden="true"></i>
-              3 hours of video on demand
+              <i class="perLine fa fa-globe" aria-hidden="true"></i>
+                English
             </p>
             <p class="content">
               <i class="perLine fa fa-hourglass" aria-hidden="true"></i>
-              &nbsp; Lifetime access
+              &nbsp;Lifetime access
             </p>
             <p class="content">
               <i class="perLine fa fa-tablet" aria-hidden="true"></i>
@@ -425,7 +416,7 @@
 
   
   {{#if lcAuthTeacher}}
-  <div style="font-size: 2rem;background-color:#f8d752" class="btn w-100"><a href="/teacher/editCourse/?id={{course.id}}">EDIT</a></div>
+  <div ><a style="font-size: 2rem;background-color:#f8d752;padding: 1rem 47% ; bottom:0rem;margin-left:-2rem" class="btn position-fixed" href="/teacher/editCourse/?id={{course.id}}">EDIT</a></div>
   {{else}}
   <div class="feedback">
     <div class="col-md-3">

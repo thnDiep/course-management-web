@@ -7,7 +7,9 @@ import { searchOptions } from "../CourseController.js";
 
 class tProfileController {
   async index(req, res) {
-    const course = await userModel.getAllCourseOfTeacher(3);
+    const course = await userModel.getAllCourseOfTeacher(
+      res.locals.lcAuthTeacher.id
+    );
     for (let i = 0; i < course.length; i++) {
       const Rated = await courseModel.getAvgRate(course[i].id);
       const sumRate = await courseModel.getCountFeedback(course[i].id);
@@ -39,15 +41,21 @@ class tProfileController {
       course[i].numberStudent = (+numberStudent).toFixed(0);
       course[i].index = i + 1;
     }
-    const [teacher] = await userModel.getInforTeacherByID(3);
+    const [teacher] = await userModel.getInforTeacherByID(
+      res.locals.lcAuthTeacher.id
+    );
     teacher.courses = course.length;
-    teacher.student = await userModel.getNumberStudentOfTeacher(3);
-    teacher.countReview = await userModel.getNumberViewsOfTeacher(3);
+    teacher.student = await userModel.getNumberStudentOfTeacher(
+      res.locals.lcAuthTeacher.id
+    );
+    teacher.countReview = await userModel.getNumberViewsOfTeacher(
+      res.locals.lcAuthTeacher.id
+    );
     res.render("vwteacher/teacherProfile", {
       searchOptions,
       course,
       teacher,
-      layout: "teacher",
+      layout: "main",
     });
   }
   async updateImage(req, res) {
@@ -62,7 +70,7 @@ class tProfileController {
     const upload = multer({ storage: storage });
     upload.single("image")(req, res, async function (err) {
       await userModel.updateImage(
-        3,
+        res.locals.lcAuthTeacher.id,
         "/images/teacherPictures/" + req.file.filename
       );
 
@@ -71,7 +79,9 @@ class tProfileController {
     });
   }
   async updateAccount(req, res) {
-    const [password] = await userModel.getInforTeacherByID(3);
+    const [password] = await userModel.getInforTeacherByID(
+      res.locals.lcAuthTeacher.id
+    );
     const ret = bcrypt.compareSync(req.body.passwordCurrent, password.password);
 
     if (ret) {
@@ -87,7 +97,9 @@ class tProfileController {
       await userModel.updateTeacher(teacher);
       return res.redirect("/teacher/profile");
     } else {
-      const course = await userModel.getAllCourseOfTeacher(3);
+      const course = await userModel.getAllCourseOfTeacher(
+        res.locals.lcAuthTeacher.id
+      );
       for (let i = 0; i < course.length; i++) {
         const Rated = await courseModel.getAvgRate(course[i].id);
         const sumRate = await courseModel.getCountFeedback(course[i].id);
@@ -98,17 +110,23 @@ class tProfileController {
         course[i].sumRate = (+sumRate).toFixed(0);
         course[i].numberStudent = (+numberStudent).toFixed(0);
       }
-      const [teacher] = await userModel.getInforTeacherByID(3);
+      const [teacher] = await userModel.getInforTeacherByID(
+        res.locals.lcAuthTeacher.id
+      );
       teacher.name = req.body.name;
       teacher.email = req.body.email;
       teacher.courses = course.length;
-      teacher.student = await userModel.getNumberStudentOfTeacher(3);
-      teacher.countReview = await userModel.getNumberViewsOfTeacher(3);
+      teacher.student = await userModel.getNumberStudentOfTeacher(
+        res.locals.lcAuthTeacher.id
+      );
+      teacher.countReview = await userModel.getNumberViewsOfTeacher(
+        res.locals.lcAuthTeacher.id
+      );
       return res.render("vwteacher/teacherProfile", {
         searchOptions,
         course,
         teacher,
-        layout: "teacher",
+        // layout: "teacher",
         err_message_password: "password is incorrect",
       });
     }

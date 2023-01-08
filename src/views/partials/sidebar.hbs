@@ -18,6 +18,20 @@
         <span>Home</span>
       </a>
     </li>
+    {{#if lcAuthTeacher.id}}
+    <li class="side-nav__item">
+      <a href="/courses" class="side-nav__link">
+        <i class="fas fa-th-list side-nav__icon"></i>
+        <span>Category</span>
+      </a>
+    </li>
+    <li class="side-nav__item">
+      <a href="/teacher/profile" class="side-nav__link">
+        <i class="fas fa-address-card side-nav__icon"></i>
+        <span>profile</span>
+      </a>
+    </li>
+    {{else}}
     <li class="side-nav__item">
       <a href="/courses" class="side-nav__link">
         <i class="fas fa-th-list side-nav__icon"></i>
@@ -42,6 +56,7 @@
         <span>profile</span>
       </a>
     </li>
+    {{/if}}
     {{#if lcIsAuthenticated}}
     <li class="side-nav__item p-2 ">
       <a href="/logout" class="side-nav__link">
@@ -58,7 +73,6 @@
 </nav>
 
 {{else}}
-
 {{! SIDEBAR--icon }}
 <nav class="sidebar1 sidebar--icon">
   <input type="checkbox" name="" class="nav__input" id="side-nav__input" />
@@ -87,7 +101,16 @@
         <span class="hidden">Category</span>
       </a>
     </li>
-    <li class="side-nav__item {{#if isLearning}}side-nav__item--active{{/if}}">
+    {{#if lcAuthTeacher.id}}
+    <li class="side-nav__item {{#if isProfile}}side-nav__item--active{{/if}}">
+      <a href="/teacher/profile" class="side-nav__link">
+        <i class="fas fa-address-card side-nav__icon" data-toggle="tooltip" data-html="true" data-placement="right"
+          title="<h5>Profile</h5>"></i>
+        <span class="hidden">profile</span>
+      </a>
+    </li>
+    {{else}}
+     <li class="side-nav__item {{#if isLearning}}side-nav__item--active{{/if}}">
       <a href="/profile/learning" class="side-nav__link">
         <i class="fas fa-book side-nav__icon" data-toggle="tooltip" data-html="true" data-placement="right"
           title="<h5>Learning</h5>"></i>
@@ -108,6 +131,9 @@
         <span class="hidden">profile</span>
       </a>
     </li>
+    {{/if}}
+    
+   
     {{#if lcIsAuthenticated}}
     <li class="side-nav__item ">
       <a href="/logout" class="side-nav__link">
