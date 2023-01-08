@@ -117,5 +117,3 @@ name.oninput = () => {
   }
 };
 btn.addEventListener("click", submit);
-
-
