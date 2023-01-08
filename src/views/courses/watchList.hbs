@@ -1,70 +1,33 @@
 {{#section "css"}}
-  <link rel="stylesheet" href="/css/partials/pagination.css" />
   <link rel="stylesheet" href="/css/courses.css" />
 {{/section}}
 
-{{#section "js"}}
-  <script src="/js/search.js"></script>
+{{#section "images"}}
+  <link rel="stylesheet" href="/images/background/bg1.png" />
 {{/section}}
 
-<div class="courses__header">
-  <h1 class="courses__title">
-    <i class="fa fa-info-circle" aria-hidden="true"></i>
-    {{this.totalResult}} results for "{{this.keyWord}}"
-  </h1>
-</div>
+{{#section "js"}}
+  <script src="/js/profile.js"></script>
+{{/section}}
+<section>
+  <div class="container-fluid py-4 m-0">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card mb-4 mb-md-0">
+          <div class="card-body box-slider">
+            <div class="flex-card">
+              <p
+                data-content="WATCH LIST"
+                class="mb-4 me-1 titleTransitionLove"
+                style="font-weight: bold;font-size:2.6rem"
+              >WATCH LIST
+                <i class="fas fa-book" style="color: #f84c5e;"></i></p>
+              {{! <a href="#" class="load-more-new">&nbsp;</a> }}
+            </div>
+            <div>
 
-<div class="courses__tool">
-  <div class="courses__sort">
-    <h3 class="courses__sort__label">
-      <i class="fa fa-sort mr-3" aria-hidden="true"></i>
-      Sort by
-    </h3>
-
-    <div class="d-flex">
-      {{!-- <input id="sortByNew" type="radio" class="radioInput" name="sortBy" value="0" hidden> --}}
-      {{!-- <label for="sortByNew" class="btn mr-5"> --}}
-        
-        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=0" 
-          class="btn mr-5 {{#ifEquals sortOption 0}}btn--active{{/ifEquals}}" >
-          Newest
-        </a> 
-        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=1" 
-          class="btn mr-5 {{#ifEquals sortOption 1}}btn--active{{/ifEquals}}">
-          Most reviewed
-        </a> 
-        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=2" 
-          class="btn mr-5 {{#ifEquals sortOption 2}}btn--active{{/ifEquals}}">
-          Highest Rated 
-        </a> 
-        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=3" 
-          class="btn mr-5 {{#ifEquals sortOption 3}}btn--active{{/ifEquals}}">
-          Ascending price
-        </a> 
-        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=4" 
-          class="btn mr-5 {{#ifEquals sortOption 4}}btn--active{{/ifEquals}}">
-          Descending price
-          </a>
-    </div>
-  </div> 
-</div>
-
-<div class="courses__body">
-  <div class="dropdown courses__sort--mobile">
-    <button class="btn btn--primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <h3 class="courses__sort__label">Sort by</h3>
-      <i class="fa fa-angle-down" aria-hidden="true"></i>
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Newest</a>
-      <a class="dropdown-item" href="#">Most reviewed</a>
-      <a class="dropdown-item" href="#">Highest Rated</a>
-      <a class="dropdown-item" href="#">Price: Ascending</a>
-      <a class="dropdown-item" href="#">Price: Descending</a>
-    </div>
-  </div>
-  {{#each this.courses}}
-    <div class="course course--horizontal {{#if bestSeller}}course--best-seller{{/if}} {{#if new}}course--new{{/if}} {{#if trending}}course--trending{{/if}}">
+              {{#each this.courses}}
+                <div class="course course--horizontal {{#if bestSeller}}course--best-seller{{/if}} {{#if new}}course--new{{/if}} {{#if trending}}course--trending{{/if}}">
       <a href="/courses/detail?id={{id}}" class="course__link"></a>
 
       <div class="course__img" style="background-image: url({{image}})">
@@ -123,58 +86,36 @@
           </h4>
         </div>
 
-      {{#if lcAuthTeacher}}
-      {{else}}
-        {{#if lcAuthUser}}
-          <div class="course__buttons mr-5">
+        <div class="course__buttons mr-5">
+          <a
+            name="add-cart-btn"
+            id="add-cart-btn"
+            class="btn btn--heart btn--icon {{#if loved}}active{{/if}} mr-5"
+            href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}"
+            role="button"
+          >
+            <i class="fas fa-heart" aria-hidden="true"></i>
+          </a>
+          {{#if buyed}}
             <a
-              name="add-cart-btn"
-              id="add-cart-btn"
-              class="btn btn--heart btn--icon {{#if loved}}active{{/if}} mr-5"
-              href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}"
-              role="button"
-            >
-              <i class="fas fa-heart" aria-hidden="true"></i>
-            </a>
-            {{#if buyed}}
-              <a
-              name="buy-btn"
-              id="buy-btn"
-              class="btn btn--border"
-              href="/courses/join?id={{id}}"
-              role="button">Learning</a>
-            {{else}}
-              <a
-              name="buy-btn"
-              id="buy-btn"
-              class="btn btn--primary"
-              href="/courses/enroll?id={{id}}"
-              role="button">Buy now</a>
-            {{/if}}
-          </div>
-        {{else}}
-          <div class="course__buttons mr-5">
-            <a
-              name="add-cart-btn"
-              id="add-cart-btn"
-              class="btn btn--heart btn--icon mr-5"
-              href="/login/required"
-              role="button"
-            >
-              <i class="fas fa-heart" aria-hidden="true"></i>
-            </a>
+            name="buy-btn"
+            id="buy-btn"
+            class="btn btn--border"
+            href="/courses/join?id={{id}}"
+            role="button">Learning</a>
+          {{else}}
             <a
             name="buy-btn"
             id="buy-btn"
             class="btn btn--primary"
-            href="/login/required"
+            href="/courses/enroll?id={{id}}"
             role="button">Buy now</a>
-          </div>
-        {{/if}}
-      {{/if}}
-      <div class="course__new-label">
-        <span>news</span>
-      </div>
+          {{/if}}
+        </div>
+        
+        <div class="course__new-label">
+          <span>news</span>
+        </div>
     </div>
     </div>
 
@@ -285,22 +226,11 @@
         <span>news</span>
       </div>
     </div>
-  {{/each}}
-  <div class="courses__footer">
-      {{#if this.pageInfo.numbers}}
-        <div class="courses__pagination">
-          <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&sortBy={{@root.sortOption}}&page={{minus this.pageInfo.current 1}}" 
-            {{#if this.pageInfo.isFirst}}class="link--disabled"{{/if}}>&laquo;</a>
-          
-          {{#each this.pageInfo.numbers}}
-            <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&sortBy={{@root.sortOption}}&page={{value}}" 
-              {{#if isActive}}class="active"{{/if}}>{{value}}</a>
-          {{/each}}
-
-          <a href="/courses/search?searchBy={{@root.searchOption}}&keyword={{@root.keyWord}}&sortBy={{@root.sortOption}}&page={{add this.pageInfo.current 1}}" 
-            {{#if this.pageInfo.isLast}}class="link--disabled"{{/if}}>&raquo;</a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
       </div>
-      {{/if}}
+    </div>
   </div>
-</div>  
-
+</section>

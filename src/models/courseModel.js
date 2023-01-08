@@ -83,7 +83,7 @@ export default {
       .limit(limit);
   },
 
-  // Lượt đánh giá nhiều nhất
+  // Lượt click vào nhiều nhất
   async getTrendingList(limit) {
     return await db
       .select("id")
@@ -110,6 +110,8 @@ export default {
   },
 
   async countByCategoryId(id) {
+    console.log(id);
+    console.log("-----");
     const category = await categoryModel.getById(id);
     const ids = [id];
 
@@ -125,9 +127,19 @@ export default {
       .count("id as number");
     return result[0].number;
   },
-
+  async getIDCourseByName(name) {
+    return db("course").select("id").where("name", name);
+    // const [[rate], ...h] = await db.raw(
+    //   `SELECT count(star) as sumRate FROM rating WHERE  rating.courseID = ?`,
+    //   id
+    // );
+    // return rate.sumRate;
+  },
   add(course) {
     return db("course").insert(course);
+  },
+  addCourseOfTeacher(course_of_teacher) {
+    return db("course_of_teacher").insert(course_of_teacher);
   },
   addChapter(chapter) {
     return db("chapter").insert(chapter);
@@ -173,7 +185,6 @@ export default {
     return updateTime;
   },
 
-  
   async getSimilarCourse(id) {
     // lay categoryID
     const idCategory = await db
@@ -293,19 +304,17 @@ export default {
   // },
 
   //get lesson of chapter & course
-  async getLessonOfChapter_Course(idCourse, idChapter){
+  async getLessonOfChapter_Course(idCourse, idChapter) {
     const chapters = await db("chapter").where("courseID", idCourse);
     const lessons = await db("lesson").where("chapterID", chapters[0].id);
     return lessons;
   },
 
   // id = lesson id
-  async getLessonByID(id){
+  async getLessonByID(id) {
     const lesson = await db("lesson").where("id", id);
     return lesson[0];
   },
-
-
 
   async updateView(id) {
     let [getView] = await db.select("views").from("course").where("id", id);

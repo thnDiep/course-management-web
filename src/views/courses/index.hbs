@@ -103,31 +103,62 @@
                 {{/if}}
               </div>
             </div>
-             {{#if lcAuthTeacher}}{{else}}
 
-            <div class="card-footer course__buttons">
-              <a
-                name="buy-btn"
-                id="buy-btn"
-                class="btn btn--border"
-                href="#"
-                role="button"
-              >Buy now</a>
-
-              <a
-                name="add-cart-btn"
-                id="add-cart-btn"
-                class="btn btn--primary btn--icon active"
-                href="#"
-                role="button"
-              >
-                <i class="fas fa-heart btn-love" aria-hidden="true"></i>
-              </a>
-               <div class="course__new-label">
-                <span>news</span>
-              </div>
-            </div>
+            {{#if lcAuthTeacher}}
+            {{else}}
+              {{#if ../lcAuthUser}}
+                <div class="card-footer course__buttons">
+                  {{#if buyed}}
+                    <a
+                    name="buy-btn"
+                    id="buy-btn"
+                    class="btn btn--border"
+                    href="/courses/join?id={{id}}"
+                    role="button">Learning</a>
+                  {{else}}
+                    <a
+                    name="buy-btn"
+                    id="buy-btn"
+                    class="btn btn--primary"
+                    href="/courses/enroll?id={{id}}"
+                    role="button">Buy now</a>
+                  {{/if}}
+                  
+                  <a
+                    name="add-cart-btn"
+                    id="add-cart-btn"
+                    class="btn btn--heart btn--icon {{#if loved}}active{{/if}}"
+                    href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}"
+                    role="button"
+                  >
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </a>
+                </div>
+              {{else}}
+                <div class="card-footer course__buttons">
+                    <a
+                    name="buy-btn"
+                    id="buy-btn"
+                    class="btn btn--primary"
+                    href="/login/required"
+                    role="button">Buy now</a>
+                  
+                  <a
+                    name="add-cart-btn"
+                    id="add-cart-btn"
+                    class="btn btn--heart btn--icon"
+                    href="/login/required"
+                    role="button"
+                  >
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </a>
+                </div>
+              {{/if}}
             {{/if}}
+
+            <div class="course__new-label">
+              <span>news</span>
+            </div>
           </div>
         </div>
       {{/each}}

@@ -3,7 +3,6 @@ import AccountController from "../AccountController.js";
 import bcrypt from "bcryptjs";
 import courseModel from "../../models/courseModel.js";
 import accountModel from "../../models/accountModel.js";
-import { searchOptions } from "../CourseController.js";
 class uProfileController {
   // GET categories list
   async index(req, res) {
@@ -16,7 +15,6 @@ class uProfileController {
     );
     const isProfile = true;
     res.render("profile", {
-      searchOptions,
       isProfile,
       profiles,
       lesson_learned,
@@ -30,8 +28,7 @@ class uProfileController {
       learning[i].rated = (+rated).toFixed(1);
     }
     const isLearning = true;
-    res.render("learningCourses", {
-      searchOptions,
+    res.render("vwStudent/learningCourses", {
       isLearning,
       learning,
     });
@@ -42,8 +39,7 @@ class uProfileController {
       const rated = await courseModel.getAvgRate(lesson_love[i].id);
       lesson_love[i].rated = (+rated).toFixed(1);
     }
-    res.render("watchList", {
-      searchOptions,
+    res.render("vwStudent/watchList", {
       lesson_love,
     });
   }
@@ -98,7 +94,6 @@ class uProfileController {
       } else {
         return res.render("profile", {
           // layout: false,
-          searchOptions,
           isProfile,
           profiles,
           lesson_learned,
@@ -110,7 +105,6 @@ class uProfileController {
     } else {
       return res.render("profile", {
         err_message_password: "Password is not correct...",
-        searchOptions,
         isProfile,
         profiles,
         lesson_learned,
