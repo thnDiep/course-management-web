@@ -159,7 +159,6 @@
       </div>
 
       <div class="description">
-        <p class="description-title">Course content</p>
         {{!-- <ul class="course_content_table">
 
           <li class="chapter">
@@ -205,29 +204,23 @@
         </ul> --}}
         <div class="formCourse">
           <div>
-            {{#each courseContent}}
             {{! title Course }}
             <div class="formCourse_title d-flex justify-content-between" data-toggle="collapse"
-              data-target="#course{{index}}" aria-expanded="false">
+              data-target="#course" aria-expanded="false">
               <p><i class="fas fa-book-open"></i>
-                Course {{index}}: {{name}}
+                Course content
               </p>
               <div class="mr-4">
                 <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
 
-                {{!-- <a class="edit" href="http://"><i class="fas fa-pen"></i>
-                  Edit</a> --}}
-
               </div>
             </div>
             {{! chapter in course }}
-            <div class="collapse" id="course{{index}}">
-
+            <div class="collapse" id="course">
               <div class="chapter__content">
-
                 <div class="row">
                   <div class="col-lg-12">
-                    {{#each chapter}}
+                    {{#each courseContent.chapter}}
                     {{! title Chapter }}
                     <div class="chapter__title d-flex justify-content-between w-100" data-toggle="collapse"
                       data-target="#{{../index}}chapter{{index}}" aria-expanded="false" aria-controls="collapseExample">
@@ -263,25 +256,7 @@
                         </div>
                       </div>
                       {{/each}}
-                      {{!-- {{#if check}}
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <div class="btnAddLesson ml-4 d-flex">
-                            <button class="addLessonBtn p-1" data-toggle="modal"
-                              data-target="#addLessonCourse{{../index}}Chapter{{index}}">
-                              <i class="fas fa-plus mr-2"></i>Add new Lesson
-                            </button>
-                            <p style="font-style: italic;padding-top:0.5rem">Add more Lesson for
-                              your Chapter.
-                            </p>
-
-                          </div>
-
-                        </div>
-                      </div>
-                      {{/if}} --}}
                     </div>
-
                     {{/each}}
                   </div>
                 </div>
@@ -289,7 +264,6 @@
               </div>
 
             </div>
-            {{/each}}
 
           </div>
       </div>

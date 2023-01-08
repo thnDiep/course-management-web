@@ -100,9 +100,9 @@ class TCourseController {
       { name: "videoID", maxCount: 1 },
     ])(req, res, async function (err) {
       // Xác định category cho khóa học
-      console.log("-----------");
-      console.log(req.body.nameCategory);
-      console.log(req.body.nameParent);
+      // console.log("-----------");
+      // console.log(req.body.nameCategory);
+      // console.log(req.body.nameParent);
       const category = await categoryModel.getByName(req.body.nameCategory);
 
       const date = new Date();
