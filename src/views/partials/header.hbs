@@ -47,12 +47,6 @@
 
 <nav class="user-nav">
   {{#if lcIsAuthenticated}}
-  <div class="user-nav__icon-box">
-    <svg class="user-nav__icon">
-      <use xlink:href="img/sprite.svg#icon-chat"></use>
-    </svg>
-    <span class="user-nav__notification"></span>
-  </div>
   <div class="user-nav__user">
     <img src="{{lcAuthUser.img}}{{lcAuthTeacher.img}}" alt="User photo" class="user-nav__user-photo" />
     <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}{{lcAuthTeacher.name}}</span>

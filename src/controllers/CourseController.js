@@ -210,33 +210,50 @@ class CourseController {
     });
   }
 
-  // [GET] /courses/join?id=
+  // [GET] /courses/join?idCourse={idCourse}&idChapter={idChapter}&idLesson={idLesson}
   async join(req, res) {
-    const id = parseInt(req.query.id) || 1;
-    const course = await courseModel.getById(id);
-    const teacher = await courseModel.teacherOfCourse(id);
+    const idCourse = parseInt(req.query.idCourse) || 1;
+    const idChapter = parseInt(req.query.idChapter) || 1;
+    const idLesson = parseInt(req.query.idLesson) || 1;
+    const course = await courseModel.getById(idCourse);
+    const teacher = await courseModel.teacherOfCourse(idCourse);
 
+    // for BARSTAR
     const avgRated = await courseModel.getAvgRate(course.id);
     course.rated = (+avgRated).toFixed(1);
-
     const numberRated = await courseModel.getCountFeedback(course.id);
     course.numberRated = (+numberRated).toFixed(0);
-    const numberRating = await courseModel.getCountFeedback(id);
-    const numberOfStudent = await userModel.getNumberStudentByCourse(id);
-    const updateTime = await courseModel.getUpdateTime(id);
+    const numberRating = await courseModel.getCountFeedback(idCourse);
+
+    const numberOfStudent = await userModel.getNumberStudentByCourse(idCourse);
+    const updateTime = await courseModel.getUpdateTime(idCourse);
+
+    // for CATEGORYBAR
+    const category = await categoryModel.getById(course.idCategory);
+    const linkCategories = [];
+    if (category.parentID !== null) {
+      const parentCategory = await categoryModel.getById(category.parentID);
+      linkCategories.push(parentCategory);
+    }
+    linkCategories.push(category);
+
+    const chapters = await courseModel.getC;
+    const lesson = await courseModel.getLessonByID(idLesson);
 
     if (course === null) {
       res.redirect("/courses");
     }
     const isCourse = true;
 
-    await courseModel.updateView(id);
+    await courseModel.updateView(idCourse);
     res.render("courses/enrollCourse", {
       course,
       teacher,
+      lesson,
       numberRating,
       numberOfStudent,
       updateTime,
+      linkCategories,
       searchOptions,
     });
   }

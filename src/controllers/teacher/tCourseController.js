@@ -147,6 +147,13 @@ class TCourseController {
         createTime: currentDate,
       };
       await courseModel.add(course);
+      const id = await courseModel.getIDCourseByName(req.body.name);
+      console.log(id);
+      const course_of_teacher = {
+        teacherID: res.locals.lcAuthTeacher.id,
+        courseID: id.id,
+      };
+      await courseModel.addCourseOfTeacher(course_of_teacher);
       return res.redirect("/teacher/profile");
     });
   }

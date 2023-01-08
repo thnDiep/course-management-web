@@ -16,12 +16,12 @@
     </ul> --}}
 
     <ul class="course__category">
-    {{#each linkCategories}}
-      <li class="course__category-item">
-        <a href="/courses?id={{id}}" class="courseD__intro__category">{{name}}</a>
-      </li>
-    {{/each}}
-  </ul>
+      {{#each linkCategories}}
+        <li class="course__category-item">
+          <a href="/courses?id={{id}}" class="courseD__intro__category">{{name}}</a>
+        </li>
+      {{/each}}
+    </ul>
 
     <div class="d-flex align-items-center">
       <div class="courseD__intro__avt" style="background-image: url({{this.course.image}})"></div>
@@ -52,22 +52,13 @@
         </div>
 
         <div class="course__review">
-            <div class="course__review-score">
-              {{> barStar this.course}}
-            </div>
-
-            <div class="course__review-number">({{this.course.numberRated}})</div>
+          <div class="course__review-score">
+            {{> barStar this.course}}
           </div>
 
+          <div class="course__review-number">({{this.course.numberRated}})</div>
+          </div>
         <div class="courseDetail_course__review">
-          {{!-- <div class="course__review-ratings">
-            {{this.course.rated}}
-            <i class="fa fa-star star" aria-hidden="true"></i>
-            <i class="fa fa-star star" aria-hidden="true"></i>
-            <i class="fa fa-star star" aria-hidden="true"></i>
-            <i class="fa fa-star star"  aria-hidden="true"></i>
-            <i class="fa fa-star-half star" aria-hidden="true"></i>
-          </div> --}}
           <a class="courseDetail_course__review-number" href="#">{{this.numberRating}} ratings</a>
           {{this.numberOfStudent}} students
           {{!-- {{#if (gt this.numberOfStudent '>' 1 )}}

@@ -1,5 +1,6 @@
 import { link } from "fs";
 import moment from "moment";
+import CourseController from "../controllers/CourseController.js";
 import db from "../utils/db.js";
 import categoryModel from "./categoryModel.js";
 
@@ -109,6 +110,8 @@ export default {
   },
 
   async countByCategoryId(id) {
+    console.log(id);
+    console.log("-----");
     const category = await categoryModel.getById(id);
     const ids = [id];
 
@@ -124,9 +127,19 @@ export default {
       .count("id as number");
     return result[0].number;
   },
-
+  async getIDCourseByName(name) {
+    return db("course").select("id").where("name", name);
+    // const [[rate], ...h] = await db.raw(
+    //   `SELECT count(star) as sumRate FROM rating WHERE  rating.courseID = ?`,
+    //   id
+    // );
+    // return rate.sumRate;
+  },
   add(course) {
     return db("course").insert(course);
+  },
+  addCourseOfTeacher(course_of_teacher) {
+    return db("course_of_teacher").insert(course_of_teacher);
   },
   addChapter(chapter) {
     return db("chapter").insert(chapter);
@@ -168,7 +181,7 @@ export default {
 
   async getUpdateTime(id) {
     const Time = await db.select("updateTime").from("course").where("id", id);
-    const updateTime = moment(Time[0].updateTime).format("YYYY/MM/DD");
+    const updateTime = moment(Time[0].updateTime).format("DD/MM/YYYY");
     return updateTime;
   },
 
@@ -241,6 +254,7 @@ export default {
     return result;
   },
 
+  // star percent for chart rating
   async percent_star(id, numberStar) {
     const rateAll = await db.raw(
       `Select count(id) as sumRate from rating where rating.courseID = ${id}`
@@ -256,7 +270,7 @@ export default {
     return percentStar * 100;
   },
 
-  // id course
+  // id = idCourse
   async getAllFeedback(id) {
     const allFeedback = await db("rating").where("courseID", id);
     return allFeedback;
@@ -281,6 +295,25 @@ export default {
   async infoStudentOfFeedback(idStd) {
     const infoStudent = await db("user").where("id", idStd);
     return infoStudent;
+  },
+
+  //get Chapter of course
+  // async getChapterOfCourse(idCourse){
+  //   const chapters = await db("chapter").where("courseID", idCourse);
+  //   return chapters;
+  // },
+
+  //get lesson of chapter & course
+  async getLessonOfChapter_Course(idCourse, idChapter) {
+    const chapters = await db("chapter").where("courseID", idCourse);
+    const lessons = await db("lesson").where("chapterID", chapters[0].id);
+    return lessons;
+  },
+
+  // id = lesson id
+  async getLessonByID(id) {
+    const lesson = await db("lesson").where("id", id);
+    return lesson[0];
   },
 
   async updateView(id) {
