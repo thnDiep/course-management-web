@@ -8,6 +8,8 @@ const router = express.Router();
 router.get("/", courseController.index);
 
 router.get("/detail", courseController.detail);
+router.get("/join", courseController.join);
+router.get("/feedback", courseController.feedback);
 
 // Tham gia khóa học
 router.get("/join", auth, isUser, courseController.join);

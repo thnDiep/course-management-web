@@ -1,9 +1,14 @@
 {{#section "css"}}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="/css/enrollCourse.css" />
   {{!-- <link rel="stylesheet" href="/css/courses.css" /> --}}
   <link rel="stylesheet" href="/css/partials/enrollCourse_sideBar.css" />
-  
-  <link rel="stylesheet" href="./partials/barStar.hbs" />
+  {{/section}}
+
+  {{#section "js"}}
+
+    <script src="/js/enrollCourse.js"></script> 
   {{/section}}
 
 <div class="enrollCourse__body">
@@ -69,11 +74,6 @@
         <div class="courseDetail_course__review">
           <a class="courseDetail_course__review-number" href="#">{{this.numberRating}} ratings</a>
           {{this.numberOfStudent}} students
-          {{!-- {{#if (gt this.numberOfStudent '>' 1 )}}
-           students
-          {{else}}
-            student
-            {{/if}} --}}
         </div>
 
             <div class="footer_intro">
@@ -91,6 +91,22 @@
         </div>
       </div>
 
+      {{!-- <div style="width: 100%, height:1">
+      <input id="input-1-ltr-star-xs" name="input-1-ltr-star-xs" class="kv-ltr-theme-svg-star rating-loading" value="1" dir="ltr" data-size="xs">
+      <br/>
+      <input id="input-2-ltr-star-sm" name="input-2-ltr-star-sm" class="kv-ltr-theme-svg-star rating-loading" value="2" dir="ltr" data-size="sm">
+      <br/>
+      <input id="input-3-ltr-star-md" name="input-3-ltr-star-md" class="kv-ltr-theme-svg-star rating-loading" value="3" dir="ltr" data-size="md">
+      <br/>
+      <input id="input-4-ltr-star-lg" name="input-4-ltr-star-lg" class="kv-ltr-theme-svg-star rating-loading" value="4" dir="ltr" data-size="lg">
+      <br/>
+      <input id="input-5-ltr-star-xl" name="input-5-ltr-star-xl" class="kv-ltr-theme-svg-star rating-loading" value="5" dir="ltr" data-size="xl">
+      <br/>
+
+      </div> --}}
+      
+
+
 
       {{! rate & feedback }}
       <!--Modal Launch Button-->
@@ -99,12 +115,12 @@
         type="button"
         class="btn btn-info btn-lg openmodal"
         data-toggle="modal"
-        data-target="#myModal"
+        data-target="#myFeedbackForm"
         id="rate_feedback-btn"
       >Rate & feedback</button>
 
       <!--Division for Modal-->
-      <div id="myModal" class="modal fade" role="dialog">
+      <div  id="myFeedbackForm" class="modal fade" role="dialog" id="feedbackForm">
 
         <!--Modal-->
         <div class="modal-dialog">
@@ -137,7 +153,7 @@
 
             <!-- Radio Buttons for Rating-->
             <div class="form-check mb-4">
-              <input name="feedback" type="radio" />
+              <input name="feedback" type="radio" value="5"/>
               <label class="ml-3" style="font-size: 1.3rem;">
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -148,7 +164,7 @@
               </label>
             </div>
             <div class="form-check mb-4">
-              <input name="feedback" type="radio" />
+              <input name="feedback" type="radio" value="4" />
               <label class="ml-3" style="font-size: 1.3rem;">
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -158,7 +174,7 @@
               </label>
             </div>
             <div class="form-check mb-4">
-              <input name="feedback" type="radio" />
+              <input name="feedback" type="radio" value="3"/>
               <label class="ml-3" style="font-size: 1.3rem;">
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -167,7 +183,7 @@
               </label>
             </div>
             <div class="form-check mb-4">
-              <input name="feedback" type="radio" />
+              <input name="feedback" type="radio"  value="2"/>
               <label class="ml-3" style="font-size: 1.3rem;">
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -175,7 +191,7 @@
               </label>
             </div>
             <div class="form-check mb-4">
-              <input name="feedback" type="radio" />
+              <input name="feedback" type="radio" value="1"/>
               <label class="ml-3" style="font-size: 1.3rem;">
                 <i class="fa fa-star" aria-hidden="true"></i>
                 Very Bad
@@ -187,6 +203,7 @@
               <h3>Your feedback</h3>
             </div>
             <textarea
+              id="feedback"
               type="textarea"
               placeholder="Your Message"
               rows="3"
@@ -195,9 +212,14 @@
 
             <!-- Modal Footer-->
             <div class="modal-footer">
-              <a href="" class="btn btn-primary">Public
+              <button id="btnSubmit"  class="btn btn-primary" 
+              data-course={{this.idCourse}}
+              data-chapter={{this.idChapter}}
+              data-lesson={{this.idLesson}} >
+              Public
                 <i class="fa fa-paper-plane"></i>
-              </a>
+              </button>
+              <a id="submitLink" href=""></a>
               <a
                 href=""
                 class="btn btn-outline-primary"
@@ -207,11 +229,10 @@
           </div>
         </div>
       </div>
-
-
     </div>
     </div>
     
+
 
   {{! side bar: list chapter }}
   <div class="col-sm-3">
