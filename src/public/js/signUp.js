@@ -13,6 +13,7 @@ const rName = document.querySelector(".required-name");
 const mailformat =
   /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
 const nameformat = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
+const passformat = /^[A-Za-z]\w{7,14}$/;
 video.playbackRate = 0.5;
 
 email.oninput = (e) => {
@@ -71,6 +72,10 @@ const submit = (e) => {
   if (pass.value.length === 0) {
     rPass.innerHTML =
       "<i class='fas fa-exclamation-circle required-icon' style='color:red'></i> Password is required";
+    e.preventDefault();
+  } else if (!pass.value.match(passformat)) {
+    rPass.innerHTML =
+      "<i class='fas fa-exclamation-circle required-icon' style='color:red'></i> Please match the requested format.";
     e.preventDefault();
   } else {
     rPass.innerHTML = "";
