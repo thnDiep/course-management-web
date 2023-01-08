@@ -208,7 +208,18 @@ class CourseController {
   // [GET] /courses/join?id=
   async join(req, res) {
     const id = parseInt(req.query.id) || 1;
-    const course = await courseModel.join(id);
+    const course = await courseModel.getById(id);
+    const teacher = await courseModel.teacherOfCourse(id);
+
+    const avgRated = await courseModel.getAvgRate(course.id);
+    course.rated = (+avgRated).toFixed(1);
+
+    const numberRated = await courseModel.getCountFeedback(course.id);
+    course.numberRated = (+numberRated).toFixed(0);
+    const numberRating = await courseModel.getCountFeedback(id);
+    const numberOfStudent = await userModel.getNumberStudentByCourse(id);
+    const updateTime = await courseModel.getUpdateTime(id);
+
 
     if (course === null) {
       res.redirect("/courses");
@@ -217,8 +228,11 @@ class CourseController {
 
     await courseModel.updateView(id);
     res.render("courses/enrollCourse", {
-      isCourse,
       course,
+      teacher,
+      numberRating,
+      numberOfStudent,
+      updateTime,
     });
   }
 

@@ -170,7 +170,7 @@ export default {
 
   async getUpdateTime(id) {
     const Time = await db.select("updateTime").from("course").where("id", id);
-    const updateTime = moment(Time[0].updateTime).format("YYYY-MM-DD");
+    const updateTime = moment(Time[0].updateTime).format("YYYY/MM/DD");
     return updateTime;
   },
 

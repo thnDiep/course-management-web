@@ -61,10 +61,13 @@
     }
 
     .course-detail__intro-avt {
-      height: 150px;
-      margin: 0px;
+      height: 180px;
+      width: 200px;
+      margin: 0px 0px 0px 35px;
       border-radius: 4px;
-      padding-left: 5rem;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
     }
 
     .course-detail__intro-info {
@@ -116,6 +119,9 @@
               color: #555; }
               .courses__review-ratings {
                 color: #e59819; }
+              div {
+                display: flex;
+              }
            }
            .courses__teacher {
             font-size: 1.6rem;

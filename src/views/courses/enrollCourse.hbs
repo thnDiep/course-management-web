@@ -32,26 +32,23 @@
           {{! <div class="course-detail__intro-avt"> }}
           <img
             class="course-detail__intro-avt"
-            src="https://securiumsolutions.com/blog/wp-content/uploads/2021/05/Javascript.png"
+            src={{this.course.image}}
           />
           {{! </div> }}
 
           <div class="course-detail__intro-info">
             <div class="select-button">
               <div>
-                <h1 class="intro_courseDetail-name">Javascript for Beginners</h1>
-                <p class="intro_courseDetail-item">Learn javascript online and
-                  supercharge your web design with this Javascript for beginners
-                  training course.</p>
+                <h1 class="intro_courseDetail-name">{{this.course.name}}</h1>
+                <p class="intro_courseDetail-item">{{this.course.tinyDescription }}</p>
               </div>
             </div>
 
             <div class="courses__teacher">
               Teacher
-              <a class="intro_courseDetail-link" href="/teacherProfile">Dollar
-                Design School</a>
+              <a class="intro_courseDetail-link" href="/teacherProfile">{{this.teacher.name}}</a>
             </div>
-            <div class="courses__review">
+            {{!-- <div class="courses__review">
               <div class="courses__review-ratings">
                 4.3
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -59,15 +56,24 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star-half" aria-hidden="true"></i>
-              </div>
-              <a class="intro_courseDetail-link" href="#">1336 ratings</a>
-              11396 students
+              </div> --}}
+          <div div class="course__review">
+            <div class="d-plex">
+              {{> barStar this.course}}
             </div>
+
+            <div class="course__review-number">({{this.course.numberRated}})</div>
+          </div>
+
+        <div class="course__review">
+          <a class="course__review-ratings" href="#">{{this.numberRating}} ratings</a>
+          {{this.numberOfStudent}} students
+        </div>
 
             <div class="footer_intro">
               <div class="footer_intro-item">
                 <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                Last updated 4/2016
+                Last updated {{this.updateTime}}
               </div>
               <div class="footer_intro-item">
                 <i class="fa fa-globe" aria-hidden="true"></i>
