@@ -157,7 +157,6 @@ class CourseController {
     ];
     const allFeedback = await courseModel.getAllFeedback(id);
     // const feedbackTime = await courseModel.getTimeOfFeedback(id);
-    // console.log(feedbackTime);
 
     // const timeOfFeedback = await courseModel.convertFormatDate(allFeedback.time);
     allFeedback.forEach((feedback) => {
@@ -178,7 +177,6 @@ class CourseController {
       linkCategories.push(parentCategory);
     }
     linkCategories.push(category);
-    // console.log(linkCategories);
 
     // course.linkCategories = linkCategories;
 
@@ -356,10 +354,7 @@ class CourseController {
         studentID
       );
       lovedCourses.forEach((lovedCourse) => {
-        console.log(lovedCourse.courseID);
-        console.log(courseID);
         if (lovedCourse.courseID === courseID) {
-          console.log(courseID);
           exists = true;
           return;
         }
@@ -367,7 +362,6 @@ class CourseController {
 
       // Nếu có thì xóa
       if (exists) {
-        console.log("delete");
         await studentCourseModel.removeLoved({ courseID, studentID });
       }
 
@@ -380,8 +374,8 @@ class CourseController {
   //[GET] /courses/watch-list
   async watchList(req, res) {
     // if (res.locals.lcAuthUser) {
-    // const studentID = res.locals.lcAuthUser.id;
-    const studentID = 29;
+    const studentID = res.locals.lcAuthUser?.id;
+    // const studentID = 29;
     const courses = [];
 
     const lovedCourses = await studentCourseModel.getCourseStudentLove(
@@ -575,7 +569,6 @@ const getInfoCourse = async function (courses, res) {
   // Lấy các khóa học của student
   // if (res.locals.lcAuthUser) {
   // const studentID = res.locals.lcAuthUser.id;
-  // console.log(studentID);
   const studentID = 29;
   learningCourses = await studentCourseModel.getCourseOfStudent(studentID);
   lovedCourses = await studentCourseModel.getCourseStudentLove(studentID);
