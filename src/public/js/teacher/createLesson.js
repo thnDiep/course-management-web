@@ -10,11 +10,11 @@ const check_Course = document.querySelectorAll(".formCourse_title");
 const check_Chapter = document.querySelectorAll(".chapter__title");
 check_Course.forEach((e) => {
   e.addEventListener("click", function () {
-    e.classList.toggle("background-color")
+    e.classList.toggle("background-color1");
     e.children[1].children[0].classList.toggle("down-icon");
     e.children[1].children[0].classList.toggle("up-icon");
-  })
-})
+  });
+});
 // check_Course.addEventListener("click", function () {
 //   console.log(111)
 //   document.querySelector(".course-icon1").classList.toggle("down-icon");
@@ -23,13 +23,13 @@ check_Course.forEach((e) => {
 check_Chapter.forEach((e) => {
   e.addEventListener("click", function () {
     // e.classList.toggle("background-color")
-    e.classList.toggle("background-color")
-    e.nextElementSibling.classList.toggle("background-color")
+    e.classList.toggle("background-color1");
+    // e.nextElementSibling.classList.toggle("background-color1");
 
     e.children[1].children[0].classList.toggle("down-icon");
     e.children[1].children[0].classList.toggle("up-icon");
-  })
-})
+  });
+});
 // check_Chapter.addEventListener("click", function () {
 //   console.log("hell");
 //   document.querySelector(".chapter-icon").classList.toggle("down-icon");

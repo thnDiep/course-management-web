@@ -168,7 +168,7 @@ export default {
 
   async getUpdateTime(id) {
     const Time = await db.select("updateTime").from("course").where("id", id);
-    const updateTime = moment(Time[0].updateTime).format("YYYY-MM-DD");
+    const updateTime = moment(Time[0].updateTime).format("YYYY/MM/DD");
     return updateTime;
   },
 
@@ -299,6 +299,9 @@ export default {
   },
   updateChapter(chapter) {
     return db("chapter").where("id", chapter.id).update(chapter);
+  },
+  updateCourse(course) {
+    return db("course").where("id", course.id).update(course);
   },
   updateLesson(lesson) {
     return db("lesson").where("id", lesson.id).update(lesson);

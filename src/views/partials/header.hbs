@@ -2,6 +2,10 @@
   <script src="/js/layout/search.js"></script>
 {{/section}}
 
+<style> 
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap'); 
+</style>
+
 <a href="/" class="logo">
   <img
     src="https://previews.123rf.com/images/captainvector/captainvector1703/captainvector170309493/74165387-academy-logo-element.jpg"
@@ -43,22 +47,16 @@
 
 <nav class="user-nav">
   {{#if lcIsAuthenticated}}
-    {{!-- <div class="user-nav__icon-box">
-    <svg class="user-nav__icon">
-      <use xlink:href="img/sprite.svg#icon-bookmark"></use>
-    </svg>
-    <span class="user-nav__notification">7</span>
-  </div>
   <div class="user-nav__icon-box">
     <svg class="user-nav__icon">
       <use xlink:href="img/sprite.svg#icon-chat"></use>
     </svg>
-    <span class="user-nav__notification">13</span>
+    <span class="user-nav__notification"></span>
   </div>
   <div class="user-nav__user">
-    <img src="{{lcAuthUser}}" alt="User photo" class="user-nav__user-photo" />
-    <span class="user-nav__user-name">{{lcAuthUser.name}}</span>
-  </div>  --}}
+    <img src="{{lcAuthUser.img}}{{lcAuthTeacher.img}}" alt="User photo" class="user-nav__user-photo" />
+    <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}{{lcAuthTeacher.name}}</span>
+  </div>  
   {{else}}
     <div class="user-nav__acc">
       <a class="btn btn--border user-nav__link" href="/login" role="button">

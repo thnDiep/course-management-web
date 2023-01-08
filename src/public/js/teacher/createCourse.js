@@ -48,7 +48,7 @@ const formatter = new Intl.NumberFormat("vi-VN", {
   style: "currency",
   currency: "VND",
 });
-
+formatCurrency($("input[data-type='currency']"));
 $("input[data-type='currency']").on({
   keyup: function () {
     formatCurrency($(this));
@@ -57,13 +57,14 @@ $("input[data-type='currency']").on({
     formatCurrency($(this), "blur");
   },
 });
+
 // Thêm , cho số tiền
 function formatNumber(n) {
   // format number 1000000 to 1,234,567
   return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function formatCurrency(input, blur) {
+function formatCurrency(input) {
   // appends đ to value, validates decimal side
   // and puts cursor back in right position.
 
@@ -98,11 +99,6 @@ function formatCurrency(input, blur) {
     // validate right side
     right_side = formatNumber(right_side);
 
-    // On blur make sure 2 numbers after decimal
-    if (blur === "blur") {
-      right_side += "00";
-    }
-
     // Limit decimal to only 2 digits
     right_side = right_side.substring(0, 2);
 
@@ -131,6 +127,7 @@ function formatCurrency(input, blur) {
 const input = document.querySelectorAll(".inputField");
 const input1 = document.querySelectorAll(".inputFieldMini");
 const input2 = document.getElementById("fuSub");
+const input3 = document.getElementById("fuMain");
 
 input.forEach((element) => {
   element.oninput = (e) => {
@@ -158,10 +155,16 @@ btnSubmit.addEventListener("click", function (e) {
   if (input2.files.length == 0) {
     document.querySelector(".requiredImg").textContent =
       "This field can't be empty";
+    e.preventDefault();
+  }
+  if (input3.files.length == 0) {
+    document.querySelector(".requiredEmail").textContent =
+      "This field can't be empty";
+    e.preventDefault();
   }
   input1.forEach((element) => {
     if (element.value.length == 0) {
-      element.style.border = "2px solid red";
+      element.style.border = "2px solid red ";
       e.preventDefault();
     }
   });

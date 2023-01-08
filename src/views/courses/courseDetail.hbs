@@ -48,7 +48,7 @@
 
         <div class="course__teacher">
           Teacher
-          <a class="courseD__intro__link" href="/teacherProfile">{{this.teacher.name}}</a>
+          <a class="courseD__intro__link" >{{this.teacher.name}}</a>
         </div>
 
         <div class="course__review">
@@ -127,12 +127,12 @@
           <div class="coursePreview_benefit">
             <h2 class="title">This course include</h2>
             <p class="content">
-              <i class="perLine fa fa-clock" aria-hidden="true"></i>
-              3 hours of video on demand
+              <i class="perLine fa fa-globe" aria-hidden="true"></i>
+                English
             </p>
             <p class="content">
               <i class="perLine fa fa-hourglass" aria-hidden="true"></i>
-              &nbsp; Lifetime access
+              &nbsp;Lifetime access
             </p>
             <p class="content">
               <i class="perLine fa fa-tablet" aria-hidden="true"></i>
@@ -423,6 +423,10 @@
     </div>
   </div>
 
+  
+  {{#if lcAuthTeacher}}
+  <div ><a style="font-size: 2rem;background-color:#f8d752;padding: 1rem 47% ; bottom:0rem;margin-left:-2rem" class="btn position-fixed" href="/teacher/editCourse/?id={{course.id}}">EDIT</a></div>
+  {{else}}
   <div class="feedback">
     <div class="col-md-3">
       <div class="feedback-left">
@@ -469,7 +473,6 @@
         </div>
       </div>
     </div>
-
     <div id="feedback" class="col-md-8">
       {{#each this.allFeedback}}
         <div  class="feedback-right">
@@ -564,4 +567,5 @@
       >See more</a>
     </div>
   </div>
+  {{/if}}
 </div>

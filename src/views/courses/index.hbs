@@ -103,6 +103,7 @@
                 {{/if}}
               </div>
             </div>
+             {{#if lcAuthTeacher}}{{else}}
 
             <div class="card-footer course__buttons">
               <a
@@ -116,16 +117,17 @@
               <a
                 name="add-cart-btn"
                 id="add-cart-btn"
-                class="btn btn--primary btn--icon"
+                class="btn btn--primary btn--icon active"
                 href="#"
                 role="button"
               >
-                <i class="fas fa-heart" aria-hidden="true"></i>
+                <i class="fas fa-heart btn-love" aria-hidden="true"></i>
               </a>
                <div class="course__new-label">
                 <span>news</span>
               </div>
             </div>
+            {{/if}}
           </div>
         </div>
       {{/each}}

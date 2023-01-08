@@ -82,7 +82,6 @@ class uProfileController {
       };
       const userAvailable = await accountModel.findByUsername(req.body.name);
       const emailAvailable = await accountModel.findByEmail(req.body.email);
-      console.log(profiles.name);
       // profile = res.locals.lcAuthUser
       if (
         (check(userAvailable?.name, user.name, 0) === 1 ||

@@ -42,10 +42,13 @@
     .intro_courseDetail .intro_courseDetail-link:hover {
       color: #cdc1fd; }
   .intro_courseDetail .course-detail__intro-avt {
-    height: 150px;
-    margin: 0px;
+    height: 180px;
+    width: 200px;
+    margin: 0px 0px 0px 35px;
     border-radius: 4px;
-    padding-left: 5rem; }
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; }
   .intro_courseDetail .course-detail__intro-info {
     flex: 1;
     margin: 0rem; }
@@ -87,6 +90,8 @@
       color: #555; }
     .intro_courseDetail .courses__review .courses__review-ratings {
       color: #e59819; }
+    .intro_courseDetail .courses__review div {
+      display: flex; }
   .intro_courseDetail .courses__teacher {
     font-size: 1.6rem;
     font-weight: 500;
