@@ -42,60 +42,50 @@ class CourseController {
   // [GET] /courses/detail?id=
   async detail(req, res) {
     const id = parseInt(req.query.id) || 1;
-    const limit = 5;
-    const totalCourses = await courseModel.countByCategoryId(id);
-    let maxPage = Math.floor(totalCourses / limit);
-    if (totalCourses % limit) maxPage++;
+    // const limit = 5;
+    // const totalCourses = await courseModel.countByCategoryId(id);
+    // let maxPage = Math.floor(totalCourses / limit);
+    // if (totalCourses % limit) maxPage++;
 
-    const page = parseInt(req.query.page) || 1;
-    const offset = (page - 1) * limit;
+    // const page = parseInt(req.query.page) || 1;
+    // const offset = (page - 1) * limit;
 
-    const pageNumbers = [];
-    if (maxPage !== 1) {
-      for (let i = 1; i <= maxPage; i++) {
-        if (i === page) {
-          pageNumbers.push({ value: i, isActive: true });
-        } else {
-          pageNumbers.push({ value: i });
-        }
-      }
-    }
+    // const pageNumbers = [];
+    // if (maxPage !== 1) {
+    //   for (let i = 1; i <= maxPage; i++) {
+    //     if (i === page) {
+    //       pageNumbers.push({ value: i, isActive: true });
+    //     } else {
+    //       pageNumbers.push({ value: i });
+    //     }
+    //   }
+    // }
     const course = await courseModel.getById(id);
 
-    const courseContent = await userModel.getAllCourseOfTeacher(3);
-    for (let i = 0; i < courseContent.length; i++) {
-      const Rated = await courseModel.getAvgRate(courseContent[i].id);
-      const sumRate = await courseModel.getCountFeedback(courseContent[i].id);
-      const numberStudent = await userModel.getNumberStudentByCourse(
-        courseContent[i].id
+    const courseContent = await courseModel.getById(id);
+    const chapter = await courseModel.getAllChapterOfCourse(
+      id
+    );
+    for (let i = 0; i < chapter.length; i++) {
+      chapter[i].index = i + 1;
+      chapter[i].lesson = await courseModel.getAllLessonOfChapter(
+        chapter[i].id
       );
-      const chapter = await courseModel.getAllChapterOfCourse(
-        courseContent[i].id
-      );
-      for (let i = 0; i < chapter.length; i++) {
-        chapter[i].index = i + 1;
-        chapter[i].lesson = await courseModel.getAllLessonOfChapter(
-          chapter[i].id
-        );
-        for (let j = 0; j < chapter[i].lesson.length; j++) {
-          chapter[i].lesson[j].index = j + 1;
-          j === chapter[i].lesson.length - 1 && i === chapter.length - 1
-            ? (chapter[i].lesson[j].checkLesson = true)
-            : (chapter[i].lesson[j].checkLesson = false);
-        }
-        i === chapter.length - 1 && chapter[i].lesson.length === 0
-          ? (chapter[i].checkChapter = true)
-          : (chapter[i].checkChapter = false);
-        i === chapter.length - 1
-          ? (chapter[i].check = true)
-          : (chapter[i].check = false);
+      for (let j = 0; j < chapter[i].lesson.length; j++) {
+        chapter[i].lesson[j].index = j + 1;
+        j === chapter[i].lesson.length - 1 && i === chapter.length - 1
+          ? (chapter[i].lesson[j].checkLesson = true)
+          : (chapter[i].lesson[j].checkLesson = false);
       }
-      courseContent[i].chapter = chapter;
-      courseContent[i].rated = (+Rated).toFixed(1);
-      courseContent[i].sumRate = (+sumRate).toFixed(0);
-      courseContent[i].numberStudent = (+numberStudent).toFixed(0);
-      courseContent[i].index = i + 1;
+      i === chapter.length - 1 && chapter[i].lesson.length === 0
+        ? (chapter[i].checkChapter = true)
+        : (chapter[i].checkChapter = false);
+      i === chapter.length - 1
+        ? (chapter[i].check = true)
+        : (chapter[i].check = false);
     }
+    courseContent.chapter = chapter;
+
 
     const avgRated = await courseModel.getAvgRate(course.id);
     course.rated = (+avgRated).toFixed(1);
@@ -151,6 +141,7 @@ class CourseController {
     ];
     const allFeedback = await courseModel.getAllFeedback(id);
     // const feedbackTime = await courseModel.getTimeOfFeedback(id);
+    // console.log(feedbackTime);
 
     // const timeOfFeedback = await courseModel.convertFormatDate(allFeedback.time);
     allFeedback.forEach((feedback) => {
@@ -171,6 +162,7 @@ class CourseController {
       linkCategories.push(parentCategory);
     }
     linkCategories.push(category);
+    // console.log(linkCategories);
 
     // course.linkCategories = linkCategories;
 
@@ -190,12 +182,13 @@ class CourseController {
       numberRating,
       percentInfo,
       allFeedback,
-      pageInfo: {
-        current: page,
-        isFirst: page === 1,
-        isLast: page === maxPage,
-        numbers: pageNumbers,
-      },
+      // pageInfo: {
+      //   current: page,
+      //   isFirst: page === 1,
+      //   isLast: page === maxPage,
+      //   numbers: pageNumbers,
+      // },
+      searchOptions,
       // feedbackTime,
       // timeOfFeedback,
     });
@@ -228,9 +221,141 @@ class CourseController {
     }
     linkCategories.push(category);
 
-    const chapters = await courseModel.getC;
+    const chapters = await courseModel.getAllChapterOfCourse(idCourse);
     const lesson = await courseModel.getLessonByID(idLesson);
 
+    // for SIDEBAR
+    const courseContent = await courseModel.getById(idCourse);
+    const chapter = await courseModel.getAllChapterOfCourse(
+      idCourse
+    );
+    for (let i = 0; i < chapter.length; i++) {
+      chapter[i].index = i + 1;
+      chapter[i].lesson = await courseModel.getAllLessonOfChapter(
+        chapter[i].id
+      );
+      for (let j = 0; j < chapter[i].lesson.length; j++) {
+        chapter[i].lesson[j].index = j + 1;
+        j === chapter[i].lesson.length - 1 && i === chapter.length - 1
+          ? (chapter[i].lesson[j].checkLesson = true)
+          : (chapter[i].lesson[j].checkLesson = false);
+      }
+      i === chapter.length - 1 && chapter[i].lesson.length === 0
+        ? (chapter[i].checkChapter = true)
+        : (chapter[i].checkChapter = false);
+      i === chapter.length - 1
+        ? (chapter[i].check = true)
+        : (chapter[i].check = false);
+    }
+    courseContent.chapter = chapter;
+
+
+    // add feeback
+
+    // const rating = {
+    //   star = 
+    // }
+    if (course === null) {
+      res.redirect("/courses");
+    }
+    const isCourse = true;
+
+    // await courseModel.updateView(idCourse);
+    res.render("courses/enrollCourse", {
+      course,
+      idCourse,
+      idChapter,
+      idLesson,
+      teacher,
+      chapters,
+      lesson,
+      courseContent,
+      numberRating,
+      numberOfStudent,
+      updateTime,
+      linkCategories,
+      searchOptions,
+    });
+    // res.json("h");
+  }
+
+  async feedback(req, res) {
+    const numberRate = req.query.number;
+    const msg = req.query.mess;
+
+    const currentTime = new Date();
+
+
+    const idCourse = parseInt(req.query.idCourse) || 1;
+    const idChapter = parseInt(req.query.idChapter) || 1;
+    const idLesson = parseInt(req.query.idLesson) || 1;
+    const course = await courseModel.getById(idCourse);
+    const teacher = await courseModel.teacherOfCourse(idCourse);
+
+    const rating = {
+      star: numberRate,
+      feedback: msg,
+      courseID: idCourse,
+      studentID: 29,
+      time: currentTime
+    }
+
+    courseModel.addRating(rating);
+    
+
+    // for BARSTAR
+    const avgRated = await courseModel.getAvgRate(course.id);
+    course.rated = (+avgRated).toFixed(1);
+    const numberRated = await courseModel.getCountFeedback(course.id);
+    course.numberRated = (+numberRated).toFixed(0);
+    const numberRating = await courseModel.getCountFeedback(idCourse);
+
+    const numberOfStudent = await userModel.getNumberStudentByCourse(idCourse);
+    const updateTime = await courseModel.getUpdateTime(idCourse);
+
+    // for CATEGORYBAR
+    const category = await categoryModel.getById(course.idCategory);
+    const linkCategories = [];
+    if (category.parentID !== null) {
+      const parentCategory = await categoryModel.getById(category.parentID);
+      linkCategories.push(parentCategory);
+    }
+    linkCategories.push(category);
+
+    const chapters = await courseModel.getAllChapterOfCourse(idCourse);
+    const lesson = await courseModel.getLessonByID(idLesson);
+
+    // for SIDEBAR
+    const courseContent = await courseModel.getById(idCourse);
+    const chapter = await courseModel.getAllChapterOfCourse(
+      idCourse
+    );
+    for (let i = 0; i < chapter.length; i++) {
+      chapter[i].index = i + 1;
+      chapter[i].lesson = await courseModel.getAllLessonOfChapter(
+        chapter[i].id
+      );
+      for (let j = 0; j < chapter[i].lesson.length; j++) {
+        chapter[i].lesson[j].index = j + 1;
+        j === chapter[i].lesson.length - 1 && i === chapter.length - 1
+          ? (chapter[i].lesson[j].checkLesson = true)
+          : (chapter[i].lesson[j].checkLesson = false);
+      }
+      i === chapter.length - 1 && chapter[i].lesson.length === 0
+        ? (chapter[i].checkChapter = true)
+        : (chapter[i].checkChapter = false);
+      i === chapter.length - 1
+        ? (chapter[i].check = true)
+        : (chapter[i].check = false);
+    }
+    courseContent.chapter = chapter;
+
+
+    // add feeback
+
+    // const rating = {
+    //   star = 
+    // }
     if (course === null) {
       res.redirect("/courses");
     }
@@ -239,13 +364,19 @@ class CourseController {
     await courseModel.updateView(idCourse);
     res.render("courses/enrollCourse", {
       course,
+      idCourse,
+      idChapter,
+      idLesson,
       teacher,
+      chapters,
       lesson,
+      courseContent,
       numberRating,
       numberOfStudent,
       updateTime,
       linkCategories,
     });
+    // res.json("h");
   }
 
   // [GET] /courses/enroll?id=
@@ -345,7 +476,10 @@ class CourseController {
         studentID
       );
       lovedCourses.forEach((lovedCourse) => {
+        console.log(lovedCourse.courseID);
+        console.log(courseID);
         if (lovedCourse.courseID === courseID) {
+          console.log(courseID);
           exists = true;
           return;
         }
@@ -353,6 +487,7 @@ class CourseController {
 
       // Nếu có thì xóa
       if (exists) {
+        console.log("delete");
         await studentCourseModel.removeLoved({ courseID, studentID });
       }
 
@@ -365,8 +500,8 @@ class CourseController {
   //[GET] /courses/watch-list
   async watchList(req, res) {
     // if (res.locals.lcAuthUser) {
-    const studentID = res.locals.lcAuthUser?.id;
-    // const studentID = 29;
+    // const studentID = res.locals.lcAuthUser.id;
+    const studentID = 29;
     const courses = [];
 
     const lovedCourses = await studentCourseModel.getCourseStudentLove(
@@ -558,6 +693,7 @@ const getInfoCourse = async function (courses, res) {
   // Lấy các khóa học của student
   // if (res.locals.lcAuthUser) {
   // const studentID = res.locals.lcAuthUser.id;
+  // console.log(studentID);
   const studentID = 29;
   learningCourses = await studentCourseModel.getCourseOfStudent(studentID);
   lovedCourses = await studentCourseModel.getCourseStudentLove(studentID);
@@ -635,5 +771,7 @@ const getInfoCourse = async function (courses, res) {
     }
   }
 };
+
+
 
 export default new CourseController();

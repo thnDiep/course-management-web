@@ -54,6 +54,7 @@ router.post(
 );
 
 // show list COURSE
+router.put("/courses/block", auth, isAdmin, aCourseController.blocked);
 router.get("/courses", auth, isAdmin, aCourseController.index);
 
 router.get("/", auth, isAdmin, aCategoryController.index);

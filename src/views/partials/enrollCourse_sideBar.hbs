@@ -1,82 +1,85 @@
 <div class="sidenav">
+      <div class="formCourse">
+          <div>
+            {{! title Course }}
+            <div class="formCourse_title d-flex justify-content-between" data-toggle="collapse"
+              data-target="#course" aria-expanded="false">
+              <p><i class="fas fa-book-open"></i>
+                {{this.course.name}}
+              </p>
+              <div class="mr-4">
+                <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
 
-  <p>Course content </p>
-  <button class="dropdown-btn">Chapter 1:
-    {{this.lesson.name}}
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Lesson 1</a>
-    <a href="#">Lesson 2</a>
-    <a href="#">Lesson 3</a>
-  </div>
-  <button class="dropdown-btn">Chapter 1: Hello javascript
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Lesson 1</a>
-    <a href="#">Lesson 2</a>
-    <a href="#">Lesson 3</a>
-  </div>
-  <button class="dropdown-btn">Chapter 2: Storing information in Variables
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Lesson 1</a>
-    <a href="#">Lesson 2</a>
-    <a href="#">Lesson 3</a>
-  </div>
-  <button class="dropdown-btn">Chapter 3: Conditional statement
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Lesson 1</a>
-    <a href="#">Lesson 2</a>
-    <a href="#">Lesson 3</a>
-  </div>
-  <button class="dropdown-btn">Chapter 4: Dialog boxes
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Lesson 1</a>
-    <a href="#">Lesson 2</a>
-    <a href="#">Lesson 3</a>
-  </div>
-  <button class="dropdown-btn">Chapter 5: Now We're Iterating! Loops in
-    Javascript
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Lesson 1</a>
-    <a href="#">Lesson 2</a>
-    <a href="#">Lesson 3</a>
-  </div>
-  <button class="dropdown-btn">Chapter 6: Coding Javascript function
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Lesson 1</a>
-    <a href="#">Lesson 2</a>
-    <a href="#">Lesson 3</a>
-  </div>
-  <button class="dropdown-btn">Chapter 7: Working with Arrays
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Lesson 1</a>
-    <a href="#">Lesson 2</a>
-    <a href="#">Lesson 3</a>
-  </div>
+              </div>
+            </div>
+            {{! chapter in course }}
+            <div class="collapse" id="course">
+              <div class="chapter__content">
+                <div class="row">
+                  <div class="col-lg-12">
+                    {{#each courseContent.chapter}}
+                    {{! title Chapter }}
+                    <div class="chapter__title d-flex justify-content-between w-100" data-toggle="collapse"
+                      data-target="#{{../index}}chapter{{index}}" aria-expanded="false" aria-controls="collapseExample">
+                      <div>
+                        <p class="chapter__name">
+                          Chapter {{index}}: {{name}}</p>
+                      </div>
+                      <div class=" mr-4 ">
+                        <i class="fas fa-angle-down chapter-icon{{index}} down-icon"></i>
+
+                        {{!-- <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
+                          data-target="#course{{../index}}chapter{{index}}"><i class="fas fa-pen"></i> Edit
+                        </a> --}}
+
+                      </div>
+                    </div>
+                    {{! lesson in chapter }}
+                    <div class="collapse" id="{{../index}}chapter{{index}}">
+                      {{#each lesson}}
+
+                      <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                        <a href="/courses/join?idCourse={{@root.idCourse}}&idChapter={{../index}}&idLesson={{id}}">
+                          <p class="lesson__name">
+                            Lesson {{index}}: {{name}}</p>
+                        </a>
+                        <div class="icon-lesson mr-4">
+                          {{!-- <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
+                            data-target="#course{{../../index}}chapter{{../index}}lesson{{index}}"><i
+                              class="fas fa-pen"></i> Edit
+                          </a> --}}
+                          {{#if checkLesson}}
+                          {{/if}}
+                        </div>
+                      </div>
+                      {{/each}}
+                    </div>
+                    {{/each}}
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+      </div>
 </div>
 
 <script>
   /* Loop through all dropdown buttons to toggle between hiding and showing its
   dropdown content - This allows the user to have multiple dropdowns without any
-  conflict */ var dropdown = document.getElementsByClassName("dropdown-btn");
+  conflict */ 
+  var dropdown = document.getElementsByClassName("dropdown-btn");
   var i; for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-  this.classList.toggle("active"); var dropdownContent =
-  this.nextElementSibling; if (dropdownContent.style.display === "block") {
-  dropdownContent.style.display = "none"; } else { dropdownContent.style.display
-  = "block"; } }); }
+    dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active"); 
+      var dropdownContent = this.nextElementSibling; 
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none"; 
+      } else {
+         dropdownContent.style.display= "block"; 
+      } 
+    }); 
+  }
 </script>
