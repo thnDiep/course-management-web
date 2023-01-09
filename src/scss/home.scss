@@ -34,6 +34,9 @@ body {
     margin-left: 5rem;
     font-size: 3rem;
     font-weight: 600;
+    @media only screen and (max-width: 31.25em) {
+      display: none;
+    }
   }
 
   .carousel {
@@ -46,7 +49,18 @@ body {
   display: flex;
 
   .carousel-item {
+    &__trending {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      @media only screen and (max-width: 31.25em) {
+        display: block;
+      }
+    }
     &__img {
+      @media only screen and (max-width: 31.25em) {
+        display: none;
+      }
       img {
         width: 50rem;
         height: 28rem;
@@ -80,6 +94,12 @@ body {
     }
 
     &__detail {
+      @media only screen and (max-width: 31.25em) {
+        padding: 0 4rem;
+        width: 100% !important;
+        // background-image: url("{{}}");
+        height: 33rem !important;
+      }
       height: 28rem;
       display: flex;
       flex-direction: column;
@@ -90,10 +110,30 @@ body {
       &--name {
         font-size: 3rem;
         font-weight: bold;
+        @media only screen and (max-width: 31.25em) {
+          margin-top: 5rem;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          line-height: 3.6rem;
+          height: 7.2rem;
+          max-height: 7.2rem;
+        }
       }
 
       &--item {
         // margin-top: 1.5rem;
+        @media only screen and (max-width: 31.25em) {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          line-height: 2.6rem;
+          height: 5.2rem;
+          max-height: 5.2rem;
+          font-size: 2.4rem;
+        }
         font-size: 1.8rem;
       }
 
@@ -139,14 +179,19 @@ body {
 .carousel-control-prev {
   // left: -5%;
   width: 4%;
-
+  @media only screen and (max-width: 31.25em) {
+    width: 10%;
+  }
   &-icon {
     background-color: #0d1017;
     border-radius: 20rem;
     height: 4rem;
     width: 4rem;
     background-image: none;
-
+    @media only screen and (max-width: 31.25em) {
+      height: 5rem;
+      width: 6rem;
+    }
     i {
       font-size: 2rem;
       color: $white-color;
@@ -159,14 +204,19 @@ body {
 .carousel-control-next {
   // right: -5%;
   width: 4%;
-
+  @media only screen and (max-width: 31.25em) {
+    width: 10%;
+  }
   &-icon {
     background-color: #0d1017;
     border-radius: 20rem;
     height: 4rem;
     width: 4rem;
     background-image: none;
-
+    @media only screen and (max-width: 31.25em) {
+      height: 5rem;
+      width: 6rem;
+    }
     i {
       font-size: 2rem;
       color: $white-color;
@@ -411,7 +461,9 @@ body {
   justify-content: space-between;
   height: 10rem;
   align-items: center;
-
+  @media only screen and (max-width: 31.25em) {
+    margin: 5rem -2rem;
+  }
   img {
     height: 4rem;
     width: 4rem;
@@ -419,6 +471,9 @@ body {
   }
 
   div {
+    @media only screen and (max-width: 31.25em) {
+      font-size: 1.2rem;
+    }
     font-size: 2rem;
     font-weight: bold;
     width: 30%;
@@ -432,8 +487,14 @@ body {
     height: 6rem;
     margin-bottom: 8rem;
     margin-left: 1.2rem;
+    @media only screen and (max-width: 31.25em) {
+      margin-bottom: 9rem;
+      height: 4rem;
+      img {
+        height: 12rem;
+      }
+    }
   }
-
   h1 {
     margin-top: 2rem;
     font-weight: bold;
@@ -441,6 +502,11 @@ body {
 
   margin-top: 10rem;
   margin-bottom: 10rem;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  @media only screen and (max-width: 31.25em) {
+    margin-right: -2.5rem;
+  }
   background-color: #f5f7f8;
 
   .txt-reason {
@@ -449,10 +515,16 @@ body {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-
+    @media only screen and (max-width: 31.25em) {
+      font-size: 1.5rem;
+    }
     span {
       font-weight: 100;
       font-size: 1.4rem;
+      @media only screen and (max-width: 31.25em) {
+        font-size: 1rem;
+      }
+      margin-bottom: 2rem;
     }
   }
 }
@@ -578,45 +650,6 @@ body {
           }
         }
       }
-    }
-  }
-}
-
-.carousel-control-prev {
-  // left: -5%;
-  width: 4%;
-
-  &-icon {
-    background-color: #0d1017;
-    border-radius: 20rem;
-    height: 4rem;
-    width: 4rem;
-    background-image: none;
-
-    i {
-      font-size: 2rem;
-      color: $white-color;
-      margin-top: 1rem;
-      margin-right: 0.2rem;
-    }
-  }
-}
-
-.carousel-control-next {
-  // right: -5%;
-  width: 4%;
-
-  &-icon {
-    background-color: #0d1017;
-    border-radius: 20rem;
-    height: 4rem;
-    width: 4rem;
-    background-image: none;
-
-    i {
-      font-size: 2rem;
-      color: $white-color;
-      margin-top: 1rem;
     }
   }
 }
@@ -956,62 +989,6 @@ body {
   }
 }
 
-.coures__intro {
-  background-color: #f5f7f8;
-  display: flex;
-  margin-top: 5rem;
-  justify-content: space-between;
-  height: 10rem;
-  align-items: center;
-  margin-left: -2rem;
-  margin-right: -2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  img {
-    height: 4rem;
-    width: 4rem;
-    margin-left: 2rem;
-  }
-
-  div {
-    font-size: 2rem;
-    font-weight: bold;
-    width: 30%;
-  }
-}
-
-.reason {
-  .img-reason {
-    justify-content: center;
-    // height: 10rem;
-    height: 6rem;
-    margin-bottom: 8rem;
-    margin-left: 1.2rem;
-  }
-
-  h1 {
-    margin-top: 2rem;
-    font-weight: bold;
-  }
-
-  margin-top: 10rem;
-  margin-bottom: 10rem;
-  background-color: #f5f7f8;
-
-  .txt-reason {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 4rem;
-
-    span {
-      font-weight: 100;
-      font-size: 1.4rem;
-    }
-  }
-}
 .home-footer {
   & > mb-4 {
     margin-left: 5rem;

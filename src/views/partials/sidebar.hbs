@@ -5,10 +5,10 @@
   <label for="side-nav__input" class="side-nav__bars">
     <i class="fas fa-bars side-nav__bars--icon"></i>
   </label>
-  <div class="sidebar1__logo">
+  <a href="/" class="sidebar1__logo">
     <span class="text-primary__sun">SUN</span>
     <span class="text-primary__light">LIGHT</span>
-  </div>
+  </a>
 
   <ul class="side-nav d-flex align-items-start flex-column">
 
@@ -51,6 +51,12 @@
           <span>Categories</span>
         </a>
       </li>
+      <li class="side-nav__item">
+        <a href="/admin/courses" class="side-nav__link">
+          <i class="fas fa-address-card side-nav__icon"></i>
+          <span>Courses</span>
+        </a>
+      </li>
     {{else}}
     <li class="side-nav__item">
       <a href="/courses" class="side-nav__link">
@@ -83,6 +89,19 @@
       <a href="/account/logout" class="side-nav__link">
        <i class="fas fa-sign-out-alt side-nav__icon"></i>
         <span>Log out</span>
+      </a>
+    </li>
+    {{else}}
+    <li class="side-nav__item p-2 log">
+      <a href="/account/login" class="side-nav__link">
+       <i class="fas fa-sign-out-alt side-nav__icon"></i>
+        <span>Log in</span>
+      </a>
+    </li>
+    <li class="side-nav__item p-2 log">
+      <a href="/account/signup" class="side-nav__link">
+       <i class="fas fa-sign-out-alt side-nav__icon"></i>
+        <span>Sign up</span>
       </a>
     </li>
     {{/if}}
@@ -138,6 +157,13 @@
           <span class="hidden">profile</span>
         </a>
       </li>
+       <li class="side-nav__item {{#if isCourses}}side-nav__item--active{{/if}}">
+        <a href="/admin/courses" class="side-nav__link">
+          <i class="fas fa-book-open side-nav__icon" data-toggle="tooltip" data-html="true" data-placement="right"
+            title="<h5>courses</h5>"></i>
+          <span class="hidden">Courses</span>
+        </a>
+      </li>
     {{else}}
       {{#if lcAuthTeacher.id}}
        <li class="side-nav__item {{#if isProfile}}side-nav__item--active{{/if}}">
@@ -181,6 +207,21 @@
         <span class="hidden">Log Out</span>
       </a>
     </li>
+    {{else}}
+      <li class="side-nav__item log">
+        <a href="/account/login" class="side-nav__link">
+        <i class="fas fa-sign-in-alt side-nav__icon" data-toggle="tooltip" data-html="true" data-placement="right"
+            title="<h5>Log in</h5>"></i>
+          <span class="hidden">Log in</span>
+        </a>
+      </li>
+      <li class="side-nav__item log">
+        <a href="/account/signup" class="side-nav__link">
+        <i class="fas fa-user-plus side-nav__icon" data-toggle="tooltip" data-html="true" data-placement="right"
+            title="<h5>Sign up</h5>"></i>
+          <span class="hidden">Sign up</span>
+        </a>
+      </li>
     {{/if}}
   </ul>
   <button class="sidebar1__search">
