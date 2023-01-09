@@ -154,6 +154,12 @@
 
     .btn {
       height: 100%;
+      border-color: black;
+    }
+    .btn2{
+      height: 100%;
+      border-color: white;
+      color: red;
     }
 
     .buying-btn-frame {
@@ -374,6 +380,7 @@
   margin-top: 15rem;
   display: flex;
   background-color: #f5f7fa;
+  margin-bottom: 3rem;
 }
 
 .feedback_review {

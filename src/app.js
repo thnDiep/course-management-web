@@ -55,8 +55,11 @@ app.engine(
       minus(value1, value2) {
         return value1 - value2;
       },
-      ifEquals: function (arg1, arg2, options) {
-        return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+      ifEquals: function(arg1, arg2, options){
+        return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+      },
+      ifOrs: function(arg1, arg2, options){
+        return (arg1 || arg2) ? options.fn(this) : options.inverse(this);
       },
     },
   })

@@ -15,7 +15,7 @@ btnSubmit.addEventListener("click", function (e) {
   // alert(number);
   const data = btnSubmit.dataset;
 
-  a.href = `/courses/feedback?idCourse=${data.course}&idChapter=${data.chapter}&idLesson=${data.lesson}&mess=${mess}&number=${number}`;
+  a.href = `/courses/feedback?idCourse=${data.course}&mess=${mess}&number=${number}`;
   // btnSubmit.removeEventListener("click", null);
   // console.log(btnSubmit)
   a.click();

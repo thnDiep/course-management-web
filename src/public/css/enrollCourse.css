@@ -3,8 +3,7 @@
   margin-top: 10rem; }
 
 .enrollCourse__body {
-  display: flex;
-  position: static; }
+  display: flex; }
   .enrollCourse__body .enrollCourse__contentCourse {
     color: black; }
     .enrollCourse__body .enrollCourse__contentCourse .enrollCourse__preview {
@@ -87,7 +86,8 @@
   color: black;
   width: 60vw;
   padding-top: 20px;
-  background-color: white; }
+  background-color: white;
+  margin-bottom: 120px; }
   .intro_courseDetail ul {
     padding: 0px;
     margin: 0px; }
@@ -173,10 +173,10 @@
   color: white;
   background-color: #007bff; }
 
-textarea {
-  border: none;
-  box-shadow: none !important;
-  outline: 0px !important; }
+#feedback {
+  outline: 0px !important;
+  font-size: 1.4rem;
+  width: 90%; }
 
 .openmodal {
   margin-left: 35%;

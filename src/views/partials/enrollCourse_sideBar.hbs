@@ -2,25 +2,20 @@
       <div class="formCourse">
           <div>
             {{! title Course }}
-            <div class="formCourse_title d-flex justify-content-between" data-toggle="collapse"
-              data-target="#course" aria-expanded="false">
+            <div class="formCourse_title d-flex justify-content-between" aria-expanded="false">
               <p><i class="fas fa-book-open"></i>
                 {{this.course.name}}
               </p>
-              <div class="mr-4">
-                <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
-
-              </div>
             </div>
             {{! chapter in course }}
-            <div class="collapse" id="course">
+            <div id="course">
               <div class="chapter__content">
                 <div class="row">
                   <div class="col-lg-12">
                     {{#each courseContent.chapter}}
                     {{! title Chapter }}
                     <div class="chapter__title d-flex justify-content-between w-100" data-toggle="collapse"
-                      data-target="#{{../index}}chapter{{index}}" aria-expanded="false" aria-controls="collapseExample">
+                      data-target="#{{../index}}chapter{{index}}" aria-expanded="true" aria-controls="collapseExample">
                       <div>
                         <p class="chapter__name">
                           Chapter {{index}}: {{name}}</p>
@@ -35,10 +30,9 @@
                       </div>
                     </div>
                     {{! lesson in chapter }}
-                    <div class="collapse" id="{{../index}}chapter{{index}}">
+                    <div class="collapse show" id="{{../index}}chapter{{index}}">
                       {{#each lesson}}
-
-                      <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                      <div class="d-flex justify-content-between ml-4 mt-0 pt-0" >
                         <a href="/courses/join?idCourse={{@root.idCourse}}&idChapter={{../index}}&idLesson={{id}}">
                           <p class="lesson__name">
                             Lesson {{index}}: {{name}}</p>
@@ -65,21 +59,3 @@
           </div>
       </div>
 </div>
-
-<script>
-  /* Loop through all dropdown buttons to toggle between hiding and showing its
-  dropdown content - This allows the user to have multiple dropdowns without any
-  conflict */ 
-  var dropdown = document.getElementsByClassName("dropdown-btn");
-  var i; for (i = 0; i < dropdown.length; i++) {
-    dropdown[i].addEventListener("click", function() {
-      this.classList.toggle("active"); 
-      var dropdownContent = this.nextElementSibling; 
-      if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none"; 
-      } else {
-         dropdownContent.style.display= "block"; 
-      } 
-    }); 
-  }
-</script>
