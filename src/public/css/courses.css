@@ -95,7 +95,8 @@ select.sort-by__menu {
   border-radius: 6px;
   overflow: hidden;
   position: relative;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  min-width: 270px; }
   .course:hover {
     transform: translateX(-1px) translateY(-1px);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; }
@@ -151,7 +152,7 @@ select.sort-by__menu {
     content: "";
     position: absolute;
     left: 0;
-    top: 100%;
+    top: 98%;
     border-width: 0 25px 10px;
     border-style: solid;
     border-color: transparent #f8d752; }
@@ -289,7 +290,7 @@ select.sort-by__menu {
   .course__price .course__price-new {
     display: flex;
     align-items: center;
-    font-size: 2.8em;
+    font-size: 2.8rem;
     font-weight: 700;
     color: #d0011b; }
   .course__price .course__price-old {

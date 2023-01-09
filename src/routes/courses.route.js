@@ -8,8 +8,7 @@ const router = express.Router();
 router.get("/", courseController.index);
 
 router.get("/detail", courseController.detail);
-router.get("/join", courseController.join);
-router.get("/feedback", courseController.feedback);
+router.get("/feedback", auth, isUser, courseController.feedback);
 
 // Tham gia khóa học
 router.get("/join", auth, isUser, courseController.join);
@@ -21,6 +20,7 @@ router.get("/unlike", auth, isUser, courseController.unlike);
 router.get("/like", auth, isUser, courseController.like);
 router.get("/watch-list", auth, isUser, courseController.watchList);
 
+// Tìm kiếm khóa học
 router.get("/search", courseController.search);
 
 export default router;

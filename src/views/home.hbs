@@ -27,7 +27,7 @@
       {{else}}
       <div class="carousel-item">
         {{/if}}
-        <div class="d-flex w-100 justify-content-around">
+        <div class="carousel-item__trending ">
           <div class="carousel-item__img" class="d-block w-100">
             <a href="/courses/detail?id={{id}}" class="course__link"></a>
             <img src={{image}} alt="" srcset="" />
@@ -54,8 +54,10 @@
             </div>
           </div>
           <div class="carousel-item__detail">
+            
             <a href="/courses/detail?id={{id}}" class="carousel-item__detail--name">{{name}}</a>
             <p class="carousel-item__detail--item">{{tinyDescription}}</p>
+            
             <div class="carousel-item__detail--teacher">
               Teacher
               <a href="#">{{teacherName}}</a>
@@ -75,147 +77,6 @@
       </div>
 
       {{/each}}
-      {{! <div class="carousel-item">
-        <div class="d-flex w-100 justify-content-around">
-          <div class="carousel-item__img">
-            <img src="https://i.ytimg.com/vi/e6UImq0YH_I/maxresdefault.jpg" alt="" srcset="" />
-            <div class="carousel-item__rate">
-              <div class="carousel-item__rate--1">
-                <h3>4987</h3>
-                <span>Students</span>
-              </div>
-              <div class="carousel-item__rate--1">
-                <h3>4987</h3>
-                <span>Ratings</span>
-              </div>
-              <div class="carousel-item__rate--1">
-                <h3>4.6 <i class="fas fa-star"></i></h3>
-                <div class="stars">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <div class="overlay--star" style="width:42%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item__detail">
-            <h1 class="carousel-item__detail--name">Build Responsive Real-World
-              Websites with HTML and CSS</h1>
-            <p class="carousel-item__detail--item">Learn modern HTML5, CSS3 and
-              web design by building a stunning website for your portfolio!
-              Includes flexbox and CSS Grid</p>
-            <div class="carousel-item__detail--teacher">
-              Teacher
-              <a href="#">Dollar Design School</a>
-            </div>
-            <div class="carousel-item__detail--btn">
-              <a name="buy-btn" id="buy-btn" class="btn" href="#" role="button">Buy now
-              </a>
-              <a name="add-cart-btn" id="add-cart-btn" class="btn btn--bg" href="#" role="button">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="d-flex w-100 justify-content-around">
-          <div class="carousel-item__img">
-            <img src="https://codingheroes.io/assets/img/C5.png" alt="" srcset="" />
-            <div class="carousel-item__rate">
-              <div class="carousel-item__rate--1">
-                <h3>4987</h3>
-                <span>Students</span>
-              </div>
-              <div class="carousel-item__rate--1">
-                <h3>4987</h3>
-                <span>Ratings</span>
-              </div>
-              <div class="carousel-item__rate--1">
-                <h3>4.6 <i class="fas fa-star"></i></h3>
-                <div class="stars">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <div class="overlay--star" style="width:42%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item__detail">
-            <h1 class="carousel-item__detail--name">Node.js, Express, MongoDB
-              &amp; More: The Complete Bootcamp 2023</h1>
-            <p class="carousel-item__detail--item">Master Node by building a
-              real-world RESTful API and web app (with authentication, Node.js
-              security, payments &amp; more)</p>
-            <div class="carousel-item__detail--teacher">
-              Teacher
-              <a href="#">Dollar Design School</a>
-            </div>
-            <div class="carousel-item__detail--btn">
-              <a name="buy-btn" id="buy-btn" class="btn" href="#" role="button">Buy now
-              </a>
-              <a name="add-cart-btn" id="add-cart-btn" class="btn btn--bg" href="#" role="button">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="d-flex w-100 justify-content-around">
-          <div class="carousel-item__img">
-            <img src="https://codingheroes.io/assets/img/C5.png" alt="" srcset="" />
-            <div class="carousel-item__rate">
-              <div class="carousel-item__rate--1">
-                <h3>4987</h3>
-                <span>Students</span>
-              </div>
-              <div class="carousel-item__rate--1">
-                <h3>4987</h3>
-                <span>Ratings</span>
-              </div>
-              <div class="carousel-item__rate--1">
-                <h3>4.6 <i class="fas fa-star"></i></h3>
-                <div class="stars">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <div class="overlay--star" style="width:42%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item__detail">
-            <h1 class="carousel-item__detail--name">Node.js, Express, MongoDB
-              &amp; More: The Complete Bootcamp 2023</h1>
-            <p class="carousel-item__detail--item">Master Node by building a
-              real-world RESTful API and web app (with authentication, Node.js
-              security, payments &amp; more)</p>
-            <div class="carousel-item__detail--teacher">
-              Teacher
-              <a href="#">Dollar Design School</a>
-            </div>
-            <div class="carousel-item__detail--btn">
-              <a name="buy-btn" id="buy-btn" class="btn" href="#" role="button">Buy now
-              </a>
-              <a name="add-cart-btn" id="add-cart-btn" class="btn btn--bg" href="#" role="button">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div> }}
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true">
@@ -259,7 +120,7 @@
                 <div class="swiper-slide">
                   <div class="row">
                     {{#each courses}}
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-6">
                       <div class="card" style="width: 100%;">
                         <a href="/courses/detail?id={{id}}" class="course__link"></a>
                         <img src="{{image}}" class="card-img-top" alt="..." />
@@ -283,18 +144,21 @@
                               <span class="course__price-unit">đ</span>
                             </h4>
                           </div>
+
                           {{#if ../../lcAuthTeacher}}
                           {{else}}
                             {{#if ../../lcAuthAdmin}}
-                            {{else}}
-                            {{#if buyed}}
-                            <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
-                              Learning</a>
-                            {{else}}
-                            <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
-                              Buy now</a>
-                            {{/if}}
-                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
+                              {{else}}
+                                <div class="d-flex justify-content-around course__btn">
+                                {{#if buyed}}
+                                <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
+                                  Learning</a>
+                                {{else}}
+                                <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
+                                  Buy now</a>
+                                {{/if}}
+                                <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
+                                </div>
                             {{/if}}
                           {{/if}}
                         </div>
@@ -333,7 +197,7 @@
                 <div class="swiper-slide">
                   <div class="row">
                     {{#each courses}}
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-6">
                       <div class="card" style="width: 100%;">
                         <a href="/courses/detail?id={{id}}" class="course__link"></a>
                         <img src="{{image}}" class="card-img-top" alt="..." />
@@ -361,16 +225,16 @@
                            {{else}}
                             {{#if ../../lcAuthAdmin}}
                            {{else}}
-
-                          {{#if buyed}}
-                            <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
-                              Learning</a>
+                            <div class="d-flex justify-content-around course__btn">
+                            {{#if buyed}}
+                              <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
+                                Learning</a>
                             {{else}}
-                            <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
-                              Buy now</a>
+                              <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
+                                Buy now</a>
                             {{/if}}
-                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
-                           
+                              <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
+                           </div>
                           {{/if}}
                           {{/if}}
                         </div>

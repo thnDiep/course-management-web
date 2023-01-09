@@ -104,9 +104,9 @@
               </div>
             </div>
 
-            {{#if ../lcAuthTeacher}}
-            {{else}}
-              {{#if ../lcAuthUser}}
+            {{#if @root.lcIsAuthenticated}}
+              {{!-- Tài khoản học sinh --}}
+              {{#if @root.lcAuthUser}}
                 <div class="card-footer course__buttons">
                   {{#if buyed}}
                     <a
@@ -134,8 +134,11 @@
                     <i class="fas fa-heart" aria-hidden="true"></i>
                   </a>
                 </div>
-              {{else}}
-                <div class="card-footer course__buttons">
+              {{/if}}
+
+            {{!-- Tài khoản khách --}}
+            {{else}}
+              <div class="card-footer course__buttons">
                     <a
                     name="buy-btn"
                     id="buy-btn"
@@ -152,10 +155,9 @@
                   >
                     <i class="fas fa-heart" aria-hidden="true"></i>
                   </a>
-                </div>
-              {{/if}}
+              </div>
             {{/if}}
-
+            
             <div class="course__new-label">
               <span>news</span>
             </div>
