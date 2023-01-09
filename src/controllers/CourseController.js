@@ -348,6 +348,7 @@ class CourseController {
   // [GET] /courses/enroll?id=
   async enroll(req, res) {
     const studentID = res.locals.lcAuthUser.id;
+    //const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -405,8 +406,8 @@ class CourseController {
 
   // [GET] /courses/like?id=
   async like(req, res) {
-    // const studentID = res.locals.lcAuthUser.id;
-    const studentID = 29;
+    const studentID = res.locals.lcAuthUser.id;
+    // const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -433,8 +434,8 @@ class CourseController {
 
   // [GET] /courses/unlike?id=
   async unlike(req, res) {
-    // const studentID = res.locals.lcAuthUser.id;
-    const studentID = 29;
+    const studentID = res.locals.lcAuthUser.id;
+    // const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -463,8 +464,8 @@ class CourseController {
   //[GET] /courses/watch-list
   async watchList(req, res) {
     // if (res.locals.lcAuthUser) {
-    // const studentID = res.locals.lcAuthUser.id;
-    const studentID = 29;
+    const studentID = res.locals.lcAuthUser.id;
+    // const studentID = 29;
     const courses = [];
 
     const lovedCourses = await studentCourseModel.getCourseStudentLove(
@@ -657,13 +658,13 @@ const computePageNumbers = function (currentPage, maxPage) {
 const getInfoCourse = async function (courses, res) {
   let learningCourses, lovedCourses;
   // Lấy các khóa học của student
-  // if (res.locals.lcAuthUser) {
-  // const studentID = res.locals.lcAuthUser.id;
-  // console.log(studentID);
-  const studentID = 29;
-  learningCourses = await studentCourseModel.getCourseOfStudent(studentID);
-  lovedCourses = await studentCourseModel.getCourseStudentLove(studentID);
-  // }
+  if (res.locals.lcAuthUser) {
+    const studentID = res.locals.lcAuthUser.id;
+    // console.log(studentID);
+    // const studentID = 29;
+    learningCourses = await studentCourseModel.getCourseOfStudent(studentID);
+    lovedCourses = await studentCourseModel.getCourseStudentLove(studentID);
+  }
 
   // Lấy 5 khóa học bán chạy nhất trong các khóa học
   const bestSellerCourses = await courseModel.getBestSellerList(5);
@@ -672,19 +673,19 @@ const getInfoCourse = async function (courses, res) {
 
   for (const course of courses) {
     // Thể hiện khóa học đã mua
-    // if (res.locals.lcAuthUser) {
-    learningCourses.forEach((learningCourse) => {
-      if (learningCourse.courseID === course.id) {
-        course.buyed = true;
-      }
-    });
+    if (res.locals.lcAuthUser) {
+      learningCourses.forEach((learningCourse) => {
+        if (learningCourse.courseID === course.id) {
+          course.buyed = true;
+        }
+      });
 
-    lovedCourses.forEach((lovedCourse) => {
-      if (lovedCourse.courseID === course.id) {
-        course.loved = true;
-      }
-    });
-    // }
+      lovedCourses.forEach((lovedCourse) => {
+        if (lovedCourse.courseID === course.id) {
+          course.loved = true;
+        }
+      });
+    }
 
     // Lấy trung bình rating của khóa học
     const avgRated = await courseModel.getAvgRate(course.id);

@@ -78,7 +78,7 @@ class tProfileController {
       if (err) console.error(err);
       else {
         if (req.file !== undefined)
-          req.session.authUser.img =
+          req.session.authTeacher.img =
             "/images/teacherPictures/" + req.file.filename;
         return res.redirect("back");
       }
