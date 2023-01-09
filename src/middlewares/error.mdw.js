@@ -1,4 +1,5 @@
 export default function (app) {
+<<<<<<< HEAD
   // app.use(async function (req, res, next) {
   //   if (typeof req.session.isAuthenticated === "undefined") {
   //     req.session.isAuthenticated = false;
@@ -27,4 +28,9 @@ export default function (app) {
   //   res.locals.lcCategories = await categoryService.findAllWithDetails();
   //   next();
   // });
+=======
+  app.use(function (req, res, next) {
+    res.render("404", { layout: false });
+  });
+>>>>>>> ab7c901a8fe0a137b4c1b076f10f875fa53ee308
 }

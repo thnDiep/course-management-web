@@ -23,6 +23,5 @@ router.post("/signup", AccountController.signUp);
 
 router.post("/signup/otp", AccountController.otp);
 router.get("/logout", AccountController.logout);
-router.get("/:slug", (req, res) => res.render("404"));
 
 export default router;

@@ -703,3 +703,6 @@ body {
   margin-left: 5rem; }
   .home-footer > mb-4 {
     margin-left: 5rem; }
+  @media only screen and (max-width: 31.25em) {
+    .home-footer {
+      margin-left: 0; } }

@@ -88,7 +88,7 @@
           @media only screen and (max-width: 31.25em) {
             .login .formSignUp__icon-arrow {
               font-size: 1.8rem;
-              margin-left: 17rem; } }
+              margin-left: 8rem; } }
   .login .required-name, .login .required-email, .login .required-pass, .login .required-repeatPass {
     color: red;
     height: 2rem;
@@ -96,7 +96,7 @@
     font-weight: bold; }
     @media only screen and (max-width: 31.25em) {
       .login .required-name, .login .required-email, .login .required-pass, .login .required-repeatPass {
-        font-size: 1.3rem; } }
+        font-size: 1.2rem; } }
   .login .required-icon {
     padding: 0.5rem;
     font-size: larger; }
