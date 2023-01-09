@@ -346,8 +346,8 @@ class CourseController {
 
   // [GET] /courses/enroll?id=
   async enroll(req, res) {
-    const idStudent = res.locals.lcAuthUser.id;
-    // const studentID = 29;
+    const studentID = res.locals.lcAuthUser.id;
+    //const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
