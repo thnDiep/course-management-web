@@ -48,7 +48,8 @@ const formatter = new Intl.NumberFormat("vi-VN", {
   style: "currency",
   currency: "VND",
 });
-formatCurrency($("input[data-type='currency']"));
+formatCurrency($("#currencyO"));
+formatCurrency($("#currency1"));
 $("input[data-type='currency']").on({
   keyup: function () {
     formatCurrency($(this));

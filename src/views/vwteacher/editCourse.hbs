@@ -98,6 +98,7 @@
 
             <label for="">Main Category</label>
             <select name="nameCategory" class="inputFieldMini">
+
               {{#each this.parentCourse}}
                 <option>{{name}}</option>
               {{/each}}
@@ -117,8 +118,8 @@
               <input
                 type="text"
                 data-type="currency"
+                id="currencyO"
                 name="feeO"
-                id="currency-field"
                 value="{{course.feeO}}"
                 placeholder="VNĐ1,000,000.00"
                 class="inputFieldMini"
@@ -135,6 +136,7 @@
               <input
                 type="text"
                 data-type="currency"
+                id="currency1"
                 name="fee"
                 value="{{course.fee}}"
                 placeholder="VNĐ1,000,000.00"
