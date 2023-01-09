@@ -33,11 +33,11 @@ class ACourseController {
       };
       courses.push(course);
     }
-    const isCategories = true;
+    const isCourses = true;
 
     res.render("vwAdmin/courses", {
       categoryID,
-      isCategories,
+      isCourses,
       teacherID,
       courses,
       categories,
