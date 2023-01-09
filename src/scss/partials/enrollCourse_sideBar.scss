@@ -1,36 +1,36 @@
+@import "../global/variable";
 /* Fixed sidenav, full height */
 .sidenav {
-    height: 100%;
-    width: 380px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color:#eeeeee;           
-    overflow-x: hidden;
-    padding-top: 7rem;
-  }
-  
-  /* Style the sidenav links and the dropdown button */
-  .sidenav a, .dropdown-btn {
-    padding: 0px 8px 0px 16px;
-    text-decoration: none;
-    font-size: 1.3rem;
-    background-color: white;
-    color: black;
-    display: block;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  /* On mouse-over */
-  .sidenav a:hover, .dropdown-btn:hover {
-    color: black;
-    background-color: gainsboro;
-  }
+  height: 100%;
+  width: 380px;
+  // position: fixed;
+  // z-index: 1;
+  // top: 0;
+  // right: 0;
+  background-color: $hover-color;           
+  overflow-x: hidden;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 0px 8px 0px 16px;
+  text-decoration: none;
+  font-size: 1.3rem;
+  background-color: white;
+  color: black;
+  display: block;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: black;
+  background-color: gainsboro;
+}
   
   /* Main content */
   .main {

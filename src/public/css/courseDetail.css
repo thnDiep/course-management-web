@@ -108,7 +108,12 @@
     margin-top: 2rem;
     height: 5rem; }
     .courseD__intro .courseD__intro__buttons .btn {
-      height: 100%; }
+      height: 100%;
+      border-color: black; }
+    .courseD__intro .courseD__intro__buttons .btn2 {
+      height: 100%;
+      border-color: white;
+      color: red; }
     .courseD__intro .courseD__intro__buttons .buying-btn-frame {
       width: 28rem;
       height: 7rem;
@@ -262,7 +267,8 @@
 .feedback {
   margin-top: 15rem;
   display: flex;
-  background-color: #f5f7fa; }
+  background-color: #f5f7fa;
+  margin-bottom: 3rem; }
 
 .feedback_review {
   display: flex;
@@ -351,7 +357,7 @@
 .chapter__add {
   font-size: 3rem;
   margin-left: 1rem;
-  font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   font-weight: bold; }
   .chapter__add p {
     font-size: 1.5rem;

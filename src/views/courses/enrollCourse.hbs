@@ -1,18 +1,29 @@
 {{#section "css"}}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
- <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+  {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+  <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/themes/krajee-svg/theme.css" media="all" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="/css/enrollCourse.css" />
-  {{!-- <link rel="stylesheet" href="/css/courses.css" /> --}}
   <link rel="stylesheet" href="/css/partials/enrollCourse_sideBar.css" />
   {{/section}}
 
   {{#section "js"}}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/js/star-rating.js" type="text/javascript"></script>
 
-    <script src="/js/enrollCourse.js"></script> 
+    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/themes/krajee-svg/theme.js"></script>
+    <script>
+    $('.kv-ltr-theme-svg-star').rating({
+        hoverOnClear: false,
+        theme: 'krajee-svg',
+        step: 1,
+        starCaptions: {1: 'Very Poor', 2: 'Poor', 3: 'Ok', 4: 'Good', 5: 'Very Good'},
+        starCaptionClasses: {1: 'text-danger', 2: 'text-warning', 3: 'text-info', 4: 'text-primary', 5: 'text-success'}
+    }); 
+    </script>
+
   {{/section}}
 
 <div class="enrollCourse__body">
-
   {{! content page: video + course description }}
   <div class="col-sm-9">
     <div class="enrollCourse__mainContentCourse">
@@ -25,7 +36,6 @@
       </iframe>
 
       <div class="lesson_name">{{this.lesson.name}}</div>
-
 
       {{! description }}
       <div class="intro_courseDetail">
@@ -64,17 +74,18 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star-half" aria-hidden="true"></i>
               </div> --}}
-          <div class="course__review">
-            <div class="course__review-score">
-              {{> barStar this.course}}
-            </div>
+            <div class="course__review">
+              <div class="course__review-score">
+                {{> barStar this.course}}
+              </div>
+              <div class="course__review-number">({{this.course.numberRated}})</div>
+            </div> 
 
-            <div class="course__review-number">({{this.course.numberRated}})</div>
-          </div>
-        <div class="courseDetail_course__review">
-          <a class="courseDetail_course__review-number" href="#">{{this.numberRating}} ratings</a>
-          {{this.numberOfStudent}} students
-        </div>
+
+            <div class="courseDetail_course__review">
+              <a class="courseDetail_course__review-number" href="#">{{this.numberRating}} ratings</a>
+              {{this.numberOfStudent}} students
+            </div>
 
             <div class="footer_intro">
               <div class="footer_intro-item">
@@ -86,155 +97,52 @@
                 English
               </div>
             </div>
-
           </div>
         </div>
       </div>
 
-      {{!-- <div style="width: 100%, height:1">
-      <input id="input-1-ltr-star-xs" name="input-1-ltr-star-xs" class="kv-ltr-theme-svg-star rating-loading" value="1" dir="ltr" data-size="xs">
-      <br/>
-      <input id="input-2-ltr-star-sm" name="input-2-ltr-star-sm" class="kv-ltr-theme-svg-star rating-loading" value="2" dir="ltr" data-size="sm">
-      <br/>
-      <input id="input-3-ltr-star-md" name="input-3-ltr-star-md" class="kv-ltr-theme-svg-star rating-loading" value="3" dir="ltr" data-size="md">
-      <br/>
-      <input id="input-4-ltr-star-lg" name="input-4-ltr-star-lg" class="kv-ltr-theme-svg-star rating-loading" value="4" dir="ltr" data-size="lg">
-      <br/>
-      <input id="input-5-ltr-star-xl" name="input-5-ltr-star-xl" class="kv-ltr-theme-svg-star rating-loading" value="5" dir="ltr" data-size="xl">
-      <br/>
-
-      </div> --}}
-      
-
-
-
-      {{! rate & feedback }}
-      <!--Modal Launch Button-->
-
-      <button
-        type="button"
-        class="btn btn-info btn-lg openmodal"
-        data-toggle="modal"
-        data-target="#myFeedbackForm"
-        id="rate_feedback-btn"
-      >Rate & feedback</button>
-
-      <!--Division for Modal-->
-      <div  id="myFeedbackForm" class="modal fade" role="dialog" id="feedbackForm">
-
-        <!--Modal-->
-        <div class="modal-dialog">
-
-          <!--Modal Content-->
-          <div class="modal-content">
-
-            <!-- Modal Header-->
-            <div class="modal-header">
-              <h3>Feedback</h3>
-
-              <!--Close/Cross Button-->
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                style="color: white;"
-              >&times;</button>
-            </div>
-
-            <!-- Modal Body-->
-            <div class="modal-body text-center">
-              <i class="far fa-file-alt fa-4x mb-3 animated rotateIn icon1"></i>
-              {{! <h3>Your opinion matters</h3> }}
-              <h4>Help us improve our quality.
-                <strong>Give us your feedback.</strong></h4>
-              <hr />
-              <h3>Your rating for this course</h3>
-            </div>
-
-            <!-- Radio Buttons for Rating-->
-            <div class="form-check mb-4">
-              <input name="feedback" type="radio" value="5"/>
-              <label class="ml-3" style="font-size: 1.3rem;">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                Very good
-              </label>
-            </div>
-            <div class="form-check mb-4">
-              <input name="feedback" type="radio" value="4" />
-              <label class="ml-3" style="font-size: 1.3rem;">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                Good
-              </label>
-            </div>
-            <div class="form-check mb-4">
-              <input name="feedback" type="radio" value="3"/>
-              <label class="ml-3" style="font-size: 1.3rem;">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                Mediocre
-              </label>
-            </div>
-            <div class="form-check mb-4">
-              <input name="feedback" type="radio"  value="2"/>
-              <label class="ml-3" style="font-size: 1.3rem;">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                Bad
-              </label>
-            </div>
-            <div class="form-check mb-4">
-              <input name="feedback" type="radio" value="1"/>
-              <label class="ml-3" style="font-size: 1.3rem;">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                Very Bad
-              </label>
-            </div>
-
-            <!--Text Message-->
-            <div class="text-center">
-              <h3>Your feedback</h3>
-            </div>
-            <textarea
+      <form class="mb-5" action="/courses/feedback">
+        <div class="text-center">
+          <i class="far fa-file-alt fa-4x mb-3 animated rotateIn icon1"></i>
+          <h4>Help us improve our quality.
+            <strong>Give us your feedback.</strong></h4>
+          <hr />
+                {{!-- <h1 class="lesson_name">Rate & feedback</h1> --}}
+        </div>
+        <h3>Your rating for this course</h3>
+        <input id="input-5-ltr-star-xl" 
+              name="rating" 
+              class="kv-ltr-theme-svg-star rating-loading" 
+              value="5" 
+              step="1"
+              dir="ltr" 
+              data-size="l"
+              data-show-clear="false">
+        <br/>
+        <h3>Your feedback for this course</h3>
+        <textarea
               id="feedback"
+              name="feedback"
               type="textarea"
               placeholder="Your Message"
-              rows="3"
-              style="font-size: 1.3rem;"
-            ></textarea>
+              rows="5"
+        ></textarea>
+        <input type="hidden" name="idCourse" value="{{this.course.id}}">
+        <br/>
+        {{!-- <button class="btn btn-primary">Submit</button> --}}
+        <button type="reset" class="btn btn--border mt-3 mr-3" style="font-size:1.4rem;">Cancel</button>
 
-            <!-- Modal Footer-->
-            <div class="modal-footer">
-              <button id="btnSubmit"  class="btn btn-primary" 
-              data-course={{this.idCourse}}
-              data-chapter={{this.idChapter}}
-              data-lesson={{this.idLesson}} >
-              Public
-                <i class="fa fa-paper-plane"></i>
-              </button>
-              <a id="submitLink" href=""></a>
-              <a
-                href=""
-                class="btn btn-outline-primary"
-                data-dismiss="modal"
-              >Cancel</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    
+        <button id="btnSubmit"  class="btn btn--primary mt-3" style="font-size:1.4rem;">
+          Public
+          <i class="fa fa-paper-plane"></i>
+        </button>
+      </form> 
+    </div> 
 
+</div>
 
   {{! side bar: list chapter }}
   <div class="col-sm-3">
    {{> enrollCourse_sideBar }} 
+  </div>
   </div>

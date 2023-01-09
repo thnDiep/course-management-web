@@ -74,35 +74,74 @@
             Last updated: 
               {{this.updateTime}} 
           </div>
-          {{!-- <div>
-            <i class="fa fa-globe" aria-hidden="true"></i>
-            English
-          </div> --}}
         </div>
 
         <div class="courseD__intro__buttons">
-          <div class="buying-btn-frame">
-            <button class="buying-button">
-              <p class="fee">
-                {{format_number this.course.fee}}
-                đ
-              </p>
-              <p class="feeO">
-                {{format_number this.course.feeO}}
-                đ
-              </p>
-            </button>
-          </div>
+            
+            {{#ifOrs lcAuthTeacher lcAuthUser}}
+              {{!-- teacher --}}
+              {{#if lcAuthTeacher}}
+                <div class="buying-btn-frame">
+                  <button class="buying-button">
+                    <p class="fee">
+                      Edit
+                    </p>
+                  </button>
+                </div>
+              {{/if}}
 
-          <a
-            name="add-cart-btn"
-            id="add-cart-btn"
-            class="btn btn--primary btn--icon"
-            href="#"
-            role="button"
-          >
-            <i class="fa fa-heart" aria-hidden="true"></i>
-          </a>
+              {{!-- user --}}
+              {{#if lcAuthUser}}
+              {{!-- khi user da mua khoa hoc --}}
+                {{#if this.course.buyed}}
+                <div class="buying-btn-frame">
+                  <button class="buying-button">
+                    <p class="fee">
+                      Learning
+                    </p>
+                  </button>
+                </div>
+                {{!-- khi user chua dky mua khoa hoc --}}
+                {{else}}
+                <div class="buying-btn-frame">
+                  <button class="buying-button">
+                    <p class="fee">
+                      {{format_number this.course.fee}} đ
+                    </p>
+                    {{#if this.course.discount}}
+                      <p class="feeO">
+                        {{format_number this.course.feeO}}đ
+                      </p>
+                    {{/if}}
+                  </button>
+                </div>
+                {{/if}}
+
+                {{!-- khi user thich khoa hoc --}}
+                <a
+              name="add-cart-btn"
+              id="add-cart-btn"
+              class="btn btn--heart btn--icon {{#if this.course.loved}}active{{/if}} mr-5"
+              href="/courses/{{#if this.course.loved}}unlike{{else}}like{{/if}}?id={{this.course.id}}"
+              role="button"
+            >
+              <i class="fas fa-heart" aria-hidden="true"></i>
+            </a>
+              {{/if}}
+            {{else}}  
+              <div class="buying-btn-frame">
+              <button class="buying-button">
+                <p class="fee">
+                  {{format_number this.course.fee}} đ
+                </p>
+                {{#if this.course.discount}}
+                  <p class="feeO">
+                    {{format_number this.course.feeO}}đ
+                  </p>
+                {{/if}}
+              </button>
+              </div>
+            {{/ifOrs}}
         </div>
       </div>
 
@@ -144,7 +183,7 @@
     <div class="left">
       <div class="description">
         <h2 class="description-title">Required</h2>
-        <p class="description-item">{{this.course.required}}</p>
+        <p class="description-item">{{{this.course.required}}}</p>
       </div>
 
       <div class="description">
@@ -155,53 +194,10 @@
 
       <div class="description">
         <h2 class="description-title">Description</h2>
-        <p class="description-item">{{this.course.fullDescription}}</p>
+        <p class="description-item">{{{this.course.fullDescription}}}</p>
       </div>
 
       <div class="description">
-        {{!-- <ul class="course_content_table">
-
-          <li class="chapter">
-            <a class="chapter-name" href="#">Javascript for beginers</a>
-            <p class="chapter-information">3 lessons. 4 minutes</p>
-          </li>
-
-          <li class="chapter">
-            <a class="chapter-name" href="#">Chapter 1: Hello javascript</a>
-            <p class="chapter-information">11 lessons. 21 minutes</p></li>
-
-          <li class="chapter">
-            <a class="chapter-name" href="#">Chapter 2: Storing information in
-              Variables</a>
-            <p class="chapter-information">9 lessons. 31 minutes</p>
-          </li>
-          <li class="chapter">
-            <a class="chapter-name" href="#">Chapter 3: Conditional statement</a>
-            <p class="chapter-information">10 lessons. 27 minutes</p>
-          </li>
-
-          <li class="chapter">
-            <a class="chapter-name" href="#">Chapter 4: Dialog boxes</a>
-            <p class="chapter-information">7 lessons. 15 minutes</p>
-          </li>
-
-          <li class="chapter">
-            <a class="chapter-name" href="#">Chapter 5: Now We're Iterating!
-              Loops in Javascript</a>
-            <p class="chapter-information">9 lessons. 40 minutes</p>
-          </li>
-
-          <li class="chapter">
-            <a class="chapter-name" href="#">Chapter 6: Coding Javascript
-              function</a>
-            <p class="chapter-information">3 lessons. 20 minutes</p>
-          </li>
-
-          <li class="chapter">
-            <a class="chapter-name" href="#">Chapter 7: Working with Arrays</a>
-            <p class="chapter-information">8 lessons. 50 minutes</p>
-          </li>
-        </ul> --}}
         <div class="formCourse">
           <div>
             {{! title Course }}
@@ -216,7 +212,7 @@
               </div>
             </div>
             {{! chapter in course }}
-            <div class="collapse" id="course">
+            <div class="collapse show" id="course">
               <div class="chapter__content">
                 <div class="row">
                   <div class="col-lg-12">
@@ -238,7 +234,7 @@
                       </div>
                     </div>
                     {{! lesson in chapter }}
-                    <div class="collapse" id="{{../index}}chapter{{index}}">
+                    <div class="collapse show" id="{{../index}}chapter{{index}}">
                       {{#each lesson}}
 
                       <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
@@ -290,70 +286,6 @@
                 <p class="similar_course-price">{{format_number fee}}</p>
               </a>
             </dt>
-
-          {{!-- <dt>
-            <a
-              href="/courses/courseDetail"
-              role="button"
-              class="similar_course-button"
-            >
-              <img
-                src="https://cafedev.vn/wp-content/uploads/2020/05/cafedevn_html.png"
-                class="similar_course-image"
-                alt="Cinque Terre"
-              />
-              <p class="similar_course_name">Javascript for beginers</p>
-              <p class="similar_course-price">đ 389.000</p>
-            </a>
-          </dt>
-
-          <dt>
-            <a
-              href="/courses/courseDetail"
-              role="button"
-              class="similar_course-button"
-            >
-              <img
-                src="https://cafedev.vn/wp-content/uploads/2020/05/cafedevn_html.png"
-                class="similar_course-image"
-                alt="Cinque Terre"
-              />
-              <p class="similar_course_name">Javascript for beginers</p>
-              <p class="similar_course-price">đ 389.000</p>
-            </a>
-          </dt>
-
-          <dt>
-            <a
-              href="/courses/courseDetail"
-              role="button"
-              class="similar_course-button"
-            >
-              <img
-                src="https://cafedev.vn/wp-content/uploads/2020/05/cafedevn_html.png"
-                class="similar_course-image"
-                alt="Cinque Terre"
-              />
-              <p class="similar_course_name">Javascript for beginers</p>
-              <p class="similar_course-price">đ 389.000</p>
-            </a>
-          </dt>
-
-          <dt>
-            <a
-              href="/courses/courseDetail"
-              role="button"
-              class="similar_course-button"
-            >
-              <img
-                src="https://cafedev.vn/wp-content/uploads/2020/05/cafedevn_html.png"
-                class="similar_course-image"
-                alt="Cinque Terre"
-              />
-              <p class="similar_course_name">Javascript for beginers</p>
-              <p class="similar_course-price">đ 389.000</p>
-            </a>
-          </dt> --}}
           
           {{/each}}
         </dl>
@@ -456,74 +388,6 @@
         </div>
       {{/each}}
       
-
-      {{!-- <div class="feedback-right">
-        <div class="feedback-right-star">
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-        </div>
-        <div class="display_flex">
-          <p>By. John Matt &nbsp;</p>
-          <p>&nbsp; March 3. 2022</p>
-        </div>
-        <p>Excellent course for anyone who is familiar with html, css, but
-          cannot organise the subject in their mind. This course excellently
-          teaches you the what is what, and how to do things in the correct way</p>
-      </div>
-
-      <div class="feedback-right">
-        <div class="feedback-right-star">
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-        </div>
-        <div class="display_flex">
-          <p>By. John Matt &nbsp;</p>
-          <p>&nbsp; March 3. 2022</p>
-        </div>
-        <p>Excellent course for anyone who is familiar with html, css, but
-          cannot organise the subject in their mind. This course excellently
-          teaches you the what is what, and how to do things in the correct way</p>
-      </div>
-
-      <div class="feedback-right">
-        <div class="feedback-right-star">
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-        </div>
-        <div class="display_flex">
-          <p>By. John Matt &nbsp;</p>
-          <p>&nbsp; March 3. 2022</p>
-        </div>
-        <p>Excellent course for anyone who is familiar with html, css, but
-          cannot organise the subject in their mind. This course excellently
-          teaches you the what is what, and how to do things in the correct way</p>
-      </div>
-
-      <div class="feedback-right">
-        <div class="feedback-right-star">
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-        </div>
-        <div class="display_flex">
-          <p>By. John Matt &nbsp;</p>
-          <p>&nbsp; March 3. 2022</p>
-        </div>
-        <p>Excellent course for anyone who is familiar with html, css, but
-          cannot organise the subject in their mind. This course excellently
-          teaches you the what is what, and how to do things in the correct way</p>
-      </div> --}}
       <a
         id="see_more_feedbacks-btn"
         class="btn btn--border see_more_feedbacks-btn"

@@ -2,13 +2,8 @@
 .sidenav {
   height: 100%;
   width: 380px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: #eeeeee;
-  overflow-x: hidden;
-  padding-top: 7rem; }
+  background-color: #ddd;
+  overflow-x: hidden; }
 
 /* Style the sidenav links and the dropdown button */
 .sidenav a, .dropdown-btn {
