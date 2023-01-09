@@ -147,7 +147,7 @@ class CourseController {
     }
 
     if (res.locals.lcAuthTeacher) {
-      const userID = res.locals.lcAuthUser.id;
+      const userID = res.locals.lcAuthTeacher.id;
       // lấy khóa học của gv
       const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
       for (const courseOfTeacher of coursesOfTeacher) {
