@@ -590,6 +590,5 @@ export default {
   // add rating
   async addRating(rating) {
     await db("rating").insert(rating);
-  }
+  },
 };
-

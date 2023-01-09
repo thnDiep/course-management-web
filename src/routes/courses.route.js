@@ -22,6 +22,5 @@ router.get("/like", auth, isUser, courseController.like);
 router.get("/watch-list", auth, isUser, courseController.watchList);
 
 router.get("/search", courseController.search);
-router.get("/:slug", (req, res) => res.render("404"));
 
 export default router;

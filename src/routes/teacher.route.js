@@ -5,7 +5,6 @@ import courseController from "../controllers/CourseController.js";
 import isTeacher from "../middlewares/isTeacher.mdw.js";
 import auth from "../middlewares/auth.mdw.js";
 const router = express.Router();
-router.get("/:slug", (req, res) => res.render("404"));
 router.get("/profile", auth, isTeacher, tProfileController.index);
 
 router.get("/createCourse", auth, isTeacher, tCourseController.index);
@@ -53,4 +52,5 @@ router.put(
 );
 router.put("/profile/image", auth, isTeacher, tProfileController.updateImage);
 router.post("/createCourse", auth, isTeacher, tCourseController.create);
+
 export default router;

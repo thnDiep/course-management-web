@@ -50,8 +50,10 @@ class tProfileController {
     teacher.countReview = await userModel.getNumberViewsOfTeacher(
       res.locals.lcAuthTeacher.id
     );
+    const isProfile = true;
     res.render("vwteacher/teacherProfile", {
       course,
+      isProfile,
       teacher,
       layout: "main",
     });
@@ -62,18 +64,24 @@ class tProfileController {
         cb(null, "src/public/images/teacherPictures");
       },
       filename: function (req, file, cb) {
-        cb(null, file.fieldname + "-" + "1" + ".jpg");
+        cb(null, file.fieldname + "-" + res.locals.lcAuthTeacher.id + ".jpg");
       },
     });
     const upload = multer({ storage: storage });
     upload.single("image")(req, res, async function (err) {
-      await userModel.updateImage(
-        res.locals.lcAuthTeacher.id,
-        "/images/teacherPictures/" + req.file.filename
-      );
+      if (req.file !== undefined)
+        await userModel.updateImage(
+          res.locals.lcAuthTeacher.id,
+          "/images/teacherPictures/" + req.file.filename
+        );
 
       if (err) console.error(err);
-      else return res.redirect("back");
+      else {
+        if (req.file !== undefined)
+          req.session.authUser.img =
+            "/images/teacherPictures/" + req.file.filename;
+        return res.redirect("back");
+      }
     });
   }
   async updateAccount(req, res) {
@@ -120,9 +128,12 @@ class tProfileController {
       teacher.countReview = await userModel.getNumberViewsOfTeacher(
         res.locals.lcAuthTeacher.id
       );
+      const isProfile = true;
+
       return res.render("vwteacher/teacherProfile", {
         course,
         teacher,
+        isProfile,
         // layout: "teacher",
         err_message_password: "password is incorrect",
       });

@@ -1,8 +1,9 @@
 import profileUserModel from "../../models/profileUserModel.js";
-import AccountController from "../AccountController.js";
+import multer from "multer";
 import bcrypt from "bcryptjs";
 import courseModel from "../../models/courseModel.js";
 import accountModel from "../../models/accountModel.js";
+import userModel from "../../models/userModel.js";
 class uProfileController {
   // GET categories list
   async index(req, res) {
@@ -111,6 +112,32 @@ class uProfileController {
         lesson_love,
       });
     }
+  }
+  async updateImage(req, res) {
+    const storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+        cb(null, "src/public/images/studentPictures");
+      },
+      filename: function (req, file, cb) {
+        cb(null, file.fieldname + "-" + res.locals.lcAuthUser.id + ".jpg");
+      },
+    });
+    const upload = multer({ storage: storage });
+    upload.single("image")(req, res, async function (err) {
+      if (req.file !== undefined)
+        await userModel.updateImage(
+          res.locals.lcAuthUser.id,
+          "/images/studentPictures/" + req.file.filename
+        );
+
+      if (err) console.error(err);
+      else {
+        if (req.file !== undefined)
+          req.session.authUser.img =
+            "/images/studentPictures/" + req.file.filename;
+        return res.redirect("back");
+      }
+    });
   }
 }
 export default new uProfileController();

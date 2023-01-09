@@ -80,6 +80,5 @@ router.post("/listAccount/add", auth, isAdmin, aAccountController.addTeacher);
 // acitve
 router.put("/account/active1", auth, isAdmin, aAccountController.active1);
 router.put("/account/active0", auth, isAdmin, aAccountController.active0);
-router.get("/:slug", (req, res) => res.render("404"));
 
 export default router;

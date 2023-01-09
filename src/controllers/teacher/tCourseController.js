@@ -19,8 +19,10 @@ class TCourseController {
   async index(req, res) {
     const parentCourse = await categoryModel.getParent();
     const childCourse = await categoryModel.getChild();
+    const isProfile = true;
     res.render("vwteacher/createCourse", {
       parentCourse,
+      isProfile,
       childCourse,
       // layout: "teacher",
     });
@@ -30,9 +32,13 @@ class TCourseController {
     const parentCourse = await categoryModel.getParent();
     const childCourse = await categoryModel.getChild();
     console.log(course);
+    const isProfile = true;
+
     res.render("vwteacher/editCourse", {
+      idTeacher: res.locals.lcAuthTeacher.id,
       course,
       parentCourse,
+      isProfile,
       childCourse,
       // layout: "teacher",
     });

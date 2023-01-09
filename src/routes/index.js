@@ -7,8 +7,6 @@ export default function route(app) {
   app.use("/account", accountRoute);
   app.use("/courses", coursesRoute);
   app.use("/admin", adminRoute);
-  //teacher chỉnh sau
   app.use("/teacher", teacherRoute);
-  // student
   app.use("/", studentRoute);
 }

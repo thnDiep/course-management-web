@@ -33,9 +33,11 @@ class ACourseController {
       };
       courses.push(course);
     }
+    const isCategories = true;
 
     res.render("vwAdmin/courses", {
       categoryID,
+      isCategories,
       teacherID,
       courses,
       categories,

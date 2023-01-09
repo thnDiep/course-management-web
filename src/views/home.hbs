@@ -29,6 +29,7 @@
         {{/if}}
         <div class="d-flex w-100 justify-content-around">
           <div class="carousel-item__img" class="d-block w-100">
+            <a href="/courses/detail?id={{id}}" class="course__link"></a>
             <img src={{image}} alt="" srcset="" />
             <div class="carousel-item__rate">
               <div class="carousel-item__rate--1">
@@ -53,7 +54,7 @@
             </div>
           </div>
           <div class="carousel-item__detail">
-            <h1 class="carousel-item__detail--name">{{name}}</h1>
+            <a href="/courses/detail?id={{id}}" class="carousel-item__detail--name">{{name}}</a>
             <p class="carousel-item__detail--item">{{tinyDescription}}</p>
             <div class="carousel-item__detail--teacher">
               Teacher

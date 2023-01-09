@@ -63,9 +63,7 @@ class CourseController {
     const course = await courseModel.getById(id);
 
     const courseContent = await courseModel.getById(id);
-    const chapter = await courseModel.getAllChapterOfCourse(
-      id
-    );
+    const chapter = await courseModel.getAllChapterOfCourse(id);
     for (let i = 0; i < chapter.length; i++) {
       chapter[i].index = i + 1;
       chapter[i].lesson = await courseModel.getAllLessonOfChapter(
@@ -85,7 +83,6 @@ class CourseController {
         : (chapter[i].check = false);
     }
     courseContent.chapter = chapter;
-
 
     const avgRated = await courseModel.getAvgRate(course.id);
     course.rated = (+avgRated).toFixed(1);
@@ -188,7 +185,6 @@ class CourseController {
       //   isLast: page === maxPage,
       //   numbers: pageNumbers,
       // },
-      searchOptions,
       // feedbackTime,
       // timeOfFeedback,
     });
@@ -226,9 +222,7 @@ class CourseController {
 
     // for SIDEBAR
     const courseContent = await courseModel.getById(idCourse);
-    const chapter = await courseModel.getAllChapterOfCourse(
-      idCourse
-    );
+    const chapter = await courseModel.getAllChapterOfCourse(idCourse);
     for (let i = 0; i < chapter.length; i++) {
       chapter[i].index = i + 1;
       chapter[i].lesson = await courseModel.getAllLessonOfChapter(
@@ -249,11 +243,10 @@ class CourseController {
     }
     courseContent.chapter = chapter;
 
-
     // add feeback
 
     // const rating = {
-    //   star = 
+    //   star =
     // }
     if (course === null) {
       res.redirect("/courses");
@@ -264,6 +257,7 @@ class CourseController {
     res.render("courses/enrollCourse", {
       course,
       idCourse,
+      isCourse,
       idChapter,
       idLesson,
       teacher,
@@ -274,7 +268,6 @@ class CourseController {
       numberOfStudent,
       updateTime,
       linkCategories,
-      searchOptions,
     });
     // res.json("h");
   }
@@ -284,7 +277,6 @@ class CourseController {
     const msg = req.query.mess;
 
     const currentTime = new Date();
-
 
     const idCourse = parseInt(req.query.idCourse) || 1;
     const idChapter = parseInt(req.query.idChapter) || 1;
@@ -297,11 +289,10 @@ class CourseController {
       feedback: msg,
       courseID: idCourse,
       studentID: 29,
-      time: currentTime
-    }
+      time: currentTime,
+    };
 
     courseModel.addRating(rating);
-    
 
     // for BARSTAR
     const avgRated = await courseModel.getAvgRate(course.id);
@@ -327,9 +318,7 @@ class CourseController {
 
     // for SIDEBAR
     const courseContent = await courseModel.getById(idCourse);
-    const chapter = await courseModel.getAllChapterOfCourse(
-      idCourse
-    );
+    const chapter = await courseModel.getAllChapterOfCourse(idCourse);
     for (let i = 0; i < chapter.length; i++) {
       chapter[i].index = i + 1;
       chapter[i].lesson = await courseModel.getAllLessonOfChapter(
@@ -350,11 +339,10 @@ class CourseController {
     }
     courseContent.chapter = chapter;
 
-
     // add feeback
 
     // const rating = {
-    //   star = 
+    //   star =
     // }
     if (course === null) {
       res.redirect("/courses");
@@ -370,6 +358,7 @@ class CourseController {
       teacher,
       chapters,
       lesson,
+      isCourse,
       courseContent,
       numberRating,
       numberOfStudent,
@@ -381,8 +370,8 @@ class CourseController {
 
   // [GET] /courses/enroll?id=
   async enroll(req, res) {
-    // const idStudent = res.locals.lcAuthUser.id;
-    const studentID = 29;
+    const idStudent = res.locals.lcAuthUser.id;
+    // const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -416,8 +405,8 @@ class CourseController {
   // [GET] /courses/learning
   async learning(req, res) {
     // if (res.locals.lcAuthUser) {
-    // const studentID = res.locals.lcAuthUser.id;
-    const studentID = 29;
+    const studentID = res.locals.lcAuthUser.id;
+    // const studentID = 29;
     const courses = [];
 
     const learningCourses = await studentCourseModel.getCourseOfStudent(
@@ -427,9 +416,11 @@ class CourseController {
     for (const learningCourse of learningCourses) {
       courses.push(await courseModel.getById(learningCourse.courseID));
     }
+    const isLearning = true;
     await getInfoCourse(courses, res);
     res.render("courses/learning", {
       courses,
+      isLearning,
     });
     // } else {
     // res.render("requireLogin");
@@ -512,8 +503,11 @@ class CourseController {
       courses.push(await courseModel.getById(lovedCourse.courseID));
     }
     await getInfoCourse(courses, res);
+    const isWatchList = true;
+
     res.render("courses/watchList", {
       courses,
+      isWatchList,
     });
     // } else {
     // res.render("requireLogin");
@@ -771,7 +765,5 @@ const getInfoCourse = async function (courses, res) {
     }
   }
 };
-
-
 
 export default new CourseController();

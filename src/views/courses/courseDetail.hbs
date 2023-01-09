@@ -144,7 +144,7 @@
     <div class="left">
       <div class="description">
         <h2 class="description-title">Required</h2>
-        <p class="description-item">{{this.course.required}}</p>
+        <p class="description-item">{{{this.course.required}}}</p>
       </div>
 
       <div class="description">
@@ -155,7 +155,7 @@
 
       <div class="description">
         <h2 class="description-title">Description</h2>
-        <p class="description-item">{{this.course.fullDescription}}</p>
+        <p class="description-item">{{{this.course.fullDescription}}}</p>
       </div>
 
       <div class="description">
@@ -371,7 +371,7 @@
       />
       <div class="teacher_information">
         <p class="teacher_name">{{this.teacher.name}}</p>
-        <p>{{this.teacher.about}}</p>
+        <p>{{{this.teacher.about}}}</p>
         <p class="teacher_contact">Contact: {{this.teacher.email}}</p>
         {{!-- <p class="teacher_role">Associate Professor</p> --}}
         {{!-- <p class="teacher_specialization">Department of Computer Science and
@@ -389,7 +389,7 @@
   </div>
 
   
-  {{#if lcAuthTeacher}}
+  {{#ifEquals lcAuthTeacher.id teacher.id}}
   <div ><a style="font-size: 2rem;background-color:#f8d752;padding: 1rem 47% ; bottom:0rem;margin-left:-2rem" class="btn position-fixed" href="/teacher/editCourse/?id={{course.id}}">EDIT</a></div>
   {{else}}
   <div class="feedback">
@@ -532,5 +532,5 @@
       >See more</a>
     </div>
   </div>
-  {{/if}}
+  {{/ifEquals}}
 </div>
