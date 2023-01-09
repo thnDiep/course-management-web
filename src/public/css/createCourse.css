@@ -5,6 +5,18 @@ body {
 label {
   font-size: 2.5rem;
   font-weight: 500; }
+  @media only screen and (max-width: 31.25em) {
+    label {
+      font-size: 1.5rem; } }
+
+.content {
+  margin-left: calc(40px + 20px) !important;
+  top: 0;
+  left: 0; }
+  @media only screen and (max-width: 31.25em) {
+    .content {
+      width: 100%;
+      margin-left: -2rem !important; } }
 
 .formCreate {
   border: 0.2rem dashed #d8d7dc;
@@ -15,10 +27,17 @@ label {
   background-color: #fff;
   padding: 3rem;
   margin-top: 12rem; }
+  @media only screen and (max-width: 31.25em) {
+    .formCreate {
+      width: 100%;
+      margin-left: 0; } }
   .formCreate__title {
     font-size: 3rem;
     font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
     font-weight: bold; }
+    @media only screen and (max-width: 31.25em) {
+      .formCreate__title {
+        font-size: 2rem; } }
 
 .inputField {
   width: 100%;
@@ -31,6 +50,9 @@ label {
     padding: 1rem;
     font-size: 1.5rem;
     margin-bottom: 0.5rem; }
+    @media only screen and (max-width: 31.25em) {
+      .inputFieldMini {
+        width: 90%; } }
 
 .profile-cover__img--baner {
   top: 0 !important; }

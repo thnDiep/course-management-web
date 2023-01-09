@@ -138,7 +138,7 @@ class AccountController {
       req.body.input1 + req.body.input2 + req.body.input3 + req.body.input4;
     if (otpv === OTP) {
       await accountModel.add(user);
-      res.redirect("/login");
+      res.redirect("/account/login");
     } else {
       return res.render("otp", {
         layout: false,

@@ -128,3 +128,34 @@ input {
 .btnEdit {
   padding: 0.5rem 5rem;
   margin-top: 1rem; }
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+
+.inputfile + label {
+  margin-top: 14rem !important;
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: #1a46b5;
+  display: inline-block;
+  padding: 0.5rem; }
+
+.inputfile + label {
+  cursor: pointer;
+  /* "hand" cursor */ }
+
+.inputfile + label:hover {
+  background-color: red; }
+
+.inputfile:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px; }
+
+.inputfile + label * {
+  pointer-events: none; }

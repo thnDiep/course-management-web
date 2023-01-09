@@ -69,21 +69,6 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
-  .form-input {
-    width: 100%;
-    height: 38px;
-    padding-left: 6px;
-    font-size: 1.6rem;
-    border: 1px solid $border-color;
-    border-radius: 2px;
-    color: $text-color;
-    outline: none;
-    &:focus {
-      outline: none !important;
-      color: $text-color;
-    }
-  }
-
   .form-message {
     font-size: 1.4rem;
     padding-left: 4px;
@@ -93,6 +78,21 @@
     margin-top: 8px;
     width: 100%;
     padding: 6px;
+  }
+}
+
+.form-input {
+  width: 100%;
+  height: 38px;
+  padding-left: 6px;
+  font-size: 1.6rem;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  color: $text-color;
+  outline: none;
+  &:focus {
+    outline: none !important;
+    color: $text-color;
   }
 }
 
@@ -158,7 +158,9 @@
     th:nth-child(1),
     td:nth-child(1),
     th:nth-child(2),
-    td:nth-child(2) {
+    td:nth-child(2),
+    th:nth-child(5),
+    td:nth-child(5) {
       width: 50px;
       text-align: center;
     }

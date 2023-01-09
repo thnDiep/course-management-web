@@ -36,17 +36,21 @@ class AAccountController {
     const user = await getUser(id);
     const isActive = user[0];
     const users = user[1];
-    console.log(isActive);
+    const isAccount = true;
     res.render("vwAdmin/accounts", {
       isActive,
+      isAccount,
       users,
       layout: "admin",
     });
   }
 
   async add(req, res) {
+    const isAccount = true;
+
     res.render("vwAdmin/accounts/addTeacher", {
       layout: "admin",
+      isAccount,
     });
   }
   async addTeacher(req, res) {
@@ -100,8 +104,10 @@ class AAccountController {
       await accountModel.add(teacher);
       return res.redirect("back");
     } else {
+      const isAccount = true;
       return res.render("vwAdmin/accounts/addTeacher", {
         layout: "admin",
+        isAccount,
         err_message_name,
         err_message_email,
       });
@@ -150,8 +156,10 @@ class AAccountController {
       const user = await getUser(id);
       const isActive = user[0];
       const users = user[1];
+      const isAccount = true;
       return res.render("vwAdmin/accounts/index", {
         layout: "admin",
+        isAccount,
         users,
         isActive,
         idUser,

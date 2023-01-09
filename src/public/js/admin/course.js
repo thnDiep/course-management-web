@@ -1,3 +1,31 @@
+// handle submit filter
+const filterBtnSubmit = document.getElementById("filterBtnSubmit");
+const filterByCategory = document.getElementById("filterByCategory");
+const filterByTeacher = document.getElementById("filterByTeacher");
+const a = document.getElementById("filterCourseLink");
+
+$("#filterBtnSubmit").on("click", () => {
+  const category = filterByCategory.value;
+  const teacher = filterByTeacher.value;
+  a.href = "/admin/courses?category=" + category + "&teacher=" + teacher;
+  a.click();
+});
+
+// handle check block submit
+const blockedCourseForm = document.forms["blockedCourseForm"];
+const blockedCheckbox = document.querySelectorAll("input[name='isBlocked']");
+blockedCheckbox.forEach((element) => {
+  element.addEventListener("click", function () {
+    blockedCourseForm.action =
+      "/admin/courses/block?id= " +
+      element.value +
+      "&blocked=" +
+      element.checked +
+      "&_method=PUT";
+    blockedCourseForm.submit();
+  });
+});
+
 // check box delete course
 const deleteBtnCourse = document.querySelector(".multiDeleteCourse");
 const checkboxAllCourse = document.getElementById("checkboxAllCourse");

@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-
+const isCategories = true;
 class ACategoryController {
   // GET /admin/categories
   async index(req, res) {
@@ -42,6 +42,7 @@ class ACategoryController {
 
     res.render("vwAdmin/categories/index", {
       categories,
+      isCategories,
       layout: "admin",
     });
   }
@@ -52,6 +53,7 @@ class ACategoryController {
 
     res.render("vwAdmin/categories/add", {
       parentCategories,
+      isCategories,
       layout: "admin",
     });
   }
@@ -175,6 +177,7 @@ class ACategoryController {
 
       res.render("vwAdmin/categories/edit", {
         category,
+        isCategories,
         courses,
         childCategories,
         parentCategories,

@@ -29,6 +29,7 @@
         {{/if}}
         <div class="d-flex w-100 justify-content-around">
           <div class="carousel-item__img" class="d-block w-100">
+            <a href="/courses/detail?id={{id}}" class="course__link"></a>
             <img src={{image}} alt="" srcset="" />
             <div class="carousel-item__rate">
               <div class="carousel-item__rate--1">
@@ -53,17 +54,19 @@
             </div>
           </div>
           <div class="carousel-item__detail">
-            <h1 class="carousel-item__detail--name">{{name}}</h1>
+            <a href="/courses/detail?id={{id}}" class="carousel-item__detail--name">{{name}}</a>
             <p class="carousel-item__detail--item">{{tinyDescription}}</p>
             <div class="carousel-item__detail--teacher">
               Teacher
               <a href="#">{{teacherName}}</a>
             </div>
             <div class="carousel-item__detail--btn">
-              <a name="buy-btn" id="buy-btn" class="btn" href="#" role="button">Buy now
+              <a name="buy-btn" id="buy-btn" class="btn" href="#" role="button" >
+                <i  class="fa fa-cart-plus" aria-hidden="true" style="margin-right: 1rem;"></i>
+                Buy now
               </a>
-              <a name="add-cart-btn" id="add-cart-btn" class="btn btn--bg" href="#" role="button">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              <a name="add-cart-btn" id="add-cart-btn" class="btn btn--bg" href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" role="button">
+                <i  style="font-size:2.5rem;{{#if loved}}color: red;{{/if}}" class="fas fa-heart"></i>
               </a>
             </div>
 
@@ -235,8 +238,7 @@
       <p>Choose from 213,000 online video courses with new additions published
         every month</p>
     </div>
-    <button class="active">IT Web Programming</button>
-    <button>IT Mobile Device Programming</button>
+    
     <div class="courses__choose">
       <div class="courses__viewed">
         {{! <h3>The 10 most viewed courses</h3> }}
@@ -259,7 +261,7 @@
                     {{#each courses}}
                     <div class="col-md-3">
                       <div class="card" style="width: 100%;">
-                        <a href="/courses/courseDetail?id={{id}}" class="course__link"></a>
+                        <a href="/courses/detail?id={{id}}" class="course__link"></a>
                         <img src="{{image}}" class="card-img-top" alt="..." />
                         <div class="card-body">
                           <h5 class="card-title">{{name}}</h5>
@@ -292,7 +294,7 @@
                             <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
                               Buy now</a>
                             {{/if}}
-                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: pink;"{{/if}} class="fas fa-heart"></i></a>
+                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
                             {{/if}}
                           {{/if}}
                         </div>
@@ -333,7 +335,7 @@
                     {{#each courses}}
                     <div class="col-md-3">
                       <div class="card" style="width: 100%;">
-                        <a href="/courses/courseDetail?id={{id}}" class="course__link"></a>
+                        <a href="/courses/detail?id={{id}}" class="course__link"></a>
                         <img src="{{image}}" class="card-img-top" alt="..." />
                         <div class="card-body">
                           <h5 class="card-title">{{name}}</h5>
@@ -367,7 +369,7 @@
                             <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
                               Buy now</a>
                             {{/if}}
-                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: pink;"{{/if}} class="fas fa-heart"></i></a>
+                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
                            
                           {{/if}}
                           {{/if}}
@@ -461,4 +463,6 @@
         </div>
       </div>
     </div>
+
+    
   </div>

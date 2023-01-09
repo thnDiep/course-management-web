@@ -45,5 +45,11 @@ input.forEach((element) => {
     element.classList.remove("border");
   };
 });
+const profileImageForm = document.forms["profileImageForm"];
+
+$("#file").change(function (e) {
+  profileImageForm.action = "/student/profile/image/" + "?_method=PUT";
+  profileImageForm.submit();
+});
 
 function update() {}

@@ -1,26 +1,56 @@
 import categoryModel from "../../models/categoryModel.js";
 import courseModel from "../../models/courseModel.js";
-
+import userModel from "../../models/userModel.js";
 class ACourseController {
-  // GET /admin/courses
+  // GET /admin/courses?category=&teacher=
   async index(req, res) {
-    const coursesFull = await courseModel.getAll();
+    let allCourses;
     const courses = [];
 
-    for (const courseFull of coursesFull) {
-      const category = await categoryModel.getById(courseFull.idCategory);
+    const categoryID = parseInt(req.query.category) || 0;
+    const teacherID = parseInt(req.query.teacher) || 0;
+    const categories = await categoryModel.getAll();
+    const teachers = await userModel.getAllTeacher();
+
+    if (categoryID !== 0 && teacherID !== 0) {
+      allCourses = await courseModel.getSummaryByCategoryAndTeacherId(
+        categoryID,
+        teacherID
+      );
+    } else if (categoryID !== 0 && teacherID === 0) {
+      allCourses = await courseModel.getSummaryByCategoryId(categoryID);
+    } else if (categoryID === 0 && teacherID !== 0) {
+      allCourses = await courseModel.getSummaryByTeacherId(teacherID);
+    } else {
+      allCourses = await courseModel.getAll();
+    }
+
+    for (const courseFull of allCourses) {
       const course = {
         id: courseFull.id,
         name: courseFull.name,
-        category: category.name,
+        blocked: courseFull.blocked,
       };
       courses.push(course);
     }
+    const isCategories = true;
 
     res.render("vwAdmin/courses", {
+      categoryID,
+      isCategories,
+      teacherID,
       courses,
+      categories,
+      teachers,
       layout: "admin",
     });
+  }
+
+  // PUT /admin/courses/block?id=&blocked=&
+  async blocked(req, res) {
+    const isBlocked = req.query.blocked === "true";
+    await courseModel.updateCourseBlocked(parseInt(req.query.id), isBlocked);
+    res.redirect("back");
   }
 
   // DELETE /admin/courses?id=

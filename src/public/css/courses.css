@@ -253,8 +253,8 @@ select.sort-by__menu {
   -webkit-line-clamp: 2;
   overflow: hidden;
   font-size: 1.6rem;
-  line-height: 1.7rem;
-  max-height: 3.4rem;
+  line-height: 3rem;
+  max-height: 6rem;
   color: #101010;
   margin: 0; }
 

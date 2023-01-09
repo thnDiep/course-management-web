@@ -1,19 +1,57 @@
+{{#section "css"}}
+    <link rel="stylesheet" href="/css/courses.css" />
+{{/section}}
+
 {{#section "js"}}
   <script src="/js/admin/course.js"></script>
 {{/section}}
 
 <form class="container" method="post" action="/admin/courses/deleteByCheckbox">
   <div class="admin__header">
-    <button
+    <div></div>
+    <h1 class="admin__title">Courses</h1>
+    <div></div>
+  </div>
+
+<div class="courses__tool">
+  <button
       type="submit"
       class="admin__btn btn btn--icon btn--danger btn--disabled multiDeleteCourse"
       disabled
     >
       <i class="fa fa-trash" aria-hidden="true"></i>
-    </button>
-    <h1 class="admin__title">Courses</h1>
-    <div></div>
-  </div>
+  </button>
+
+  <div class="courses__sort">
+    <label for="filterByCategory" class="mr-3">
+      <h1>Category:</h1> 
+    </label>
+    <select name="filterByCategory" id="filterByCategory" class="form-input">
+      <option value="0">All</option>
+      {{#each this.categories}}
+        <option value="{{id}}" {{#ifEquals @root.categoryID id}}selected{{/ifEquals}}>{{name}}</option>
+      {{/each}}
+    </select>
+
+    <label for="filterByTeacher" class="ml-5 mr-3">
+      <h1>Teacher:</h1> 
+    </label>
+    <select name="filterByTeacher" id="filterByTeacher" class="form-input">
+      <option value="0">All</option>
+      
+      {{#each this.teachers}}
+        <option value="{{id}}" {{#ifEquals @root.teacherID id}}selected{{/ifEquals}}>{{name}}</option>
+      {{/each}}
+    </select>
+
+     <div
+      id="filterBtnSubmit"
+      class="admin__btn btn btn--icon btn--info ml-5">
+      Filter
+      <i class="fa fa-filter" aria-hidden="true"></i>
+    </div>
+  </div> 
+</div>
 
   <table class="table table-bordered table--courses">
     <thead class="thead-light">
@@ -24,6 +62,7 @@
         <th>#</th>
         <th>Course Name</th>
         <th>Options</th>
+        <th>Blocked</th>
       </tr>
     </thead>
     <tbody>
@@ -52,6 +91,12 @@
               delete
             </a>
           </td>
+          <td>
+            <input
+                    type="checkbox" 
+                    name="isBlocked" {{#if blocked}}checked{{/if}} 
+                    value={{id}} />
+          </td>
         </tr>
       {{/each}}
     </tbody>
@@ -60,6 +105,10 @@
 
 {{! Form delete }}
 <form name="deleteCourseForm" method="post"></form>
+<form name="blockedCourseForm" method="post"></form>
+
+{{! filter link }}
+<a id="filterCourseLink" href=""></a>
 
 {{! Confirm delete course }}
 <div

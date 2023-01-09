@@ -54,6 +54,7 @@ body {
         -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
       }
+      position: relative;
     }
 
     &__rate {
@@ -250,7 +251,16 @@ body {
   width: 100%;
   height: 100%;
 }
-
+.course__link {
+  display: block;
+  position: absolute;
+  // top: 2rem;
+  bottom: 6.4rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 .swiper-slide {
   img {
     width: 100%;
@@ -293,17 +303,6 @@ body {
     color: rgba(250, 250, 250, 0.8);
     margin-bottom: 2rem;
     position: relative;
-
-    .course__link {
-      display: block;
-      position: absolute;
-      // top: 2rem;
-      bottom: 6.4rem;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
 
     &:hover {
       transform: translateY(-2px);
@@ -1011,5 +1010,14 @@ body {
       font-weight: 100;
       font-size: 1.4rem;
     }
+  }
+}
+.home-footer {
+  & > mb-4 {
+    margin-left: 5rem;
+  }
+  margin-left: 5rem;
+  @media only screen and (max-width: 31.25em) {
+    margin-left: 0;
   }
 }

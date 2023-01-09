@@ -1,6 +1,6 @@
 {{#section "css"}}
   <link rel="stylesheet" href="/css/profile.css" />
-  {{!-- <link rel="stylesheet" href="/css/teacherProfile.css"> --}}
+  <link rel="stylesheet" href="/css/teacherProfile.css">
   {{!-- <link rel="stylesheet" href="/css/base.css"> --}}
 {{/section}}
 {{#section "images"}}
@@ -15,12 +15,13 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center d-flex flex-column">
-            <img
-              src={{lcAuthUser.img}}
-              alt="Avatar"
-              class="rounded-circle img-fluid img_ava"
-              style="width: 150px;margin:auto"
-            />
+             <a class="rounded-circle" style="
+                  background-image: url('{{this.lcAuthUser.img}}'); right: 14rem;
+                "> </a>
+            <form name="profileImageForm" method="post" enctype="multipart/form-data">
+              <input type="file" name="image" id="file" class="inputfile" accept="image/png, image/gif, image/jpeg" />
+              <label for="file"><i class="fas fa-upload"></i> Choose a file...</label>
+            </form>
             <input type="text" value={{lcAuthUser.name}} class="usernameCard1 my-3" style="font-size: 2.4rem; color:#333333;text-align:center" disabled >
             <p class="text-muted mb-1 positionCard1"><i class="fas fa-graduation-cap"></i>
               Student</p>

@@ -23,4 +23,5 @@ router.post("/signup", AccountController.signUp);
 
 router.post("/signup/otp", AccountController.otp);
 router.get("/logout", AccountController.logout);
+
 export default router;
