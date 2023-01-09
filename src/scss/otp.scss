@@ -1,31 +1,53 @@
 .cardOtp {
-    width: 350px;
-    padding: 10px;
-    border-radius: 20px;
-    background: whitesmoke;
-    border: none;
-    position: relative;
+  width: 350px;
+  padding: 10px;
+  border-radius: 20px;
+  background: whitesmoke;
+  border: none;
+  position: relative;
+}
+.containerOtp {
+  height: 100vh;
+}
+.text-color {
+  color: #145a32;
+}
+.mobile-text {
+  color: #cd5c5c;
+  font-size: 15px;
+}
+.form-control {
+  margin-right: 20px;
+  &:focus {
+    color: #495057;
+    background-color: #d4efdf;
+    border-color: black;
+    outline: 0;
+    box-shadow: none;
   }
-  .containerOtp {
-    height: 100vh;
+}
+.cursor {
+  cursor: pointer;
+}
+.video-container {
+  .plyr__video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
   }
-  .text-color {
-    color: #145a32;
-  }
-  .mobile-text {
-    color: #cd5c5c;
-    font-size: 15px;
-  }
-  .form-control {
-    margin-right: 20px;
-    &:focus {
-      color: #495057;
-      background-color: #d4efdf;
-      border-color: black;
-      outline: 0;
-      box-shadow: none;
-    }
-  }
-  .cursor {
-    cursor: pointer;
-  }
+}
+
+.overlay1 {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.783);
+}

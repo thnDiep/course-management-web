@@ -10,7 +10,7 @@ const router = express.Router();
 router.get("/profile", auth, isUser, ProfileController.index);
 // Edit + Update profile
 router.post("/profile", auth, isUser, ProfileController.updateProfile);
-router.get("/:slug", (req, res) => res.render("404"));
+//router.get("/:slug", (req, res) => res.render("404"));
 
 router.get("/", HomeController.index);
 // router.get("/:slug", HomeController.index);

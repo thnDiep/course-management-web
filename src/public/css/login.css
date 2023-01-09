@@ -89,7 +89,7 @@
           text-align: center; }
           @media only screen and (max-width: 31.25em) {
             .login .form--login__icon-arrow {
-              margin-left: 14rem;
+              margin-left: 8rem;
               font-size: 1.8rem; } }
   .login .required-email, .login .required-pass {
     color: red;
@@ -98,7 +98,7 @@
     font-size: 1.5rem; }
     @media only screen and (max-width: 31.25em) {
       .login .required-email, .login .required-pass {
-        font-size: 1.3rem; } }
+        font-size: 1.2rem; } }
   .login .required-icon {
     padding: 0.5rem;
     font-size: larger; }
