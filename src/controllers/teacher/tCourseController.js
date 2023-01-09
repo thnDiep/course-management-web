@@ -167,8 +167,7 @@ class TCourseController {
         createTime: currentDate,
       };
       await courseModel.add(course);
-      const id = await courseModel.getIDCourseByName(req.body.name);
-      console.log(id);
+      const [id] = await courseModel.getIDCourseByName(req.body.name);
       const course_of_teacher = {
         teacherID: res.locals.lcAuthTeacher.id,
         courseID: id.id,
