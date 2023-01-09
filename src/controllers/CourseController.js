@@ -124,6 +124,7 @@ class CourseController {
     }
 
  // phan quyen trong course Detail
+ // student
   if (res.locals.lcAuthUser) {
     const userID = res.locals.lcAuthUser.id;
     // lấy khóa học đã đăng ký 
@@ -142,13 +143,15 @@ class CourseController {
     });
     }
 
+  // gv 
   if (res.locals.lcAuthTeacher){
     const userID = res.locals.lcAuthTeacher.id;
     // lấy khóa học của gv 
     const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
-    for (const courseOfTeacher of coursesOfTeacher){
-      if (courseOfTeacher.courseID === course.id){
+    for (const course of coursesOfTeacher){
+      if (course.id === course.id){
         course.isCourseOfTeacher = true;
+        console.log("la course cuagv" ,course.isCourseOfTeacher);
       }
     }
 

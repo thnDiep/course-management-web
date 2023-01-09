@@ -247,7 +247,7 @@
   position: relative;
 
   .left {
-    width: 100rem;
+    width: 65%;
     margin-left: 3rem;
 
     .description {
@@ -304,9 +304,8 @@
   }
 
   .right {
-    margin: 40rem 0rem 0rem 16rem;
+    margin: 40rem 0rem 0rem 10rem;
     font-size: 2.5rem;
-    font-weight: bold;
     .similar_course-button {
       display: flex;
       margin-bottom: 4rem;
@@ -315,7 +314,7 @@
       border-color: white;
       background-color: white;
       border-bottom: 1px solid black;
-      width: 80%;
+      width: 90%;
       height: 8rem;
       box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px;
 
@@ -326,10 +325,15 @@
       }
 
       .similar_course_name {
-        font-size: 1.7rem;
-        font-weight: bold;
-        padding-left: 2rem;
+        font-size: 1.5rem;
+        font-weight: 300;
+        padding-left: 1rem;
         color: black;
+      }
+
+      .similar_course_teacher{
+        padding-left: 1rem;
+        font-size: 1.2rem;
       }
 
       .similar_course-image {
@@ -341,6 +345,12 @@
         font-size: 1.8rem;
         color: red;
         padding-left: 4rem;
+      }
+      .col-sm-3, .col-sm-7, .col-sm-2 {
+        padding: 0px;
+        .col-sm-7{
+          padding-right: 3rem;
+        }
       }
     }
   }
@@ -418,7 +428,9 @@
   margin-top: 15rem;
   display: flex;
   background-color: #f5f7fa;
-  margin-bottom: 3rem;
+  .col-md-8{
+    margin-bottom: 3rem;
+  }
 }
 
 .feedback_review {
@@ -446,6 +458,7 @@
 
 .feedback-left {
   margin-left: 3rem;
+  margin-bottom: 3rem;
 }
 .feedback-right {
   font-size: 1.5rem;

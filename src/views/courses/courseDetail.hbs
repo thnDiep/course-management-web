@@ -78,16 +78,19 @@
 
         <div class="courseD__intro__buttons">
             
+            {{!-- teacher || student --}}
             {{#ifOrs lcAuthTeacher lcAuthUser}}
               {{!-- teacher --}}
               {{#if lcAuthTeacher}}
-                <div class="buying-btn-frame">
-                  <button class="buying-button">
-                    <p class="fee">
-                      Edit
-                    </p>
-                  </button>
-                </div>
+                {{#if ../this.course.isCourseOfTeacher}}
+                  <div class="buying-btn-frame">
+                    <a href="/teacher/profile" class="buying-button">
+                      <p class="fee">
+                        Edit
+                      </p>
+                    </a>
+                  </div>
+                {{/if}}
               {{/if}}
 
               {{!-- user --}}
@@ -154,10 +157,11 @@
       <div class="courseD_intro__videoPreview">
         <div>
           <iframe
-            src="{{this.course.videoID}}?autoplay=1&mute=1"
+            src="{{this.course.videoID}};autoplay=1&mute=1"
             width="437"
             height="250"
-            allow='autoplay'
+            {{!-- allow='autoplay' --}}
+            
             class="videoCourse"
           >
           </iframe>
@@ -235,14 +239,12 @@
                       <div class=" mr-4 ">
                         <i class="fas fa-angle-down chapter-icon{{index}} down-icon"></i>
 
-                        {{!-- <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
-                          data-target="#course{{../index}}chapter{{index}}"><i class="fas fa-pen"></i> Edit
-                        </a> --}}
+
 
                       </div>
                     </div>
                     {{! lesson in chapter }}
-                    <div class="collapse show" id="{{../index}}chapter{{index}}">
+                    <div class="collapse" id="{{../index}}chapter{{index}}">
                       {{#each lesson}}
 
                       <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
@@ -251,10 +253,6 @@
                             Lesson {{index}}: {{name}}</p>
                         </div>
                         <div class="icon-lesson mr-4">
-                          {{!-- <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
-                            data-target="#course{{../../index}}chapter{{../index}}lesson{{index}}"><i
-                              class="fas fa-pen"></i> Edit
-                          </a> --}}
                           {{#if checkLesson}}
                           {{/if}}
                         </div>
@@ -285,13 +283,17 @@
                 role="button"
                 class="similar_course-button"
               >
+
                 <img
                   src={{image}}
-                  class="similar_course-image"
+                  class="similar_course-image col-sm-3"
                   alt="Cinque Terre"
                 />
-                <p class="similar_course_name">{{name}}</p>
-                <p class="similar_course-price">{{format_number fee}}</p>
+                <div class="col-sm-7">
+                  <p class="similar_course_name ">{{name}}</p>
+                  <p class="similar_course_teacher">Teacher: {{teacher}}</p>
+                </div>
+                <p class="similar_course-price col-sm-2">{{format_number fee}}</p>
               </a>
             </dt>
           
@@ -329,9 +331,6 @@
   </div>
 
   
-  {{!-- {{#ifEquals lcAuthTeacher.id teacher.id}}
-  <div ><a style="font-size: 2rem;background-color:#f8d752;padding: 1rem 47% ; bottom:0rem;margin-left:-2rem" class="btn position-fixed" href="/teacher/editCourse/?id={{course.id}}">EDIT</a></div>
-  {{else}} --}}
   <div class="feedback">
     <div class="col-md-3">
       <div class="feedback-left">

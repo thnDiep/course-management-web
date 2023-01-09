@@ -181,7 +181,7 @@
   display: flex;
   position: relative; }
   .courseD__content .left {
-    width: 100rem;
+    width: 65%;
     margin-left: 3rem; }
     .courseD__content .left .description {
       margin-top: 5rem;
@@ -216,9 +216,8 @@
       color: #b1b1ba;
       font-size: 1.4rem; }
   .courseD__content .right {
-    margin: 40rem 0rem 0rem 16rem;
-    font-size: 2.5rem;
-    font-weight: bold; }
+    margin: 40rem 0rem 0rem 10rem;
+    font-size: 2.5rem; }
     .courseD__content .right .similar_course-button {
       display: flex;
       margin-bottom: 4rem;
@@ -227,7 +226,7 @@
       border-color: white;
       background-color: white;
       border-bottom: 1px solid black;
-      width: 80%;
+      width: 90%;
       height: 8rem;
       box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px; }
       .courseD__content .right .similar_course-button:hover {
@@ -235,10 +234,13 @@
         text-decoration: none;
         background-color: lightgray; }
       .courseD__content .right .similar_course-button .similar_course_name {
-        font-size: 1.7rem;
-        font-weight: bold;
-        padding-left: 2rem;
+        font-size: 1.5rem;
+        font-weight: 300;
+        padding-left: 1rem;
         color: black; }
+      .courseD__content .right .similar_course-button .similar_course_teacher {
+        padding-left: 1rem;
+        font-size: 1.2rem; }
       .courseD__content .right .similar_course-button .similar_course-image {
         height: 8rem;
         width: 11rem; }
@@ -246,6 +248,10 @@
         font-size: 1.8rem;
         color: red;
         padding-left: 4rem; }
+      .courseD__content .right .similar_course-button .col-sm-3, .courseD__content .right .similar_course-button .col-sm-7, .courseD__content .right .similar_course-button .col-sm-2 {
+        padding: 0px; }
+        .courseD__content .right .similar_course-button .col-sm-3 .col-sm-7, .courseD__content .right .similar_course-button .col-sm-7 .col-sm-7, .courseD__content .right .similar_course-button .col-sm-2 .col-sm-7 {
+          padding-right: 3rem; }
 
 .teacher {
   margin-left: 10rem;
@@ -297,8 +303,9 @@
 .feedback {
   margin-top: 15rem;
   display: flex;
-  background-color: #f5f7fa;
-  margin-bottom: 3rem; }
+  background-color: #f5f7fa; }
+  .feedback .col-md-8 {
+    margin-bottom: 3rem; }
 
 .feedback_review {
   display: flex;
@@ -318,7 +325,8 @@
       color: burlywood; }
 
 .feedback-left {
-  margin-left: 3rem; }
+  margin-left: 3rem;
+  margin-bottom: 3rem; }
 
 .feedback-right {
   font-size: 1.5rem;
