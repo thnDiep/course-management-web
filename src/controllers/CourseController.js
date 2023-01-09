@@ -101,7 +101,6 @@ class CourseController {
     // check discount
     if (course.fee !== course.feeO){
       course.discount = true;
-      console.log("discount", course.discount);
     }
 
     // get teacher of course
@@ -116,22 +115,24 @@ class CourseController {
     // get similar course list
     const listSimilarCourse = await courseModel.getSimilarCourse(id);
     const listSimilar = [];
+    // lay 5 khoa hoc tuong tu 
+    const limit = 5;
+    var i = 0;
     for (const course of listSimilarCourse) {
-      if (course.id !== id) {
+      if (course.id !== id && i < limit) {
         listSimilar.push(course);
+        i++;
       }
     }
 
  // phan quyen trong course Detail
   if (res.locals.lcAuthUser) {
     const userID = res.locals.lcAuthUser.id;
-    console.log(userID);
     // lấy khóa học đã đăng ký 
     const learningCourses = await studentCourseModel.getCourseOfStudent(userID);
     learningCourses.forEach((learningCourse) => {
       if (learningCourse.courseID === id) {
         course.buyed = true;
-        console.log("student buy: ", course.buyed);
       }
     });
     // lấy khóa học yêu thích
@@ -139,13 +140,12 @@ class CourseController {
     lovedCourses.forEach((lovedCourse) => {
       if (lovedCourse.courseID === id) {
         course.loved = true;
-        console.log("student love: ", course.loved);
       }
     });
     }
 
   if (res.locals.lcAuthTeacher){
-    const userID = res.locals.lcAuthUser.id;
+    const userID = res.locals.lcAuthTeacher.id;
     // lấy khóa học của gv 
     const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
     for (const courseOfTeacher of coursesOfTeacher){
@@ -350,7 +350,7 @@ class CourseController {
 
   // [GET] /courses/enroll?id=
   async enroll(req, res) {
-    const idStudent = res.locals.lcAuthUser.id;
+    const studentID = res.locals.lcAuthUser.id;
     // const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;

@@ -52,12 +52,6 @@
   padding-right: 8px; }
 
 /* Some media queries for responsiveness */
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px; }
-  .sidenav a {
-    font-size: 18px; } }
-
 .formCourse {
   width: 100%;
   top: 0;
@@ -66,7 +60,6 @@
 
 .formCourse_title {
   font-weight: bold;
-  padding-left: 0.5rem;
   padding-top: 1rem;
   font-size: 1.8rem; }
   .formCourse_title:hover {
@@ -83,7 +76,7 @@
 .chapter__add {
   font-size: 3rem;
   margin-left: 1rem;
-  font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   font-weight: bold; }
   .chapter__add p {
     font-size: 1.5rem;

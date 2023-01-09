@@ -3,10 +3,6 @@
 .sidenav {
   height: 100%;
   width: 380px;
-  // position: fixed;
-  // z-index: 1;
-  // top: 0;
-  // right: 0;
   background-color: $hover-color;           
   overflow-x: hidden;
 }
@@ -64,10 +60,10 @@
   }
   
   /* Some media queries for responsiveness */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+  // @media screen and (max-height: 450px) {
+  //   .sidenav {padding-top: 15px;}
+  //   .sidenav a {font-size: 18px;}
+  // }
 
 
 
@@ -84,7 +80,6 @@
   
   .formCourse_title {
     font-weight: bold;
-    padding-left: 0.5rem;
       padding-top: 1rem;
     font-size: 1.8rem;
   

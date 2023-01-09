@@ -131,7 +131,8 @@
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
-        align-items: center; }
+        align-items: center;
+        box-shadow: 2px 2px #888888; }
         .courseD__intro .courseD__intro__buttons .buying-btn-frame .buying-button:hover {
           transform: translateX(-3px) translateY(-3px);
           height: 7rem;
@@ -146,12 +147,41 @@
           font-size: 1.4rem;
           text-decoration: line-through;
           margin-bottom: 0px; }
+    .courseD__intro .courseD__intro__buttons .learning-btn-frame {
+      width: 28rem;
+      height: 7rem;
+      margin-right: 2rem;
+      display: flex;
+      align-items: center; }
+      .courseD__intro .courseD__intro__buttons .learning-btn-frame .learning-button {
+        height: 5rem;
+        width: 25rem;
+        background-color: white;
+        border-color: #f8d752;
+        font-size: 2rem;
+        font-weight: bolder;
+        color: black;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 2px #888888; }
+        .courseD__intro .courseD__intro__buttons .learning-btn-frame .learning-button:hover {
+          transform: translateX(-3px) translateY(-3px);
+          height: 7rem;
+          width: 28rem;
+          font-size: 4rem;
+          cursor: pointer; }
+        .courseD__intro .courseD__intro__buttons .learning-btn-frame .learning-button .learning {
+          font-size: 2rem;
+          margin-bottom: 0px;
+          margin-right: 1.2rem; }
 
 .courseD__content {
   display: flex;
   position: relative; }
   .courseD__content .left {
-    width: 70rem;
+    width: 100rem;
     margin-left: 3rem; }
     .courseD__content .left .description {
       margin-top: 5rem;
@@ -186,7 +216,7 @@
       color: #b1b1ba;
       font-size: 1.4rem; }
   .courseD__content .right {
-    margin: 40rem 0rem 0rem 17rem;
+    margin: 40rem 0rem 0rem 16rem;
     font-size: 2.5rem;
     font-weight: bold; }
     .courseD__content .right .similar_course-button {
@@ -197,7 +227,7 @@
       border-color: white;
       background-color: white;
       border-bottom: 1px solid black;
-      width: 86%;
+      width: 80%;
       height: 8rem;
       box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px; }
       .courseD__content .right .similar_course-button:hover {
@@ -384,8 +414,7 @@
 
 .chapter__title {
   padding-top: 1rem;
-  font-weight: 700;
-  margin-left: 0.7rem; }
+  font-weight: 700; }
 
 .chapter__title:hover {
   cursor: pointer;
