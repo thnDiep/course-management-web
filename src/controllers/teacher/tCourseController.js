@@ -31,11 +31,25 @@ class TCourseController {
     const course = await courseModel.getById(req.query.id);
     const parentCourse = await categoryModel.getParent();
     const childCourse = await categoryModel.getChild();
-    console.log(course);
+    const getName = await categoryModel.getById(course.idCategory);
+    const temp = parentCourse[0].name;
+    for (const name of parentCourse) {
+      if (name.name === getName.name) {
+        name.name = temp;
+        parentCourse[0].name = getName.name;
+        break;
+      }
+    }
+    for (const name of childCourse) {
+      if (name.name === getName.name) {
+        name.name = temp;
+        parentCourse[0].name = getName.name;
+        break;
+      }
+    }
     const isProfile = true;
 
     res.render("vwteacher/editCourse", {
-      idTeacher: res.locals.lcAuthTeacher.id,
       course,
       parentCourse,
       isProfile,
@@ -153,7 +167,7 @@ class TCourseController {
         createTime: currentDate,
       };
       await courseModel.add(course);
-      const id = await courseModel.getIDCourseByName(req.body.name);
+      const [id] = await courseModel.getIDCourseByName(req.body.name);
       console.log(id);
       const course_of_teacher = {
         teacherID: res.locals.lcAuthTeacher.id,

@@ -10,10 +10,7 @@ import numeral from "numeral";
 import methodOverride from "method-override";
 import session from "express-session";
 import activate_locals from "./middlewares/locals.mdw.js";
-<<<<<<< HEAD
 import activate_error from "./middlewares/error.mdw.js";
-=======
->>>>>>> ab7c901a8fe0a137b4c1b076f10f875fa53ee308
 
 // get __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -68,13 +65,8 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 activate_locals(app);
-<<<<<<< HEAD
 route(app);
 activate_error(app);
-=======
-
-route(app);
->>>>>>> ab7c901a8fe0a137b4c1b076f10f875fa53ee308
 
 app.listen(3000, () => {
   console.log("Listening: http://localhost:3000");
