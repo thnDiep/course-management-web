@@ -1,0 +1,29 @@
+<div class="courses__sort">
+    <h3 class="courses__sort__label">
+      <i class="fa fa-sort mr-3" aria-hidden="true"></i>
+      Sort by
+    </h3>
+
+    <div class="btns">        
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=0" 
+          class="btn mr-5 {{#ifEquals sortOption 0}}btn--active{{/ifEquals}}" >
+          Newest
+        </a> 
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=1" 
+          class="btn mr-5 {{#ifEquals sortOption 1}}btn--active{{/ifEquals}}">
+          Most views
+        </a> 
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=2" 
+          class="btn mr-5 {{#ifEquals sortOption 2}}btn--active{{/ifEquals}}">
+          Highest Rated 
+        </a> 
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=3" 
+          class="btn mr-5 {{#ifEquals sortOption 3}}btn--active{{/ifEquals}}">
+          Ascending price
+        </a> 
+        <a href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=4" 
+          class="btn mr-5 {{#ifEquals sortOption 4}}btn--active{{/ifEquals}}">
+          Descending price
+        </a>
+    </div>
+  </div> 

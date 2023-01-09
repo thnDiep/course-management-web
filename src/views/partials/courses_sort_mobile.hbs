@@ -1,0 +1,66 @@
+<div class="dropdown courses__sort--mobile">
+  <button
+    class="btn btn--primary dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <h3 class="courses__sort__label">
+      {{#ifEquals sortOption 0}}
+        Newest
+      {{/ifEquals}}
+
+      {{#ifEquals sortOption 1}}
+        Most views
+      {{/ifEquals}}
+
+      {{#ifEquals sortOption 2}}
+        Highest Rated
+      {{/ifEquals}}
+
+      {{#ifEquals sortOption 3}}
+        Ascending price
+      {{/ifEquals}}
+
+      {{#ifEquals sortOption 4}}
+        Descending price
+      {{/ifEquals}}
+    </h3>
+    <i class="fa fa-angle-down" aria-hidden="true"></i>
+  </button>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a
+      href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=0"
+      class="btn mr-5"
+    >
+      Newest
+    </a>
+    <a
+      href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=1"
+      class="btn mr-5"
+    >
+      Most views
+    </a>
+    <a
+      href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=2"
+      class="btn mr-5"
+    >
+      Highest Rated
+    </a>
+    <a
+      href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=3"
+      class="btn mr-5"
+    >
+      Ascending price
+    </a>
+    <a
+      href="/courses/search?searchBy={{searchOption}}&keyword={{keyWord}}&sortBy=4"
+      class="btn mr-5"
+    >
+      Descending price
+    </a>
+  </div>
+</div>

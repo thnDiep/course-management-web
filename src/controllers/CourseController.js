@@ -348,7 +348,6 @@ class CourseController {
   // [GET] /courses/enroll?id=
   async enroll(req, res) {
     const studentID = res.locals.lcAuthUser.id;
-    //const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -373,21 +372,29 @@ class CourseController {
         };
         await studentCourseModel.addBuyed(result);
       }
-      res.redirect("back");
-    } else {
-      res.redirect("back");
     }
+    res.redirect("back");
   }
 
   // [GET] /courses/learning
   async learning(req, res) {
-    // if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
-    // const studentID = 29;
     const courses = [];
 
-    const learningCourses = await studentCourseModel.getCourseOfStudent(
+    const limit = 3;
+    const totalCourses = await studentCourseModel.countCourseOfStudent(
       studentID
+    );
+    const page = parseInt(req.query.page) || 1;
+    const offset = (page - 1) * limit;
+
+    const maxPage = computeMaxPage(limit, totalCourses);
+    const pageNumbers = computePageNumbers(page, maxPage);
+
+    const learningCourses = await studentCourseModel.getPageCourseOfStudent(
+      studentID,
+      limit,
+      offset
     );
 
     for (const learningCourse of learningCourses) {
@@ -395,19 +402,23 @@ class CourseController {
     }
     const isLearning = true;
     await getInfoCourse(courses, res);
+
     res.render("courses/learning", {
+      totalCourses,
       courses,
       isLearning,
+      pageInfo: {
+        current: page,
+        isFirst: page === 1,
+        isLast: page === maxPage,
+        numbers: pageNumbers,
+      },
     });
-    // } else {
-    // res.render("requireLogin");
-    // }
   }
 
   // [GET] /courses/like?id=
   async like(req, res) {
     const studentID = res.locals.lcAuthUser.id;
-    // const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -426,16 +437,13 @@ class CourseController {
       if (!exists) {
         await studentCourseModel.addLoved({ courseID, studentID });
       }
-      res.redirect("back");
-    } else {
-      res.redirect("back");
     }
+    res.redirect("back");
   }
 
   // [GET] /courses/unlike?id=
   async unlike(req, res) {
     const studentID = res.locals.lcAuthUser.id;
-    // const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -454,22 +462,29 @@ class CourseController {
       if (exists) {
         await studentCourseModel.removeLoved({ courseID, studentID });
       }
-
-      res.redirect("back");
-    } else {
-      res.redirect("back");
     }
+    res.redirect("back");
   }
 
-  //[GET] /courses/watch-list
+  //[GET] /courses/watch-list?page=
   async watchList(req, res) {
-    // if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
-    // const studentID = 29;
     const courses = [];
 
-    const lovedCourses = await studentCourseModel.getCourseStudentLove(
+    const limit = 3;
+    const totalCourses = await studentCourseModel.countCourseStudentLove(
       studentID
+    );
+    const page = parseInt(req.query.page) || 1;
+    const offset = (page - 1) * limit;
+
+    const maxPage = computeMaxPage(limit, totalCourses);
+    const pageNumbers = computePageNumbers(page, maxPage);
+
+    const lovedCourses = await studentCourseModel.getPageCourseStudentLove(
+      studentID,
+      limit,
+      offset
     );
 
     for (const lovedCourse of lovedCourses) {
@@ -479,12 +494,16 @@ class CourseController {
     const isWatchList = true;
 
     res.render("courses/watchList", {
+      totalCourses,
       courses,
       isWatchList,
+      pageInfo: {
+        current: page,
+        isFirst: page === 1,
+        isLast: page === maxPage,
+        numbers: pageNumbers,
+      },
     });
-    // } else {
-    // res.render("requireLogin");
-    // }
   }
 
   // [GET] /courses/search?keyword=
