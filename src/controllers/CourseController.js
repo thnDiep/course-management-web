@@ -498,7 +498,7 @@ class CourseController {
     let sortOption = parseInt(req.query.sortBy) || 0;
     let totalResult;
     let courses;
-    console.log(res.locals.lcIsAuthenticated);
+
     switch (searchOption) {
       case 0:
         totalResult = await courseModel.totalResultByName(keyWord);

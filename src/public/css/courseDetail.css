@@ -191,6 +191,7 @@
     font-weight: bold; }
     .courseD__content .right .similar_course-button {
       display: flex;
+      align-items: center;
       margin-bottom: 4rem;
       margin-left: 5rem;
       margin-top: 2rem;
@@ -208,14 +209,22 @@
         font-size: 1.7rem;
         font-weight: bold;
         padding-left: 2rem;
-        color: black; }
+        color: black;
+        line-height: 2.2rem;
+        max-height: 4.4rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden; }
       .courseD__content .right .similar_course-button .similar_course-image {
         height: 8rem;
         width: 11rem; }
       .courseD__content .right .similar_course-button .similar_course-price {
         font-size: 1.8rem;
         color: red;
-        padding-left: 4rem; }
+        padding-left: 4rem;
+        margin-left: auto;
+        margin-right: 5px; }
 
 .teacher {
   margin-left: 10rem;
