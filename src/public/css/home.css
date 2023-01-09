@@ -712,3 +712,35 @@ body {
   @media only screen and (max-width: 31.25em) {
     .home-footer {
       margin-left: 0; } }
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 768px) and (max-width: 820px) {
+  .side-nav__link span {
+    display: none; }
+  .col-md-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 43%;
+    max-width: 41%;
+    margin-left: 5rem; }
+  .sidebar1 {
+    width: 50px; }
+  .content {
+    margin-left: 50px;
+    width: 100%; }
+  .margin {
+    margin-right: 35px; }
+  .carousel-item__detail {
+    padding-left: 2rem; }
+    .carousel-item__detail--name, .carousel-item__detail--item {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      line-height: 2.6rem;
+      height: 5.2rem;
+      max-height: 5.2rem; }
+  .course__btn .btn {
+    padding: 1rem 2rem; }
+  .swiper-slide .row {
+    margin-left: -14px; } }

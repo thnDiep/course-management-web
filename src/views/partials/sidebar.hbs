@@ -1,5 +1,6 @@
 {{#if check}}
 <nav class="sidebar1">
+   
   <input type="checkbox" name="" class="nav__input" id="side-nav__input" />
 
   <label for="side-nav__input" class="side-nav__bars">
@@ -36,7 +37,7 @@
       <li class="side-nav__item">
         <a href="/courses" class="side-nav__link">
           <i class="fas fa-th-list side-nav__icon"></i>
-          <span>Courses</span>
+          <span>Category</span>
         </a>
       </li>
       <li class="side-nav__item">
@@ -120,10 +121,10 @@
   <label for="side-nav__input" class="side-nav__bars">
     <i class="fas fa-bars side-nav__bars--icon"></i>
   </label>
-  <div class="sidebar1__logo">
+  <a href="/" class="sidebar1__logo">
     <span class="text-primary__sun">SUN</span>
     <span class="text-primary__light">LIGHT</span>
-  </div>
+  </a>
 
   <ul class="side-nav">
 
@@ -181,7 +182,7 @@
           <span class="hidden">Learning</span>
         </a>
       </li>
-      <li class="side-nav__item">
+      <li class="side-nav__item {{#if isWatchList}}side-nav__item--active{{/if}}" >
         <a href="/courses/watch-list" class="side-nav__link">
           <i class="fas fa-heart side-nav__icon" data-toggle="tooltip" data-html="true" data-placement="right"
             title="<h5>Watch List</h5>"></i>
