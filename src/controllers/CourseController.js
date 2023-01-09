@@ -99,7 +99,6 @@ class CourseController {
     // check discount
     if (course.fee !== course.feeO) {
       course.discount = true;
-      console.log("discount", course.discount);
     }
 
     // get teacher of course
@@ -114,16 +113,20 @@ class CourseController {
     // get similar course list
     const listSimilarCourse = await courseModel.getSimilarCourse(id);
     const listSimilar = [];
+    // lay 5 khoa hoc tuong tu
+    const limit = 5;
+    var i = 0;
     for (const course of listSimilarCourse) {
-      if (course.id !== id) {
+      if (course.id !== id && i < limit) {
         listSimilar.push(course);
+        i++;
       }
     }
 
     // phan quyen trong course Detail
+    // student
     if (res.locals.lcAuthUser) {
       const userID = res.locals.lcAuthUser.id;
-      console.log(userID);
       // lấy khóa học đã đăng ký
       const learningCourses = await studentCourseModel.getCourseOfStudent(
         userID
@@ -131,7 +134,6 @@ class CourseController {
       learningCourses.forEach((learningCourse) => {
         if (learningCourse.courseID === id) {
           course.buyed = true;
-          console.log("student buy: ", course.buyed);
         }
       });
       // lấy khóa học yêu thích
@@ -141,104 +143,105 @@ class CourseController {
       lovedCourses.forEach((lovedCourse) => {
         if (lovedCourse.courseID === id) {
           course.loved = true;
-          console.log("student love: ", course.loved);
         }
       });
     }
 
+    // gv
     if (res.locals.lcAuthTeacher) {
       const userID = res.locals.lcAuthTeacher.id;
       // lấy khóa học của gv
       const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
-      for (const courseOfTeacher of coursesOfTeacher) {
-        if (courseOfTeacher.courseID === course.id) {
+      for (const course of coursesOfTeacher) {
+        if (course.id === course.id) {
           course.isCourseOfTeacher = true;
+          console.log("la course cuagv", course.isCourseOfTeacher);
         }
       }
+
+      // get info for chart rating
+      const numberRating = await courseModel.getCountFeedback(id);
+
+      const percent_5star = await courseModel.percent_star(id, 5);
+      const percent_4star = await courseModel.percent_star(id, 4);
+      const percent_3star = await courseModel.percent_star(id, 3);
+      const percent_2star = await courseModel.percent_star(id, 2);
+      const percent_1star = await courseModel.percent_star(id, 1);
+
+      const percentInfo = [
+        {
+          index: 5,
+          percent: percent_5star,
+        },
+        {
+          index: 4,
+          percent: percent_4star,
+        },
+        {
+          index: 3,
+          percent: percent_3star,
+        },
+        {
+          index: 2,
+          percent: percent_2star,
+        },
+        {
+          index: 1,
+          percent: percent_1star,
+        },
+      ];
+      const allFeedback = await courseModel.getAllFeedback(id);
+      // const feedbackTime = await courseModel.getTimeOfFeedback(id);
+
+      // const timeOfFeedback = await courseModel.convertFormatDate(allFeedback.time);
+      allFeedback.forEach((feedback) => {
+        const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
+        feedback.time = time;
+      });
+
+      if (course === null) {
+        res.redirect("/courses");
+      }
+      await courseModel.updateView(id);
+      const isCourse = true;
+
+      const category = await categoryModel.getById(course.idCategory);
+      const linkCategories = [];
+      if (category.parentID !== null) {
+        const parentCategory = await categoryModel.getById(category.parentID);
+        linkCategories.push(parentCategory);
+      }
+      linkCategories.push(category);
+
+      // course.linkCategories = linkCategories;
+
+      res.render("courses/courseDetail", {
+        // layout: "teacher",
+        course,
+        courseContent,
+        isCourse,
+        isComplete,
+        teacher,
+        numberOfStudent,
+        updateTime,
+        numberStudentOfTeacher,
+        NumberCourseOfTeacher,
+        listSimilar,
+        linkCategories,
+        numberRating,
+        percentInfo,
+        allFeedback,
+        // pageInfo: {
+        //   current: page,
+        //   isFirst: page === 1,
+        //   isLast: page === maxPage,
+        //   numbers: pageNumbers,
+        // },
+        // searchOptions,
+        // feedbackTime,
+        // timeOfFeedback,
+      });
     }
-
-    // get info for chart rating
-    const numberRating = await courseModel.getCountFeedback(id);
-
-    const percent_5star = await courseModel.percent_star(id, 5);
-    const percent_4star = await courseModel.percent_star(id, 4);
-    const percent_3star = await courseModel.percent_star(id, 3);
-    const percent_2star = await courseModel.percent_star(id, 2);
-    const percent_1star = await courseModel.percent_star(id, 1);
-
-    const percentInfo = [
-      {
-        index: 5,
-        percent: percent_5star,
-      },
-      {
-        index: 4,
-        percent: percent_4star,
-      },
-      {
-        index: 3,
-        percent: percent_3star,
-      },
-      {
-        index: 2,
-        percent: percent_2star,
-      },
-      {
-        index: 1,
-        percent: percent_1star,
-      },
-    ];
-    const allFeedback = await courseModel.getAllFeedback(id);
-    // const feedbackTime = await courseModel.getTimeOfFeedback(id);
-
-    // const timeOfFeedback = await courseModel.convertFormatDate(allFeedback.time);
-    allFeedback.forEach((feedback) => {
-      const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
-      feedback.time = time;
-    });
-
-    if (course === null) {
-      res.redirect("/courses");
-    }
-    await courseModel.updateView(id);
-    const isCourse = true;
-
-    const category = await categoryModel.getById(course.idCategory);
-    const linkCategories = [];
-    if (category.parentID !== null) {
-      const parentCategory = await categoryModel.getById(category.parentID);
-      linkCategories.push(parentCategory);
-    }
-    linkCategories.push(category);
-
-    // course.linkCategories = linkCategories;
-
-    res.render("courses/courseDetail", {
-      // layout: "teacher",
-      course,
-      courseContent,
-      isCourse,
-      isComplete,
-      teacher,
-      numberOfStudent,
-      updateTime,
-      numberStudentOfTeacher,
-      NumberCourseOfTeacher,
-      listSimilar,
-      linkCategories,
-      numberRating,
-      percentInfo,
-      allFeedback,
-      // pageInfo: {
-      //   current: page,
-      //   isFirst: page === 1,
-      //   isLast: page === maxPage,
-      //   numbers: pageNumbers,
-      // },
-      // searchOptions,
-      // feedbackTime,
-      // timeOfFeedback,
-    });
   }
 
   // [GET] /courses/join?idCourse={idCourse}&idChapter={idChapter}&idLesson={idLesson}
