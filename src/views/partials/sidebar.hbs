@@ -11,7 +11,7 @@
     <span class="text-primary__light">LIGHT</span>
   </a>
 
-  <ul class="side-nav d-flex align-items-start flex-column">
+  <ul class="side-nav">
 
     <li class="side-nav__item side-nav__item--active">
       <a href="/" class="side-nav__link">
@@ -86,7 +86,7 @@
     {{/if}}
     {{/if}}
     {{#if lcIsAuthenticated}}
-    <li class="side-nav__item p-2 ">
+    <li class="side-nav__item p-2 " style="margin-top: auto;">
       <a href="/account/logout" class="side-nav__link">
        <i class="fas fa-sign-out-alt side-nav__icon"></i>
         <span>Log out</span>
@@ -201,7 +201,7 @@
     
    
     {{#if lcIsAuthenticated}}
-    <li class="side-nav__item ">
+    <li class="side-nav__item p-2" style="margin-top: auto;">
       <a href="/account/logout" class="side-nav__link">
       <i class="fas fa-sign-out-alt side-nav__icon" data-toggle="tooltip" data-html="true" data-placement="right"
           title="<h5>Log Out</h5>"></i>

@@ -20,6 +20,7 @@
 }
 
 .courses__tool {
+  overflow: hidden;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -39,10 +40,21 @@
       text-align: center;
       text-transform: uppercase;
     }
-
-    .btn {
-      width: $sort-btn-width;
+    label {
+      margin: 0;
+      h1 {
+        margin: 0;
+      }
     }
+
+    .btns {
+      display: flex;
+      overflow-x: scroll;
+    }
+
+    // .btn {
+    //   width: $sort-btn-width;
+    // }
   }
 
   input[type="radio"]:checked + label {
@@ -132,7 +144,7 @@ select.sort-by__menu {
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
-  min-width: 270px;
+  // min-width: 270px;
   &:hover {
     transform: translateX(-1px) translateY(-1px);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -233,7 +245,6 @@ select.sort-by__menu {
     -webkit-line-clamp: 1;
     overflow: hidden;
     line-height: 2.6rem;
-    height: 2.6rem;
     max-height: 2.6rem;
   }
 
@@ -304,7 +315,6 @@ select.sort-by__menu {
   -webkit-line-clamp: 2;
   overflow: hidden;
   line-height: 2.6rem;
-  height: 5.2rem;
   max-height: 5.2rem;
 
   font-size: 2.4rem;
@@ -324,6 +334,15 @@ select.sort-by__menu {
   list-style: none;
   display: flex;
   z-index: 2;
+  max-height: 22px;
+
+  .course__category-item {
+    display: flex;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
 
   .course__category-item::before {
     content: ">";
@@ -347,8 +366,8 @@ select.sort-by__menu {
   overflow: hidden;
 
   font-size: 1.6rem;
-  line-height: 3rem;
-  max-height: 6rem;
+  line-height: 2.2rem;
+  max-height: 4.4rem;
   color: $text-color;
   margin: 0;
 }
@@ -356,9 +375,15 @@ select.sort-by__menu {
 .course__teacher {
   position: relative;
   display: block;
-  height: 1.5rem;
+  line-height: 1.5rem;
+  max-height: 1.5rem;
   margin: 8px 0 0 0;
   z-index: 2;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 
   // .course__teacher__link {
   font-size: 1.6rem;
@@ -443,13 +468,16 @@ select.sort-by__menu {
   text-transform: uppercase;
   .btn {
     height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 50px;
   }
 }
 
 @media only screen and (max-width: 31.25em) {
-  .courses__body {
-    margin-right: 2rem;
-  }
+  // .courses__body {
+  //   // margin-right: 2rem;
+  // }
   .courses__tool {
     display: none;
   }

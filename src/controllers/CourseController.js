@@ -39,6 +39,7 @@ class CourseController {
     });
   }
 
+
   // [GET] /courses/detail?id=
   async detail(req, res) {
     const id = parseInt(req.query.id) || 1;
@@ -66,84 +67,136 @@ class CourseController {
     // get course content
     const courseContent = await courseModel.getById(id);
     const chapter = await courseModel.getAllChapterOfCourse(id);
-    for (let i = 0; i < chapter.length; i++) {
-      chapter[i].index = i + 1;
-      chapter[i].lesson = await courseModel.getAllLessonOfChapter(
-        chapter[i].id
+
+    if (courseContent !== null) {
+      for (let i = 0; i < chapter.length; i++) {
+        chapter[i].index = i + 1;
+        chapter[i].lesson = await courseModel.getAllLessonOfChapter(
+          chapter[i].id
+        );
+        for (let j = 0; j < chapter[i].lesson.length; j++) {
+          chapter[i].lesson[j].index = j + 1;
+          j === chapter[i].lesson.length - 1 && i === chapter.length - 1
+            ? (chapter[i].lesson[j].checkLesson = true)
+            : (chapter[i].lesson[j].checkLesson = false);
+        }
+        i === chapter.length - 1 && chapter[i].lesson.length === 0
+          ? (chapter[i].checkChapter = true)
+          : (chapter[i].checkChapter = false);
+        i === chapter.length - 1
+          ? (chapter[i].check = true)
+          : (chapter[i].check = false);
+      }
+      courseContent.chapter = chapter;
+
+      // get info for barStar
+      const avgRated = await courseModel.getAvgRate(course.id);
+      course.rated = (+avgRated).toFixed(1);
+
+      const numberRated = await courseModel.getCountFeedback(course.id);
+      course.numberRated = (+numberRated).toFixed(0);
+
+      // check status of course
+      const isComplete = await courseModel.isComplete(id);
+
+      // check discount
+      if (course.fee !== course.feeO) {
+        course.discount = true;
+      }
+
+      // get teacher of course
+      const teacher = await courseModel.teacherOfCourse(id);
+
+      const numberOfStudent = await userModel.getNumberStudentByCourse(id);
+      const updateTime = await courseModel.getUpdateTime(id);
+      const numberStudentOfTeacher = await userModel.getNumberStudentOfTeacher(
+        id
       );
-      for (let j = 0; j < chapter[i].lesson.length; j++) {
-        chapter[i].lesson[j].index = j + 1;
-        j === chapter[i].lesson.length - 1 && i === chapter.length - 1
-          ? (chapter[i].lesson[j].checkLesson = true)
-          : (chapter[i].lesson[j].checkLesson = false);
+      const NumberCourseOfTeacher = await userModel.getNumberCourseOfTeacher(
+        id
+      );
+      // get similar course list
+      const listSimilarCourse = await courseModel.getSimilarCourse(id);
+      const listSimilar = [];
+      // lay 5 khoa hoc tuong tu
+      const limit = 5;
+      var i = 0;
+      for (const course of listSimilarCourse) {
+        if (course.id !== id && i < limit) {
+          listSimilar.push(course);
+          i++;
+        }
       }
-      i === chapter.length - 1 && chapter[i].lesson.length === 0
-        ? (chapter[i].checkChapter = true)
-        : (chapter[i].checkChapter = false);
-      i === chapter.length - 1
-        ? (chapter[i].check = true)
-        : (chapter[i].check = false);
-    }
-    courseContent.chapter = chapter;
 
-    // get info for barStar
-    const avgRated = await courseModel.getAvgRate(course.id);
-    course.rated = (+avgRated).toFixed(1);
-
-    const numberRated = await courseModel.getCountFeedback(course.id);
-    course.numberRated = (+numberRated).toFixed(0);
-
-    // check status of course
-    const isComplete = await courseModel.isComplete(id);
-
-    // check discount
-    if (course.fee !== course.feeO) {
-      course.discount = true;
-    }
-
-    // get teacher of course
-    const teacher = await courseModel.teacherOfCourse(id);
-
-    const numberOfStudent = await userModel.getNumberStudentByCourse(id);
-    const updateTime = await courseModel.getUpdateTime(id);
-    const numberStudentOfTeacher = await userModel.getNumberStudentOfTeacher(
-      id
-    );
-    const NumberCourseOfTeacher = await userModel.getNumberCourseOfTeacher(id);
-    // get similar course list
-    const listSimilarCourse = await courseModel.getSimilarCourse(id);
-    const listSimilar = [];
-    // lay 5 khoa hoc tuong tu 
-    const limit = 5;
-    var i = 0;
-    for (const course of listSimilarCourse) {
-      if (course.id !== id && i < limit) {
-        const teacher = await userModel.getNameTeacher(course.id);
-        course.teacher = teacher;
-        listSimilar.push(course);
-        i++;
+      // phan quyen trong course Detail
+      // student
+      if (res.locals.lcAuthUser) {
+        const userID = res.locals.lcAuthUser.id;
+        // lấy khóa học đã đăng ký
+        const learningCourses = await studentCourseModel.getCourseOfStudent(
+          userID
+        );
+        learningCourses.forEach((learningCourse) => {
+          if (learningCourse.courseID === id) {
+            course.buyed = true;
+          }
+        });
+        // lấy khóa học yêu thích
+        const lovedCourses = await studentCourseModel.getCourseStudentLove(
+          userID
+        );
+        lovedCourses.forEach((lovedCourse) => {
+          if (lovedCourse.courseID === id) {
+            course.loved = true;
+          }
+        });
       }
-    }
 
- // phan quyen trong course Detail
- // student
-  if (res.locals.lcAuthUser) {
-    const userID = res.locals.lcAuthUser.id;
-    // lấy khóa học đã đăng ký 
-    const learningCourses = await studentCourseModel.getCourseOfStudent(userID);
-    learningCourses.forEach((learningCourse) => {
-      if (learningCourse.courseID === id) {
-        course.buyed = true;
+
+      // get info for chart rating
+      const numberRating = await courseModel.getCountFeedback(id);
+
+      const percent_5star = await courseModel.percent_star(id, 5);
+      const percent_4star = await courseModel.percent_star(id, 4);
+      const percent_3star = await courseModel.percent_star(id, 3);
+      const percent_2star = await courseModel.percent_star(id, 2);
+      const percent_1star = await courseModel.percent_star(id, 1);
+
+      const percentInfo = [
+        {
+          index: 5,
+          percent: percent_5star,
+        },
+        {
+          index: 4,
+          percent: percent_4star,
+        },
+        {
+          index: 3,
+          percent: percent_3star,
+        },
+        {
+          index: 2,
+          percent: percent_2star,
+        },
+        {
+          index: 1,
+          percent: percent_1star,
+        },
+      ];
+      const allFeedback = await courseModel.getAllFeedback(id);
+      // const feedbackTime = await courseModel.getTimeOfFeedback(id);
+
+      // const timeOfFeedback = await courseModel.convertFormatDate(allFeedback.time);
+      allFeedback.forEach((feedback) => {
+        const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
+        feedback.time = time;
+      });
+
+      if (course === null) {
+        res.redirect("/courses");
       }
-    });
-    // lấy khóa học yêu thích
-    const lovedCourses = await studentCourseModel.getCourseStudentLove(userID);
-    lovedCourses.forEach((lovedCourse) => {
-      if (lovedCourse.courseID === id) {
-        course.loved = true;
-      }
-    });
-    }
+      await courseModel.updateView(id);
 
   // gv 
   if (res.locals.lcAuthTeacher){
@@ -157,61 +210,7 @@ class CourseController {
       }
     }
   }
-
-    // get info for chart rating
-    const numberRating = await courseModel.getCountFeedback(id);
-
-    const percent_5star = await courseModel.percent_star(id, 5);
-    const percent_4star = await courseModel.percent_star(id, 4);
-    const percent_3star = await courseModel.percent_star(id, 3);
-    const percent_2star = await courseModel.percent_star(id, 2);
-    const percent_1star = await courseModel.percent_star(id, 1);
-
-    const percentInfo = [
-      {
-        index: 5,
-        percent: percent_5star,
-      },
-      {
-        index: 4,
-        percent: percent_4star,
-      },
-      {
-        index: 3,
-        percent: percent_3star,
-      },
-      {
-        index: 2,
-        percent: percent_2star,
-      },
-      {
-        index: 1,
-        percent: percent_1star,
-      },
-    ];
-    const allFeedback = await courseModel.getAllFeedback(id);
-    // const feedbackTime = await courseModel.getTimeOfFeedback(id);
-
-    // const timeOfFeedback = await courseModel.convertFormatDate(allFeedback.time);
-    // allFeedback.forEach((feedback) => {
-    //   // const rate =  await courseModel.getAvgRate(feedback.courseID);
-    //   const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
-    //   feedback.time = time;
-    //   const course = await courseModel.getById(feedback.courseID);
-      
-    // });
-
-    for (const feedback of allFeedback){
-      const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
-      feedback.time = time;
-    }
-
-    if (course === null) {
-      res.redirect("/courses");
-    }
-    await courseModel.updateView(id);
-    const isCourse = true;
-
+    
     const category = await categoryModel.getById(course.idCategory);
     const linkCategories = [];
     if (category.parentID !== null) {
@@ -221,7 +220,9 @@ class CourseController {
     linkCategories.push(category);
 
     // course.linkCategories = linkCategories;
+    const isCourse = true;
 
+    console.log("detail");
     res.render("courses/courseDetail", {
       // layout: "teacher",
       course,
@@ -248,7 +249,9 @@ class CourseController {
       // feedbackTime,
       // timeOfFeedback,
     });
-}
+    
+  }
+  }
 
   // [GET] /courses/join?idCourse={idCourse}&idChapter={idChapter}&idLesson={idLesson}
   async join(req, res) {
@@ -312,7 +315,7 @@ class CourseController {
       res.redirect("/courses");
     }
     const isCourse = true;
-
+    console.log("haha");
     // await courseModel.updateView(idCourse);
     res.render("courses/enrollCourse", {
       course,
@@ -357,7 +360,6 @@ class CourseController {
   // [GET] /courses/enroll?id=
   async enroll(req, res) {
     const studentID = res.locals.lcAuthUser.id;
-    // const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -382,41 +384,56 @@ class CourseController {
         };
         await studentCourseModel.addBuyed(result);
       }
-      res.redirect("back");
-    } else {
-      res.redirect("back");
     }
+    res.redirect("back");
   }
 
   // [GET] /courses/learning
   async learning(req, res) {
-    // if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
-    // const studentID = 29;
     const courses = [];
 
-    const learningCourses = await studentCourseModel.getCourseOfStudent(
+    const limit = 3;
+    const totalCourses = await studentCourseModel.countCourseOfStudent(
       studentID
+    );
+    const page = parseInt(req.query.page) || 1;
+    const offset = (page - 1) * limit;
+
+    const maxPage = computeMaxPage(limit, totalCourses);
+    const pageNumbers = computePageNumbers(page, maxPage);
+
+    const learningCourses = await studentCourseModel.getPageCourseOfStudent(
+      studentID,
+      limit,
+      offset
     );
 
     for (const learningCourse of learningCourses) {
-      courses.push(await courseModel.getById(learningCourse.courseID));
+      const course = await courseModel.getById(learningCourse.courseID);
+      if (course !== null) {
+        courses.push(course);
+      }
     }
     const isLearning = true;
     await getInfoCourse(courses, res);
+
     res.render("courses/learning", {
+      totalCourses,
       courses,
       isLearning,
+      pageInfo: {
+        current: page,
+        isFirst: page === 1,
+        isLast: page === maxPage,
+        numbers: pageNumbers,
+      },
     });
-    // } else {
-    // res.render("requireLogin");
-    // }
   }
 
   // [GET] /courses/like?id=
   async like(req, res) {
     const studentID = res.locals.lcAuthUser.id;
-    // const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -435,16 +452,13 @@ class CourseController {
       if (!exists) {
         await studentCourseModel.addLoved({ courseID, studentID });
       }
-      res.redirect("back");
-    } else {
-      res.redirect("back");
     }
+    res.redirect("back");
   }
 
   // [GET] /courses/unlike?id=
   async unlike(req, res) {
     const studentID = res.locals.lcAuthUser.id;
-    // const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -463,37 +477,49 @@ class CourseController {
       if (exists) {
         await studentCourseModel.removeLoved({ courseID, studentID });
       }
-
-      res.redirect("back");
-    } else {
-      res.redirect("back");
     }
+    res.redirect("back");
   }
 
-  //[GET] /courses/watch-list
+  //[GET] /courses/watch-list?page=
   async watchList(req, res) {
-    // if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
-    // const studentID = 29;
     const courses = [];
 
-    const lovedCourses = await studentCourseModel.getCourseStudentLove(
+    const limit = 3;
+    const totalCourses = await studentCourseModel.countCourseStudentLove(
       studentID
+    );
+    const page = parseInt(req.query.page) || 1;
+    const offset = (page - 1) * limit;
+
+    const maxPage = computeMaxPage(limit, totalCourses);
+    const pageNumbers = computePageNumbers(page, maxPage);
+
+    const lovedCourses = await studentCourseModel.getPageCourseStudentLove(
+      studentID,
+      limit,
+      offset
     );
 
     for (const lovedCourse of lovedCourses) {
-      courses.push(await courseModel.getById(lovedCourse.courseID));
+      const course = await courseModel.getById(lovedCourse.courseID);
+      if (course !== null) courses.push(course);
     }
     await getInfoCourse(courses, res);
     const isWatchList = true;
 
     res.render("courses/watchList", {
+      totalCourses,
       courses,
       isWatchList,
+      pageInfo: {
+        current: page,
+        isFirst: page === 1,
+        isLast: page === maxPage,
+        numbers: pageNumbers,
+      },
     });
-    // } else {
-    // res.render("requireLogin");
-    // }
   }
 
   // [GET] /courses/search?keyword=
@@ -507,7 +533,6 @@ class CourseController {
     let sortOption = parseInt(req.query.sortBy) || 0;
     let totalResult;
     let courses;
-    // console.log(res.locals.lcIsAuthenticated);
     switch (searchOption) {
       case 0:
         totalResult = await courseModel.totalResultByName(keyWord);
@@ -669,6 +694,8 @@ const getInfoCourse = async function (courses, res) {
   // Lấy các khóa học của student
   if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
+    // console.log(studentID);
+    //const studentID = 29;
     learningCourses = await studentCourseModel.getCourseOfStudent(studentID);
     lovedCourses = await studentCourseModel.getCourseStudentLove(studentID);
   }

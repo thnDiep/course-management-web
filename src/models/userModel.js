@@ -19,7 +19,9 @@ export default {
     return user;
   },
   async getNumberCourseOfStudent(id) {
-    const [views] = await db("course_of_student").count("courseID as count").where("studentID", id);
+    const [views] = await db("course_of_student")
+      .count("courseID as count")
+      .where("studentID", id);
     return views.count;
   },
   ////////////////////////////////
@@ -50,7 +52,7 @@ export default {
     const [course] = await db.raw(
       `SELECT c.* 
       FROM course_of_teacher tc,course c 
-      WHERE tc.courseID = c.id AND tc.teacherID=?`,
+      WHERE tc.courseID = c.id AND tc.teacherID=? AND c.blocked = 0`,
       id
     );
     return course;
@@ -81,8 +83,9 @@ export default {
     const [[numberStudent]] = await db.raw(
       `SELECT COUNT(st.studentID) as number
       FROM course_of_teacher tc,course_of_student st
-      WHERE tc.courseID = st.courseID AND tc.teacherID = ?`, id
-    )
+      WHERE tc.courseID = st.courseID AND tc.teacherID = ?`,
+      id
+    );
     return numberStudent.number;
   },
   // get sum views of teacher by id
@@ -90,13 +93,16 @@ export default {
     const [[views]] = await db.raw(
       `SELECT count(star) as sumRate 
       FROM rating, course_of_teacher tc 
-      WHERE  rating.courseID = tc.courseID AND tc.teacherID = ?`, id
+      WHERE  rating.courseID = tc.courseID AND tc.teacherID = ?`,
+      id
     );
     return views.sumRate;
   },
   // get sum course of teacher by id
   async getNumberCourseOfTeacher(id) {
-    const [views] = await db("course_of_teacher").count("courseID as count").where("teacherID", id);
+    const [views] = await db("course_of_teacher")
+      .count("courseID as count")
+      .where("teacherID", id);
     return views.count;
   },
 
@@ -111,5 +117,4 @@ export default {
       about: teacher.about,
     });
   },
-
 };

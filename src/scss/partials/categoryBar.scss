@@ -103,16 +103,22 @@
   z-index: 9;
 }
 
+body:has(.category__nav-input:checked) {
+  position: fixed;
+}
+
 @media screen and (max-width: 1200px) {
   .category__bar {
     position: fixed;
     top: calc(#{$header-height} - 1px);
     right: -100%;
+    height: 100%;
     padding-top: 15px;
     background-color: $white-color;
     width: 50%;
     z-index: 10;
     transition: right 0.5s ease-in;
+    overflow-y: scroll;
   }
 
   .category__bar--mobile__btn {

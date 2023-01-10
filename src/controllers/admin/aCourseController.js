@@ -13,16 +13,16 @@ class ACourseController {
     const teachers = await userModel.getAllTeacher();
 
     if (categoryID !== 0 && teacherID !== 0) {
-      allCourses = await courseModel.getSummaryByCategoryAndTeacherId(
+      allCourses = await courseModel.adminGetSummaryByCategoryAndTeacherId(
         categoryID,
         teacherID
       );
     } else if (categoryID !== 0 && teacherID === 0) {
-      allCourses = await courseModel.getSummaryByCategoryId(categoryID);
+      allCourses = await courseModel.adminGetSummaryByCategoryId(categoryID);
     } else if (categoryID === 0 && teacherID !== 0) {
-      allCourses = await courseModel.getSummaryByTeacherId(teacherID);
+      allCourses = await courseModel.adminGetSummaryByTeacherId(teacherID);
     } else {
-      allCourses = await courseModel.getAll();
+      allCourses = await courseModel.adminGetAll();
     }
 
     for (const courseFull of allCourses) {

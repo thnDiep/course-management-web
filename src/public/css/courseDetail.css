@@ -220,6 +220,7 @@
     font-size: 2.5rem; }
     .courseD__content .right .similar_course-button {
       display: flex;
+      align-items: center;
       margin-bottom: 4rem;
       margin-left: 5rem;
       margin-top: 2rem;
@@ -237,7 +238,13 @@
         font-size: 1.5rem;
         font-weight: 700;
         padding-left: 1rem;
-        color: black; }
+        color: black;
+        line-height: 2.2rem;
+        max-height: 4.4rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden; }
       .courseD__content .right .similar_course-button .similar_course_teacher {
         padding-left: 1rem;
         font-size: 1.2rem;
@@ -249,10 +256,16 @@
       .courseD__content .right .similar_course-button .similar_course-price {
         font-size: 1.8rem;
         color: red;
-        padding-left: 4rem; }
-      .courseD__content .right .similar_course-button .col-sm-3, .courseD__content .right .similar_course-button .col-sm-7, .courseD__content .right .similar_course-button .col-sm-2 {
+        padding-left: 4rem;
+        margin-left: auto;
+        margin-right: 5px; }
+      .courseD__content .right .similar_course-button .col-sm-3,
+      .courseD__content .right .similar_course-button .col-sm-7,
+      .courseD__content .right .similar_course-button .col-sm-2 {
         padding: 0px; }
-        .courseD__content .right .similar_course-button .col-sm-3 .col-sm-7, .courseD__content .right .similar_course-button .col-sm-7 .col-sm-7, .courseD__content .right .similar_course-button .col-sm-2 .col-sm-7 {
+        .courseD__content .right .similar_course-button .col-sm-3 .col-sm-7,
+        .courseD__content .right .similar_course-button .col-sm-7 .col-sm-7,
+        .courseD__content .right .similar_course-button .col-sm-2 .col-sm-7 {
           padding-right: 3rem; }
 
 .teacher {
