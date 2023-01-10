@@ -16,6 +16,7 @@ const nameformat = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
 const passformat = /^[A-Za-z]\w{5,14}$/;
 video.playbackRate = 0.5;
 
+// Xử lý các form khi blur + input
 email.oninput = (e) => {
   rEmail.innerHTML = "";
 };
@@ -56,6 +57,8 @@ name.onblur = (e) => {
     rName.innerHTML = "Please fill out this field";
   }
 };
+
+// Xử lý form validate
 const submit = (e) => {
   if (email.value.length === 0) {
     rEmail.innerHTML =
