@@ -6,15 +6,6 @@
 
 <div class="courseD__container">
   <div class="courseD__intro">
-    {{!-- <ul class="course__category">
-      <li class="course__category-item">
-        <a href="#" class="courseD__intro__link">Web Development</a>
-      </li>
-      <li class="course__category-item">
-        <a href="#" class="courseD__intro__link">Javascript</a>
-      </li>
-    </ul> --}}
-
     <ul class="course__category">
       {{#each linkCategories}}
         <li class="course__category-item">
@@ -23,11 +14,11 @@
       {{/each}}
     </ul>
 
-    <div class="d-flex align-items-center">
+    <div class="courseD__intro-wrap">
       <div class="courseD__intro__avt" style="background-image: url({{this.course.image}})"></div>
 
       <div class="courseD__intro__info">
-        <div class="d-flex">
+        <div class="courseD__intro__title">
           <h1 class="courseD__intro__name">{{this.course.name}}</h1>
 
           {{#if this.isComplete}} 
@@ -41,9 +32,8 @@
             style="background-color:orange; border-color:rgb(22, 161, 22);"
           >Unaccomplished</label>
           {{/if}}
-
-
         </div>
+
         <p class="courseD__intro__item">{{this.course.tinyDescription}}</p>
 
         <div class="course__teacher">
@@ -57,15 +47,11 @@
           </div>
 
           <div class="course__review-number">({{this.course.numberRated}})</div>
-          </div>
+        </div>
+
         <div class="courseDetail_course__review">
           <a class="courseDetail_course__review-number" href="#">{{this.numberRating}} ratings</a>
           {{this.numberOfStudent}} students
-          {{!-- {{#if (gt this.numberOfStudent '>' 1 )}}
-           students
-          {{else}}
-            student
-            {{/if}} --}}
         </div>
 
         <div class="courseD__intro__footer">
@@ -77,7 +63,6 @@
         </div>
 
         <div class="courseD__intro__buttons">
-            
             {{#if @root.lcIsAuthenticated}}
               {{!-- teacher --}}
               {{#if @root.lcAuthTeacher}}
@@ -152,8 +137,10 @@
             {{/if}}
         </div>
       </div>
+    
+    </div>
 
-      <div class="courseD_intro__videoPreview">
+    <div class="courseD_intro__videoPreview">
         <div>
           <iframe
             src="{{this.course.videoID}};autoplay=1&mute=1"
@@ -185,232 +172,216 @@
             </p>
           </div>
         </div>
-
       </div>
-    </div>
   </div>
 
-  <div class="courseD__content">
-    <div class="left">
-      <div class="description">
-        <h2 class="description-title">Required</h2>
-        <p class="description-item">{{{this.course.required}}}</p>
+   <div class="courseD__content">
+      <div class="left">
+        <div class="description">
+          <h2 class="description-title">Required</h2>
+          <p class="description-item">{{{this.course.required}}}</p>
+        </div>
+
+        <div class="description">
+          {{{this.course.benefit}}} 
+          
+          
       </div>
 
-      <div class="description">
-         {{{this.course.benefit}}} 
-        
-        
-     </div>
+        <div class="description">
+          <h2 class="description-title">Description</h2>
+          <p class="description-item">{{{this.course.fullDescription}}}</p>
+        </div>
 
-      <div class="description">
-        <h2 class="description-title">Description</h2>
-        <p class="description-item">{{{this.course.fullDescription}}}</p>
-      </div>
+        <div class="description">
+          <div class="formCourse">
+            <div>
+              {{! title Course }}
+              <div class="formCourse_title d-flex justify-content-between" data-toggle="collapse"
+                data-target="#course" aria-expanded="false">
+                <p><i class="fas fa-book-open"></i>
+                  Course content
+                </p>
+                <div class="mr-4">
+                  <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
 
-      <div class="description">
-        <div class="formCourse">
-          <div>
-            {{! title Course }}
-            <div class="formCourse_title d-flex justify-content-between" data-toggle="collapse"
-              data-target="#course" aria-expanded="false">
-              <p><i class="fas fa-book-open"></i>
-                Course content
-              </p>
-              <div class="mr-4">
-                <i class="fas fa-angle-down course-icon{{index}} down-icon"></i>
-
+                </div>
               </div>
-            </div>
-            {{! chapter in course }}
-            <div class="collapse show" id="course">
-              <div class="chapter__content">
-                <div class="row">
-                  <div class="col-lg-12">
-                    {{#each courseContent.chapter}}
-                    {{! title Chapter }}
-                    <div class="chapter__title d-flex justify-content-between w-100" data-toggle="collapse"
-                      data-target="#{{../index}}chapter{{index}}" aria-expanded="false" aria-controls="collapseExample">
-                      <div>
-                        <p><i class="fas fa-expand-arrows-alt"></i>
-                          Chapter {{index}}: {{name}}</p>
-                      </div>
-                      <div class=" mr-4 ">
-                        <i class="fas fa-angle-down chapter-icon{{index}} down-icon"></i>
-
-
-
-                      </div>
-                    </div>
-                    {{! lesson in chapter }}
-                    <div class="collapse" id="{{../index}}chapter{{index}}">
-                      {{#each lesson}}
-
-                      <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+              {{! chapter in course }}
+              <div class="collapse show" id="course">
+                <div class="chapter__content">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      {{#each courseContent.chapter}}
+                      {{! title Chapter }}
+                      <div class="chapter__title d-flex justify-content-between w-100" data-toggle="collapse"
+                        data-target="#{{../index}}chapter{{index}}" aria-expanded="false" aria-controls="collapseExample">
                         <div>
-                          <p><i class="far fa-sticky-note"></i>
-                            Lesson {{index}}: {{name}}</p>
+                          <p><i class="fas fa-expand-arrows-alt"></i>
+                            Chapter {{index}}: {{name}}</p>
                         </div>
-                        <div class="icon-lesson mr-4">
-                          {{#if checkLesson}}
-                          {{/if}}
+                        <div class=" mr-4 ">
+                          <i class="fas fa-angle-down chapter-icon{{index}} down-icon"></i>
+
+
+
                         </div>
+                      </div>
+                      {{! lesson in chapter }}
+                      <div class="collapse" id="{{../index}}chapter{{index}}">
+                        {{#each lesson}}
+
+                        <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
+                          <div>
+                            <p><i class="far fa-sticky-note"></i>
+                              Lesson {{index}}: {{name}}</p>
+                          </div>
+                          <div class="icon-lesson mr-4">
+                            {{#if checkLesson}}
+                            {{/if}}
+                          </div>
+                        </div>
+                        {{/each}}
                       </div>
                       {{/each}}
                     </div>
-                    {{/each}}
                   </div>
+
                 </div>
 
               </div>
 
             </div>
-
-          </div>
-      </div>
-      </div>
-    </div>
-    <div class="right">
-      <p>Similar course</p>
-      
-      <div>
-        <dl>
-          {{#each this.listSimilar}}
-            <dt>
-              <a
-                href="/courses/detail?id={{id}}"
-                role="button"
-                class="similar_course-button"
-              >
-
-                <img
-                  src={{image}}
-                  class="similar_course-image col-sm-3"
-                  alt="Cinque Terre"
-                />
-                <div class="col-sm-7">
-                  <p class="similar_course_name ">{{name}}</p>
-                  <p class="similar_course_teacher">Teacher: {{teacher}}</p>
-                </div>
-                <p class="similar_course-price col-sm-2">{{format_number fee}}</p>
-              </a>
-            </dt>
-          
-          {{/each}}
-        </dl>
-      </div>
-    </div>
-  </div>
-
-  <div class="teacher">
-    <p class="teacher_title">Teacher</p>
-    <div class="teacher_review" href="/teacherProfile" role="button">
-      <img
-        src={{this.teacher.img}}
-        class="teacher_avt  "
-        alt="Picture of teacher"
-      />
-      <div class="teacher_information">
-        <p class="teacher_name">{{this.teacher.name}}</p>
-        <p>{{{this.teacher.about}}}</p>
-        <p class="teacher_contact">Contact: {{this.teacher.email}}</p>
-        {{!-- <p class="teacher_role">Associate Professor</p> --}}
-        {{!-- <p class="teacher_specialization">Department of Computer Science and
-          Engineering</p> --}}
-        <div class="teacher_learner-courses">
-          <i class="fa fa-user" aria-hidden="true"></i>
-          &nbsp;&nbsp;{{this.numberStudentOfTeacher}} leaners
         </div>
-        <div class="teacher_learner-courses">
-          <i class="fa fa-book" aria-hidden="true"></i>
-          &nbsp;&nbsp;{{this.NumberCourseOfTeacher}} courses
         </div>
       </div>
-    </div>
-  </div>
+      <div class="right">
+        <p>Similar course</p>
+        
+        <div>
+          <dl>
+            {{#each this.listSimilar}}
+              <dt>
+                <a
+                  href="/courses/detail?id={{id}}"
+                  role="button"
+                  class="similar_course-button"
+                >
 
-  
-  <div class="feedback">
-    <div class="col-md-3">
-      <div class="feedback-left">
-        <p class="feedback-title">Feedbacks</p>
-
-
-        <div class="feedback_review">
-          <div class="course__review">
-          <div class="course__review-score">
-            {{> barStar this.course}}
-          </div>
-
-            <div class="course__review-number">({{this.course.numberRated}})</div>
-          </div>
-
-          {{!-- <p class="feedback_review-numberRate">{{this.course.rated}}</p>
-          <div>
-            <div class="feedback_review-ratings">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-half" aria-hidden="true"></i>
-            </div>
-            <a class="feedback_review-ratings_links" href="#">1336 ratings</a>
-          </div> --}}
-        </div>
-
-        <div class="reviews-bar-graph">
-          <ul>
-            {{#each this.percentInfo}}
-            <li class="reviews-bar-graph-per_line">
-              <p class="col-sm-2 numberStar">{{index}} stars</p>
-                <div class="col-sm-7">
-                  <div class="line">
-                    <div class="straightLine">
-                    </div>
-                    <div class="lineStar" style="width: {{percent}}%">
-                    </div>
+                  <img
+                    src={{image}}
+                    class="similar_course-image col-sm-3"
+                    alt="Cinque Terre"
+                  />
+                  <div class="col-sm-7">
+                    <p class="similar_course_name ">{{name}}</p>
+                    <p class="similar_course_teacher">Teacher: {{teacher}}</p>
                   </div>
-                </div>
-              <div class="col-sm-1">{{format_float_number percent}}%</div>
-            </li>       
+                  <p class="similar_course-price col-sm-2">{{format_number fee}}</p>
+                </a>
+              </dt>
+            
             {{/each}}
-          </ul>
+          </dl>
         </div>
       </div>
     </div>
-    <div id="feedback" class="col-md-8">
-      {{#each this.allFeedback}}
-        <div  class="feedback-right">
-          <div class="feedback-right-star">
+
+    <div class="teacher">
+      <p class="teacher_title">Teacher</p>
+      <div class="teacher_review" href="/teacherProfile" role="button">
+        <img
+          src={{this.teacher.img}}
+          class="teacher_avt  "
+          alt="Picture of teacher"
+        />
+        <div class="teacher_information">
+          <p class="teacher_name">{{this.teacher.name}}</p>
+          <p class="teacher_contact">Contact: {{this.teacher.email}}</p>
+          {{!-- <p class="teacher_role">Associate Professor</p> --}}
+          {{!-- <p class="teacher_specialization">Department of Computer Science and
+            Engineering</p> --}}
+          <div class="teacher_learner-courses">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            &nbsp;&nbsp;{{this.numberStudentOfTeacher}} leaners
+          </div>
+          <div class="teacher_learner-courses">
+            <i class="fa fa-book" aria-hidden="true"></i>
+            &nbsp;&nbsp;{{this.NumberCourseOfTeacher}} courses
+          </div>
+        </div>
+      </div>
+       <div class="teacher_about">
+           <p>{{{this.teacher.about}}}</p>
+        </div>
+    </div>
+    
+    <div class="feedback">
+      <div class="feedback-left">
+          <p class="feedback-title">Feedbacks</p>
+
+          <div class="feedback_review">
             <div class="course__review">
-              <div class="course__review-score">
-                <span class="mr-2">{{star}} </span>
-                  <div class="stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <div class="overlay--star" style="width: calc(100% - {{star}}/5*100%)"></div>
-                  </div>
-              </div>
+            <div class="course__review-score">
+              {{> barStar this.course}}
+            </div>
+
+              <div class="course__review-number">({{this.course.numberRated}})</div>
             </div>
           </div>
-          <div class="display_flex">
-            <p>By. John Matt {{studentID}} &nbsp;</p>
-            <p>&nbsp; {{time}}</p>
-          </div>
-          <p>{{feedback}}</p>
+
+          <div class="reviews-bar-graph">
+            <ul>
+              {{#each this.percentInfo}}
+              <li class="reviews-bar-graph-per_line">
+                <p class="col-sm-2 numberStar">{{index}} stars</p>
+                  <div class="col-sm-7">
+                    <div class="line">
+                      <div class="straightLine">
+                      </div>
+                      <div class="lineStar" style="width: {{percent}}%">
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-sm-1">{{format_float_number percent}}%</div>
+              </li>       
+              {{/each}}
+            </ul>
         </div>
-      {{/each}}
-      
-      {{!-- <a
-        id="see_more_feedbacks-btn"
-        class="btn btn--border see_more_feedbacks-btn"
-        href="#feedback"
-        role="button"
-      >See more</a> --}}
+      </div>
+
+      <div id="feedback" class="feedback-right-list">
+        {{#each this.allFeedback}}
+          <div  class="feedback-right">
+            <div class="feedback-right-star">
+              <div class="course__review">
+                <div class="course__review-score">
+                  <span class="mr-2">{{star}} </span>
+                    <div class="stars">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <div class="overlay--star" style="width: calc(100% - {{star}}/5*100%)"></div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="display_flex">
+              <p>By. John Matt {{studentID}} &nbsp;</p>
+              <p>&nbsp; {{time}}</p>
+            </div>
+            <p>{{feedback}}</p>
+          </div>
+        {{/each}}
+        
+        {{!-- <a
+          id="see_more_feedbacks-btn"
+          class="btn btn--border see_more_feedbacks-btn"
+          href="#feedback"
+          role="button"
+        >See more</a> --}}
+      </div>
     </div>
-  </div>
-  {{!-- {{/ifEquals}} --}}
 </div>

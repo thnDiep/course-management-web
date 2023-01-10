@@ -17,9 +17,18 @@
     margin-right: 2rem;
   }
 
+  .courseD__intro-wrap{
+    display: flex;
+    align-items: center;
+  }
+
   .courseD__intro__info {
     margin-left: 5rem;
     padding-top: 2rem;
+  }
+
+  .courseD__intro__title{
+    display: flex;
   }
 
   .courseD_intro__videoPreview {
@@ -100,6 +109,8 @@
     font-size: 1.6rem;
     font-weight: 500;
     margin: 0;
+
+
   }
 
   .courseDetail_course__review {
@@ -372,7 +383,7 @@
 .teacher {
   margin-left: 10rem;
   margin-top: 10rem;
-  height: 30rem;
+  // height: 30rem;
   .teacher_title {
     font-style: italic;
     font-weight: bolder;
@@ -396,6 +407,8 @@
     p {
       font-size: 1.4rem;
     }
+
+
   }
   .teacher_information {
     margin-top: 2.5rem;
@@ -430,7 +443,11 @@
     }
   }
 }
-
+.teacher_about{
+  margin-left: 260px;
+  position: relative;
+  top: -50px;
+}
 .feedback-title {
   margin-top: 5rem;
   // margin-left: 5rem;
@@ -438,12 +455,20 @@
   font-weight: bold;
 }
 .feedback {
-  margin-top: 15rem;
+  margin-top: 10rem;
   display: flex;
   background-color: #f5f7fa;
-  .col-md-8 {
+  .feedback-left {
     margin-bottom: 3rem;
+    flex: .3;
   }
+}
+
+.feedback-right-list{
+  height: 500px;
+  overflow-y: scroll;
+  flex: 0.7;
+  border-left: 1px solid $gray-color;
 }
 
 .feedback_review {
@@ -476,7 +501,7 @@
 .feedback-right {
   font-size: 1.5rem;
   margin-top: 5rem;
-  margin-left: 15rem;
+  margin-left: 8rem;
   .feedback-right-star {
     color: #e59819;
   }
@@ -692,4 +717,117 @@
 
 .background-color {
   background-color: #d8d7dc;
+}
+
+@media only screen and (max-width: 31.25em) {
+  .courseD__intro {
+    padding: 10px;
+    width: 100vw;
+    height: unset;
+    margin-left: -11px;
+    .courseD__intro-wrap{
+      display: block;
+    }
+    .courseD__intro__avt {
+      margin: 0;
+      margin-top: 20px;
+      width: 100%;
+      height: 100%;
+      height: 300px;
+    }
+
+    .courseD__intro__title{
+      display: block;
+      label{
+        margin: 0;
+        height: 3rem;
+        width: 18rem;
+        font-size: 1.8rem;
+        line-height: 3rem;
+        padding:0;
+      }
+    }
+
+    .courseD__intro__info{
+      margin: 0;
+    }
+
+    .courseD__intro__name{
+      width: 100%;
+      font-size: 3.6rem;
+    }
+
+    .courseD__intro__item{
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .courseD_intro__videoPreview{
+      position: unset;
+      width: 100%;
+      margin-top: 50px;
+      transform: translateY(0);
+      iframe {
+        width: 100%;
+      }
+    }
+  }
+
+  .courseD__content{
+    display: block;
+    .left {
+      width: 100%;
+      margin: 0;
+    }
+
+    .right{
+      margin:0;
+      margin-top:6rem;
+
+      .similar_course-button {
+        margin-left: 2rem;
+        width: 90%;
+      }
+    }
+  }
+
+  .teacher {
+    margin: 0;
+    height: unset;
+    .teacher_title {
+      text-align: center;
+    }
+    .teacher_review .teacher_avt {
+      margin-top: 0;
+    }
+    .teacher_information {
+      margin: 0;
+      margin-left: 20px;
+      .teacher_learner-courses{
+        font-size: 1.4rem;
+      }
+    }
+    .teacher_about{
+      margin: 10px 0 0 20px;
+      position: unset;
+    }
+  }
+
+  .feedback {
+    margin-top: 50px;
+    display: block;
+    .feedback_review{
+      padding-top: 0;
+    }
+    .feedback-left{
+      margin-right: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $gray-color;
+    }
+    .feedback-right {
+      // padding-top:
+      margin-left: 20px;
+      width: 90%;
+    }
+  }
 }

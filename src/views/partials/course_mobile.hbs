@@ -34,20 +34,20 @@
 
           <div class="course__review-number">({{numberRated}})</div>
         </div>
+      </div>
 
-        <div class="course__price">
+      <div class="course__price">
+          {{#if discount}}
+            <h4 class="course__price-old mr-3">
+              {{format_number feeO}}
+              <span class="course__price-unit">đ</span>
+            </h4>
+          {{/if}}
           <h4 class="course__price-new">
             {{format_number fee}}
             <span class="course__price-unit">đ</span>
           </h4>
-          {{#if discount}}
-              <h4 class="course__price-old">
-              {{format_number feeO}}
-            <span class="course__price-unit">đ</span>
-          </h4>
-          {{/if}}
         </div>
-      </div>
 
       {{#if @root.lcIsAuthenticated}}
         {{!-- Tài khoản học sinh --}}
