@@ -101,6 +101,9 @@ img {
   width: 37rem;
   height: 53.6rem; }
 
+input:focus {
+  outline: none; }
+
 .slides > div:target {
   transform: scale(0.8); }
 

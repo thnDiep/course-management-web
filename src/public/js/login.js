@@ -10,6 +10,8 @@ const mailformat =
 const passformat = /^[A-Za-z]\w{5,14}$/;
 
 video.playbackRate = 0.5;
+
+// Xử lý các form khi blur + input
 email.oninput = (e) => {
   rEmail.innerHTML = "";
 };
@@ -28,6 +30,8 @@ pass.onblur = (e) => {
     rPass.innerHTML = "Please fill out this field";
   }
 };
+
+// Xử lý form validate
 const submit = (e) => {
   if (pass.value.length === 0) {
     rPass.innerHTML =
