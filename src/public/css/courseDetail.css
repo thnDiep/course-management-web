@@ -131,7 +131,8 @@
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
-        align-items: center; }
+        align-items: center;
+        box-shadow: 2px 2px #888888; }
         .courseD__intro .courseD__intro__buttons .buying-btn-frame .buying-button:hover {
           transform: translateX(-3px) translateY(-3px);
           height: 7rem;
@@ -146,12 +147,41 @@
           font-size: 1.4rem;
           text-decoration: line-through;
           margin-bottom: 0px; }
+    .courseD__intro .courseD__intro__buttons .learning-btn-frame {
+      width: 28rem;
+      height: 7rem;
+      margin-right: 2rem;
+      display: flex;
+      align-items: center; }
+      .courseD__intro .courseD__intro__buttons .learning-btn-frame .learning-button {
+        height: 5rem;
+        width: 25rem;
+        background-color: white;
+        border-color: #f8d752;
+        font-size: 2rem;
+        font-weight: bolder;
+        color: black;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 2px #888888; }
+        .courseD__intro .courseD__intro__buttons .learning-btn-frame .learning-button:hover {
+          transform: translateX(-3px) translateY(-3px);
+          height: 7rem;
+          width: 28rem;
+          font-size: 4rem;
+          cursor: pointer; }
+        .courseD__intro .courseD__intro__buttons .learning-btn-frame .learning-button .learning {
+          font-size: 2rem;
+          margin-bottom: 0px;
+          margin-right: 1.2rem; }
 
 .courseD__content {
   display: flex;
   position: relative; }
   .courseD__content .left {
-    width: 70rem;
+    width: 65%;
     margin-left: 3rem; }
     .courseD__content .left .description {
       margin-top: 5rem;
@@ -186,18 +216,18 @@
       color: #b1b1ba;
       font-size: 1.4rem; }
   .courseD__content .right {
-    margin: 40rem 0rem 0rem 17rem;
-    font-size: 2.5rem;
-    font-weight: bold; }
+    margin: 40rem 0rem 0rem 10rem;
+    font-size: 2.5rem; }
     .courseD__content .right .similar_course-button {
       display: flex;
+      align-items: center;
       margin-bottom: 4rem;
       margin-left: 5rem;
       margin-top: 2rem;
       border-color: white;
       background-color: white;
       border-bottom: 1px solid black;
-      width: 86%;
+      width: 90%;
       height: 8rem;
       box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px; }
       .courseD__content .right .similar_course-button:hover {
@@ -205,17 +235,36 @@
         text-decoration: none;
         background-color: lightgray; }
       .courseD__content .right .similar_course-button .similar_course_name {
-        font-size: 1.7rem;
-        font-weight: bold;
-        padding-left: 2rem;
-        color: black; }
+        font-size: 1.5rem;
+        font-weight: 300;
+        padding-left: 1rem;
+        color: black;
+        line-height: 2.2rem;
+        max-height: 4.4rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden; }
+      .courseD__content .right .similar_course-button .similar_course_teacher {
+        padding-left: 1rem;
+        font-size: 1.2rem; }
       .courseD__content .right .similar_course-button .similar_course-image {
         height: 8rem;
         width: 11rem; }
       .courseD__content .right .similar_course-button .similar_course-price {
         font-size: 1.8rem;
         color: red;
-        padding-left: 4rem; }
+        padding-left: 4rem;
+        margin-left: auto;
+        margin-right: 5px; }
+      .courseD__content .right .similar_course-button .col-sm-3,
+      .courseD__content .right .similar_course-button .col-sm-7,
+      .courseD__content .right .similar_course-button .col-sm-2 {
+        padding: 0px; }
+        .courseD__content .right .similar_course-button .col-sm-3 .col-sm-7,
+        .courseD__content .right .similar_course-button .col-sm-7 .col-sm-7,
+        .courseD__content .right .similar_course-button .col-sm-2 .col-sm-7 {
+          padding-right: 3rem; }
 
 .teacher {
   margin-left: 10rem;
@@ -267,8 +316,9 @@
 .feedback {
   margin-top: 15rem;
   display: flex;
-  background-color: #f5f7fa;
-  margin-bottom: 3rem; }
+  background-color: #f5f7fa; }
+  .feedback .col-md-8 {
+    margin-bottom: 3rem; }
 
 .feedback_review {
   display: flex;
@@ -288,7 +338,8 @@
       color: burlywood; }
 
 .feedback-left {
-  margin-left: 3rem; }
+  margin-left: 3rem;
+  margin-bottom: 3rem; }
 
 .feedback-right {
   font-size: 1.5rem;
@@ -384,8 +435,7 @@
 
 .chapter__title {
   padding-top: 1rem;
-  font-weight: 700;
-  margin-left: 0.7rem; }
+  font-weight: 700; }
 
 .chapter__title:hover {
   cursor: pointer;

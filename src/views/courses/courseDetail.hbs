@@ -78,33 +78,40 @@
 
         <div class="courseD__intro__buttons">
             
+            {{!-- teacher || student --}}
             {{#ifOrs lcAuthTeacher lcAuthUser}}
               {{!-- teacher --}}
               {{#if lcAuthTeacher}}
-                <div class="buying-btn-frame">
-                  <button class="buying-button">
-                    <p class="fee">
-                      Edit
-                    </p>
-                  </button>
-                </div>
+                {{#if ../this.course.isCourseOfTeacher}}
+                  <div class="buying-btn-frame">
+                    <a href="/teacher/profile" class="buying-button">
+                      <p class="fee">
+                        Edit
+                      </p>
+                    </a>
+                  </div>
+                {{/if}}
               {{/if}}
 
               {{!-- user --}}
               {{#if lcAuthUser}}
               {{!-- khi user da mua khoa hoc --}}
                 {{#if this.course.buyed}}
-                <div class="buying-btn-frame">
-                  <button class="buying-button">
-                    <p class="fee">
+                <div class="learning-btn-frame ">
+                  <a href="/courses/join?idCourse={{this.course.id}}" class="learning-button">
+                    <p class="learning">
                       Learning
                     </p>
-                  </button>
+                  </a>
                 </div>
                 {{!-- khi user chua dky mua khoa hoc --}}
                 {{else}}
-                <div class="buying-btn-frame">
-                  <button class="buying-button">
+                <div class="buying-btn-frame" >
+                  <a  
+                    class="buying-button" 
+                    href="/courses/enroll?id={{this.course.id}}"
+                    role="button"
+                  >
                     <p class="fee">
                       {{format_number this.course.fee}} đ
                     </p>
@@ -113,45 +120,48 @@
                         {{format_number this.course.feeO}}đ
                       </p>
                     {{/if}}
-                  </button>
+                  </a>
                 </div>
                 {{/if}}
 
                 {{!-- khi user thich khoa hoc --}}
                 <a
-              name="add-cart-btn"
-              id="add-cart-btn"
-              class="btn btn--heart btn--icon {{#if this.course.loved}}active{{/if}} mr-5"
-              href="/courses/{{#if this.course.loved}}unlike{{else}}like{{/if}}?id={{this.course.id}}"
-              role="button"
-            >
-              <i class="fas fa-heart" aria-hidden="true"></i>
-            </a>
+                  name="add-cart-btn"
+                  id="add-cart-btn"
+                  class="btn btn--heart btn--icon {{#if this.course.loved}}active{{/if}} mr-5"
+                  href="/courses/{{#if this.course.loved}}unlike{{else}}like{{/if}}?id={{this.course.id}}"
+                  role="button"
+                >
+                  <i class="fas fa-heart" aria-hidden="true"></i>
+                </a>
               {{/if}}
-            {{else}}  
-              <div class="buying-btn-frame">
-              <button class="buying-button">
-                <p class="fee">
-                  {{format_number this.course.fee}} đ
-                </p>
-                {{#if this.course.discount}}
-                  <p class="feeO">
-                    {{format_number this.course.feeO}}đ
+
+              {{!-- guest --}}
+              {{else}}  
+                <div class=" ml-5 buying-btn-frame">
+                <a href="/account/login/required" role="button" class="ml-5 buying-button" >
+                  <p class="fee">
+                    {{format_number this.course.fee}} đ
                   </p>
-                {{/if}}
-              </button>
-              </div>
-            {{/ifOrs}}
+                  {{#if this.course.discount}}
+                    <p class="feeO">
+                      {{format_number this.course.feeO}}đ
+                    </p>
+                  {{/if}}
+                </a>
+                </div>
+              {{/ifOrs}}
         </div>
       </div>
 
       <div class="courseD_intro__videoPreview">
         <div>
           <iframe
-            src="{{this.course.videoID}}"
+            src="{{this.course.videoID}};autoplay=1&mute=1"
             width="437"
             height="250"
-            allow='autoplay'
+            {{!-- allow='autoplay' --}}
+            
             class="videoCourse"
           >
           </iframe>
@@ -229,14 +239,12 @@
                       <div class=" mr-4 ">
                         <i class="fas fa-angle-down chapter-icon{{index}} down-icon"></i>
 
-                        {{!-- <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
-                          data-target="#course{{../index}}chapter{{index}}"><i class="fas fa-pen"></i> Edit
-                        </a> --}}
+
 
                       </div>
                     </div>
                     {{! lesson in chapter }}
-                    <div class="collapse show" id="{{../index}}chapter{{index}}">
+                    <div class="collapse" id="{{../index}}chapter{{index}}">
                       {{#each lesson}}
 
                       <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
@@ -245,10 +253,6 @@
                             Lesson {{index}}: {{name}}</p>
                         </div>
                         <div class="icon-lesson mr-4">
-                          {{!-- <a class="edit" style="color: rgb(0, 51, 255)" data-toggle="modal"
-                            data-target="#course{{../../index}}chapter{{../index}}lesson{{index}}"><i
-                              class="fas fa-pen"></i> Edit
-                          </a> --}}
                           {{#if checkLesson}}
                           {{/if}}
                         </div>
@@ -279,13 +283,22 @@
                 role="button"
                 class="similar_course-button"
               >
+
                 <img
                   src={{image}}
-                  class="similar_course-image"
+                  class="similar_course-image col-sm-3"
                   alt="Cinque Terre"
                 />
+<<<<<<< HEAD
                 <p class="similar_course_name">{{name}}</p>
-                <p class="similar_course-price">{{format_number fee}}</p>
+                <p class="similar_course-price">{{format_number fee}}đ</p>
+=======
+                <div class="col-sm-7">
+                  <p class="similar_course_name ">{{name}}</p>
+                  <p class="similar_course_teacher">Teacher: {{teacher}}</p>
+                </div>
+                <p class="similar_course-price col-sm-2">{{format_number fee}}</p>
+>>>>>>> fef534aca02ac059cdf1aea1e427caee42239380
               </a>
             </dt>
           
@@ -323,9 +336,6 @@
   </div>
 
   
-  {{#ifEquals lcAuthTeacher.id teacher.id}}
-  <div ><a style="font-size: 2rem;background-color:#f8d752;padding: 1rem 47% ; bottom:0rem;margin-left:-2rem" class="btn position-fixed" href="/teacher/editCourse/?id={{course.id}}">EDIT</a></div>
-  {{else}}
   <div class="feedback">
     <div class="col-md-3">
       <div class="feedback-left">
@@ -390,13 +400,13 @@
         </div>
       {{/each}}
       
-      <a
+      {{!-- <a
         id="see_more_feedbacks-btn"
         class="btn btn--border see_more_feedbacks-btn"
         href="#feedback"
         role="button"
-      >See more</a>
+      >See more</a> --}}
     </div>
   </div>
-  {{/ifEquals}}
+  {{!-- {{/ifEquals}} --}}
 </div>

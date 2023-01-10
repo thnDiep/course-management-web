@@ -1,0 +1,108 @@
+<div class="card course course--mobile {{#if bestSeller}}course--best-seller{{/if}} {{#if new}}course--new{{/if}} {{#if trending}}course--trending{{/if}}">
+      <a href="/courses/detail?id={{id}}" class="course__link"></a>
+
+      <div class="course__img" style="background-image: url({{image}})">
+        <div class="course__best-seller-label">
+          <span>bestseller</span>
+        </div>
+      </div>
+      
+      <div class="card-body">
+        <h4 class="course__title">{{name}}</h4>
+
+        <ul class="course__category">
+          {{#each linkCategories}}
+            <li class="course__category-item">
+              <a href="/courses?id={{id}}" class="course__category-link">{{name}}</a>
+            </li>
+          {{/each}}
+        </ul>
+
+        <div class="course__teacher">
+          {{#if teacher}}
+            <b>Teacher: </b>
+            {{teacher}}
+            {{!-- <a href="#" class="course__teacher__link">Dollar Design School</a> --}}
+          {{/if}}
+        </div>
+
+
+        <div class="course__review">
+          <div class="course__review-score">
+            {{> barStar}}
+          </div>
+
+          <div class="course__review-number">({{numberRated}})</div>
+        </div>
+
+        <div class="course__price">
+          <h4 class="course__price-new">
+            {{format_number fee}}
+            <span class="course__price-unit">đ</span>
+          </h4>
+          {{#if discount}}
+              <h4 class="course__price-old">
+              {{format_number feeO}}
+            <span class="course__price-unit">đ</span>
+          </h4>
+          {{/if}}
+        </div>
+      </div>
+
+      {{#if @root.lcIsAuthenticated}}
+        {{!-- Tài khoản học sinh --}}
+        {{#if @root.lcAuthUser}}
+          <div class="card-footer course__buttons">
+            {{#if buyed}}
+              <a
+              name="buy-btn"
+              id="buy-btn"
+              class="btn btn--border"
+              href="/courses/join?id={{id}}"
+              role="button">Learning</a>
+            {{else}}
+              <a
+              name="buy-btn"
+              id="buy-btn"
+              class="btn btn--primary"
+              href="/courses/enroll?id={{id}}"
+              role="button">Buy now</a>
+            {{/if}}
+            
+            <a
+              name="add-cart-btn"
+              id="add-cart-btn"
+              class="btn btn--heart btn--icon {{#if loved}}active{{/if}}"
+              href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}"
+              role="button"
+            >
+              <i class="fas fa-heart" aria-hidden="true"></i>
+            </a>
+          </div>
+        {{/if}}
+      {{!-- Tài khoản khách --}}
+      {{else}}
+        <div class="card-footer course__buttons">
+            <a
+            name="buy-btn"
+            id="buy-btn"
+            class="btn btn--primary"
+            href="/account/login/required"
+            role="button">Buy now</a>
+          
+          <a
+            name="add-cart-btn"
+            id="add-cart-btn"
+            class="btn btn--heart btn--icon"
+            href="/account/login/required"
+            role="button"
+          >
+            <i class="fas fa-heart" aria-hidden="true"></i>
+          </a>
+        </div>
+      {{/if}}
+    
+      <div class="course__new-label">
+        <span>news</span>
+      </div>
+    </div>

@@ -20,12 +20,13 @@
 }
 
 .courses__tool {
-  display: flex;
-  align-items: center;
+  overflow: hidden;
+  // display: flex;
+  // align-items: center;
   margin-bottom: 20px;
 
   .courses__sort {
-    flex: 1;
+    // flex: 1;
     display: flex;
     align-items: center;
     background-color: rgba($color: $black-color, $alpha: 0.05);
@@ -40,9 +41,14 @@
       text-transform: uppercase;
     }
 
-    .btn {
-      width: $sort-btn-width;
+    .btns {
+      display: flex;
+      overflow-x: scroll;
     }
+
+    // .btn {
+    //   width: $sort-btn-width;
+    // }
   }
 
   input[type="radio"]:checked + label {
@@ -132,7 +138,7 @@ select.sort-by__menu {
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
-
+  // min-width: 270px;
   &:hover {
     transform: translateX(-1px) translateY(-1px);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -209,7 +215,7 @@ select.sort-by__menu {
     content: "";
     position: absolute;
     left: 0;
-    top: 100%;
+    top: 98%;
     border-width: 0 25px 10px;
     border-style: solid;
     border-color: transparent $primary-color;
@@ -324,6 +330,15 @@ select.sort-by__menu {
   list-style: none;
   display: flex;
   z-index: 2;
+  max-height: 22px;
+
+  .course__category-item {
+    display: flex;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
 
   .course__category-item::before {
     content: ">";
@@ -356,9 +371,15 @@ select.sort-by__menu {
 .course__teacher {
   position: relative;
   display: block;
-  height: 1.5rem;
+  line-height: 1.5rem;
+  max-height: 1.5rem;
   margin: 8px 0 0 0;
   z-index: 2;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 
   // .course__teacher__link {
   font-size: 1.6rem;
@@ -398,7 +419,7 @@ select.sort-by__menu {
   .course__price-new {
     display: flex;
     align-items: center;
-    font-size: 2.8em;
+    font-size: 2.8rem;
     font-weight: 700;
     color: $price-color;
   }
@@ -443,6 +464,9 @@ select.sort-by__menu {
   text-transform: uppercase;
   .btn {
     height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 50px;
   }
 }
 

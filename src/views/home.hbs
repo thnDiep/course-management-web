@@ -120,7 +120,7 @@
                 <div class="swiper-slide">
                   <div class="row">
                     {{#each courses}}
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-6">
                       <div class="card" style="width: 100%;">
                         <a href="/courses/detail?id={{id}}" class="course__link"></a>
                         <img src="{{image}}" class="card-img-top" alt="..." />
@@ -144,18 +144,21 @@
                               <span class="course__price-unit">đ</span>
                             </h4>
                           </div>
+
                           {{#if ../../lcAuthTeacher}}
                           {{else}}
                             {{#if ../../lcAuthAdmin}}
-                            {{else}}
-                            {{#if buyed}}
-                            <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
-                              Learning</a>
-                            {{else}}
-                            <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
-                              Buy now</a>
-                            {{/if}}
-                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
+                              {{else}}
+                                <div class="d-flex justify-content-around course__btn">
+                                {{#if buyed}}
+                                <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
+                                  Learning</a>
+                                {{else}}
+                                <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
+                                  Buy now</a>
+                                {{/if}}
+                                <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
+                                </div>
                             {{/if}}
                           {{/if}}
                         </div>
@@ -194,7 +197,7 @@
                 <div class="swiper-slide">
                   <div class="row">
                     {{#each courses}}
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-6">
                       <div class="card" style="width: 100%;">
                         <a href="/courses/detail?id={{id}}" class="course__link"></a>
                         <img src="{{image}}" class="card-img-top" alt="..." />
@@ -222,16 +225,16 @@
                            {{else}}
                             {{#if ../../lcAuthAdmin}}
                            {{else}}
-
-                          {{#if buyed}}
-                            <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
-                              Learning</a>
+                            <div class="d-flex justify-content-around course__btn">
+                            {{#if buyed}}
+                              <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
+                                Learning</a>
                             {{else}}
-                            <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
-                              Buy now</a>
+                              <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
+                                Buy now</a>
                             {{/if}}
-                            <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
-                           
+                              <a href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" class="btn love "><i {{#if loved}} style="color: #fe4343;"{{/if}} class="fas fa-heart"></i></a>
+                           </div>
                           {{/if}}
                           {{/if}}
                         </div>

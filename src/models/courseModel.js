@@ -131,15 +131,13 @@ export default {
 
   async getCountFeedback(id) {
     const [[rate], ...h] = await db.raw(
-      `SELECT count(star) as sumRate FROM rating WHERE  rating.courseID = ?`,
+      `SELECT count(star) as sumRate FROM rating WHERE rating.courseID = ?`,
       id
     );
     return rate.sumRate;
   },
 
   async countByCategoryId(id) {
-    console.log(id);
-    console.log("-----");
     const category = await categoryModel.getById(id);
     const ids = [id];
 
@@ -435,6 +433,13 @@ export default {
   async searchPageByNameOrderAscPrice(name, limit, offset) {
     const result = await db.raw(
       `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY fee ASC LIMIT ${limit} OFFSET ${offset};`
+    );
+    return result[0];
+  },
+
+  async searchPageByNameOrderDescPrice(name, limit, offset) {
+    const result = await db.raw(
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY fee DESC LIMIT ${limit} OFFSET ${offset};`
     );
     return result[0];
   },

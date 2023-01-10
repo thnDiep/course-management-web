@@ -14,11 +14,9 @@
   flex-direction: row; }
 
 .courses__tool {
-  display: flex;
-  align-items: center;
+  overflow: hidden;
   margin-bottom: 20px; }
   .courses__tool .courses__sort {
-    flex: 1;
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.05);
@@ -30,8 +28,9 @@
       width: 360px;
       text-align: center;
       text-transform: uppercase; }
-    .courses__tool .courses__sort .btn {
-      width: 180px; }
+    .courses__tool .courses__sort .btns {
+      display: flex;
+      overflow-x: scroll; }
   .courses__tool input[type="radio"]:checked + label {
     background-color: #f8d752; }
 
@@ -151,7 +150,7 @@ select.sort-by__menu {
     content: "";
     position: absolute;
     left: 0;
-    top: 100%;
+    top: 98%;
     border-width: 0 25px 10px;
     border-style: solid;
     border-color: transparent #f8d752; }
@@ -237,7 +236,14 @@ select.sort-by__menu {
   padding: 0;
   list-style: none;
   display: flex;
-  z-index: 2; }
+  z-index: 2;
+  max-height: 22px; }
+  .course__category .course__category-item {
+    display: flex;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden; }
   .course__category .course__category-item::before {
     content: ">";
     margin-left: 1rem; }
@@ -261,9 +267,14 @@ select.sort-by__menu {
 .course__teacher {
   position: relative;
   display: block;
-  height: 1.5rem;
+  line-height: 1.5rem;
+  max-height: 1.5rem;
   margin: 8px 0 0 0;
   z-index: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
   font-size: 1.6rem;
   font-weight: 500;
   color: #555; }
@@ -289,7 +300,7 @@ select.sort-by__menu {
   .course__price .course__price-new {
     display: flex;
     align-items: center;
-    font-size: 2.8em;
+    font-size: 2.8rem;
     font-weight: 700;
     color: #d0011b; }
   .course__price .course__price-old {
@@ -325,7 +336,10 @@ select.sort-by__menu {
   z-index: 2;
   text-transform: uppercase; }
   .course__buttons .btn {
-    height: 50px; }
+    height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 50px; }
 
 @media only screen and (max-width: 31.25em) {
   .courses__body {

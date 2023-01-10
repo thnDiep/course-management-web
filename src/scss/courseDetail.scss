@@ -13,7 +13,7 @@
     url(/images/background/tech.jpg);
   position: relative;
 
-  .path{
+  .path {
     margin-right: 2rem;
   }
 
@@ -156,7 +156,7 @@
       height: 100%;
       border-color: black;
     }
-    .btn2{
+    .btn2 {
       height: 100%;
       border-color: white;
       color: red;
@@ -181,6 +181,7 @@
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
+        box-shadow: 2px 2px #888888;
 
         &:hover {
           transform: translateX(-3px) translateY(-3px);
@@ -201,6 +202,42 @@
         }
       }
     }
+
+    .learning-btn-frame {
+      width: 28rem;
+      height: 7rem;
+      margin-right: 2rem;
+      display: flex;
+      align-items: center;
+
+      .learning-button {
+        height: 5rem;
+        width: 25rem;
+        background-color: white;
+        border-color: #f8d752;
+        font-size: 2rem;
+        font-weight: bolder;
+        color: black;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 2px #888888;
+
+        &:hover {
+          transform: translateX(-3px) translateY(-3px);
+          height: 7rem;
+          width: 28rem;
+          font-size: 4rem;
+          cursor: pointer;
+        }
+        .learning {
+          font-size: 2rem;
+          margin-bottom: 0px;
+          margin-right: 1.2rem;
+        }
+      }
+    }
   }
 }
 
@@ -209,13 +246,13 @@
   position: relative;
 
   .left {
-    width: 70rem;
+    width: 65%;
     margin-left: 3rem;
 
     .description {
       margin-top: 5rem;
       font-size: 1.5rem;
-      .icon{
+      .icon {
         margin-right: 1rem;
       }
     }
@@ -266,18 +303,18 @@
   }
 
   .right {
-    margin: 40rem 0rem 0rem 17rem;
+    margin: 40rem 0rem 0rem 10rem;
     font-size: 2.5rem;
-    font-weight: bold;
     .similar_course-button {
       display: flex;
+      align-items: center;
       margin-bottom: 4rem;
       margin-left: 5rem;
       margin-top: 2rem;
       border-color: white;
       background-color: white;
       border-bottom: 1px solid black;
-      width: 86%;
+      width: 90%;
       height: 8rem;
       box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px;
 
@@ -288,10 +325,22 @@
       }
 
       .similar_course_name {
-        font-size: 1.7rem;
-        font-weight: bold;
-        padding-left: 2rem;
+        font-size: 1.5rem;
+        font-weight: 300;
+        padding-left: 1rem;
         color: black;
+        line-height: 2.2rem;
+        max-height: 4.4rem;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      .similar_course_teacher {
+        padding-left: 1rem;
+        font-size: 1.2rem;
       }
 
       .similar_course-image {
@@ -303,6 +352,16 @@
         font-size: 1.8rem;
         color: red;
         padding-left: 4rem;
+        margin-left: auto;
+        margin-right: 5px;
+      }
+      .col-sm-3,
+      .col-sm-7,
+      .col-sm-2 {
+        padding: 0px;
+        .col-sm-7 {
+          padding-right: 3rem;
+        }
       }
     }
   }
@@ -332,7 +391,7 @@
       height: 20rem;
       // clip-path: circle(80px at 50% 30%);
     }
-    p{
+    p {
       font-size: 1.4rem;
     }
   }
@@ -345,7 +404,7 @@
       font-size: 1.8rem;
     }
 
-    .teacher_contact{
+    .teacher_contact {
       font-size: 1.6rem;
       text-decoration: underline;
     }
@@ -380,7 +439,9 @@
   margin-top: 15rem;
   display: flex;
   background-color: #f5f7fa;
-  margin-bottom: 3rem;
+  .col-md-8 {
+    margin-bottom: 3rem;
+  }
 }
 
 .feedback_review {
@@ -408,6 +469,7 @@
 
 .feedback-left {
   margin-left: 3rem;
+  margin-bottom: 3rem;
 }
 .feedback-right {
   font-size: 1.5rem;
@@ -475,11 +537,11 @@
 .formCourse_title {
   font-weight: bold;
   padding-left: 0.5rem;
-    padding-top: 1rem;
+  padding-top: 1rem;
   font-size: 1.8rem;
 
   &:hover {
-    cursor:pointer;
+    cursor: pointer;
     background-color: #d8d7dc;
     border-radius: 1rem;
   }
@@ -497,7 +559,6 @@
 .fa-angle-down {
   padding: 0 1rem;
 }
-
 
 .chapter__add {
   font-size: 3rem;
@@ -542,8 +603,7 @@
 
 .chapter__title {
   padding-top: 1rem;
-  font-weight:700;
-  margin-left: 0.7rem;
+  font-weight: 700;
 }
 
 .chapter__title:hover {
