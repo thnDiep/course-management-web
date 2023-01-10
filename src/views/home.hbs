@@ -63,13 +63,30 @@
               <a href="#">{{teacherName}}</a>
             </div>
             <div class="carousel-item__detail--btn">
-              <a name="buy-btn" id="buy-btn" class="btn" href="#" role="button" >
-                <i  class="fa fa-cart-plus" aria-hidden="true" style="margin-right: 1rem;"></i>
-                Buy now
-              </a>
-              <a name="add-cart-btn" id="add-cart-btn" class="btn btn--bg" href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" role="button">
+            {{#if @root.lcAuthTeacher}}
+            {{else}}
+              {{#if @root.lcAuthAdmin}}
+               {{else}}
+               {{#if buyed}}
+                <a name="buy-btn" id="buy-btn" role="button" class="btn" role="button" href="/courses/join?id={{id}}" role="button" >
+                  <i  class="far fa-eye" aria-hidden="true" style="margin-right: 1rem;"></i>
+                  Learning
+                </a>
+                {{else}} 
+                <a name="buy-btn" id="buy-btn" class="btn" role="button" href="/courses/enroll?id={{id}}" role="button" >
+                  <i  class="fa fa-cart-plus" aria-hidden="true" style="margin-right: 1rem;"></i>
+                  Buy now
+                </a>
+                {{/if}}
+                <a name="add-cart-btn" id="add-cart-btn" class="btn btn--bg" href="/courses/{{#if loved}}unlike{{else}}like{{/if}}?id={{id}}" role="button">
                 <i  style="font-size:2.5rem;{{#if loved}}color: red;{{/if}}" class="fas fa-heart"></i>
-              </a>
+                </a>
+              {{/if}}
+              {{/if}}
+
+
+           
+              
             </div>
 
           </div>

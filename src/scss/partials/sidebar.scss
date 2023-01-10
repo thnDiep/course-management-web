@@ -112,17 +112,17 @@
   }
 }
 
-.side-nav {
-  margin-top: 0 !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 90vh;
-  @media only screen and (max-width: 31.25em) {
-    margin-top: 0 !important;
-    top: 0;
-  }
-}
+// .side-nav {
+//   margin-top: 0 !important;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   height: 90vh;
+//   @media only screen and (max-width: 31.25em) {
+//     margin-top: 0 !important;
+//     top: 0;
+//   }
+// }
 
 .side-nav {
   // position: absolute;
@@ -280,4 +280,9 @@
     display: block;
     height: 100vh;
   }
+}
+
+.logout {
+  position: absolute;
+  bottom: 10rem;
 }
