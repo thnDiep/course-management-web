@@ -4,25 +4,41 @@ export default {
   getCourseOfStudent(studentID) {
     return db("course_of_student")
       .select("courseID")
-      .where("studentID", studentID);
+      .join("course as C", function () {
+        this.on("C.id", "courseID")
+          .andOn("studentID", studentID)
+          .andOn("C.blocked", 0);
+      });
   },
 
   getCourseStudentLove(studentID) {
     return db("student_love_course")
       .select("courseID")
-      .where("studentID", studentID);
+      .join("course as C", function () {
+        this.on("C.id", "courseID")
+          .andOn("studentID", studentID)
+          .andOn("C.blocked", 0);
+      });
   },
 
   async countCourseOfStudent(studentID) {
     const count = await db("course_of_student")
-      .where("studentID", studentID)
+      .join("course as C", function () {
+        this.on("C.id", "courseID")
+          .andOn("studentID", studentID)
+          .andOn("C.blocked", 0);
+      })
       .count("courseID as number");
     return count[0].number;
   },
 
   async countCourseStudentLove(studentID) {
     const count = await db("student_love_course")
-      .where("studentID", studentID)
+      .join("course as C", function () {
+        this.on("C.id", "courseID")
+          .andOn("studentID", studentID)
+          .andOn("C.blocked", 0);
+      })
       .count("courseID as number");
     return count[0].number;
   },
@@ -30,7 +46,11 @@ export default {
   getPageCourseOfStudent(studentID, limit, offet) {
     return db("course_of_student")
       .select("courseID")
-      .where("studentID", studentID)
+      .join("course as C", function () {
+        this.on("C.id", "courseID")
+          .andOn("studentID", studentID)
+          .andOn("C.blocked", 0);
+      })
       .limit(limit)
       .offset(offet);
   },
@@ -38,7 +58,11 @@ export default {
   getPageCourseStudentLove(studentID, limit, offet) {
     return db("student_love_course")
       .select("courseID")
-      .where("studentID", studentID)
+      .join("course as C", function () {
+        this.on("C.id", "courseID")
+          .andOn("studentID", studentID)
+          .andOn("C.blocked", 0);
+      })
       .limit(limit)
       .offset(offet);
   },

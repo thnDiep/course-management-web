@@ -157,7 +157,7 @@ class CourseController {
         // lấy khóa học của gv
         const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
         for (const course of coursesOfTeacher) {
-          if (course.id === course.id) {
+          if (course.id === id) {
             course.isCourseOfTeacher = true;
             console.log("la course cuagv", course.isCourseOfTeacher);
           }
@@ -409,7 +409,10 @@ class CourseController {
     );
 
     for (const learningCourse of learningCourses) {
-      courses.push(await courseModel.getById(learningCourse.courseID));
+      const course = await courseModel.getById(learningCourse.courseID);
+      if (course !== null) {
+        courses.push(course);
+      }
     }
     const isLearning = true;
     await getInfoCourse(courses, res);
@@ -430,7 +433,6 @@ class CourseController {
   // [GET] /courses/like?id=
   async like(req, res) {
     const studentID = res.locals.lcAuthUser.id;
-    //const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -456,7 +458,6 @@ class CourseController {
   // [GET] /courses/unlike?id=
   async unlike(req, res) {
     const studentID = res.locals.lcAuthUser.id;
-    //const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -481,9 +482,7 @@ class CourseController {
 
   //[GET] /courses/watch-list?page=
   async watchList(req, res) {
-    // if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
-    //const studentID = 29;
     const courses = [];
 
     const limit = 3;
@@ -503,7 +502,8 @@ class CourseController {
     );
 
     for (const lovedCourse of lovedCourses) {
-      courses.push(await courseModel.getById(lovedCourse.courseID));
+      const course = await courseModel.getById(lovedCourse.courseID);
+      if (course !== null) courses.push(course);
     }
     await getInfoCourse(courses, res);
     const isWatchList = true;
