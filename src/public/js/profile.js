@@ -18,6 +18,7 @@ const passformat = /^[A-Za-z]\w{5,14}$/;
 const edit = (input, e) => {
   input.removeAttribute("disabled");
   input.focus();
+  input.classList.toggle("border1");
 };
 icon[0].addEventListener("click", function (e) {
   edit(nameInput, e);
@@ -26,31 +27,17 @@ icon[1].addEventListener("click", function (e) {
   edit(emailInput, e);
 });
 icon[2].addEventListener("click", function (e) {
-  passInput.value = "";
   edit(passInput, e);
 });
 icon[3].addEventListener("click", function (e) {
-  newPassInput.value = "";
   edit(newPassInput, e);
 });
 
 // Xử lý form được gửi hay không
 editInfor.addEventListener("click", function (e) {
-  input.forEach((element) => {
-    element.removeAttribute("disabled");
-    if (element.value.length === 0) {
-      element.classList.toggle("border");
-      e.preventDefault();
-    }
-  });
-
-  if (!input[0].value.match(nameformat)) {
-    e.preventDefault();
-  }
-  if (!input[1].value.match(mailformat)) {
-    e.preventDefault();
-  }
-  if (!input[3].value.match(passformat)) {
+  if (input[2].value.length === 0) {
+    edit(input[2], e);
+    input[2].classList.toggle("border");
     e.preventDefault();
   }
 });
@@ -68,6 +55,11 @@ input[1].oninput = () => {
     input[1].classList.add("border");
   } else {
     input[1].classList.remove("border");
+  }
+};
+input[2].oninput = () => {
+  if (input[2].value.length !== 0) {
+    input[2].classList.remove("border");
   }
 };
 input[3].oninput = () => {
