@@ -166,12 +166,14 @@ class TCourseController {
         updateTime: currentDate,
         createTime: currentDate,
       };
+      // Thêm khóa học
       await courseModel.add(course);
       const [id] = await courseModel.getIDCourseByName(req.body.name);
       const course_of_teacher = {
         teacherID: res.locals.lcAuthTeacher.id,
         courseID: id.id,
       };
+      // Thêm khóa học vào các khóa của teacher
       await courseModel.addCourseOfTeacher(course_of_teacher);
       return res.redirect("/teacher/profile");
     });

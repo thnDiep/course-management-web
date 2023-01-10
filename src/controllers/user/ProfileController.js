@@ -62,18 +62,26 @@ class uProfileController {
     );
     const isProfile = true;
     if (ret) {
-      const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync(req.body.newPassword, salt);
+      let hash;
+      if (req.body.newPassword !== undefined) {
+        const salt = bcrypt.genSaltSync(10);
+        hash = bcrypt.hashSync(req.body.newPassword, salt);
+      }
+      const Name = req.body.name || res.locals.lcAuthUser.name;
+      const Email = req.body.email || res.locals.lcAuthUser.email;
+      const Password = hash || res.locals.lcAuthUser.password;
       const user = {
         id: res.locals.lcAuthUser.id,
-        name: req.body.name,
-        email: req.body.email,
-        password: hash,
+        name: Name,
+        email: Email,
+        password: Password,
       };
 
       let err_message_name, err_message_email, err_message;
       const check = (name, check, i) => {
         if (name === check) {
+          // i=0 gán vào tên
+          // i=1 gán vào email
           i === 0
             ? (err_message_name = `${name} was exist...`)
             : (err_message_email = `${name} was exist...`);
@@ -81,14 +89,15 @@ class uProfileController {
         }
         return 1;
       };
-      const userAvailable = await accountModel.findByUsername(req.body.name);
-      const emailAvailable = await accountModel.findByEmail(req.body.email);
+      // Kiếm nó trong db nếu ko thấy trùng Hoặc so nó với Local đúng là chính nó thì cho update
+      const userAvailable = await accountModel.findByUsername(user.name);
+      const emailAvailable = await accountModel.findByEmail(user.email);
       // profile = res.locals.lcAuthUser
       if (
         (check(userAvailable?.name, user.name, 0) === 1 ||
-          user.name === profiles.name) &&
+          user.name === res.locals.lcAuthUser.name) &&
         (check(emailAvailable?.email, user.email, 1) === 1 ||
-          user.email === profiles.email)
+          user.email === res.locals.lcAuthUser.email)
       ) {
         await profileUserModel.updateUser(user);
         res.locals.lcAuthUser.email = user.email;

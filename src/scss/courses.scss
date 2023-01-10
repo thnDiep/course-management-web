@@ -464,6 +464,7 @@ select.sort-by__menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   z-index: 2;
   text-transform: uppercase;
   .btn {
@@ -489,6 +490,7 @@ select.sort-by__menu {
   }
   .course.course--mobile {
     display: block;
+    // margin-bottom: 4rem;
   }
   .courses__sort--mobile {
     display: block;
