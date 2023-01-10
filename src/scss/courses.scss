@@ -21,12 +21,12 @@
 
 .courses__tool {
   overflow: hidden;
-  // display: flex;
-  // align-items: center;
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
 
   .courses__sort {
-    // flex: 1;
+    flex: 1;
     display: flex;
     align-items: center;
     background-color: rgba($color: $black-color, $alpha: 0.05);
@@ -39,6 +39,12 @@
       width: $course--horizontal-image-width;
       text-align: center;
       text-transform: uppercase;
+    }
+    label {
+      margin: 0;
+      h1 {
+        margin: 0;
+      }
     }
 
     .btns {
@@ -239,7 +245,6 @@ select.sort-by__menu {
     -webkit-line-clamp: 1;
     overflow: hidden;
     line-height: 2.6rem;
-    height: 2.6rem;
     max-height: 2.6rem;
   }
 
@@ -310,7 +315,6 @@ select.sort-by__menu {
   -webkit-line-clamp: 2;
   overflow: hidden;
   line-height: 2.6rem;
-  height: 5.2rem;
   max-height: 5.2rem;
 
   font-size: 2.4rem;
@@ -362,8 +366,8 @@ select.sort-by__menu {
   overflow: hidden;
 
   font-size: 1.6rem;
-  line-height: 3rem;
-  max-height: 6rem;
+  line-height: 2.2rem;
+  max-height: 4.4rem;
   color: $text-color;
   margin: 0;
 }
@@ -471,9 +475,9 @@ select.sort-by__menu {
 }
 
 @media only screen and (max-width: 31.25em) {
-  .courses__body {
-    margin-right: 2rem;
-  }
+  // .courses__body {
+  //   // margin-right: 2rem;
+  // }
   .courses__tool {
     display: none;
   }

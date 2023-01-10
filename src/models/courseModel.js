@@ -1,29 +1,34 @@
-import { link } from "fs";
 import moment from "moment";
-import CourseController from "../controllers/CourseController.js";
 import db from "../utils/db.js";
 import categoryModel from "./categoryModel.js";
 
 export default {
   // get course / courses
   getAll() {
+    return db("course").where("blocked", 0);
+  },
+
+  adminGetAll() {
     return db("course");
   },
 
   async getById(id) {
-    const list = await db("course").where("id", id);
+    const list = await db("course").where("id", id).andWhere("blocked", 0);
     if (list.length === 0) return null;
     return list[0];
   },
 
   async getSummaryById(id) {
-    const list = await db("course").select("id", "name").where("id", id);
+    const list = await db("course")
+      .select("id", "name")
+      .where("id", id)
+      .andWhere("blocked", 0);
     if (list.length === 0) return null;
     return list[0];
   },
 
   async getDirectByCategoryId(id) {
-    return await db("course").where("idCategory", id);
+    return await db("course").where("idCategory", id).andWhere("blocked", 0);
   },
 
   async getByCategoryId(id) {
@@ -37,10 +42,27 @@ export default {
       });
     }
 
-    return await db("course").whereIn("idCategory", ids);
+    return await db("course").whereIn("idCategory", ids).andWhere("blocked", 0);
   },
 
   async getSummaryByCategoryId(id) {
+    const category = await categoryModel.getById(id);
+    const ids = [id];
+
+    if (category.parentID === null) {
+      const childCategories = await categoryModel.getChildByParentID(id);
+      childCategories.forEach((childCategory) => {
+        ids.push(childCategory.id);
+      });
+    }
+
+    return await db("course")
+      .select("id", "name", "blocked")
+      .whereIn("idCategory", ids)
+      .andWhere("blocked", 0);
+  },
+
+  async adminGetSummaryByCategoryId(id) {
     const category = await categoryModel.getById(id);
     const ids = [id];
 
@@ -69,6 +91,7 @@ export default {
 
     return await db("course")
       .whereIn("idCategory", ids)
+      .andWhere("blocked", 0)
       .limit(limit)
       .offset(offset);
   },
@@ -81,10 +104,39 @@ export default {
     });
     return await db("course")
       .select("id", "name", "blocked")
-      .whereIn("id", ids);
+      .whereIn("id", ids)
+      .andWhere("blocked", 0);
+  },
+
+  async adminGetSummaryByTeacherId(id) {
+    const courseTeachers = await db("course_of_teacher").where("teacherID", id);
+    const ids = [];
+    courseTeachers.forEach((courseTeacher) => {
+      ids.push(courseTeacher.teacherID);
+    });
+    return await db("course")
+      .select("id", "name", "blocked")
+      .whereIn("id", ids)
+      .andWhere("blocked", 0);
   },
 
   async getSummaryByCategoryAndTeacherId(idCategory, idTeacher) {
+    const courseTeachers = await db("course_of_teacher").where(
+      "teacherID",
+      idTeacher
+    );
+    const ids = [];
+    courseTeachers.forEach((courseTeacher) => {
+      ids.push(courseTeacher.teacherID);
+    });
+    return await db("course")
+      .select("id", "name", "blocked")
+      .whereIn("id", ids)
+      .andWhere("id", idCategory)
+      .andWhere("blocked", 0);
+  },
+
+  async adminGetSummaryByCategoryAndTeacherId(idCategory, idTeacher) {
     const courseTeachers = await db("course_of_teacher").where(
       "teacherID",
       idTeacher
@@ -104,6 +156,7 @@ export default {
     return await db
       .select("id")
       .table("course as C")
+      .where("blocked", 0)
       .groupBy("C.id")
       .join("course_of_student as buyed", "buyed.courseID", "C.id")
       .count("buyed.courseID as count")
@@ -116,6 +169,7 @@ export default {
     return await db
       .select("id")
       .table("course")
+      .where("blocked", 0)
       .orderBy("views", "DESC")
       .limit(limit);
   },
@@ -150,11 +204,13 @@ export default {
 
     const result = await db("course")
       .whereIn("idCategory", ids)
+      .andWhere("blocked", 0)
       .count("id as number");
     return result[0].number;
   },
   async getIDCourseByName(name) {
     return db("course").select("id").where("name", name);
+    // .andWhere("blocked", 0);
     // const [[rate], ...h] = await db.raw(
     //   `SELECT count(star) as sumRate FROM rating WHERE  rating.courseID = ?`,
     //   id
@@ -216,7 +272,8 @@ export default {
     const idCategory = await db
       .select("idCategory")
       .from("course")
-      .where("id", id);
+      .where("id", id)
+      .andWhere("blocked", 0);
     //lay categoryId parent
     const idCategoryParent = await db
       .select("parentID")
@@ -239,7 +296,9 @@ export default {
       listSimilarCourse.push(course);
 
       for (const child of childCategory) {
-        const course = await db("course").where("idCategory", child.id);
+        const course = await db("course")
+          .where("idCategory", child.id)
+          .andWhere("blocked", 0);
         listSimilarCourse.push(course);
       }
 
@@ -380,35 +439,35 @@ export default {
   // SEARCH COURSE BY NAME
   async totalResultByName(name) {
     const result = await db.raw(
-      `SELECT count(id) as count FROM course WHERE MATCH(name) AGAINST("${name}");`
+      `SELECT count(id) as count FROM course WHERE MATCH(name) AGAINST("${name}") AND blocked = 0;`
     );
     return result[0][0].count;
   },
 
   async searchByName(name) {
     const result = await db.raw(
-      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}");`
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") AND blocked = 0;`
     );
     return result[0];
   },
 
   async searchPageByName(name, limit, offset) {
     const result = await db.raw(
-      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") LIMIT ${limit} OFFSET ${offset};`
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") AND blocked = 0 LIMIT ${limit} OFFSET ${offset};`
     );
     return result[0];
   },
 
   async searchPageByNameOrderNewest(name, limit, offset) {
     const result = await db.raw(
-      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY createTime DESC LIMIT ${limit} OFFSET ${offset};`
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") AND blocked = 0 ORDER BY createTime DESC LIMIT ${limit} OFFSET ${offset};`
     );
     return result[0];
   },
 
   async searchPageByNameMostView(name, limit, offset) {
     const result = await db.raw(
-      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY views DESC LIMIT ${limit} OFFSET ${offset};`
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") AND blocked = 0 ORDER BY views DESC LIMIT ${limit} OFFSET ${offset};`
     );
     return result[0];
   },
@@ -424,6 +483,7 @@ export default {
             GROUP BY C.id) as C1
       ON C.id = C1.ID
       AND MATCH(C.name) AGAINST("${name}") 
+      AND C.blocked = 0
       ORDER BY C1.avgRate DESC
       LIMIT ${limit} OFFSET ${offset};`
     );
@@ -432,21 +492,21 @@ export default {
 
   async searchPageByNameOrderAscPrice(name, limit, offset) {
     const result = await db.raw(
-      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY fee ASC LIMIT ${limit} OFFSET ${offset};`
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") AND blocked = 0 ORDER BY fee ASC LIMIT ${limit} OFFSET ${offset};`
     );
     return result[0];
   },
 
   async searchPageByNameOrderDescPrice(name, limit, offset) {
     const result = await db.raw(
-      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY fee DESC LIMIT ${limit} OFFSET ${offset};`
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") AND blocked = 0 ORDER BY fee DESC LIMIT ${limit} OFFSET ${offset};`
     );
     return result[0];
   },
 
   async searchPageByNameOrderDescPrice(name, limit, offset) {
     const result = await db.raw(
-      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") ORDER BY fee DESC LIMIT ${limit} OFFSET ${offset};`
+      `SELECT * FROM course WHERE MATCH(name) AGAINST("${name}") AND blocked = 0 ORDER BY fee DESC LIMIT ${limit} OFFSET ${offset};`
     );
     return result[0];
   },
@@ -460,7 +520,7 @@ export default {
     let result = 0;
     for (const category of categories[0]) {
       const number = await db.raw(
-        `SELECT count(id) as count FROM course WHERE course.idCategory = ${category.id};`
+        `SELECT count(id) as count FROM course WHERE course.idCategory = ${category.id} AND blocked = 0;`
       );
 
       result += number[0][0].count;
@@ -478,7 +538,7 @@ export default {
     for (const category of categories[0]) {
       ids.push(category.id);
     }
-    return await db("course").whereIn("idCategory", ids);
+    return await db("course").whereIn("idCategory", ids).andWhere("blocked", 0);
   },
 
   async searchPageByCategory(name, limit, offset) {
@@ -493,6 +553,7 @@ export default {
 
     return await db("course")
       .whereIn("idCategory", ids)
+      .andWhere("blocked", 0)
       .limit(limit)
       .offset(offset);
   },
@@ -509,6 +570,7 @@ export default {
 
     return await db("course")
       .whereIn("idCategory", ids)
+      .andWhere("blocked", 0)
       .orderBy("createTime", "desc")
       .limit(limit)
       .offset(offset);
@@ -526,6 +588,7 @@ export default {
 
     return await db("course")
       .whereIn("idCategory", ids)
+      .andWhere("blocked", 0)
       .orderBy("views", "desc")
       .limit(limit)
       .offset(offset);
@@ -551,6 +614,7 @@ export default {
               as C1
         ON C.id = C1.id
         AND C.idCategory IN (${idsSql})
+        AND C.blocked = 0
         ORDER BY C1.avgRate DESC
         LIMIT ${limit} OFFSET ${offset};`
     );
@@ -570,6 +634,7 @@ export default {
 
     return await db("course")
       .whereIn("idCategory", ids)
+      .andWhere("blocked", 0)
       .orderBy("fee", "asc")
       .limit(limit)
       .offset(offset);
@@ -587,6 +652,7 @@ export default {
 
     return await db("course")
       .whereIn("idCategory", ids)
+      .andWhere("blocked", 0)
       .orderBy("fee", "desc")
       .limit(limit)
       .offset(offset);

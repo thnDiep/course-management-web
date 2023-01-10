@@ -66,96 +66,101 @@ class CourseController {
     // get course content
     const courseContent = await courseModel.getById(id);
     const chapter = await courseModel.getAllChapterOfCourse(id);
-    for (let i = 0; i < chapter.length; i++) {
-      chapter[i].index = i + 1;
-      chapter[i].lesson = await courseModel.getAllLessonOfChapter(
-        chapter[i].id
-      );
-      for (let j = 0; j < chapter[i].lesson.length; j++) {
-        chapter[i].lesson[j].index = j + 1;
-        j === chapter[i].lesson.length - 1 && i === chapter.length - 1
-          ? (chapter[i].lesson[j].checkLesson = true)
-          : (chapter[i].lesson[j].checkLesson = false);
-      }
-      i === chapter.length - 1 && chapter[i].lesson.length === 0
-        ? (chapter[i].checkChapter = true)
-        : (chapter[i].checkChapter = false);
-      i === chapter.length - 1
-        ? (chapter[i].check = true)
-        : (chapter[i].check = false);
-    }
-    courseContent.chapter = chapter;
 
-    // get info for barStar
-    const avgRated = await courseModel.getAvgRate(course.id);
-    course.rated = (+avgRated).toFixed(1);
-
-    const numberRated = await courseModel.getCountFeedback(course.id);
-    course.numberRated = (+numberRated).toFixed(0);
-
-    // check status of course
-    const isComplete = await courseModel.isComplete(id);
-
-    // check discount
-    if (course.fee !== course.feeO) {
-      course.discount = true;
-    }
-
-    // get teacher of course
-    const teacher = await courseModel.teacherOfCourse(id);
-
-    const numberOfStudent = await userModel.getNumberStudentByCourse(id);
-    const updateTime = await courseModel.getUpdateTime(id);
-    const numberStudentOfTeacher = await userModel.getNumberStudentOfTeacher(
-      id
-    );
-    const NumberCourseOfTeacher = await userModel.getNumberCourseOfTeacher(id);
-    // get similar course list
-    const listSimilarCourse = await courseModel.getSimilarCourse(id);
-    const listSimilar = [];
-    // lay 5 khoa hoc tuong tu
-    const limit = 5;
-    var i = 0;
-    for (const course of listSimilarCourse) {
-      if (course.id !== id && i < limit) {
-        listSimilar.push(course);
-        i++;
-      }
-    }
-
-    // phan quyen trong course Detail
-    // student
-    if (res.locals.lcAuthUser) {
-      const userID = res.locals.lcAuthUser.id;
-      // lấy khóa học đã đăng ký
-      const learningCourses = await studentCourseModel.getCourseOfStudent(
-        userID
-      );
-      learningCourses.forEach((learningCourse) => {
-        if (learningCourse.courseID === id) {
-          course.buyed = true;
+    if (courseContent !== null) {
+      for (let i = 0; i < chapter.length; i++) {
+        chapter[i].index = i + 1;
+        chapter[i].lesson = await courseModel.getAllLessonOfChapter(
+          chapter[i].id
+        );
+        for (let j = 0; j < chapter[i].lesson.length; j++) {
+          chapter[i].lesson[j].index = j + 1;
+          j === chapter[i].lesson.length - 1 && i === chapter.length - 1
+            ? (chapter[i].lesson[j].checkLesson = true)
+            : (chapter[i].lesson[j].checkLesson = false);
         }
-      });
-      // lấy khóa học yêu thích
-      const lovedCourses = await studentCourseModel.getCourseStudentLove(
-        userID
-      );
-      lovedCourses.forEach((lovedCourse) => {
-        if (lovedCourse.courseID === id) {
-          course.loved = true;
-        }
-      });
-    }
+        i === chapter.length - 1 && chapter[i].lesson.length === 0
+          ? (chapter[i].checkChapter = true)
+          : (chapter[i].checkChapter = false);
+        i === chapter.length - 1
+          ? (chapter[i].check = true)
+          : (chapter[i].check = false);
+      }
+      courseContent.chapter = chapter;
 
-    // gv
-    if (res.locals.lcAuthTeacher) {
-      const userID = res.locals.lcAuthTeacher.id;
-      // lấy khóa học của gv
-      const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
-      for (const course of coursesOfTeacher) {
-        if (course.id === course.id) {
-          course.isCourseOfTeacher = true;
-          console.log("la course cuagv", course.isCourseOfTeacher);
+      // get info for barStar
+      const avgRated = await courseModel.getAvgRate(course.id);
+      course.rated = (+avgRated).toFixed(1);
+
+      const numberRated = await courseModel.getCountFeedback(course.id);
+      course.numberRated = (+numberRated).toFixed(0);
+
+      // check status of course
+      const isComplete = await courseModel.isComplete(id);
+
+      // check discount
+      if (course.fee !== course.feeO) {
+        course.discount = true;
+      }
+
+      // get teacher of course
+      const teacher = await courseModel.teacherOfCourse(id);
+
+      const numberOfStudent = await userModel.getNumberStudentByCourse(id);
+      const updateTime = await courseModel.getUpdateTime(id);
+      const numberStudentOfTeacher = await userModel.getNumberStudentOfTeacher(
+        id
+      );
+      const NumberCourseOfTeacher = await userModel.getNumberCourseOfTeacher(
+        id
+      );
+      // get similar course list
+      const listSimilarCourse = await courseModel.getSimilarCourse(id);
+      const listSimilar = [];
+      // lay 5 khoa hoc tuong tu
+      const limit = 5;
+      var i = 0;
+      for (const course of listSimilarCourse) {
+        if (course.id !== id && i < limit) {
+          listSimilar.push(course);
+          i++;
+        }
+      }
+
+      // phan quyen trong course Detail
+      // student
+      if (res.locals.lcAuthUser) {
+        const userID = res.locals.lcAuthUser.id;
+        // lấy khóa học đã đăng ký
+        const learningCourses = await studentCourseModel.getCourseOfStudent(
+          userID
+        );
+        learningCourses.forEach((learningCourse) => {
+          if (learningCourse.courseID === id) {
+            course.buyed = true;
+          }
+        });
+        // lấy khóa học yêu thích
+        const lovedCourses = await studentCourseModel.getCourseStudentLove(
+          userID
+        );
+        lovedCourses.forEach((lovedCourse) => {
+          if (lovedCourse.courseID === id) {
+            course.loved = true;
+          }
+        });
+      }
+
+      // gv
+      if (res.locals.lcAuthTeacher) {
+        const userID = res.locals.lcAuthTeacher.id;
+        // lấy khóa học của gv
+        const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
+        for (const course of coursesOfTeacher) {
+          if (course.id === course.id) {
+            course.isCourseOfTeacher = true;
+            console.log("la course cuagv", course.isCourseOfTeacher);
+          }
         }
       }
 
@@ -203,7 +208,6 @@ class CourseController {
         res.redirect("/courses");
       }
       await courseModel.updateView(id);
-      const isCourse = true;
 
       const category = await categoryModel.getById(course.idCategory);
       const linkCategories = [];
@@ -214,7 +218,9 @@ class CourseController {
       linkCategories.push(category);
 
       // course.linkCategories = linkCategories;
+      const isCourse = true;
 
+      console.log("detail");
       res.render("courses/courseDetail", {
         // layout: "teacher",
         course,
@@ -241,6 +247,8 @@ class CourseController {
         // feedbackTime,
         // timeOfFeedback,
       });
+    } else {
+      res.redirect("back");
     }
   }
 
@@ -306,7 +314,7 @@ class CourseController {
       res.redirect("/courses");
     }
     const isCourse = true;
-
+    console.log("haha");
     // await courseModel.updateView(idCourse);
     res.render("courses/enrollCourse", {
       course,

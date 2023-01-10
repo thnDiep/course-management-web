@@ -15,8 +15,11 @@
 
 .courses__tool {
   overflow: hidden;
+  display: flex;
+  align-items: center;
   margin-bottom: 20px; }
   .courses__tool .courses__sort {
+    flex: 1;
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.05);
@@ -28,6 +31,10 @@
       width: 360px;
       text-align: center;
       text-transform: uppercase; }
+    .courses__tool .courses__sort label {
+      margin: 0; }
+      .courses__tool .courses__sort label h1 {
+        margin: 0; }
     .courses__tool .courses__sort .btns {
       display: flex;
       overflow-x: scroll; }
@@ -169,7 +176,6 @@ select.sort-by__menu {
     -webkit-line-clamp: 1;
     overflow: hidden;
     line-height: 2.6rem;
-    height: 2.6rem;
     max-height: 2.6rem; }
   .course.course--horizontal .course__img {
     border: 1px solid #777;
@@ -219,7 +225,6 @@ select.sort-by__menu {
   -webkit-line-clamp: 2;
   overflow: hidden;
   line-height: 2.6rem;
-  height: 5.2rem;
   max-height: 5.2rem;
   font-size: 2.4rem;
   font-weight: 600;
@@ -259,8 +264,8 @@ select.sort-by__menu {
   -webkit-line-clamp: 2;
   overflow: hidden;
   font-size: 1.6rem;
-  line-height: 3rem;
-  max-height: 6rem;
+  line-height: 2.2rem;
+  max-height: 4.4rem;
   color: #101010;
   margin: 0; }
 
@@ -342,8 +347,6 @@ select.sort-by__menu {
     line-height: 50px; }
 
 @media only screen and (max-width: 31.25em) {
-  .courses__body {
-    margin-right: 2rem; }
   .courses__tool {
     display: none; }
   .course__category-link {
