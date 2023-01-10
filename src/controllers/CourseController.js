@@ -206,7 +206,6 @@ class CourseController {
     for (const course1 of coursesOfTeacher){
       if (course1.id === id){
         course.isCourseOfTeacher = true;
-        console.log("la course cuagv" ,course.isCourseOfTeacher);
       }
     }
   }
@@ -315,7 +314,8 @@ class CourseController {
       res.redirect("/courses");
     }
     const isCourse = true;
-    console.log("haha");
+    
+    // console.log("haha");
     // await courseModel.updateView(idCourse);
     res.render("courses/enrollCourse", {
       course,

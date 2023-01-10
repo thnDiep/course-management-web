@@ -397,6 +397,7 @@ export default {
     return lessons;
   },
 
+  
   // id = lesson id
   async getLessonByID(id) {
     const lesson = await db("lesson").where("id", id);
