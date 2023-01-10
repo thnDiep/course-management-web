@@ -92,15 +92,17 @@ class tProfileController {
 
     if (ret) {
       const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync(req.body.passwordCurrent, salt);
+      const hash = bcrypt.hashSync(req.body.password, salt);
       const teacher = {
         id: password.id,
+        img: res.locals.lcAuthTeacher.img,
         name: req.body.name,
         email: req.body.email,
         password: hash,
         about: req.body.about,
       };
       await userModel.updateTeacher(teacher);
+      req.session.authTeacher = teacher;
       return res.redirect("/teacher/profile");
     } else {
       const course = await userModel.getAllCourseOfTeacher(
