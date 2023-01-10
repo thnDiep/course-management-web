@@ -430,6 +430,7 @@ class CourseController {
   // [GET] /courses/like?id=
   async like(req, res) {
     const studentID = res.locals.lcAuthUser.id;
+    //const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -455,6 +456,7 @@ class CourseController {
   // [GET] /courses/unlike?id=
   async unlike(req, res) {
     const studentID = res.locals.lcAuthUser.id;
+    //const studentID = 29;
     const courseID = parseInt(req.query.id);
     let exists = false;
 
@@ -479,7 +481,9 @@ class CourseController {
 
   //[GET] /courses/watch-list?page=
   async watchList(req, res) {
+    // if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
+    //const studentID = 29;
     const courses = [];
 
     const limit = 3;
@@ -691,7 +695,7 @@ const getInfoCourse = async function (courses, res) {
   if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
     // console.log(studentID);
-    // const studentID = 29;
+    //const studentID = 29;
     learningCourses = await studentCourseModel.getCourseOfStudent(studentID);
     lovedCourses = await studentCourseModel.getCourseStudentLove(studentID);
   }
