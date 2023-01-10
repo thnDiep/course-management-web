@@ -304,6 +304,8 @@ export default {
     return allFeedback;
   },
 
+  
+
   // async getTimeOfFeedback(id){
   //   const time = await db
   //     .from("rating")

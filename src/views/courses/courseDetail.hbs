@@ -78,11 +78,10 @@
 
         <div class="courseD__intro__buttons">
             
-            {{!-- teacher || student --}}
-            {{#ifOrs lcAuthTeacher lcAuthUser}}
+            {{#if @root.lcIsAuthenticated}}
               {{!-- teacher --}}
-              {{#if lcAuthTeacher}}
-                {{#if ../this.course.isCourseOfTeacher}}
+              {{#if @root.lcAuthTeacher}}
+                {{#if this.course.isCourseOfTeacher}}
                   <div class="buying-btn-frame">
                     <a href="/teacher/profile" class="buying-button">
                       <p class="fee">
@@ -94,7 +93,7 @@
               {{/if}}
 
               {{!-- user --}}
-              {{#if lcAuthUser}}
+              {{#if @root.lcAuthUser}}
               {{!-- khi user da mua khoa hoc --}}
                 {{#if this.course.buyed}}
                 <div class="learning-btn-frame ">
@@ -136,21 +135,21 @@
                 </a>
               {{/if}}
 
-              {{!-- guest --}}
-              {{else}}  
-                <div class=" ml-5 buying-btn-frame">
-                <a href="/account/login/required" role="button" class="ml-5 buying-button" >
-                  <p class="fee">
-                    {{format_number this.course.fee}} đ
+            {{!-- guest --}}
+            {{else}}
+              <div class=" ml-5 buying-btn-frame">
+              <a href="/account/login/required" role="button" class="ml-5 buying-button" >
+                <p class="fee">
+                  {{format_number this.course.fee}} đ
+                </p>
+                {{#if this.course.discount}}
+                  <p class="feeO">
+                    {{format_number this.course.feeO}}đ
                   </p>
-                  {{#if this.course.discount}}
-                    <p class="feeO">
-                      {{format_number this.course.feeO}}đ
-                    </p>
-                  {{/if}}
-                </a>
-                </div>
-              {{/ifOrs}}
+                {{/if}}
+              </a>
+              </div>
+            {{/if}}
         </div>
       </div>
 
@@ -335,11 +334,13 @@
     <div class="col-md-3">
       <div class="feedback-left">
         <p class="feedback-title">Feedbacks</p>
+
+
         <div class="feedback_review">
           <div class="course__review">
-            <div class="course__review-score">
-              {{> barStar this.course}}
-            </div>
+          <div class="course__review-score">
+            {{> barStar this.course}}
+          </div>
 
             <div class="course__review-number">({{this.course.numberRated}})</div>
           </div>
@@ -381,11 +382,19 @@
       {{#each this.allFeedback}}
         <div  class="feedback-right">
           <div class="feedback-right-star">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-half" aria-hidden="true"></i>
+            <div class="course__review">
+              <div class="course__review-score">
+                <span class="mr-2">{{star}} </span>
+                  <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <div class="overlay--star" style="width: calc(100% - {{star}}/5*100%)"></div>
+                  </div>
+              </div>
+            </div>
           </div>
           <div class="display_flex">
             <p>By. John Matt {{studentID}} &nbsp;</p>

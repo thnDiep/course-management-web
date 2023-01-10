@@ -118,6 +118,8 @@ class CourseController {
     var i = 0;
     for (const course of listSimilarCourse) {
       if (course.id !== id && i < limit) {
+        const teacher = await userModel.getNameTeacher(course.id);
+        course.teacher = teacher;
         listSimilar.push(course);
         i++;
       }
@@ -148,12 +150,13 @@ class CourseController {
     const userID = res.locals.lcAuthTeacher.id;
     // lấy khóa học của gv 
     const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
-    for (const course of coursesOfTeacher){
-      if (course.id === course.id){
+    for (const course1 of coursesOfTeacher){
+      if (course1.id === id){
         course.isCourseOfTeacher = true;
         console.log("la course cuagv" ,course.isCourseOfTeacher);
       }
     }
+  }
 
     // get info for chart rating
     const numberRating = await courseModel.getCountFeedback(id);
@@ -190,10 +193,18 @@ class CourseController {
     // const feedbackTime = await courseModel.getTimeOfFeedback(id);
 
     // const timeOfFeedback = await courseModel.convertFormatDate(allFeedback.time);
-    allFeedback.forEach((feedback) => {
+    // allFeedback.forEach((feedback) => {
+    //   // const rate =  await courseModel.getAvgRate(feedback.courseID);
+    //   const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
+    //   feedback.time = time;
+    //   const course = await courseModel.getById(feedback.courseID);
+      
+    // });
+
+    for (const feedback of allFeedback){
       const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
       feedback.time = time;
-    });
+    }
 
     if (course === null) {
       res.redirect("/courses");
@@ -237,7 +248,6 @@ class CourseController {
       // feedbackTime,
       // timeOfFeedback,
     });
-  }
 }
 
   // [GET] /courses/join?idCourse={idCourse}&idChapter={idChapter}&idLesson={idLesson}
@@ -497,7 +507,7 @@ class CourseController {
     let sortOption = parseInt(req.query.sortBy) || 0;
     let totalResult;
     let courses;
-    console.log(res.locals.lcIsAuthenticated);
+    // console.log(res.locals.lcIsAuthenticated);
     switch (searchOption) {
       case 0:
         totalResult = await courseModel.totalResultByName(keyWord);
@@ -659,8 +669,6 @@ const getInfoCourse = async function (courses, res) {
   // Lấy các khóa học của student
   if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
-    // console.log(studentID);
-    // const studentID = 29;
     learningCourses = await studentCourseModel.getCourseOfStudent(studentID);
     lovedCourses = await studentCourseModel.getCourseStudentLove(studentID);
   }

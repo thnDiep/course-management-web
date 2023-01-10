@@ -235,12 +235,14 @@
         background-color: lightgray; }
       .courseD__content .right .similar_course-button .similar_course_name {
         font-size: 1.5rem;
-        font-weight: 300;
+        font-weight: 700;
         padding-left: 1rem;
         color: black; }
       .courseD__content .right .similar_course-button .similar_course_teacher {
         padding-left: 1rem;
-        font-size: 1.2rem; }
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: black; }
       .courseD__content .right .similar_course-button .similar_course-image {
         height: 8rem;
         width: 11rem; }

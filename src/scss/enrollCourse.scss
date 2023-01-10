@@ -45,10 +45,12 @@
 }
 
 .courseDetail_course__review {
+  display: flex;
   font-size: 1.4rem;
   font-weight: 600;
   margin: 1rem 0;
   margin-top: 1.5rem;
+  color: black;
   .courseDetail_course__review-ratings {
     color: $gold-color;
     .star {
@@ -151,6 +153,11 @@
     }
   }
 
+.content{
+  color: black;
+}
+
+
   .course-detail__intro-avt {
     height: 180px;
     width: 200px;
@@ -221,6 +228,7 @@
     font-size: 1.6rem;
     font-weight: 500;
     margin: 0;
+    color: black;
     /* align-items: center; */
     display: flex;
     .courses_teacher-link {
@@ -237,6 +245,7 @@
     font-size: 1.4rem;
     position: relative;
     margin-bottom: 0rem;
+    color: black;
     .footer_intro-item {
       margin: 0rem 2rem 3rem 0rem;
     }
