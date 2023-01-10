@@ -338,6 +338,7 @@ select.sort-by__menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   z-index: 2;
   text-transform: uppercase; }
   .course__buttons .btn {
