@@ -2,6 +2,7 @@ import userModel from "../../models/userModel.js";
 import bcrypt from "bcryptjs";
 import accountModel from "../../models/accountModel.js";
 import sendMail from "../../utils/email.js";
+import courseModel from "../../models/courseModel.js";
 
 const getUser = async (id) => {
   let users;
@@ -170,11 +171,21 @@ class AAccountController {
 
   async delete(req, res) {
     await userModel.delete(req.query.id);
+    await courseModel.deleteCourseOfStudent(req.query.id);
+    await courseModel.deleteCourseOfTeacher(req.query.id);
     res.redirect("back");
   }
   async deleteByCheckbox(req, res) {
-    for (const idAccounts of req.body.idAccounts) {
-      await userModel.delete(idAccounts);
+    if (Array.isArray(req.body.idAccounts)) {
+      for (const idAccounts of req.body.idAccounts) {
+        await userModel.delete(idAccounts);
+        await courseModel.deleteCourseOfStudent(idAccounts);
+        await courseModel.deleteCourseOfTeacher(idAccounts);
+      }
+    } else {
+      await userModel.delete(req.body.idAccounts);
+      await courseModel.deleteCourseOfStudent(req.body.idAccounts);
+      await courseModel.deleteCourseOfTeacher(req.body.idAccounts);
     }
     res.redirect("back");
   }

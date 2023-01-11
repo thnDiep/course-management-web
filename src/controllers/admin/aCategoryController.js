@@ -152,20 +152,23 @@ class ACategoryController {
     if (category === null) {
       res.redirect("/admin/categories");
     } else {
+      let childCategories;
       const courses = await courseModel.getSummaryByCategoryId(id);
       const parentCategories = await categoryModel.getParent();
-      const childCategories = await categoryModel.getChildByParentID(id);
       category.enabledEditParentID = true;
 
       if (!category.parentID) {
-        const childCategories = await categoryModel.getChildByParentID(id);
+        childCategories = await categoryModel.getChildByParentID(id);
         if (childCategories.length) {
           category.enabledEditParentID = false;
         }
 
-        for (const category of childCategories) {
-          const courses = await courseModel.getByCategoryId(category.id);
-          category.numberCourse = courses.length;
+        for (const childCategory of childCategories) {
+          const courseOfChildCat = await courseModel.getByCategoryId(
+            childCategory.id
+          );
+          childCategory.numberCourse = courseOfChildCat.length;
+          console.log(childCategory);
         }
       }
 

@@ -1,6 +1,7 @@
 import categoryModel from "../../models/categoryModel.js";
 import courseModel from "../../models/courseModel.js";
 import userModel from "../../models/userModel.js";
+import teacherCourseModel from "../../models/teacherCourseModel.js";
 class ACourseController {
   // GET /admin/courses?category=&teacher=
   async index(req, res) {
@@ -56,6 +57,7 @@ class ACourseController {
   // DELETE /admin/courses?id=
   async delete(req, res) {
     await courseModel.delete(req.query.id);
+    await teacherCourseModel.removeCourse(req.query.id);
     res.redirect("back");
   }
 
@@ -63,6 +65,7 @@ class ACourseController {
   async deleteByCheckbox(req, res) {
     for (const idCourse of req.body.idCourses) {
       await courseModel.delete(idCourse);
+      await teacherCourseModel.removeCourse(idCourse);
     }
     res.redirect("back");
   }

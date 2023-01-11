@@ -138,6 +138,16 @@ select.sort-by__menu {
   transform: rotate(-40deg);
   z-index: 2; }
 
+.course__completed-label {
+  background-color: #f8d752;
+  width: fit-content;
+  min-width: 150px;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  opacity: 0.96; }
+
 .course__new-label {
   display: none;
   position: absolute;

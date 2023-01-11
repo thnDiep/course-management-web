@@ -8,7 +8,8 @@
       </div>  
       
       <div class="course__body">
-        <h4 class="course__title">{{name}}</h4>
+        <h4 class="course__title">{{name}}
+        </h4>
 
         <ul class="course__category">
           {{#each this.linkCategories}}
@@ -41,6 +42,20 @@
           <li class="course__info-item">3 lectures</li>
           <li class="course__info-item">Expert level</li>
         </ul> --}}
+        {{#if isCompleted}}
+          <div class="course__completed-label">
+            <span>
+              Accomplished
+            </span>
+          </div>
+        {{else}}
+          <div class="course__completed-label" style="background-color:black; color:white">
+            <span>
+              Unaccomplished
+            </span>
+          </div>
+          {{/if}}
+
       </div>
 
       <div class="course__footer">     
