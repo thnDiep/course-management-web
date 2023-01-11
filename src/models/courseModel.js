@@ -116,8 +116,7 @@ export default {
     });
     return await db("course")
       .select("id", "name", "blocked")
-      .whereIn("id", ids)
-      .andWhere("blocked", 0);
+      .whereIn("id", ids);
   },
 
   async getSummaryByCategoryAndTeacherId(idCategory, idTeacher) {
@@ -361,15 +360,19 @@ export default {
     return allFeedback;
   },
 
-  
-  async isEmptyCourse(id){
-    const chapters = await db.select("id").from("chapter").where("courseID", id);
-    if (chapters.length === 0){
+  async isEmptyCourse(id) {
+    const chapters = await db
+      .select("id")
+      .from("chapter")
+      .where("courseID", id);
+    if (chapters.length === 0) {
       return true;
-    }
-    else{
-      for (const chapter of chapters){
-        const lesson = await db.select("id").from("lesson").where("chapterID", chapter.id);
+    } else {
+      for (const chapter of chapters) {
+        const lesson = await db
+          .select("id")
+          .from("lesson")
+          .where("chapterID", chapter.id);
         if (lesson.length !== 0) {
           return false;
         }
@@ -412,7 +415,6 @@ export default {
     return lessons;
   },
 
-  
   // id = lesson id
   async getLessonByID(id) {
     const lesson = await db("lesson").where("id", id);
