@@ -83,8 +83,12 @@
   
   .formCourse_title {
     font-weight: bold;
-      padding-top: 1rem;
+    padding-top: 1rem;
     font-size: 1.8rem;
+    @media only screen and (max-width: 31.25em){
+      width: 90%;
+    }
+    
   
     &:hover {
       cursor:pointer;
@@ -146,6 +150,9 @@
     padding-top: 1rem;
     font-weight:700;
     margin-left: 0.7rem;
+    @media only screen and (max-width: 31.25em){
+      width: 10rem;
+    }
   }
   
   .chapter__title:hover {
@@ -205,4 +212,9 @@
     background-color: #d8d7dc;
   }
   
+  @media only screen and (max-width: 31.25em){
+    .sidenav{
+      width: 360px;
+    }
+}
   

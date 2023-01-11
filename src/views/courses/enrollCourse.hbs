@@ -47,7 +47,7 @@
           {{/each}}
         </ul>
 
-        <a href="/courses/detail?id={{this.idCourse}}" class="d-flex align-items-center allInfo">
+        <a href="/courses/detail?id={{this.idCourse}}" class="align-items-center allInfo">
           {{! <div class="course-detail__intro-avt"> }}
           <img
             class="course-detail__intro-avt"
@@ -90,49 +90,48 @@
           </div>
         </a>
       </div>
-
-      <form class="mb-5" action="/courses/feedback">
-        <div class="text-center">
-          <i class="far fa-file-alt fa-4x mb-3 animated rotateIn icon1"></i>
-          <h4>Help us improve our quality.
-            <strong>Give us your feedback.</strong></h4>
-          <hr />
-                {{!-- <h1 class="lesson_name">Rate & feedback</h1> --}}
-        </div>
-        <h3>Your rating for this course</h3>
-        <input id="input-5-ltr-star-xl" 
-              name="rating" 
-              class="kv-ltr-theme-svg-star rating-loading" 
-              value="5" 
-              step="1"
-              dir="ltr" 
-              data-size="l"
-              data-show-clear="false">
-        <br/>
-        <h3>Your feedback for this course</h3>
-        <textarea
-              id="feedback"
-              name="feedback"
-              type="textarea"
-              placeholder="Your Message"
-              rows="5"
-        ></textarea>
-        <input type="hidden" name="idCourse" value="{{this.course.id}}">
-        <br/>
-        {{!-- <button class="btn btn-primary">Submit</button> --}}
-        <button type="reset" class="btn btn--border mt-3 mr-3" style="font-size:1.4rem;">Cancel</button>
-
-        <button id="btnSubmit"  class="btn btn--primary mt-3" style="font-size:1.4rem;">
-          Public
-          <i class="fa fa-paper-plane"></i>
-        </button>
-      </form> 
     </div> 
+    <form class="mb-5" action="/courses/feedback">
+      <div class="text-center">
+        <i class="far fa-file-alt fa-4x mb-3 animated rotateIn icon1"></i>
+        <h4>Help us improve our quality.
+          <strong>Give us your feedback.</strong></h4>
+        <hr />
+              {{!-- <h1 class="lesson_name">Rate & feedback</h1> --}}
+      </div>
+      <h3>Your rating for this course</h3>
+      <input id="input-5-ltr-star-xl" 
+            name="rating" 
+            class="kv-ltr-theme-svg-star rating-loading" 
+            value="5" 
+            step="1"
+            dir="ltr" 
+            data-size="l"
+            data-show-clear="false">
+      <br/>
+      <h3>Your feedback for this course</h3>
+      <textarea
+            id="feedback"
+            name="feedback"
+            type="textarea"
+            placeholder="Your Message"
+            rows="5"
+      ></textarea>
+      <input type="hidden" name="idCourse" value="{{this.course.id}}">
+      <br/>
+      {{!-- <button class="btn btn-primary">Submit</button> --}}
+      <button type="reset" class="btn btn--border mt-3 mr-3" style="font-size:1.4rem;">Cancel</button>
 
-</div>
+      <button id="btnSubmit"  class="btn btn--primary mt-3" style="font-size:1.4rem;">
+        Public
+        <i class="fa fa-paper-plane"></i>
+      </button>
+    </form> 
+  </div>
 
   {{! side bar: list chapter }}
-  <div class="col-sm-3">
+  <div class="col-sm-3 enrollCourse__sideBar">
    {{> enrollCourse_sideBar }} 
   </div>
-  </div>
+</div>
+

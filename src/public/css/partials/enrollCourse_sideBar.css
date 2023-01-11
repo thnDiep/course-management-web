@@ -65,6 +65,9 @@
   font-weight: bold;
   padding-top: 1rem;
   font-size: 1.8rem; }
+  @media only screen and (max-width: 31.25em) {
+    .formCourse_title {
+      width: 90%; } }
   .formCourse_title:hover {
     cursor: pointer;
     background-color: #d8d7dc;
@@ -105,6 +108,9 @@
   padding-top: 1rem;
   font-weight: 700;
   margin-left: 0.7rem; }
+  @media only screen and (max-width: 31.25em) {
+    .chapter__title {
+      width: 10rem; } }
 
 .chapter__title:hover {
   cursor: pointer;
@@ -147,3 +153,7 @@
 
 .background-color {
   background-color: #d8d7dc; }
+
+@media only screen and (max-width: 31.25em) {
+  .sidenav {
+    width: 360px; } }
