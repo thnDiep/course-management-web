@@ -238,6 +238,12 @@ export default {
   deleteLesson(id) {
     return db("lesson").where("id", id).del();
   },
+  deleteCourseOfStudent(id) {
+    return db("course_of_student").where("studentID", id).del();
+  },
+  deleteCourseOfTeacher(id) {
+    return db("course_of_teacher").where("teacherID", id).del();
+  },
   async join(id) {
     const list = await db("lesson").where("id", id);
     if (list.length === 0) return null;
@@ -361,15 +367,19 @@ export default {
     return allFeedback;
   },
 
-  
-  async isEmptyCourse(id){
-    const chapters = await db.select("id").from("chapter").where("courseID", id);
-    if (chapters.length === 0){
+  async isEmptyCourse(id) {
+    const chapters = await db
+      .select("id")
+      .from("chapter")
+      .where("courseID", id);
+    if (chapters.length === 0) {
       return true;
-    }
-    else{
-      for (const chapter of chapters){
-        const lesson = await db.select("id").from("lesson").where("chapterID", chapter.id);
+    } else {
+      for (const chapter of chapters) {
+        const lesson = await db
+          .select("id")
+          .from("lesson")
+          .where("chapterID", chapter.id);
         if (lesson.length !== 0) {
           return false;
         }
@@ -412,7 +422,6 @@ export default {
     return lessons;
   },
 
-  
   // id = lesson id
   async getLessonByID(id) {
     const lesson = await db("lesson").where("id", id);
@@ -421,7 +430,6 @@ export default {
 
   async updateView(id) {
     let [getView] = await db.select("views").from("course").where("id", id);
-    // console.log(getView.views);
     await db("course").where("id", id).update("views", ++getView.views);
   },
 

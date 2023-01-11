@@ -63,7 +63,6 @@ class TCourseController {
       { name: "videoID", maxCount: 1 },
     ])(req, res, async function (err) {
       // Xác định category cho khóa học
-      console.log(req.body.nameCategory);
 
       const category = await categoryModel.getByName(req.body.nameCategory);
 
@@ -90,24 +89,26 @@ class TCourseController {
         check1 += y[i];
       }
       req.body.feeO = check1;
-      if (req.files !== undefined) {
+      if (req.files["image"] !== undefined) {
         req.body.image = "/images/course/" + req.files["image"][0].filename;
+      }
+      if (req.files["videoID"] !== undefined) {
         req.body.videoID = "/images/course/" + req.files["videoID"][0].filename;
       }
+      const image = req.body.image || req.body.image_link;
+      const videoID = req.body.videoID || req.body.video_link;
       const course = {
         id: req.query.id,
         name: req.body.name,
         idCategory: category.id,
-        image: req.body.image,
-        videoID: req.body.videoID,
-        status: 0,
+        image,
+        videoID,
         fee: +req.body.fee,
         feeO: +req.body.feeO,
         tinyDescription: req.body.tinyDescription,
         required: req.body.required,
         fullDescription: req.body.fullDesciption,
         benefit: req.body.benefit,
-        views: 0,
         updateTime: currentDate,
       };
       await courseModel.updateCourse(course);
@@ -120,9 +121,6 @@ class TCourseController {
       { name: "videoID", maxCount: 1 },
     ])(req, res, async function (err) {
       // Xác định category cho khóa học
-      // console.log("-----------");
-      // console.log(req.body.nameCategory);
-      // console.log(req.body.nameParent);
       const category = await categoryModel.getByName(req.body.nameCategory);
 
       const date = new Date();
@@ -208,7 +206,6 @@ class TCourseController {
     return res.redirect("back");
   }
   async deleteLesson(req, res) {
-    console.log(req.body.nameChild);
     await courseModel.deleteLesson(req.query.id);
     return res.redirect("back");
   }
@@ -224,12 +221,8 @@ class TCourseController {
   async addLesson(req, res) {
     upload.single("videoID")(req, res, async function (err) {
       if (req.file !== undefined) {
-        console.log("gdfgdfgdf");
-
         req.body.videoID = req.file.filename;
       }
-      console.log("req.file");
-      console.log(req.file);
       const lesson = {
         name: req.body.name,
         chapterID: req.body.chapterID,

@@ -301,7 +301,7 @@
                     <p class="mb-0">Full Name</p>
                   </div>
                   <div class="col-sm-7 input">
-                    <i class="fas fa-exclamation-circle required-icon hidden"></i>
+                    <i class="fas fa-exclamation-circle required-icon hidden" style="color:red"></i>
 
                     <input type="text"   value="{{@root.lcAuthTeacher.name}}" class="text-muted mb-0" name="name" />
 
@@ -322,23 +322,7 @@
 
                 <div class="mb-2 mt-5"><b>Change Password</b></div>
                 <hr />
-                <div class="row">
-                  <div class="col-sm-5">
-                    <p class="mb-0">Current Password</p>
-                  </div>
-                  <div class="col-sm-7 input">
-                    <i class="fas fa-exclamation-circle required-icon hidden"
-                      style="color:red" ></i>
-
-                    <input type="password" value="" class="text-muted mb-0"  name="passwordCurrent" />
-
-                  </div>
-                  {{! <button class="dropdown-btn">Javascript for beginers
-                    <i class="fa fa-caret-down"></i>
-                  </button> }}
-
-                </div>
-                <br />
+                
                 <div class="row">
                   <div class="col-sm-5">
                     <p class="mb-0">New password</p>
@@ -369,7 +353,23 @@
                   </button> }}
 
                 </div>
+                <div class="row password">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Current Password</p>
+                  </div>
+                  <div class="col-sm-7 input">
+                    <i class="fas fa-exclamation-circle required-icon hidden"
+                      style="color:red" ></i>
 
+                    <input type="password" value="" class="text-muted mb-0"  name="passwordCurrent" />
+
+                  </div>
+                  {{! <button class="dropdown-btn">Javascript for beginers
+                    <i class="fa fa-caret-down"></i>
+                  </button> }}
+
+                </div>
+                <br />
               </div>
 
             </div>

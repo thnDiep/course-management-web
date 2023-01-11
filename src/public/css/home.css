@@ -35,8 +35,20 @@ body {
       .content__title {
         display: none; } }
   .content .carousel {
-    background-color: #f8d752;
+    position: relative;
+    background: linear-gradient(to right top, #b0f852, #c7f04b, #dbe849, #ebdf4c, #f8d752);
+    overflow: hidden;
+    background-size: 180% 180%;
+    animation: gradient-animation 6s ease infinite;
     height: 40rem; }
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
 
 .carousel-inner {
   display: flex; }
@@ -701,6 +713,9 @@ body {
 .course__btn {
   position: relative;
   z-index: 2; }
+
+.trending_btn {
+  cursor: pointer; }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media (min-width: 768px) and (max-width: 820px) {

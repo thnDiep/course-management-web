@@ -10,11 +10,12 @@
 <!-- trending movies -->
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="trending_btn active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1" class="trending_btn"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"class="trending_btn"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"class="trending_btn"></li>
   </ol>
   <!-- title -->
   <div class="content__title">Trending Course
@@ -28,7 +29,7 @@
       <div class="carousel-item">
         {{/if}}
         <div class="carousel-item__trending ">
-          <div class="carousel-item__img" class="d-block w-100">
+          <div class="carousel-item__img" class="d-block w-100" data-aos="zoom-in-right">
             <a href="/courses/detail?id={{id}}" class="course__link"></a>
             <img src={{image}} alt="" srcset="" />
             <div class="carousel-item__rate">
@@ -53,7 +54,7 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item__detail">
+          <div class="carousel-item__detail" data-aos="zoom-in-left">
             
             <a href="/courses/detail?id={{id}}" class="carousel-item__detail--name">{{name}}</a>
             <p class="carousel-item__detail--item">{{tinyDescription}}</p>
@@ -118,7 +119,7 @@
     </div>
     
     <div class="courses__choose">
-      <div class="courses__viewed">
+      <div class="courses__viewed" >
         {{! <h3>The 10 most viewed courses</h3> }}
         <div class="container-fluid">
           <div class="row text-center mb-3">
@@ -128,7 +129,7 @@
               <hr />
             </div>
           </div>
-          <div class="row">
+          <div class="row" data-aos="fade-up" data-aos-duration="1000">
             <!-- Swiper -->
             <div class="swiper-container">
               <div class="swiper-wrapper">
@@ -197,7 +198,7 @@
           </div>
         </div>
       </div>
-      <div class="courses__lastest">
+      <div class="courses__lastest" >
         <div class="container-fluid">
           <div class="row text-center mb-3">
             <div class="col-md-12">
@@ -206,7 +207,7 @@
               <hr />
             </div>
           </div>
-          <div class="row">
+          <div class="row" data-aos="fade-up" data-aos-duration="1000">
             <!-- Swiper -->
             <div class="swiper-container">
               <div class="swiper-wrapper">
@@ -277,7 +278,7 @@
       </div>
     </div>
 
-    <div class="coures__intro">
+    <div class="coures__intro" data-aos="fade-up" data-aos-duration="1000">
       <img src="https://toppng.com/uploads/preview/lay-icon-play-icon-11563266312mklxafh8gy.png" alt="" />
       <div>
         Learn in-demand skills with over 213,000 video courses
@@ -290,7 +291,7 @@
       </div>
 
     </div>
-    <div class="courses__featured">
+    <div class="courses__featured"  >
       <div class="courses__title mt-5">
         <h2>Top category</h2>
       </div>
@@ -301,7 +302,7 @@
         </div>
       </div> --}}
 
-      <div class="d-flex justify-content-around flex-wrap">
+      <div class="d-flex justify-content-around flex-wrap" data-aos="fade-up"data-aos-duration="1000">
         {{#each topCategory}}
           <a href="/courses?id={{id}}" class="card">
             <div class="image">
@@ -315,7 +316,7 @@
       </div>
 
     </div>
-    <div class="reason">
+    <div class="reason" data-aos="fade-up" data-aos-duration="1000">
       <div class="row text-center mb-3">
         <div class="col-md-12">
           <h1>TOP 3 REASON TO LEARN SUNLIGHT</h1>
@@ -347,3 +348,4 @@
 
     
   </div>
+</div>

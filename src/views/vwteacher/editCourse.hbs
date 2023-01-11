@@ -35,7 +35,7 @@
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.2/themes/fa5/theme.min.js"
   ></script>
-  <script src="/js/teacher/createCourse.js"></script>
+  <script src="/js/teacher/editCourse.js"></script>
 
 {{/section}}
 
@@ -221,6 +221,20 @@
             class="inputField input"
             name="videoID"
           />
+
+          <input
+            type="text"
+            name="image_link"
+            value="{{course.image}}"
+            hidden
+          />
+          <input
+            type="text"
+            name="video_link"
+            value="{{course.videoID}}"
+            hidden
+          />
+
         </div>
         <div class="formUpload__btn">
           <button class="btnCreate btn btn--submit" type="submit"><i

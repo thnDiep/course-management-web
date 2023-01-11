@@ -1,7 +1,7 @@
 const submit = document.querySelector(".btn-success");
 const input = document.querySelectorAll(".form-control");
 const required = document.querySelectorAll(".required");
-const nameformat = /^[A-Z][a-zA-Z]{4,}(?: [A-Z][a-zA-Z]*){0,3}$/;
+const nameformat = /^[A-Z][a-zA-Z]{2,}(?: [A-Z][a-zA-Z]*){0,3}$/;
 const mailformat =
   /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
 submit.addEventListener("click", function (e) {
