@@ -374,14 +374,11 @@ export default {
     return allFeedback;
   },
 
-<<<<<<< HEAD
-=======
   async getNameUser(id) {
     const name = await db("name").from("user").where("id", id);
     return name[0].name;
   },
 
->>>>>>> 044a758988d752f5d3be56c227675d2e9786db32
   async isEmptyCourse(id) {
     const chapters = await db
       .select("id")
