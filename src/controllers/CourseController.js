@@ -63,10 +63,9 @@ class CourseController {
     // }
 
     const course = await courseModel.getById(id);
-
-    // for (const c of course){
-    //   const videoLink = 
-    // }
+    if (course.videoID.includes("youtube")) {
+      course.isYoutube = true;
+    }
 
     // get course content
     const courseContent = await courseModel.getById(id);
@@ -127,11 +126,10 @@ class CourseController {
       var i = 0;
       for (const course of listSimilarCourse) {
         if (course.id !== id && i < limit) {
-          
           const teacher = await userModel.getNameTeacher(course.id);
           course.teacher = teacher;
           listSimilar.push(course);
-          
+
           i++;
         }
       }
@@ -201,9 +199,8 @@ class CourseController {
       //   feedback.time = time;
       // });
 
-      for (const feedback of allFeedback){
+      for (const feedback of allFeedback) {
         const teacherName = await courseModel.getNameUser(feedback.studentID);
-        console.log(teacherName);
         const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
         feedback.time = time;
         feedback.teacher = teacherName;
@@ -237,7 +234,6 @@ class CourseController {
       // course.linkCategories = linkCategories;
       const isCourse = true;
 
-      // console.log("detail");
       res.render("courses/courseDetail", {
         // layout: "teacher",
         course,
@@ -334,7 +330,6 @@ class CourseController {
     }
     const isCourse = true;
 
-    // console.log("haha");
     // await courseModel.updateView(idCourse);
     res.render("courses/enrollCourse", {
       course,
@@ -725,7 +720,6 @@ const getInfoCourse = async function (courses, res) {
   // Lấy cấc khóa học đã hoàn thành
   const completedCourese = await courseModel.getCompletedList();
 
-  console.log(completedCourese);
   for (const course of courses) {
     // Thể hiện khóa học đã mua
     if (res.locals.lcAuthUser) {

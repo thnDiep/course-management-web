@@ -4,10 +4,10 @@
   <link rel="stylesheet" href="./partials/barStar.hbs" />
 {{/section}}
 {{#section "js"}}
-<script type="text/javascript">
+{{!-- <script type="text/javascript">
     const myVid=document.getElementById("mediaId");
     console.log([myVid.contentWindow]);
-</script>
+</script> --}}
 {{/section}}
 
 <div class="courseD__container">
@@ -75,13 +75,24 @@
               {{!-- teacher --}}
               {{#if @root.lcAuthTeacher}}
                 {{#if this.course.isCourseOfTeacher}}
-                  <div class="buying-btn-frame">
-                    <a href="/teacher/editCourse/?id={{course.id}}" class="buying-button">
+                <div class="d-flex">
+                  <div class="edit-btn-frame ">
+                    <a href="/teacher/editCourse/?id={{course.id}}" class="edit-button pl-3">
                       <p class="fee">
                         Edit
                       </p>
                     </a>
                   </div>
+                  <div class="edit-btn-frame ">
+                    <a href="/courses/join?idCourse={{this.course.id}}" class="edit-button ml-5 pl-3">
+                      <p class="fee">
+                        Lessons
+                      </p>
+                    </a>
+                  </div>
+                </div>
+                  
+                    
                 {{/if}}
               {{/if}}
 
@@ -150,18 +161,21 @@
 
     <div class="courseD_intro__videoPreview">
         <div>
-          <iframe
-            src="{{this.course.videoID}}"
-            width="437"
-            height="250"
-            {{!-- allow='autoplay' --}}
-            id="videoPreview"
-            class="videoCourse"
-          >
-          </iframe>
-          {{!-- <video controls autoplay muted class="videoCourse">
-            <source src="{{this.course.videoID}}">
-          </video> --}}
+          {{#if this.course.isYoutube}} 
+            <iframe 
+              src="{{this.course.videoID}}"
+              width="437"
+              height="250"
+              allow='autoplay'
+              id="videoPreview"
+              class="videoCourse"
+            >
+            </iframe> 
+          {{else}}
+            <video controls="" autoplay muted="" loop="loop" class="videoCourse"  width="437" height="250" style="z-index: 1;">
+              <source src="{{this.course.videoID}}" type="video/mp4">
+            </video>
+          {{/if}}
           <p class="coursePreview_title">30-day money-back guarantee</p>
           <div class="coursePreview_benefit">
             <h2 class="title">This course include</h2>
