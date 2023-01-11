@@ -200,6 +200,17 @@ select.sort-by__menu {
   z-index: 2;
 }
 
+.course__completed-label {
+  background-color: $primary-color;
+  width: fit-content;
+  min-width: 150px;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  opacity: 0.96;
+}
+
 .course__new-label {
   display: none;
   position: absolute;
@@ -495,7 +506,7 @@ select.sort-by__menu {
   .courses__sort--mobile {
     display: block;
   }
-  td{
+  td {
     font-size: 1.6rem;
   }
 }

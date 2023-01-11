@@ -11,7 +11,7 @@ export default function (mail, subject, htmlConttent) {
     },
   });
   const options = {
-    from: "manhtu2002227@gmail.com",
+    from: "manhtu2272002@gmail.com",
     to: mail,
     subject: subject,
     html: htmlConttent,
@@ -21,7 +21,7 @@ export default function (mail, subject, htmlConttent) {
     if (err) {
       console.log("Erroor OOccured ", err);
     } else {
-      console.log("Email has sent !");
+      console.log("Email has sent to " + mail);
     }
   });
 }

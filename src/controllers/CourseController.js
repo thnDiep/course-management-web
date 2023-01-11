@@ -40,7 +40,6 @@ class CourseController {
     });
   }
 
-
   // [GET] /courses/detail?id=
   async detail(req, res) {
     const id = parseInt(req.query.id) || 1;
@@ -64,6 +63,10 @@ class CourseController {
     // }
 
     const course = await courseModel.getById(id);
+
+    // for (const c of course){
+    //   const videoLink = 
+    // }
 
     // get course content
     const courseContent = await courseModel.getById(id);
@@ -124,7 +127,11 @@ class CourseController {
       var i = 0;
       for (const course of listSimilarCourse) {
         if (course.id !== id && i < limit) {
+          
+          const teacher = await userModel.getNameTeacher(course.id);
+          course.teacher = teacher;
           listSimilar.push(course);
+          
           i++;
         }
       }
@@ -152,7 +159,6 @@ class CourseController {
           }
         });
       }
-
 
       // get info for chart rating
       const numberRating = await courseModel.getCountFeedback(id);
@@ -189,68 +195,76 @@ class CourseController {
       // const feedbackTime = await courseModel.getTimeOfFeedback(id);
 
       // const timeOfFeedback = await courseModel.convertFormatDate(allFeedback.time);
-      allFeedback.forEach((feedback) => {
+      // allFeedback.forEach((feedback) => {
+      //   const studentName = await courseModel.getNameUser(feedback.studentID);
+      //   const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
+      //   feedback.time = time;
+      // });
+
+      for (const feedback of allFeedback){
+        const teacherName = await courseModel.getNameUser(feedback.studentID);
+        console.log(teacherName);
         const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
         feedback.time = time;
-      });
+        feedback.teacher = teacherName;
+      }
 
       if (course === null) {
         res.redirect("/courses");
       }
       await courseModel.updateView(id);
 
-  // gv 
-  if (res.locals.lcAuthTeacher){
-    const userID = res.locals.lcAuthTeacher.id;
-    // lấy khóa học của gv 
-    const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
-    for (const course1 of coursesOfTeacher){
-      if (course1.id === id){
-        course.isCourseOfTeacher = true;
+      // gv
+      if (res.locals.lcAuthTeacher) {
+        const userID = res.locals.lcAuthTeacher.id;
+        // lấy khóa học của gv
+        const coursesOfTeacher = await userModel.getAllCourseOfTeacher(userID);
+        for (const course1 of coursesOfTeacher) {
+          if (course1.id === id) {
+            course.isCourseOfTeacher = true;
+          }
+        }
       }
-    }
-  }
-    
-    const category = await categoryModel.getById(course.idCategory);
-    const linkCategories = [];
-    if (category.parentID !== null) {
-      const parentCategory = await categoryModel.getById(category.parentID);
-      linkCategories.push(parentCategory);
-    }
-    linkCategories.push(category);
 
-    // course.linkCategories = linkCategories;
-    const isCourse = true;
+      const category = await categoryModel.getById(course.idCategory);
+      const linkCategories = [];
+      if (category.parentID !== null) {
+        const parentCategory = await categoryModel.getById(category.parentID);
+        linkCategories.push(parentCategory);
+      }
+      linkCategories.push(category);
 
-    console.log("detail");
-    res.render("courses/courseDetail", {
-      // layout: "teacher",
-      course,
-      courseContent,
-      isCourse,
-      isComplete,
-      teacher,
-      numberOfStudent,
-      updateTime,
-      numberStudentOfTeacher,
-      NumberCourseOfTeacher,
-      listSimilar,
-      linkCategories,
-      numberRating,
-      percentInfo,
-      allFeedback,
-      // pageInfo: {
-      //   current: page,
-      //   isFirst: page === 1,
-      //   isLast: page === maxPage,
-      //   numbers: pageNumbers,
-      // },
-      // searchOptions,
-      // feedbackTime,
-      // timeOfFeedback,
-    });
-    
-  }
+      // course.linkCategories = linkCategories;
+      const isCourse = true;
+
+      // console.log("detail");
+      res.render("courses/courseDetail", {
+        // layout: "teacher",
+        course,
+        courseContent,
+        isCourse,
+        isComplete,
+        teacher,
+        numberOfStudent,
+        updateTime,
+        numberStudentOfTeacher,
+        NumberCourseOfTeacher,
+        listSimilar,
+        linkCategories,
+        numberRating,
+        percentInfo,
+        allFeedback,
+        // pageInfo: {
+        //   current: page,
+        //   isFirst: page === 1,
+        //   isLast: page === maxPage,
+        //   numbers: pageNumbers,
+        // },
+        // searchOptions,
+        // feedbackTime,
+        // timeOfFeedback,
+      });
+    }
   }
 
   // [GET] /courses/join?idCourse={idCourse}&indexChapter={indexChapter}&indexLesson={indexLesson}
@@ -309,19 +323,17 @@ class CourseController {
 
     // let isEmpty = false;
 
-    if (await courseModel.isEmptyCourse(idCourse)){
-        course.isEmpty = true;
-    }
-    else{
+    if (await courseModel.isEmptyCourse(idCourse)) {
+      course.isEmpty = true;
+    } else {
       course.isEmpty = false;
     }
 
-    
     if (course === null) {
       res.redirect("/courses");
     }
     const isCourse = true;
-    
+
     // console.log("haha");
     // await courseModel.updateView(idCourse);
     res.render("courses/enrollCourse", {
@@ -702,8 +714,6 @@ const getInfoCourse = async function (courses, res) {
   // Lấy các khóa học của student
   if (res.locals.lcAuthUser) {
     const studentID = res.locals.lcAuthUser.id;
-    // console.log(studentID);
-    //const studentID = 29;
     learningCourses = await studentCourseModel.getCourseOfStudent(studentID);
     lovedCourses = await studentCourseModel.getCourseStudentLove(studentID);
   }
@@ -712,7 +722,10 @@ const getInfoCourse = async function (courses, res) {
   const bestSellerCourses = await courseModel.getBestSellerList(5);
   // Lấy 5 khóa học được click nhiều nhất trong các khóa học
   const trendingCourses = await courseModel.getTrendingList(5);
+  // Lấy cấc khóa học đã hoàn thành
+  const completedCourese = await courseModel.getCompletedList();
 
+  console.log(completedCourese);
   for (const course of courses) {
     // Thể hiện khóa học đã mua
     if (res.locals.lcAuthUser) {
@@ -778,6 +791,13 @@ const getInfoCourse = async function (courses, res) {
     if (now.diff(createTime, "days") < 7) {
       course.new = true;
     }
+
+    // Thể hiện khóa học đã được complete
+    completedCourese.forEach((element) => {
+      if (element.id === course.id) {
+        course.isCompleted = true;
+      }
+    });
   }
 };
 

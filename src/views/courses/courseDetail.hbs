@@ -4,10 +4,10 @@
   <link rel="stylesheet" href="./partials/barStar.hbs" />
 {{/section}}
 {{#section "js"}}
-  {{!-- <script>
-    media = document.getElementById('mediaId');
-    media.volume = 1; /*set volume to zero|takes values btw 0-1*/
-  </script> --}}
+<script type="text/javascript">
+    const myVid=document.getElementById("mediaId");
+    console.log([myVid.contentWindow]);
+</script>
 {{/section}}
 
 <div class="courseD__container">
@@ -154,11 +154,14 @@
             src="{{this.course.videoID}}"
             width="437"
             height="250"
-            allow='autoplay'
-            id="mediaId"
+            {{!-- allow='autoplay' --}}
+            id="videoPreview"
             class="videoCourse"
           >
           </iframe>
+          {{!-- <video controls autoplay muted class="videoCourse">
+            <source src="{{this.course.videoID}}">
+          </video> --}}
           <p class="coursePreview_title">30-day money-back guarantee</p>
           <div class="coursePreview_benefit">
             <h2 class="title">This course include</h2>
@@ -237,7 +240,7 @@
                         </div>
                       </div>
                       {{! lesson in chapter }}
-                      <div class="collapse" id="{{../index}}chapter{{index}}">
+                      <div class="collapse show" id="{{../index}}chapter{{index}}">
                         {{#each lesson}}
 
                         <div class="d-flex justify-content-between ml-4 mt-0 pt-0">
@@ -380,7 +383,7 @@
               </div>
             </div>
             <div class="display_flex">
-              <p>By. John Matt {{studentID}} &nbsp;</p>
+              <p>By. {{teacher}} &nbsp;</p>
               <p>&nbsp; {{time}}</p>
             </div>
             <p>{{feedback}}</p>
