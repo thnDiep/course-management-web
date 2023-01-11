@@ -96,6 +96,8 @@
   padding-top: 20px;
   background-color: white;
   margin-bottom: 120px; }
+  .intro_courseDetail .allInfo {
+    display: flex; }
   .intro_courseDetail ul {
     padding: 0px;
     margin: 0px; }
@@ -223,3 +225,31 @@ input {
   color: white;
   padding: 1rem;
   width: 15rem; }
+
+@media only screen and (max-width: 31.25em) {
+  iframe {
+    width: 105%;
+    height: 30rem; }
+  .lesson_name {
+    font-size: 2.5rem; }
+  .intro_courseDetail {
+    color: black;
+    width: 100vw;
+    padding-top: 20px;
+    background-color: white;
+    margin-bottom: 120px; }
+    .intro_courseDetail .allInfo {
+      display: block; }
+    .intro_courseDetail .course-detail__intro-info {
+      margin-left: 0; }
+    .intro_courseDetail .course-detail__intro-avt {
+      width: 98%;
+      height: 30rem; }
+    .intro_courseDetail .intro_courseDetail-item {
+      width: 100%; }
+  .enrollCourse__sideBar {
+    width: 28rem;
+    margin-bottom: 3rem; }
+  .enrollCourse__body {
+    display: table-row;
+    width: 90%; } }

@@ -42,28 +42,25 @@ img {
 
 .requireLogin_loginBtn {
   font-size: 2rem;
-  width: 10rem;
-  height: 6rem;
-  background-color: darkgray;
-  justify-content: center;
+  border-radius: 0.5rem;
+  height: 3.3rem;
+  width: 7rem;
+  background-color: white;
+  justify-self: center;
   align-items: center;
-  margin-left: 3rem; }
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: 1px solid black;
+  padding-left: 0.7rem; }
+  .requireLogin_loginBtn:hover {
+    background-color: light;
+    color: black; }
 
 .requireLogin_convertToLogin {
   font-size: 2rem;
   justify-content: center;
   align-items: center;
   display: flex; }
-  .requireLogin_convertToLogin .requireLogin_loginBtn {
-    border-radius: 0.5rem;
-    height: 3.3rem;
-    background-color: white;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem; }
-    .requireLogin_convertToLogin .requireLogin_loginBtn:hover {
-      background-color: black; }
-      .requireLogin_convertToLogin .requireLogin_loginBtn:hover a {
-        color: white; }
 
 .requireLogin_convertToSignUp {
   margin-top: 5rem;
@@ -75,3 +72,36 @@ img {
     color: blue;
     text-decoration: underline;
     margin-right: 1rem; }
+
+@media only screen and (max-width: 31.25em) {
+  .requireLogin_frame {
+    padding-top: 5rem;
+    margin-left: 0; }
+  .requireLogin_content_frame {
+    margin-left: 1rem;
+    height: 17rem; }
+    .requireLogin_content_frame .requireLogin_notification {
+      font-size: 2.5rem; }
+    .requireLogin_content_frame .requireLogin_convertToLogin {
+      margin-top: 1rem;
+      font-size: 1.5rem; }
+    .requireLogin_content_frame .requireLogin_convertToSignUp {
+      margin-top: 3.5rem;
+      font-size: 1.5rem; }
+  .requireLogin_loginBtn {
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 5rem;
+    background-color: white;
+    justify-self: center;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px solid black;
+    padding-left: 0.7rem; }
+    .requireLogin_loginBtn:hover {
+      background-color: light;
+      color: black; }
+  img {
+    height: 10rem; } }

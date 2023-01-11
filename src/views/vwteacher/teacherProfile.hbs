@@ -13,6 +13,16 @@
   $('#modal_profile').modal('show')
 </script>
 {{/if}}
+{{#if err_message_name}}
+<script>
+  $('#modal_profile').modal('show')
+</script>
+{{/if}}
+{{#if err_message_email}}
+<script>
+  $('#modal_profile').modal('show')
+</script>
+{{/if}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.tiny.cloud/1/t8nah5tn0cpxgd8k8raf0zzt0c4pxf3rl54o1ys4xfto7k0a/tinymce/6/tinymce.min.js"
   referrerpolicy="origin"></script>
@@ -59,10 +69,10 @@
     <div class="profile-cover">
       <div class="profile-cover__img">
         <a class="profile-cover__img--baner" style="
-                  background-image: url('{{this.teacher.img}}');
+                  background-image: url('{{@root.lcAuthTeacher.img}}');
                 " data-toggle="modal" data-target="#exampleModalCenter"></a>
         {{!-- <img src="{{this.teacher.img}}" alt="" data-toggle="modal" data-target="#exampleModalCenter" /> --}}
-        <h3 class="h3">{{this.teacher.name}}</h3>
+        <h3 class="h3">{{@root.lcAuthTeacher.name}}</h3>
       </div>
       <div class="profile-cover__action bg--img" data-overlay="0.3">
         <button class="btn btn-rounded btn-edit" data-toggle="modal" data-target="#modal_profile">
@@ -87,7 +97,7 @@
       <div class="mb-5">
         <p class="lead fw-normal mb-1">About</p>
         <div class="p-4" style="background-color: #f8f9fa;">
-          {{{this.teacher.about}}}
+          {{{@root.lcAuthTeacher.about}}}
 
         </div>
       </div>
@@ -291,9 +301,9 @@
                     <p class="mb-0">Full Name</p>
                   </div>
                   <div class="col-sm-7 input">
-                    <i class="fas fa-exclamation-circle required-icon hidden" style="color:red"></i>
+                    <i class="fas fa-exclamation-circle required-icon hidden"></i>
 
-                    <input type="text" value="{{this.teacher.name}}" class="text-muted mb-0" name="name" />
+                    <input type="text"   value="{{@root.lcAuthTeacher.name}}" class="text-muted mb-0" name="name" />
 
                   </div>
                 </div>
@@ -305,7 +315,7 @@
                   <div class="col-sm-7 input">
                     <i class="fas fa-exclamation-circle required-icon hidden" style="color:red"></i>
 
-                    <input type="text" value="{{this.teacher.email}}" class="text-muted mb-0" name="email" />
+                    <input type="text"  value="{{@root.lcAuthTeacher.email}}" class="text-muted mb-0" name="email" />
 
                   </div>
                 </div>
@@ -317,11 +327,10 @@
                     <p class="mb-0">Current Password</p>
                   </div>
                   <div class="col-sm-7 input">
-                    <i class="fas fa-exclamation-circle required-icon {{#if err_message_password}}{{else}}hidden{{/if}} "
-                      style="color:red"></i>
+                    <i class="fas fa-exclamation-circle required-icon hidden"
+                      style="color:red" ></i>
 
-                    <input type="password" value="" class="text-muted mb-0" {{#if
-                      err_message_password}}style="border:1px solid  red" {{/if}} name="passwordCurrent" />
+                    <input type="password" value="" class="text-muted mb-0"  name="passwordCurrent" />
 
                   </div>
                   {{! <button class="dropdown-btn">Javascript for beginers

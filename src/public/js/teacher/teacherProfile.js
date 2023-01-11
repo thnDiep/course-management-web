@@ -6,28 +6,34 @@ const profileImageForm = document.forms["profileImageForm"];
 const passformat = /^[A-Za-z]\w{5,14}$/;
 
 submit.addEventListener("click", function (e) {
-  if (!input[1].value.match(mailformat)) {
-    input[1].style.border = "1px solid red";
-    input[1].previousElementSibling.classList.remove("hidden");
+  if (input[2].value.length === 0) {
+    input[2].style.border = "1px solid red";
+    input[2].previousElementSibling.classList.remove("hidden");
     e.preventDefault();
-  }
-  if (!input[3].value.match(passformat)) {
-    input[3].style.border = "1px solid red";
-    input[3].previousElementSibling.classList.remove("hidden");
-    e.preventDefault();
-  }
-  if (!input[4].value.match(input[3].value)) {
-    input[4].style.border = "1px solid red";
-    input[4].previousElementSibling.classList.remove("hidden");
-    e.preventDefault();
-  }
-  input.forEach((element) => {
-    if (element.value.length === 0) {
-      element.style.border = "1px solid red";
-      element.previousElementSibling.classList.remove("hidden");
+  } else {
+    if (!input[1].value.match(mailformat) && input[1].value.length !== 0) {
+      input[1].style.border = "1px solid red";
+      input[1].previousElementSibling.classList.remove("hidden");
       e.preventDefault();
     }
-  });
+    if (!input[3].value.match(passformat) && input[3].value.length !== 0) {
+      input[3].style.border = "1px solid red";
+      input[3].previousElementSibling.classList.remove("hidden");
+      e.preventDefault();
+    }
+    if (input[3].value.length !== 0) {
+      if (!input[4].value.match(input[3].value)) {
+        input[4].style.border = "1px solid red";
+        input[4].previousElementSibling.classList.remove("hidden");
+        e.preventDefault();
+      }
+    }
+    if (!input[4].value.match(input[3].value) && input[4].value.length !== 0) {
+      input[4].style.border = "1px solid red";
+      input[4].previousElementSibling.classList.remove("hidden");
+      e.preventDefault();
+    }
+  }
 });
 
 input[1].oninput = () => {
@@ -61,8 +67,8 @@ input[4].oninput = () => {
 input.forEach((element) => {
   element.onblur = (e) => {
     if (element.value.length === 0) {
-      element.style.border = "1px solid red";
-      element.previousElementSibling.classList.remove("hidden");
+      element.style.border = "1px solid #000";
+      element.previousElementSibling.classList.add("hidden");
     }
   };
 });

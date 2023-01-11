@@ -12,7 +12,15 @@
   </a>
 
   <ul class="side-nav">
-
+    <li class="user-nav user-nav__sidebar">
+      {{#if lcIsAuthenticated}}
+      <div class="user-nav__user">
+        <img src="{{lcAuthUser.img}}{{lcAuthTeacher.img}}{{lcAuthAdmin.img}}" alt="User photo" class="user-nav__user-photo" />
+        <span class="user-nav__user-name">Hi, {{lcAuthUser.name}}{{lcAuthTeacher.name}} {{#if lcAuthAdmin}}Admin{{/if}}</span>
+      </div>  
+      
+      {{/if}}
+    </li>
     <li class="side-nav__item side-nav__item--active">
       <a href="/" class="side-nav__link">
         <i class="fas fa-home side-nav__icon"></i>
