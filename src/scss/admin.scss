@@ -5,6 +5,24 @@
   height: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 70px !important;
+  margin-left: 60px;
+
+  @media only screen and (max-width: 31.25em){
+    margin-left: 0;
+    margin-right: 0;
+    // width: 90%;
+  }
+}
+
+.container{
+  @media only screen and (max-width: 31.25em){
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 
 .admin__bar__option {
@@ -19,7 +37,11 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  
 
   .admin__title {
     font-size: 2.8rem;
@@ -29,6 +51,11 @@
 
     span {
       text-transform: initial;
+    }
+  }
+  @media only screen and (max-width: 31.23em) {
+    .admin__title{
+      font-size: 2.3rem;
     }
   }
 }
@@ -56,6 +83,7 @@
   font-size: 1.6rem;
   width: 100%;
   min-height: 100px;
+  margin-top: 5rem;
   padding: 12px 24px;
   border-radius: 2px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -67,6 +95,10 @@
     justify-content: space-between;
     height: 130px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    @media only screen and (max-width:31.25em){
+      display: block;
+      height: 38rem;
+    }
   }
 
   .form-message {
@@ -151,6 +183,17 @@
   width: 40px;
   margin: 0 5px;
   padding: 1rem 1.2rem;
+  @media only screen and (max-width: 31.25em){
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.addBtn{
+  @media only screen and (max-width: 31.25em){
+    height: 32px;
+    font-size: 1.4rem;
+  }
 }
 
 .table {
@@ -176,8 +219,40 @@
       width: 50px;
       text-align: center;
     }
+    @media only screen and(max-width: 31.25em){
+      
+      th:nth-child(1),
+      td:nth-child(1),
+      th:nth-child(2),
+      td:nth-child(2),
+      th:nth-child(4),
+      td:nth-child(4){
+        width: 22px;
+        text-align: center;
+      }
+    }
+  }
+  @media only screen and (max-width: 31.25em){
+    width: 100%;
+    max-width: 100%;
+    td{
+      font-size: 11px;
+    }
   }
 }
+
+.col-lg-5{
+  @media only screen and (max-width: 31.25em){
+    padding-left: 5px;
+    width: 98%;
+  }
+}
+.col-lg-9{
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 98%;
+}
+
 .gradient-custom-3 {
   /* fallback for old browsers */
   background: #84fab0;

@@ -357,4 +357,6 @@ select.sort-by__menu {
   .course.course--mobile {
     display: block; }
   .courses__sort--mobile {
-    display: block; } }
+    display: block; }
+  td {
+    font-size: 1.6rem; } }

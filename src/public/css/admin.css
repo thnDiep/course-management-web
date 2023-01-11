@@ -2,7 +2,21 @@
   margin-top: 1rem;
   height: 100%;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 70px !important;
+  margin-left: 60px; }
+  @media only screen and (max-width: 31.25em) {
+    .admin {
+      margin-left: 0;
+      margin-right: 0; } }
+
+@media only screen and (max-width: 31.25em) {
+  .container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem; } }
 
 .admin__bar__option {
   width: 100%;
@@ -15,7 +29,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 10px; }
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 1rem;
+  padding-right: 1rem; }
   .admin__header .admin__title {
     font-size: 2.8rem;
     font-weight: 600;
@@ -23,6 +40,9 @@
     margin: 0; }
     .admin__header .admin__title span {
       text-transform: initial; }
+  @media only screen and (max-width: 31.23em) {
+    .admin__header .admin__title {
+      font-size: 2.3rem; } }
 
 .admin__container {
   margin: auto; }
@@ -44,6 +64,7 @@
   font-size: 1.6rem;
   width: 100%;
   min-height: 100px;
+  margin-top: 5rem;
   padding: 12px 24px;
   border-radius: 2px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -54,6 +75,10 @@
     justify-content: space-between;
     height: 130px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; }
+    @media only screen and (max-width: 31.25em) {
+      .admin__form.admin__form-add {
+        display: block;
+        height: 38rem; } }
   .admin__form .form-message {
     font-size: 1.4rem;
     padding-left: 4px; }
@@ -120,6 +145,15 @@
   width: 40px;
   margin: 0 5px;
   padding: 1rem 1.2rem; }
+  @media only screen and (max-width: 31.25em) {
+    .admin__btn {
+      height: 30px;
+      width: 30px; } }
+
+@media only screen and (max-width: 31.25em) {
+  .addBtn {
+    height: 32px;
+    font-size: 1.4rem; } }
 
 .table.table--courses th:nth-child(1),
 .table.table--courses td:nth-child(1),
@@ -138,6 +172,33 @@
 .table.table--categories td:nth-child(4) {
   width: 50px;
   text-align: center; }
+
+@media only screen and (max-width: 31.25em) {
+  .table.table--categories th:nth-child(1),
+  .table.table--categories td:nth-child(1),
+  .table.table--categories th:nth-child(2),
+  .table.table--categories td:nth-child(2),
+  .table.table--categories th:nth-child(4),
+  .table.table--categories td:nth-child(4) {
+    width: 22px;
+    text-align: center; } }
+
+@media only screen and (max-width: 31.25em) {
+  .table {
+    width: 100%;
+    max-width: 100%; }
+    .table td {
+      font-size: 11px; } }
+
+@media only screen and (max-width: 31.25em) {
+  .col-lg-5 {
+    padding-left: 5px;
+    width: 98%; } }
+
+.col-lg-9 {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 98%; }
 
 .gradient-custom-3 {
   /* fallback for old browsers */

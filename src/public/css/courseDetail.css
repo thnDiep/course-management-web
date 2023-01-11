@@ -56,7 +56,7 @@
     background-size: cover;
     background-position: center; }
   .courseD__intro .courseD__intro__name {
-    width: 70rem;
+    width: 80rem;
     font-size: 4rem;
     font-weight: bold;
     display: flex; }
@@ -313,12 +313,10 @@
       color: #906d47;
       font-size: 1.5rem; }
     .teacher .teacher_information .teacher_learner-courses {
-      font-size: 1.2rem; }
+      font-size: 1.3rem; }
 
 .teacher_about {
-  margin-left: 260px;
-  position: relative;
-  top: -50px; }
+  margin-top: 1rem; }
 
 .feedback-title {
   margin-top: 5rem;
