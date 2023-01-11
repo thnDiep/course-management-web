@@ -137,6 +137,8 @@ class AAccountController {
       }
       return 1;
     };
+
+    // tìm name và email có tồn tại k
     const name = await accountModel.findByUsername(req.body.name);
     const email = await accountModel.findByEmail(req.body.email);
     if (
