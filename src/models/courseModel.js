@@ -343,6 +343,8 @@ export default {
     return result;
   },
 
+  // async 
+
   // star percent for chart rating
   async percent_star(id, numberStar) {
     const rateAll = await db.raw(
@@ -365,12 +367,16 @@ export default {
     return allFeedback;
   },
 
-  async isEmptyCourse(id) {
-    const chapters = await db
-      .select("id")
-      .from("chapter")
-      .where("courseID", id);
-    if (chapters.length === 0) {
+  async getNameUser(id){
+    const name = await db("name").from("user").where("id", id);
+    return name[0].name;
+  },
+
+
+  
+  async isEmptyCourse(id){
+    const chapters = await db.select("id").from("chapter").where("courseID", id);
+    if (chapters.length === 0){
       return true;
     } else {
       for (const chapter of chapters) {

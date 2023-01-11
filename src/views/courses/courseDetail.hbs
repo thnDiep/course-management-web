@@ -154,11 +154,14 @@
             src="{{this.course.videoID}}"
             width="437"
             height="250"
-            allow='autoplay'
-            id="mediaId"
+            {{!-- allow='autoplay' --}}
+            id="videoPreview"
             class="videoCourse"
           >
           </iframe>
+          {{!-- <video controls autoplay muted class="videoCourse">
+            <source src="{{this.course.videoID}}">
+          </video> --}}
           <p class="coursePreview_title">30-day money-back guarantee</p>
           <div class="coursePreview_benefit">
             <h2 class="title">This course include</h2>
@@ -380,7 +383,7 @@
               </div>
             </div>
             <div class="display_flex">
-              <p>By. John Matt {{studentID}} &nbsp;</p>
+              <p>By. {{teacher}} &nbsp;</p>
               <p>&nbsp; {{time}}</p>
             </div>
             <p>{{feedback}}</p>

@@ -64,6 +64,10 @@ class CourseController {
 
     const course = await courseModel.getById(id);
 
+    // for (const c of course){
+    //   const videoLink = 
+    // }
+
     // get course content
     const courseContent = await courseModel.getById(id);
     const chapter = await courseModel.getAllChapterOfCourse(id);
@@ -123,7 +127,11 @@ class CourseController {
       var i = 0;
       for (const course of listSimilarCourse) {
         if (course.id !== id && i < limit) {
+          
+          const teacher = await userModel.getNameTeacher(course.id);
+          course.teacher = teacher;
           listSimilar.push(course);
+          
           i++;
         }
       }
@@ -187,10 +195,19 @@ class CourseController {
       // const feedbackTime = await courseModel.getTimeOfFeedback(id);
 
       // const timeOfFeedback = await courseModel.convertFormatDate(allFeedback.time);
-      allFeedback.forEach((feedback) => {
+      // allFeedback.forEach((feedback) => {
+      //   const studentName = await courseModel.getNameUser(feedback.studentID);
+      //   const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
+      //   feedback.time = time;
+      // });
+
+      for (const feedback of allFeedback){
+        const teacherName = await courseModel.getNameUser(feedback.studentID);
+        console.log(teacherName);
         const time = moment(feedback.time).format("MM/DD/YYYY HH:mm:ss");
         feedback.time = time;
-      });
+        feedback.teacher = teacherName;
+      }
 
       if (course === null) {
         res.redirect("/courses");
