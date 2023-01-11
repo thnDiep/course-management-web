@@ -1,8 +1,8 @@
 import userModel from "../../models/userModel.js";
-import sgMail from "@sendgrid/mail";
 import bcrypt from "bcryptjs";
 import accountModel from "../../models/accountModel.js";
-import sendMail from "../../middlewares/email.mdw.js";
+import sendMail from "../../utils/email.js";
+
 const getUser = async (id) => {
   let users;
   let isActive;
@@ -63,6 +63,7 @@ class AAccountController {
       email: req.body.email,
       permissionID: 3,
       img: "/images/teacherPicture/teacher.jpg",
+      isActive: 1,
     };
     let err_message_name, err_message_email;
     const check = (name, chec) => {
@@ -85,24 +86,18 @@ class AAccountController {
       check(nameTeacher?.name, teacher.name) === 1 &&
       check1(emailTeacher?.email, teacher.email) === 1
     ) {
-      const message = {
-        to: req.body.email,
-        from: {
-          name: "SUN LIGHT",
-          email: "manhtu2272002@gmail.com",
-        },
-        subject: `SEND ACCOUNT TEACHER`,
-        text: "and easy to do anywhere, even with Node.js",
-        html: `<div><strong>username:${req.body.name}</strong></div>
-               <div><strong>password:${randomPassword}</strong></div>`,
-      };
-      let emailSend = await sendMail(message);
+      sendMail(
+        req.body.email,
+        `SEND ACCOUNT TEACHER`,
+        `<div><strong>username:${req.body.name}</strong></div>
+       <div><strong>password:${randomPassword}</strong></div>`
+      );
       // emailSend.then(async (val) => {
       //   console.log('Email sent')
 
       // })
       await accountModel.add(teacher);
-      return res.redirect("back");
+      return res.redirect("/admin/listAccount");
     } else {
       const isAccount = true;
       return res.render("vwAdmin/accounts/addTeacher", {
