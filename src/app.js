@@ -11,6 +11,8 @@ import methodOverride from "method-override";
 import session from "express-session";
 import activate_locals from "./middlewares/locals.mdw.js";
 import activate_error from "./middlewares/error.mdw.js";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 // get __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -70,7 +72,7 @@ app.set("views", path.join(__dirname, "views"));
 activate_locals(app);
 route(app);
 activate_error(app);
-
-app.listen(3000, () => {
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
   console.log("Listening: http://localhost:3000");
 });

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat&family=Oswald:wght@300&display=swap");
 body {
   background-color: #fff; }
 
@@ -41,6 +42,10 @@ body {
     background-size: 180% 180%;
     animation: gradient-animation 6s ease infinite;
     height: 40rem; }
+    .content .carousel .trending_carousel {
+      position: absolute;
+      height: 100%;
+      width: 100%; }
 
 @keyframes gradient-animation {
   0% {
@@ -750,3 +755,62 @@ body {
       padding: 1rem 2rem; }
   .swiper-slide .row {
     margin-left: -14px; } }
+
+.snow {
+  color: white;
+  font-size: 3em; }
+
+@keyframes fall {
+  0% {
+    top: -20%; }
+  100% {
+    top: 100%; } }
+
+.flake {
+  position: absolute;
+  top: -20%;
+  animation: fall 10s linear infinite; }
+
+.flake:nth-last-of-type(0) {
+  left: 0%;
+  animation-delay: 0s; }
+
+.flake:nth-last-of-type(1) {
+  left: 0%;
+  animation-delay: 0s; }
+
+.flake:nth-last-of-type(2) {
+  left: 10%;
+  animation-delay: 3s; }
+
+.flake:nth-last-of-type(3) {
+  left: 20%;
+  animation-delay: 5s; }
+
+.flake:nth-last-of-type(4) {
+  left: 30%;
+  animation-delay: 2s; }
+
+.flake:nth-last-of-type(5) {
+  left: 40%;
+  animation-delay: 1s; }
+
+.flake:nth-last-of-type(6) {
+  left: 50%;
+  animation-delay: 4s; }
+
+.flake:nth-last-of-type(7) {
+  left: 60%;
+  animation-delay: 3s; }
+
+.flake:nth-last-of-type(8) {
+  left: 70%;
+  animation-delay: 2s; }
+
+.flake:nth-last-of-type(9) {
+  left: 80%;
+  animation-delay: 0s; }
+
+.flake:nth-last-of-type(10) {
+  left: 90%;
+  animation-delay: 6s; }
