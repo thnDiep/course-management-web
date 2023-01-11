@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 11, 2023 lúc 09:50 PM
--- Phiên bản máy phục vụ: 10.4.25-MariaDB
--- Phiên bản PHP: 8.1.10
+-- Host: 127.0.0.1
+-- Generation Time: Jan 11, 2023 at 11:08 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `academy`
+-- Database: `academydb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -32,10 +32,10 @@ CREATE TABLE `category` (
   `name` varchar(250) NOT NULL,
   `parentID` int(10) UNSIGNED DEFAULT NULL,
   `image` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `parentID`, `image`) VALUES
@@ -62,17 +62,17 @@ INSERT INTO `category` (`id`, `name`, `parentID`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chapter`
+-- Table structure for table `chapter`
 --
 
 CREATE TABLE `chapter` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(250) COLLATE utf8_bin NOT NULL,
+  `name` varchar(250) NOT NULL,
   `courseID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `chapter`
+-- Dumping data for table `chapter`
 --
 
 INSERT INTO `chapter` (`id`, `name`, `courseID`) VALUES
@@ -115,7 +115,7 @@ INSERT INTO `chapter` (`id`, `name`, `courseID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `course`
+-- Table structure for table `course`
 --
 
 CREATE TABLE `course` (
@@ -135,10 +135,10 @@ CREATE TABLE `course` (
   `updateTime` date NOT NULL,
   `createTime` date NOT NULL DEFAULT current_timestamp(),
   `blocked` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `course`
+-- Dumping data for table `course`
 --
 
 INSERT INTO `course` (`id`, `name`, `idCategory`, `image`, `videoID`, `status`, `fee`, `feeO`, `tinyDescription`, `required`, `fullDescription`, `benefit`, `views`, `updateTime`, `createTime`, `blocked`) VALUES
@@ -161,7 +161,7 @@ INSERT INTO `course` (`id`, `name`, `idCategory`, `image`, `videoID`, `status`, 
 (0000000016, 'The Complete 2022 Web Development Course - Build 15 Projects', 2, 'https://pictures-uganda.jijistatic.com/12175296_MTA4MC02MTAtZDUyOGQ3YTU4Mw.jpg', 'https://www.youtube.com/embed/YWA-xbsJrVg?autoplay=1&mute=1', 0, 1999000, 2299000, 'The only course you need to become a full-stack web developer. Covers HTML5, CSS3, JS, ES6, Node, APIs, Mobile & more!\r\n', 'I will teach you everything. All you need is a computer.\r\nThere is absolutely no pre-knowledge required. This is a 100% Comprehensive Web Development Course that will take you from Zero-skills to a Cash Earning Web Developer, Step by Step with NO Step skipped.', 'Did you know you can go from Zero Skills to a Fully Qualified Cash Earning Web Developer in only a few weeks?\r\n\r\nWell let me tell you: If you are looking for a truly 100% Comprehensive Web Development Course, that will take you from learning the basics to mastering the most advanced web development techniques, then be certain that you have come to the right place.\r\n\r\nTaking this course will help you achieve your dream of becoming a professional web developer, and you will be ready to build powerful and responsive websites to a highly professional degree using today’s most advanced and up to date web technologies within a few weeks from now.\r\n\r\nIn order to guarantee the success of your learning experience, this course was divided into perfectly structured Chapters consisting of ~100 hours of crystal clear and 100% hands-on engaging lectures.\r\n\r\nEach chapter covers one of the major web technologies and will take you from the basics to advanced skills. This is how:\r\n\r\nYou will first learn the basic concepts, and straight after that apply them in easy practical examples. Then you will easily navigate to more advanced concepts and use them to build more complex applications. Once you have finished the chapter, you will then move to a bigger challenge where you will confidently build a “Real Life Full Professional Project” using the skills you acquired in that chapter combined with previous ones.\r\n\r\nYou will be so amazed at your own first-class work, and I am sure you will love to share it with the world. That’s why I will offer you \"FREE WEB HOSTING\" worth 200$  so that you can make your professional websites live and attract potential employers or clients. As a result you can start making money from the first week of your unique learning journey.\r\n\r\nBy the end of the course, you will have built a solid portfolio of “Over 15 Real Professional Websites, Games and Mobile Apps for The IOS and Google Stores”. This will give you a competitive edge in the web development market and boost your income as a web developer by increasing your employability or chances of being awarded lucrative projects by clients around the world.', '<table class=\"table\"><thead><tr><th colspan=\"2\">What will you learn</th</tr></thead><tbody><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Go from Zero skills to building Powerful Web Applications on a highly professional level using the latest 2021 Web Technologies.</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Use a Portfolio of over 15 highly professional websites, Games and Mobile apps you would have developed during the course to take your career to the next level.</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Use HTML5, CSS3, Flexbox, Grid & SASS to build website content and add stunning styling and decoration.</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Use advanced skills to connect your websites to APIs like Google Maps, Facebook, Google plus and Twitter.</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Create a Fully Functional Car Sharing App which users around the world can use to share car trips. (using HTML5, CSS3, Javascript, PHP, MySQL, AJAX & JSON)</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Create a Professional website with video background using HTML5, CSS3, jQuery & Bootstrap.</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Create a Professional Online Notes App using HTML5, CSS3, Bootstrap, PHP, MySQL & AJAX.</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Create a Professional Fruits Slice Game using HTML5, CSS3 & JQuery.</td></tr></tbody></table>', 40, '2022-12-23', '2022-12-01', 0),
 (0000000017, 'The Complete Unity Game Development Course', 4, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfwK5GJDcaOtx9otDeI5XMgHdIrb58rSf0Q&usqp=CAU', 'https://www.youtube.com/embed/Y3Rs1z7it5M?autoplay=1&mute=1', 0, 479000, 529000, 'Create Your Own First Person Shooter Zombie Game', 'Students must be confident with a procedural or object-oriented programming language such as C#\r\nStudents will require a Mac or PC with the free version of Unity installed', 'Getting started in game development doesn\'t have to be scary.  All you need is the passion to learn and an inquisitive, experimental nature for combining code, animation, graphics, artificial intelligence, art and audio.  Sounds like a lot?  It is, but when you see how you as a solo developer can bring it all together there\'s a touch of magic in the air.\r\n\r\nUnity is the number one game development engine due to its ease of use and yet powerful abilities.  It works on all platforms and can export to desktop, console and mobile devices.  It\'s a great way for the beginner to jump straight into the world of game development and get their hands on the tools used by AAA game studios to produce games such as Hearthstone (Blizzard Entertainment), Cities: Skylines (Colossal Order) and Monument Valley 2 (ustwo Games) and best of all, for the beginner and hobbyist it is free!\r\n\r\nIn this course, Penny demystifies Unity\'s interface and plethora of tools to bring art, code, design, and more together to produce a fully-fledged First Person Shooter game completely from scratch. Using her internationally acclaimed teaching style and knowledge from over 25 years working with games, graphics, and having written two award-winning books on games A.I., Penny will take you from complete noob to a confident user of Unity. Throughout, you will follow along with hands-on workshops designed to take you through every step of becoming familiar with all the functionality of the game engine.  Throughout, you will work towards the creation of a First Person Shooter set in a post-apocalyptic world complete with zombies out for the player\'s brains!\r\n\r\nThis course was created with Unity 2019.3.11f however is compatible with Unity 2019.4.2f1 (LTS) on either Mac or PC.\r\n\r\nContents and Overview\r\n\r\nThe course begins with a section to introduce you to the Unity interface.  If you are already familiar with Unity, you can skip to Section 3.  In this introductory session, we will cover Unity\'s window system, how to add models and textures, the creation of code to manipulate the properties of models, and the physics system.\r\n\r\nFollowing this, we will start work on the First Person Character (FPC).  You will learn how to add physics and code to move the character around, as well as add animated arms and a weapon that you can see in the game view.  You will also work to add animations for firing and reloading the weapon.  Audio effects for the player\'s footsteps and jumping will also be included here.\r\n\r\nNext, you will create pickup items for medical kits and ammunition that can be scattered around the game environment to provide extra resources to the player when their health or bullet levels get low.  Here you will learn about how colliders and triggers can be used to fire off code to update values on the player that store an inventory.\r\n\r\nWe will then jump into the Unity Terrain Sculpting tool and work through the creation of a large game map on which to place the FPC and enemies.  You will work with textures to colour the terrain and models, to add extra details such as trees and grass.  High-quality models of houses, rocks, fences, and other props will be included for you to be as creative as you like in developing the game environment.\r\n\r\nBy this point, you\'ll be ready to start adding the zombies.  You will first begin with the zombie models and learn how to add animations to them and then move them about on the game environment using navigation meshes.  Then we will cover one of the most popular artificial intelligence techniques used in games for creating simple behaviours in non-player characters; the Finite State Machine.  You will develop enemies capable of wandering, chasing, attacking, dying, and standing idle.  These actions will be linked to the location of the player such that the zombies will ignore the player when they are far away and only attack when in range.\r\n\r\nOnce these mechanics are in place, you will learn how to use raycasts to link the player\'s shooting animations with a hit to the zombie.  When hit, the zombie death animation will play and you will also be able to add in a ragdoll instead at this point.  We will work with spotlights to create a crosshair aiming system and program dead zombies to sink into the ground, to remove them from the game.\r\n\r\nLast but not least, we tie everything together with a Heads Up Display complete with health meter, an ammunition count, a radar for detecting nearby zombies, and a compass to point the player toward their goal location.\r\n\r\nOnce you have put all the game mechanics in place, you\'ll learn several techniques for taking your game to a more professional level with special effects, extra audio & feedback, and a main menu switching system.\r\n\r\nThis is the perfect course to get started with Unity if you are an absolute beginner or learn a few extra techniques if you are familiar with the engine. ', '<table class=\"table\"><thead><tr><th colspan=\"2\">What will you learn</th</tr></thead><tbody><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Creating and animating a first person character for use in an FPS</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Artificial Intelligence techniques for defining the behaviour of non-player characters</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Using physics to develop a shooting mechanic with rag doll animations</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>How to create pickup items with colliders and triggers</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Post Processing Techniques to enhance the look of a game environment</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>How to use lighting to enhance a game environment</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Unity\'s Canvas to develop an integrated heads up display with maps, radar and compass</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Add dynamic visual and audio special effects</td></tr></tbody></table>', 7, '2022-11-07', '2022-02-09', 0),
 (0000000018, 'Complete NodeJS Developer in 2023 (GraphQL, MongoDB, + more)', 2, '/images/course/completeNodejs.png', '/images/course/Unity.mp4', 0, 1599000, 1699000, 'Learn from real NodeJS experts! Includes REALLY Advanced NodeJS. Express, GraphQL, REST, MongoDB, SQL, MERN + much more', '<ul class=\"ud-unstyled-list ud-block-list\">\r\n<li>\r\n<div class=\"ud-block-list-item ud-block-list-item-small ud-block-list-item-tight ud-block-list-item-neutral ud-text-sm\">\r\n<div class=\"ud-block-list-item-content\">Just basic JavaScript knowledge</div>\r\n</div>\r\n</li>\r\n<li>\r\n<div class=\"ud-block-list-item ud-block-list-item-small ud-block-list-item-tight ud-block-list-item-neutral ud-text-sm\">\r\n<div class=\"ud-block-list-item-content\">You DO NOT need any prior experience with NodeJS!</div>\r\n</div>\r\n</li>\r\n<li>\r\n<div class=\"ud-block-list-item ud-block-list-item-small ud-block-list-item-tight ud-block-list-item-neutral ud-text-sm\">\r\n<div class=\"ud-block-list-item-content\">You DO NOT need any prior Backend Development knowledge!</div>\r\n</div>\r\n</li>\r\n</ul>', '<p><strong>Just released with all new NodeJS best practices and trends for 2023! Join a live online community of over 900,000+ developers and a course taught by industry experts that have actually worked both in Silicon Valley and Toronto with Node.js.</strong><br><br>Using the latest version of Node, this course is focused on efficiency and turning you into a Back End or Fullstack developer. Never spend time on confusing, out of date, incomplete tutorials anymore!&nbsp;<strong>Graduates of Andrei&rsquo;s courses are now working at Google, Tesla, Amazon, Apple, IBM, JP Morgan, Facebook, + other top tech companies for a reason.</strong></p>\r\n<p>We guarantee you this is the most comprehensive online resource on NodeJS. This project based course will introduce you to all of the modern toolchain of a Node JS developer in 2023. Along the way, we will build a massive NASA&nbsp;Space launch application using&nbsp;Node.js, Express Framework, RESTful APIs, GraphQL, and much more! This is going to be a Fullstack MERN&nbsp;app. We will also build many other mini projects along the way so you feel confident deploying any Node.js project to production in the future by yourself!</p>\r\n<p>&nbsp;</p>\r\n<p><strong>All code is going to be provided step by step and even if you don&rsquo;t like to code along, you will get access to all the code from the projects we build so anyone signed up for the course will have their own project to put on their portfolio right away.</strong></p>\r\n<p>&nbsp;</p>\r\n<p>The curriculum is going to be very hands on as we walk you from start to finish of releasing a professional (performant and secure) Node.js project all the way into production.&nbsp;We will start from the very beginning by teaching you Node basics and then going into advanced topics so you can make good decisions on architecture and tools on any of your future NodeJS projects. The goal is to turn you into a senior backend developer!</p>\r\n<p><br>Finally, this course will be constantly evolving and updating as the landscape changes. Just as the Node ecosystem evolves, we want&nbsp;<strong>this course to be constantly updated with lectures and resource for you to come back to, in order to find the latest Node best practices anytime in the future.</strong></p>', '<table class=\"table\">\r\n<thead>\r\n<tr>\r\n<th colspan=\"2\">What will you learn</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>Lead NodeJS projects by making good architecture decisions and helping others on your team</td>\r\n<td>Work with real life data and SpaceX API to build a NASA launch system, discover new planets that may contain life + other projects</td>\r\n</tr>\r\n<tr>\r\n<td>Build a MERN (MongoDb, Express, React, Node) fullstack app and deploy to production</td>\r\n<td>Learn to build secure and performant, large scale applications like a senior backend developer</td>\r\n</tr>\r\n<tr>\r\n<td>Authentication, File I/O, Databases (SQL, MongoDB), Express Framework, Sockets, plus many other important topics a backend developer should know</td>\r\n<td>Focus on security best practices throughout the course so you can be confident with your deployments</td>\r\n</tr>\r\n<tr>\r\n<td>Load balancing, Monitoring, CI/CD, and Zero Downtime Deployment</td>\r\n<td>Build enterprise level Node applications and deploy to the cloud (AWS)</td>\r\n</tr>\r\n</tbody>\r\n</table>', 21, '2023-01-09', '2022-12-04', 0),
-(0000000019, 'The Complete Of Web Development 2', 2, 'https://images.cnbctv18.com/wp-content/uploads/2021/02/shutterstock_1141709903-1000x573.jpg', 'https://www.youtube.com/embed/nu_pCVPKzTk?autoplay=1&mute=1', 0, 1699000, 2599000, '\"Web 2.0\" is a course that\'s designed for people who want to make sure they are ready for the next change in the Internet.  While Web 1.0 started by giving people information they could easily access, Web 2.0 stepped in to help people engage.', 'No programming experience is needed. You will learn everything from scratch\nNo computer related course is requiredYou DO NOT need any prior experience with NodeJS!\nYou DO NOT need any prior Backend Development knowledge!', 'Just released with all new NodeJS best practices and trends for 2023! Join a live online community of over 900,000+ developers and a course taught by industry experts that have actually worked both in Silicon Valley and Toronto with Node.js.\r\n\r\nUsing the latest version of Node, this course is focused on efficiency and turning you into a Back End or Fullstack developer. Never spend time on confusing, out of date, incomplete tutorials anymore! Graduates of Andrei’s courses are now working at Google, Tesla, Amazon, Apple, IBM, JP Morgan, Facebook, + other top tech companies for a reason.\r\n\r\nWe guarantee you this is the most comprehensive online resource on NodeJS. This project based course will introduce you to all of the modern toolchain of a Node JS developer in 2023. Along the way, we will build a massive NASA Space launch application using Node.js, Express Framework, RESTful APIs, GraphQL, and much more! This is going to be a Fullstack MERN app. We will also build many other mini projects along the way so you feel confident deploying any Node.js project to production in the future by yourself!\r\n\r\n\r\n\r\nAll code is going to be provided step by step and even if you don’t like to code along, you will get access to all the code from the projects we build so anyone signed up for the course will have their own project to put on their portfolio right away.\r\n\r\n\r\n\r\nThe curriculum is going to be very hands on as we walk you from start to finish of releasing a professional (performant and secure) Node.js project all the way into production. We will start from the very beginning by teaching you Node basics and then going into advanced topics so you can make good decisions on architecture and tools on any of your future NodeJS projects. The goal is to turn you into a senior backend developer!\r\n\r\n\r\nFinally, this course will be constantly evolving and updating as the landscape changes. Just as the Node ecosystem evolves, we want this course to be constantly updated with lectures and resource for you to come back to, in order to find the latest Node best practices anytime in the future.', '<table class=\"table\"><thead><tr><th colspan=\"2\">What will you learn</th</tr></thead><tbody><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Lead NodeJS projects by making good architecture decisions and helping others on your team</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Work with real life data and SpaceX API to build a NASA launch system, discover new planets that may contain life + other projects</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build a MERN (MongoDb, Express, React, Node) fullstack app and deploy to production</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Learn to build secure and performant, large scale applications like a senior backend developer</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Authentication, File I/O, Databases (SQL, MongoDB), Express Framework, Sockets, plus many other important topics a backend developer should know</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Focus on security best practices throughout the course so you can be confident with your deployments</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Load balancing, Monitoring, CI/CD, and Zero Downtime Deployment</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build enterprise level Node applications and deploy to the cloud (AWS)</td></tr></tbody></table>', 127, '2022-12-23', '2023-01-06', 0),
+(0000000019, 'The Complete Of Web Development 2', 2, 'https://images.cnbctv18.com/wp-content/uploads/2021/02/shutterstock_1141709903-1000x573.jpg', 'https://www.youtube.com/embed/nu_pCVPKzTk?autoplay=1&mute=1', 0, 1699000, 2599000, '\"Web 2.0\" is a course that\'s designed for people who want to make sure they are ready for the next change in the Internet.  While Web 1.0 started by giving people information they could easily access, Web 2.0 stepped in to help people engage.', 'No programming experience is needed. You will learn everything from scratch\nNo computer related course is requiredYou DO NOT need any prior experience with NodeJS!\nYou DO NOT need any prior Backend Development knowledge!', 'Just released with all new NodeJS best practices and trends for 2023! Join a live online community of over 900,000+ developers and a course taught by industry experts that have actually worked both in Silicon Valley and Toronto with Node.js.\r\n\r\nUsing the latest version of Node, this course is focused on efficiency and turning you into a Back End or Fullstack developer. Never spend time on confusing, out of date, incomplete tutorials anymore! Graduates of Andrei’s courses are now working at Google, Tesla, Amazon, Apple, IBM, JP Morgan, Facebook, + other top tech companies for a reason.\r\n\r\nWe guarantee you this is the most comprehensive online resource on NodeJS. This project based course will introduce you to all of the modern toolchain of a Node JS developer in 2023. Along the way, we will build a massive NASA Space launch application using Node.js, Express Framework, RESTful APIs, GraphQL, and much more! This is going to be a Fullstack MERN app. We will also build many other mini projects along the way so you feel confident deploying any Node.js project to production in the future by yourself!\r\n\r\n\r\n\r\nAll code is going to be provided step by step and even if you don’t like to code along, you will get access to all the code from the projects we build so anyone signed up for the course will have their own project to put on their portfolio right away.\r\n\r\n\r\n\r\nThe curriculum is going to be very hands on as we walk you from start to finish of releasing a professional (performant and secure) Node.js project all the way into production. We will start from the very beginning by teaching you Node basics and then going into advanced topics so you can make good decisions on architecture and tools on any of your future NodeJS projects. The goal is to turn you into a senior backend developer!\r\n\r\n\r\nFinally, this course will be constantly evolving and updating as the landscape changes. Just as the Node ecosystem evolves, we want this course to be constantly updated with lectures and resource for you to come back to, in order to find the latest Node best practices anytime in the future.', '<table class=\"table\"><thead><tr><th colspan=\"2\">What will you learn</th</tr></thead><tbody><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Lead NodeJS projects by making good architecture decisions and helping others on your team</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Work with real life data and SpaceX API to build a NASA launch system, discover new planets that may contain life + other projects</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build a MERN (MongoDb, Express, React, Node) fullstack app and deploy to production</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Learn to build secure and performant, large scale applications like a senior backend developer</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Authentication, File I/O, Databases (SQL, MongoDB), Express Framework, Sockets, plus many other important topics a backend developer should know</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Focus on security best practices throughout the course so you can be confident with your deployments</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Load balancing, Monitoring, CI/CD, and Zero Downtime Deployment</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build enterprise level Node applications and deploy to the cloud (AWS)</td></tr></tbody></table>', 128, '2022-12-23', '2023-01-06', 0),
 (0000000020, 'The Complete Of Web Development 1', 2, 'https://history-computer.com/wp-content/uploads/2022/05/Web-1.0.jpg', 'https://www.youtube.com/embed/Q33KBiDriJY?autoplay=1&mute=1', 0, 1699000, 2599000, 'Web Development refers to the tasks associated with developing websites for hosting via intranet or internet. Web Development process includes web design, web content development, client-side/server-side scripting and network security among other tasks.', 'I will teach you everything. All you need is a computer.\nThere is absolutely no pre-knowledge required. This is a 100% Comprehensive Web Development Course that will take you from Zero-skills to a Cash Earning Web Developer, Step by Step with NO Step skipped.You DO NOT need any prior experience with NodeJS!\nYou DO NOT need any prior Backend Development knowledge!', 'Recent Update:\n\nIncludes Flexbox, CSS Grid, SASS, Modern JS (ES6), Node.js (full project included), Git & Github, Heroku & more.\n\n\n\n***** Save ~ $17000 compared to an in-person Bootcamp *****\n\n***** 15 Full Professional Projects worth over 20,000$ *****\n\n***** This is The Only Course you need to learn Web Development *****\n\n***** Car Sharing Website (10h), Online Notes App (11h) & many more *****\n\n***** 100 hours of Content + 40 hands on Activities + 21 Quizzes *****\n\n***** Learn Step by Step with NO Step Skipped *****\n\n***** The Most Comprehensive and Cost Effective in the Market *****\n\n\n\n***** Learn and Master Over 10 Modern 2021 Technologies *****\n\nHTML5/CSS3\n\nJAVASCRIPT (ES5)\n\nModern JavaScript (ES6)\n\nJQUERY & JQUERY UI\n\nTWITTER BOOTSTRAP\n\nNode.js\n\nGit & Github\n\nHeroku\n\nPHP & MYSQL\n\nWORDPRESS\n\nAJAX\n\nJSON\n\nMOBILE APPS\n\nGOOGLE MAPS APIS\n\nFACEBOOK WIDGETS\n\nGOOGLE PLUS WIDGETS\n\nTWITTER WIDGETS\n\nAND MORE!\n\nDid you know you can go from Zero Skills to a Fully Qualified Cash Earning Web Developer in only a few weeks?\n\nWell let me tell you: If you are looking for a truly 100% Comprehensive Web Development Course, that will take you from learning the basics to mastering the most advanced web development techniques, then be certain that you have come to the right place.\n\nTaking this course will help you achieve your dream of becoming a professional web developer, and you will be ready to build powerful and responsive websites to a highly professional degree using today’s most advanced and up to date web technologies within a few weeks from now.\n\nIn order to guarantee the success of your learning experience, this course was divided into perfectly structured Chapters consisting of ~100 hours of crystal clear and 100% hands-on engaging lectures.\n\nEach chapter covers one of the major web technologies and will take you from the basics to advanced skills. This is how:\n\nYou will first learn the basic concepts, and straight after that apply them in easy practical examples. Then you will easily navigate to more advanced concepts and use them to build more complex applications. Once you have finished the chapter, you will then move to a bigger challenge where you will confidently build a “Real Life Full Professional Project” using the skills you acquired in that chapter combined with previous ones.\n\nHere are a few examples of in-chapter activities:\n\nEmbed a relaxing YouTube Video to your website (HTML)\n\nCreate an online checkout form (HTML)\n\nHighway Speed Control (HTML & JavaScript)\n\nOutbound and Return Flight date pickers just like the Expedia Website (HTML, CSS, jQuery & jQuery UI)\n\nCar Mileage range using a beautiful slider (HTML, CSS, jQuery & jQuery UI)\n\nInteractive carousel slider (HTML, CSS, jQuery & Bootstrap)\n\nCreate a responsive Contact Form (HTML, CSS, PHP & Bootstrap)\n\nWhat day of the week were you born? (HTML & PHP)\n\nGuess the date in 1000 days from now! (HTML & PHP)\n\nCalculate the route, distance and time between New York and Toronto. (HTML, Javascript, Google Maps API’s)\n\nGet the geographic coordinates and postcode of any address. (HTML, jQuery, Google Maps API’s, JSON)\n\nAnd much more …\n\nFollowing are some of the “FULL PROFESSIONAL PROJECTS” you will build throughout the course:\n\nMathematics Tutorials Website. (HTML5 & CSS3)\n\nMaths Game. (HTML5, CSS3 & JavaScript)\n\nFruits Slice Game. (HTML5, CSS3 & jQuery)\n\nApp Landing Page. (HTML5, CSS3 & Bootstrap)\n\nCompany Website. (HTML5, CSS3 & Bootstrap)\n\nStopwatch App. (HTML5, CSS3, jQuery & Bootstrap)\n\nDrawing App. (HTML5, CSS3, jQuery & jQuery UI, Canvas, HTML5 Local Storage)\n\nOnline File Explorer App. (Node.js, ES6, HTML5, CSS3, Bootstrap)(Full 5.5h project)\n\nOnline Notes App. (HTML5, CSS3, jQuery, Bootstrap, PHP & MySQL) (Full 11h project)\n\nHighly professional Blog. (Wordpress)\n\nDistance Between Cities Website. (HTML5. CSS3, jQuery, Google Maps)\n\nFreedom Website with Social Widgets. (Facebook, Google+ & Twitter)\n\nSpeed Reader App for the IOS and Google Play Stores.\n\nFully functional Car Sharing Website. (HTML5, CSS3, jQuery, Bootstrap, PHP & MySQL, Ajax, JSON, Google Maps) (Full 10h project)\n\nYou will be so amazed at your own first-class work, and I am sure you will love to share it with the world. That’s why I will offer you \"FREE WEB HOSTING\" worth 200$  so that you can make your professional websites live and attract potential employers or clients. As a result you can start making money from the first week of your unique learning journey.\n\nBy the end of the course, you will have built a solid portfolio of “Over 15 Real Professional Websites, Games and Mobile Apps for The IOS and Google Stores”. This will give you a competitive edge in the web development market and boost your income as a web developer by increasing your employability or chances of being awarded lucrative projects by clients around the world.\n\nWhat Students say:\n\n\"I appreciate the manner in which each project is presented, an example of an end result to which we need to build the relevant to reach the same output. It is a building block approach that works very well for me to comprehend the compartmentalisation of each component and the visualisation of the complete \'picture\'. Each component is then carefully unpacked through a process of visually understanding each characteristic and applying the \'code\' to create the same. Marvelous.\" Celia M Gaylard\n\n\n\n\"Incredible course. The content is very comprehensive and informative. 60 hours video + materials! The production quality is amazing The instructor is very interesting and engaging. Could not have asked for a better course Truly fantastic I am very very happy I invested my money and time on this course!\" Klevis Merko\n\n\n\n\"Easy to understand. The best course to learn web development From the beginning. 100% good.\" Sayuru Sadaru\n\n\n\n\"It is simply the great course. I have learned so much by doing this course. I can now develop my own Websites, Apps. The instructor is great. He teaches everything step by step. I really liked his teaching style. The projects are great. Every project corresponds to real life. I am very happy about this course. Now I am going to by Javascript course by the sdame instructor. Thank you Sir for this great course.\" Tushar Marathe\n\n\nUsing the latest version of Node, this course is focused on efficiency and turning you into a Back End or Fullstack developer. Never spend time on confusing, out of date, incomplete tutorials anymore! Graduates of Andrei’s courses are now working at Google, Tesla, Amazon, Apple, IBM, JP Morgan, Facebook, + other top tech companies for a reason.\n\nWe guarantee you this is the most comprehensive online resource on NodeJS. This project based course will introduce you to all of the modern toolchain of a Node JS developer in 2023. Along the way, we will build a massive NASA Space launch application using Node.js, Express Framework, RESTful APIs, GraphQL, and much more! This is going to be a Fullstack MERN app. We will also build many other mini projects along the way so you feel confident deploying any Node.js project to production in the future by yourself!\n\n\n\nAll code is going to be provided step by step and even if you don’t like to code along, you will get access to all the code from the projects we build so anyone signed up for the course will have their own project to put on their portfolio right away.\n\n\n\nThe curriculum is going to be very hands on as we walk you from start to finish of releasing a professional (performant and secure) Node.js project all the way into production. We will start from the very beginning by teaching you Node basics and then going into advanced topics so you can make good decisions on architecture and tools on any of your future NodeJS projects. The goal is to turn you into a senior backend developer!\n\n\nFinally, this course will be constantly evolving and updating as the landscape changes. Just as the Node ecosystem evolves, we want this course to be constantly updated with lectures and resource for you to come back to, in order to find the latest Node best practices anytime in the future.', '<table class=\"table\"><thead><tr><th colspan=\"2\">What will you learn</th</tr></thead><tbody><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Lead NodeJS projects by making good architecture decisions and helping others on your team</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Work with real life data and SpaceX API to build a NASA launch system, discover new planets that may contain life + other projects</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build a MERN (MongoDb, Express, React, Node) fullstack app and deploy to production</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Learn to build secure and performant, large scale applications like a senior backend developer</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Authentication, File I/O, Databases (SQL, MongoDB), Express Framework, Sockets, plus many other important topics a backend developer should know</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Focus on security best practices throughout the course so you can be confident with your deployments</td></tr><tr><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Load balancing, Monitoring, CI/CD, and Zero Downtime Deployment</td><td><i class=\"fa fa-check icon\" aria-hidden=\"true\"></i>Build enterprise level Node applications and deploy to the cloud (AWS)</td></tr></tbody></table>', 109, '2022-12-23', '2023-01-06', 0),
 (0000000021, 'iPhone Photography | Take Professional Photos On Your iPhone', 23, 'https://www.blog.motifphotos.com/wp-content/uploads/2021/05/iphone-photography-01.png', '\nhttps://www.youtube.com/embed/FRLTOBBkm2I?autoplay=1&mute=1', 0, 100000, 100000, 'Your Online Guide to Taking Stunning iPhone Photography Like a Professional Digital Photographer', '<ul class=\"ud-unstyled-list ud-block-list\">\r\n<li>\r\n<div class=\"ud-block-list-item ud-block-list-item-small ud-block-list-item-tight ud-block-list-item-neutral ud-text-sm\">\r\n<div class=\"ud-block-list-item-content\">All you need is access to an iPhone or other smartphone with a camera. Thats it!</div>\r\n</div>\r\n</li>\r\n</ul>', '<p>This online photography course will teach you everything you need to know to become a professional digital photographer with nothing more than an iPhone or similar smartphone. It is designed to keep you engaged and hone your skills for taking your pictures to the next level.&nbsp;</p>\r\n<p>My #1 rule in photography is 10% gear /&nbsp;90% knowledge. So if&nbsp;you know HOW to be a great photographer and know what to look for, you will be able to take amazing&nbsp;pictures with almost anything.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>This course is designed for:</strong></p>\r\n<p>-Beginners&nbsp;that have little to no experience and&nbsp;want&nbsp;to become a skilled photographer without spending thousands of dollars on expensive camera equipment.</p>\r\n<p>-Anyone&nbsp;that wants to&nbsp;develop a more&nbsp;impressive portfolio or&nbsp;social media account (i.e. Instagram).</p>\r\n<p>-Anyone that wants to make professional digital photography into an exciting career.&nbsp;</p>\r\n<p>You\'ll learn all the basics of professional iPhone&nbsp;photography&nbsp;in this course as well as plenty of tips and&nbsp;tricks that you can use during every day shooting to make your photos stand out from the rest. This course gets straight to the point with&nbsp;the most useful and&nbsp;practical&nbsp;information&nbsp;so that you can&nbsp;get out shooting as quickly as possible.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Here\'s some of what you will learn:</strong>&nbsp; &nbsp;</p>\r\n<p>-How to take stunning photos by utilizing shot composition.&nbsp; &nbsp;</p>\r\n<p>-How to optimize your iPhone camera settings for taking the best photos.&nbsp; &nbsp;</p>\r\n<p>-How to create depth in your photography&nbsp; &nbsp;</p>\r\n<p>-How/Why the best photographers tell stories in their photos.&nbsp; &nbsp;</p>\r\n<p>-How to utilize surrounding light to properly light your subjects&nbsp; &nbsp;</p>\r\n<p>-How to professionally edit photos in Lightroom (free) on your iPhone.&nbsp; &nbsp;</p>\r\n<p>-Tips,&nbsp;tricks, and&nbsp;much more!&nbsp; &nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><strong>About the instructor:</strong></p>\r\n<p>I\'ve been in the field of photography and videography for 9+ years and have my Bachelors of Science degree in Film from Full Sail University. I\'m an award winning Youtuber and make a living with photography/videography using my iPhone and looking forward to sharing my knowledge to help you capture the most stunning photos possible.</p>', '<table class=\"table\" style=\"width: 100%; height: 134.344px;\">\r\n<thead>\r\n<tr style=\"height: 22.3906px;\">\r\n<th style=\"height: 22.3906px;\" colspan=\"2\">What will you learn</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr style=\"height: 44.7812px;\">\r\n<td style=\"height: 44.7812px;\">How to replicate professional digital photography with your iPhone.</td>\r\n<td style=\"height: 44.7812px;\">How to take stunning photos by utilizing shot composition.</td>\r\n</tr>\r\n<tr style=\"height: 22.3906px;\">\r\n<td style=\"height: 22.3906px;\">How to optimize iPhone settings for taking the best photos.</td>\r\n<td style=\"height: 22.3906px;\">How to professionally edit photos with Lightroom (free) on your iPhone.</td>\r\n</tr>\r\n<tr style=\"height: 22.3906px;\">\r\n<td style=\"height: 22.3906px;\">How to utilize surrounding light to propely light your subjects.</td>\r\n<td style=\"height: 22.3906px;\">How/Why the best photographers tell stories in their photos.</td>\r\n</tr>\r\n<tr style=\"height: 22.3906px;\">\r\n<td style=\"height: 22.3906px;\">&nbsp;</td>\r\n<td style=\"height: 22.3906px;\">&nbsp;</td>\r\n</tr>\r\n</tbody>\r\n</table>', 7, '2023-01-09', '2023-01-08', 0);
 INSERT INTO `course` (`id`, `name`, `idCategory`, `image`, `videoID`, `status`, `fee`, `feeO`, `tinyDescription`, `required`, `fullDescription`, `benefit`, `views`, `updateTime`, `createTime`, `blocked`) VALUES
@@ -172,7 +172,7 @@ INSERT INTO `course` (`id`, `name`, `idCategory`, `image`, `videoID`, `status`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `course_of_student`
+-- Table structure for table `course_of_student`
 --
 
 CREATE TABLE `course_of_student` (
@@ -182,10 +182,10 @@ CREATE TABLE `course_of_student` (
   `lessonID` int(10) UNSIGNED DEFAULT NULL,
   `time` time DEFAULT NULL,
   `enrollDate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `course_of_student`
+-- Dumping data for table `course_of_student`
 --
 
 INSERT INTO `course_of_student` (`studentID`, `courseID`, `chapterID`, `lessonID`, `time`, `enrollDate`) VALUES
@@ -194,6 +194,9 @@ INSERT INTO `course_of_student` (`studentID`, `courseID`, `chapterID`, `lessonID
 (29, 4, NULL, NULL, NULL, '2023-01-08'),
 (29, 5, NULL, NULL, NULL, '2023-01-07'),
 (29, 7, NULL, NULL, NULL, '2023-01-07'),
+(29, 11, NULL, NULL, NULL, '2023-01-12'),
+(29, 15, NULL, NULL, NULL, '2023-01-12'),
+(29, 19, NULL, NULL, NULL, '2023-01-12'),
 (29, 21, NULL, NULL, NULL, '2023-01-08'),
 (29, 22, NULL, NULL, NULL, '2023-01-09'),
 (29, 23, NULL, NULL, NULL, '2023-01-08'),
@@ -218,16 +221,16 @@ INSERT INTO `course_of_student` (`studentID`, `courseID`, `chapterID`, `lessonID
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `course_of_teacher`
+-- Table structure for table `course_of_teacher`
 --
 
 CREATE TABLE `course_of_teacher` (
   `teacherID` int(10) UNSIGNED NOT NULL,
   `courseID` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `course_of_teacher`
+-- Dumping data for table `course_of_teacher`
 --
 
 INSERT INTO `course_of_teacher` (`teacherID`, `courseID`) VALUES
@@ -259,7 +262,7 @@ INSERT INTO `course_of_teacher` (`teacherID`, `courseID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `lesson`
+-- Table structure for table `lesson`
 --
 
 CREATE TABLE `lesson` (
@@ -267,10 +270,10 @@ CREATE TABLE `lesson` (
   `name` varchar(250) NOT NULL,
   `chapterID` int(11) NOT NULL,
   `videoID` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `lesson`
+-- Dumping data for table `lesson`
 --
 
 INSERT INTO `lesson` (`id`, `name`, `chapterID`, `videoID`) VALUES
@@ -366,16 +369,16 @@ INSERT INTO `lesson` (`id`, `name`, `chapterID`, `videoID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `permission`
+-- Table structure for table `permission`
 --
 
 CREATE TABLE `permission` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `permission`
+-- Dumping data for table `permission`
 --
 
 INSERT INTO `permission` (`id`, `name`) VALUES
@@ -387,7 +390,7 @@ INSERT INTO `permission` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `rating`
+-- Table structure for table `rating`
 --
 
 CREATE TABLE `rating` (
@@ -397,10 +400,10 @@ CREATE TABLE `rating` (
   `courseID` int(11) NOT NULL,
   `studentID` int(11) NOT NULL,
   `time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `rating`
+-- Dumping data for table `rating`
 --
 
 INSERT INTO `rating` (`id`, `star`, `feedback`, `courseID`, `studentID`, `time`) VALUES
@@ -431,21 +434,23 @@ INSERT INTO `rating` (`id`, `star`, `feedback`, `courseID`, `studentID`, `time`)
 (25, 5, 'This course is great for new bee loveeeeeeeeeee', 4, 30, '2023-01-11 12:53:40'),
 (26, 4, 'But if teacher more funny, it will be great...', 4, 30, '2023-01-11 12:56:57'),
 (27, 5, 'This course was be poppular with our student.. Like it', 18, 30, '2023-01-11 13:00:04'),
-(28, 5, 'My friends and I totally love this course =)))', 6, 30, '2023-01-11 13:03:35');
+(28, 5, 'My friends and I totally love this course =)))', 6, 30, '2023-01-11 13:03:35'),
+(29, 3, 'So bad. I\'m don\'t like', 15, 29, '2023-01-12 05:04:23'),
+(30, 3, 'No, i don\'t like because no lessoon', 11, 29, '2023-01-12 05:05:12');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `student_love_course`
+-- Table structure for table `student_love_course`
 --
 
 CREATE TABLE `student_love_course` (
   `studentID` int(10) UNSIGNED NOT NULL,
   `courseID` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `student_love_course`
+-- Dumping data for table `student_love_course`
 --
 
 INSERT INTO `student_love_course` (`studentID`, `courseID`) VALUES
@@ -471,7 +476,7 @@ INSERT INTO `student_love_course` (`studentID`, `courseID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -483,10 +488,10 @@ CREATE TABLE `user` (
   `about` varchar(1000) DEFAULT NULL,
   `img` text NOT NULL,
   `isActive` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `password`, `email`, `permissionID`, `about`, `img`, `isActive`) VALUES
@@ -518,11 +523,11 @@ INSERT INTO `user` (`id`, `name`, `password`, `email`, `permissionID`, `about`, 
 (33, 'Manu Martin', '$2a$10$w9MTDLe3AOITv0T6LrGoVuErKhNZ1UnO5s.b7cspSXXc5dmWsFbr2', 'manumanu225@gmail.com', 2, NULL, 'https://danviet.mediacdn.vn/upload/4-2016/images/2016-11-28/14803263516489-manumartin-7.jpg', 1);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
@@ -531,7 +536,7 @@ ALTER TABLE `category`
 ALTER TABLE `category` ADD FULLTEXT KEY `name` (`name`);
 
 --
--- Chỉ mục cho bảng `chapter`
+-- Indexes for table `chapter`
 --
 ALTER TABLE `chapter`
   ADD PRIMARY KEY (`id`),
@@ -540,7 +545,7 @@ ALTER TABLE `chapter`
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Chỉ mục cho bảng `course`
+-- Indexes for table `course`
 --
 ALTER TABLE `course`
   ADD PRIMARY KEY (`id`),
@@ -550,46 +555,46 @@ ALTER TABLE `course`
 ALTER TABLE `course` ADD FULLTEXT KEY `name` (`name`);
 
 --
--- Chỉ mục cho bảng `course_of_student`
+-- Indexes for table `course_of_student`
 --
 ALTER TABLE `course_of_student`
   ADD PRIMARY KEY (`studentID`,`courseID`);
 
 --
--- Chỉ mục cho bảng `course_of_teacher`
+-- Indexes for table `course_of_teacher`
 --
 ALTER TABLE `course_of_teacher`
   ADD PRIMARY KEY (`teacherID`,`courseID`);
 
 --
--- Chỉ mục cho bảng `lesson`
+-- Indexes for table `lesson`
 --
 ALTER TABLE `lesson`
   ADD PRIMARY KEY (`id`,`chapterID`),
   ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
 --
--- Chỉ mục cho bảng `permission`
+-- Indexes for table `permission`
 --
 ALTER TABLE `permission`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `idpermission_UNIQUE` (`id`);
 
 --
--- Chỉ mục cho bảng `rating`
+-- Indexes for table `rating`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
 --
--- Chỉ mục cho bảng `student_love_course`
+-- Indexes for table `student_love_course`
 --
 ALTER TABLE `student_love_course`
   ADD PRIMARY KEY (`studentID`,`courseID`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -598,41 +603,41 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email_UNIQUE` (`email`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT cho bảng `chapter`
+-- AUTO_INCREMENT for table `chapter`
 --
 ALTER TABLE `chapter`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT cho bảng `course`
+-- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
   MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT cho bảng `lesson`
+-- AUTO_INCREMENT for table `lesson`
 --
 ALTER TABLE `lesson`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
--- AUTO_INCREMENT cho bảng `rating`
+-- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT cho bảng `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;

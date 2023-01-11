@@ -2,7 +2,7 @@ tinymce.init({
   selector: "#textarea",
   menubar: false,
   //plugins: "paste image link autolink lists table media",
-  plugins: ["image", "code", "table", "link", "media", "codesample", "list"],
+  plugins: ["image", "code", "table", "link", "media", "codesample", "lists"],
   toolbar: [
     "undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright| forecolor backcolor | table link image media codesample",
   ],
