@@ -339,6 +339,8 @@ export default {
     return result;
   },
 
+  // async 
+
   // star percent for chart rating
   async percent_star(id, numberStar) {
     const rateAll = await db.raw(
@@ -360,6 +362,12 @@ export default {
     const allFeedback = await db("rating").where("courseID", id);
     return allFeedback;
   },
+
+  async getNameUser(id){
+    const name = await db("name").from("user").where("id", id);
+    return name[0].name;
+  },
+
 
   
   async isEmptyCourse(id){
