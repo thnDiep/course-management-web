@@ -173,6 +173,11 @@ export default {
       .limit(limit);
   },
 
+  // Các khóah học đã hoàn thành
+  getCompletedList() {
+    return db.select("id").table("course").where("status", 1);
+  },
+
   //
   async getAvgRate(id) {
     const [[rate], ...h] = await db.raw(

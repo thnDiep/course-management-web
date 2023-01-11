@@ -4,10 +4,10 @@
   <link rel="stylesheet" href="./partials/barStar.hbs" />
 {{/section}}
 {{#section "js"}}
-  {{!-- <script>
-    media = document.getElementById('mediaId');
-    media.volume = 1; /*set volume to zero|takes values btw 0-1*/
-  </script> --}}
+<script type="text/javascript">
+    const myVid=document.getElementById("mediaId");
+    console.log([myVid.contentWindow]);
+</script>
 {{/section}}
 
 <div class="courseD__container">
