@@ -100,10 +100,10 @@ export default {
     const courseTeachers = await db("course_of_teacher").where("teacherID", id);
     const ids = [];
     courseTeachers.forEach((courseTeacher) => {
-      ids.push(courseTeacher.teacherID);
+      ids.push(courseTeacher.courseID);
     });
     return await db("course")
-      .select("id", "name", "blocked")
+      .select("id", "name")
       .whereIn("id", ids)
       .andWhere("blocked", 0);
   },
@@ -112,8 +112,9 @@ export default {
     const courseTeachers = await db("course_of_teacher").where("teacherID", id);
     const ids = [];
     courseTeachers.forEach((courseTeacher) => {
-      ids.push(courseTeacher.teacherID);
+      ids.push(courseTeacher.courseID);
     });
+    console.log(courseTeachers);
     return await db("course")
       .select("id", "name", "blocked")
       .whereIn("id", ids);
@@ -126,10 +127,10 @@ export default {
     );
     const ids = [];
     courseTeachers.forEach((courseTeacher) => {
-      ids.push(courseTeacher.teacherID);
+      ids.push(courseTeacher.courseID);
     });
     return await db("course")
-      .select("id", "name", "blocked")
+      .select("id", "name")
       .whereIn("id", ids)
       .andWhere("id", idCategory)
       .andWhere("blocked", 0);
@@ -142,12 +143,12 @@ export default {
     );
     const ids = [];
     courseTeachers.forEach((courseTeacher) => {
-      ids.push(courseTeacher.teacherID);
+      ids.push(courseTeacher.courseID);
     });
     return await db("course")
       .select("id", "name", "blocked")
       .whereIn("id", ids)
-      .andWhere("id", idCategory);
+      .andWhere("idCategory", idCategory);
   },
 
   // Lượt bán nhiều nhất
@@ -343,7 +344,7 @@ export default {
     return result;
   },
 
-  // async 
+  // async
 
   // star percent for chart rating
   async percent_star(id, numberStar) {
@@ -367,16 +368,17 @@ export default {
     return allFeedback;
   },
 
-  async getNameUser(id){
+  async getNameUser(id) {
     const name = await db("name").from("user").where("id", id);
     return name[0].name;
   },
 
-
-  
-  async isEmptyCourse(id){
-    const chapters = await db.select("id").from("chapter").where("courseID", id);
-    if (chapters.length === 0){
+  async isEmptyCourse(id) {
+    const chapters = await db
+      .select("id")
+      .from("chapter")
+      .where("courseID", id);
+    if (chapters.length === 0) {
       return true;
     } else {
       for (const chapter of chapters) {
