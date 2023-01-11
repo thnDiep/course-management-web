@@ -58,7 +58,8 @@
   .courseD__intro .courseD__intro__name {
     width: 70rem;
     font-size: 4rem;
-    font-weight: bold; }
+    font-weight: bold;
+    display: flex; }
   .courseD__intro .courseD__intro__status {
     margin-left: 2rem;
     border-radius: 2px;

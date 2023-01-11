@@ -155,7 +155,7 @@ class AccountController {
     req.session.authTeacher = null;
     req.session.authAdmin = null;
     req.session.isAuthenticated = false;
-    return res.redirect("back");
+    return res.redirect("/account/login");
   }
 }
 

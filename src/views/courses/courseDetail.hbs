@@ -19,19 +19,21 @@
 
       <div class="courseD__intro__info">
         <div class="courseD__intro__title">
-          <h1 class="courseD__intro__name">{{this.course.name}}</h1>
+          <h1 class="courseD__intro__name">{{this.course.name}}
+            {{#if this.isComplete}} 
+              <label
+                class="courseD__intro__status"
+                style="background-color:rgb(22, 161, 22); border-color:rgb(22, 161, 22);"
+              >Accomplished</label>
+              {{else}}
+              <label
+                class="courseD__intro__status"
+                style="background-color:orange; border-color:rgb(22, 161, 22);"
+              >Unaccomplished</label>
+              {{/if}}
+          </h1>
 
-          {{#if this.isComplete}} 
-          <label
-            class="courseD__intro__status"
-            style="background-color:rgb(22, 161, 22); border-color:rgb(22, 161, 22);"
-          >Accomplished</label>
-          {{else}}
-          <label
-            class="courseD__intro__status"
-            style="background-color:orange; border-color:rgb(22, 161, 22);"
-          >Unaccomplished</label>
-          {{/if}}
+          
         </div>
 
         <p class="courseD__intro__item">{{this.course.tinyDescription}}</p>
@@ -143,11 +145,11 @@
     <div class="courseD_intro__videoPreview">
         <div>
           <iframe
-            src="{{this.course.videoID}};autoplay=1&mute=1"
+            id="videoPreview"
+            src= "/videos/JavaScript for Developers 01 - Introduction.mp4;autoplay=1"
             width="437"
             height="250"
             {{!-- allow='autoplay' --}}
-            
             class="videoCourse"
           >
           </iframe>

@@ -362,6 +362,21 @@ export default {
   },
 
   
+  async isEmptyCourse(id){
+    const chapters = await db.select("id").from("chapter").where("courseID", id);
+    if (chapters.length === 0){
+      return true;
+    }
+    else{
+      for (const chapter of chapters){
+        const lesson = await db.select("id").from("lesson").where("chapterID", chapter.id);
+        if (lesson.length !== 0) {
+          return false;
+        }
+      }
+    }
+    return true;
+  },
 
   // async getTimeOfFeedback(id){
   //   const time = await db

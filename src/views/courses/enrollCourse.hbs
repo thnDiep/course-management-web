@@ -25,17 +25,44 @@
 
 <div class="enrollCourse__body">
   {{! content page: video + course description }}
-  <div class="col-sm-9">
+  {{#if this.course.isEmpty}}
+    <div class="col-sm-12">
+  {{else}}
+    <div class="col-sm-9">
+  {{/if}}
     <div class="enrollCourse__mainContentCourse">
       {{! video }}
-      <iframe
+      {{#if this.course.isEmpty}}
+        <img
+        src="https://assets.materialup.com/uploads/77a5d214-0a8a-4444-a523-db0c4e97b9c0/preview.jpg"
+        width=70%
         height="592"
-        width="1045"
-        src="{{this.lesson.videoID}}"
-      >
-      </iframe>
+        style="margin-left: 18rem;"
+        
+        >
+        
+      {{else}}
+        {{#each this.courseContent.chapter}}
+            {{#each lesson}}
+              {{#ifEquals @root.indexChapter ../index}}
+                {{#ifEquals @root.indexLesson index}}
+                  <iframe
+                    height="592"
+                    width="1045"
+                    src="{{videoID}}"
+                  >
+                  </iframe>
+                  
+                  <div class="lesson_name">{{name}}</div>
+                {{else}}
+                {{/ifEquals}}
+                {{else}}
+              {{/ifEquals}}
+            {{/each}}
+        {{/each}}
+      {{/if}}
 
-      <div class="lesson_name">{{this.lesson.name}}</div>
+
 
       {{! description }}
       <div class="intro_courseDetail">
@@ -57,7 +84,13 @@
 
           <div class="course-detail__intro-info">
             <div class="enrollCourse__courseName">
-                <h1 class="intro_courseDetail-name">{{this.course.name}}</h1>
+                <h1 class="intro_courseDetail-name">{{this.course.name}}
+                  {{#if this.isComplete}}
+                    <label class="completeCourse">Accomplished</label>
+                  {{else}}
+                    <label class="incompleteCourse">Unaccomplished</label>
+                  {{/if}}
+                </h1>
                 <p class="intro_courseDetail-item">{{this.course.tinyDescription }}</p>
             </div>
 
@@ -87,6 +120,8 @@
                 <p> <i class="fa fa-globe mr-3" aria-hidden="true"></i>English</p>
               </div>
             </div>
+            
+          
           </div>
         </a>
       </div>
@@ -130,8 +165,12 @@
   </div>
 
   {{! side bar: list chapter }}
-  <div class="col-sm-3 enrollCourse__sideBar">
-   {{> enrollCourse_sideBar }} 
-  </div>
+  {{#if this.course.isEmpty}}
+  {{else}}
+    <div class="col-sm-3 enrollCourse__sideBar">
+    {{> enrollCourse_sideBar }} 
+    </div>
+  {{/if}}
+  
 </div>
 

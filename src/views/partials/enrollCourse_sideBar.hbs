@@ -32,31 +32,33 @@
                     {{! lesson in chapter }}
                       <div class="collapse show" id="{{../index}}chapter{{index}}">
                         {{#each lesson}}
-                          {{#ifEquals @root.idLesson id}}
-                            <div class="d-flex justify-content-between ml-4 mt-0 pt-0 " >
-                              <a class="current_lesson__name" href="/courses/join?idCourse={{@root.idCourse}}&idChapter={{../index}}&idLesson={{id}}">
-                                <p >
-                                  Lesson {{index}}: {{name}}</p>
-                              </a>
-                              <div class="icon-lesson mr-4">
+                          {{#ifEquals @root.indexChapter ../index}}
+                            {{#ifEquals @root.indexLesson index}}
+                              <div class="d-flex justify-content-between ml-4 mt-0 pt-0 " >
+                                <a class="current_lesson__name" href="/courses/join?idCourse={{@root.idCourse}}&indexChapter={{../index}}&indexLesson={{index}}">
+                                  <p>Lesson {{index}}: {{name}}</p>
+                                </a>
                               </div>
-                            </div>
-                          {{else}}
+                            {{else}}
                             <div class="d-flex justify-content-between ml-4 mt-0 pt-0 ">
-                              <a class="lesson_name" href="/courses/join?idCourse={{@root.idCourse}}&idChapter={{../index}}&idLesson={{id}}">
-                                <p >
-                                  Lesson {{index}}: {{name}}</p>
-                              </a>
-                              <div class="icon-lesson mr-4">
+                                <a class="lesson_name" href="/courses/join?idCourse={{@root.idCourse}}&indexChapter={{../index}}&indexLesson={{index}}">
+                                  <p>Lesson {{index}}: {{name}}</p>
+                                </a>
                               </div>
-                            </div>
+                            {{/ifEquals}}
+                          {{else}}
+                              <div class="d-flex justify-content-between ml-4 mt-0 pt-0 ">
+                                <a class="lesson_name" href="/courses/join?idCourse={{@root.idCourse}}&indexChapter={{../index}}&indexLesson={{index}}">
+                                  <p>Lesson {{index}}: {{name}}</p>
+                                </a>
+                              </div>
                           {{/ifEquals}}
                         {{/each}}
                       </div>
                     {{/each}}
+
                   </div>
                 </div>
-
               </div>
 
             </div>

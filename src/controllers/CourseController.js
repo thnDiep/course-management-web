@@ -3,6 +3,7 @@ import categoryModel from "../models/categoryModel.js";
 import userModel from "../models/userModel.js";
 import moment from "moment/moment.js";
 import studentCourseModel from "../models/studentCourseModel.js";
+import e from "express";
 
 class CourseController {
   // [GET] /courses?id=
@@ -252,15 +253,15 @@ class CourseController {
   }
   }
 
-  // [GET] /courses/join?idCourse={idCourse}&idChapter={idChapter}&idLesson={idLesson}
+  // [GET] /courses/join?idCourse={idCourse}&indexChapter={indexChapter}&indexLesson={indexLesson}
   async join(req, res) {
     const idCourse = parseInt(req.query.idCourse) || 1;
-    const idChapter = parseInt(req.query.idChapter) || 1;
-    const idLesson = parseInt(req.query.idLesson) || 1;
+    const indexChapter = parseInt(req.query.indexChapter) || 1;
+    const indexLesson = parseInt(req.query.indexLesson) || 1;
+
     const course = await courseModel.getById(idCourse);
     const teacher = await courseModel.teacherOfCourse(idCourse);
 
-    // for BARSTAR
     const avgRated = await courseModel.getAvgRate(course.id);
     course.rated = (+avgRated).toFixed(1);
     const numberRated = await courseModel.getCountFeedback(course.id);
@@ -270,6 +271,8 @@ class CourseController {
     const numberOfStudent = await userModel.getNumberStudentByCourse(idCourse);
     const updateTime = await courseModel.getUpdateTime(idCourse);
 
+    // check status of course
+    const isComplete = await courseModel.isComplete(idCourse);
     // for CATEGORYBAR
     const category = await categoryModel.getById(course.idCategory);
     const linkCategories = [];
@@ -280,7 +283,6 @@ class CourseController {
     linkCategories.push(category);
 
     const chapters = await courseModel.getAllChapterOfCourse(idCourse);
-    const lesson = await courseModel.getLessonByID(idLesson);
 
     // for SIDEBAR
     const courseContent = await courseModel.getById(idCourse);
@@ -305,11 +307,16 @@ class CourseController {
     }
     courseContent.chapter = chapter;
 
-    // add feeback
+    // let isEmpty = false;
 
-    // const rating = {
-    //   star =
-    // }
+    if (await courseModel.isEmptyCourse(idCourse)){
+        course.isEmpty = true;
+    }
+    else{
+      course.isEmpty = false;
+    }
+
+    
     if (course === null) {
       res.redirect("/courses");
     }
@@ -321,16 +328,17 @@ class CourseController {
       course,
       idCourse,
       isCourse,
-      idChapter,
-      idLesson,
+      indexChapter,
+      indexLesson,
       teacher,
       chapters,
-      lesson,
+      // lesson,
       courseContent,
       numberRating,
       numberOfStudent,
       updateTime,
       linkCategories,
+      isComplete,
       // searchOptions,
     });
     // res.json("h");

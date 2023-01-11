@@ -14,13 +14,14 @@
   color: black;
   display: block;
   border: none;
+  border-radius: 0.5rem;
   width: 100%;
   text-align: left;
   cursor: pointer;
   outline: none; }
 
 .sidenav .current_lesson__name {
-  background-color: #14b8a6; }
+  background-color: #38bdf8; }
 
 /* On mouse-over */
 .sidenav a:hover, .dropdown-btn:hover {
@@ -107,7 +108,8 @@
 .chapter__title {
   padding-top: 1rem;
   font-weight: 700;
-  margin-left: 0.7rem; }
+  margin-left: 0.7rem;
+  border-radius: 0.5rem; }
   @media only screen and (max-width: 31.25em) {
     .chapter__title {
       width: 10rem; } }

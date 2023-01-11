@@ -68,7 +68,7 @@
               {{#if @root.lcAuthAdmin}}
                {{else}}
                {{#if buyed}}
-                <a name="buy-btn" id="buy-btn" role="button" class="btn" role="button" href="/courses/join?id={{id}}" role="button" >
+                <a name="buy-btn" id="buy-btn" role="button" class="btn" role="button" href="/courses/join?idCourse={{id}}" role="button" >
                   <i  class="far fa-eye" aria-hidden="true" style="margin-right: 1rem;"></i>
                   Learning
                 </a>
@@ -168,7 +168,7 @@
                               {{else}}
                                 <div class="d-flex justify-content-around course__btn">
                                 {{#if buyed}}
-                                <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
+                                <a href="/courses/join?idCourse={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
                                   Learning</a>
                                 {{else}}
                                 <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>
@@ -244,7 +244,7 @@
                            {{else}}
                             <div class="d-flex justify-content-around course__btn">
                             {{#if buyed}}
-                              <a href="/courses/join?id={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
+                              <a href="/courses/join?idCourse={{id}}" role="button"class="btn mr-2"><i class="far fa-eye"></i>
                                 Learning</a>
                             {{else}}
                               <a href="/courses/enroll?id={{id}}" role="button"class="btn mr-2"><i class="fas fa-shopping-cart"></i>

@@ -123,7 +123,8 @@
   .intro_courseDetail .intro_courseDetail-name {
     padding-top: 2rem;
     font-size: 2.5rem;
-    font-weight: bold; }
+    font-weight: bold;
+    display: flex; }
   .intro_courseDetail .intro_courseDetail-item {
     width: 80rem;
     font-size: 1.4rem;
@@ -177,7 +178,7 @@
     margin-bottom: 0rem;
     color: black; }
     .intro_courseDetail .footer_intro .footer_intro-item {
-      margin: 0rem 2rem 3rem 0rem; }
+      margin: 0rem 2rem 0rem 0rem; }
 
 .modal-dialog {
   height: 50%;
@@ -225,6 +226,22 @@ input {
   color: white;
   padding: 1rem;
   width: 15rem; }
+
+.incompleteCourse {
+  background-color: orange;
+  color: black;
+  height: 3.8rem;
+  margin-left: 1.5rem;
+  padding-top: 0.6rem;
+  font-size: 1.9rem; }
+
+.completeCourse {
+  background-color: #4ade80;
+  color: black;
+  height: 3.8rem;
+  margin-left: 1.5rem;
+  padding-top: 0.6rem;
+  font-size: 1.9rem; }
 
 @media only screen and (max-width: 31.25em) {
   iframe {
