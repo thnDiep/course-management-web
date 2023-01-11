@@ -17,7 +17,8 @@
   font-size: 15px; }
 
 .form-control {
-  margin-right: 20px; }
+  margin-right: 20px;
+  font-size: 2rem; }
   .form-control:focus {
     color: #495057;
     background-color: #d4efdf;

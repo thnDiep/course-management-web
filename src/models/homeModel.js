@@ -5,7 +5,7 @@ export default {
     const courses = await db.raw(`SELECT c.*
                                   FROM rating r,course c
                                   WHERE DATEDIFF(CURDATE(), time) <7
-                                        AND c.id=r.courseID 
+                                        AND c.id=r.courseID AND c.blocked=0 
                                   GROUP BY c.id
                                   ORDER BY AVG(star) DESC LIMIT 4;`);
     return courses;
@@ -13,12 +13,14 @@ export default {
   async getViews() {
     const courses = await db.raw(`SELECT c.*
                                   FROM course c
+                                  WHERE c.blocked=0
                                   ORDER BY views DESC LIMIT 12;`);
     return courses;
   },
   async getLatest() {
     const courses = await db.raw(`SELECT c.*
                                   FROM course c
+                                  WHERE c.blocked=0
                                   ORDER BY updateTime DESC LIMIT 12;`);
     return courses;
   },
@@ -75,7 +77,7 @@ export default {
     const sql = `SELECT COUNT(courseID) as numberCourses 
           FROM course_of_student cst,category ca ,course c 
           WHERE DATEDIFF(CURDATE(), enrollDate)<7 
-          AND cst.courseID=c.id 
+          AND cst.courseID=c.id AND c.blocked=0
           AND ca.id=c.idCategory AND ca.id = ?
           GROUP BY ca.id;`;
     const [numberCourses] = await db.raw(sql, id);

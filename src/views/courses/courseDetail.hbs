@@ -3,6 +3,12 @@
   <link rel="stylesheet" href="/css/courseDetail.css" />
   <link rel="stylesheet" href="./partials/barStar.hbs" />
 {{/section}}
+{{#section "js"}}
+  {{!-- <script>
+    media = document.getElementById('mediaId');
+    media.volume = 1; /*set volume to zero|takes values btw 0-1*/
+  </script> --}}
+{{/section}}
 
 <div class="courseD__container">
   <div class="courseD__intro">
@@ -145,11 +151,11 @@
     <div class="courseD_intro__videoPreview">
         <div>
           <iframe
-            id="videoPreview"
-            src= "/videos/JavaScript for Developers 01 - Introduction.mp4;autoplay=1"
+            src="{{this.course.videoID}}"
             width="437"
             height="250"
-            {{!-- allow='autoplay' --}}
+            allow='autoplay'
+            id="mediaId"
             class="videoCourse"
           >
           </iframe>
