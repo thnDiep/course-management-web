@@ -672,11 +672,13 @@ body {
     filter: brightness(100%); }
   .courses__featured .card {
     border: none;
-    margin-top: 2rem; }
+    margin-top: 2rem;
+    flex: 1 1 30%; }
     .courses__featured .card .image {
       overflow: hidden;
       width: 30rem;
       height: 30rem;
+      margin: auto;
       background-color: #f5f7f8; }
       @media only screen and (max-width: 31.25em) {
         .courses__featured .card .image {
@@ -696,7 +698,8 @@ body {
       color: #0d1017;
       bottom: 0;
       margin-top: 1rem;
-      font-weight: 600; }
+      font-weight: 600;
+      text-align: center; }
     .courses__featured .card__name {
       font-family: "Source Sans Pro", Arial, sans-serif;
       color: #1f1f1f;

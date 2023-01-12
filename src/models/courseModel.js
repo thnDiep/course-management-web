@@ -376,6 +376,7 @@ export default {
 
   async getNameUser(id) {
     const name = await db("name").from("user").where("id", id);
+    // console.log(name);
     return name[0].name;
   },
 

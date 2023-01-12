@@ -945,10 +945,12 @@ body {
   .card {
     border: none;
     margin-top: 2rem;
+    flex: 1 1 30%;
     .image {
       overflow: hidden;
       width: 30rem;
       height: 30rem;
+      margin: auto;
       @media only screen and (max-width: 31.25em) {
         width: 20rem;
         height: 20rem;
@@ -973,6 +975,7 @@ body {
       margin-top: 1rem;
       font-weight: 600;
       // z-index: 20;
+      text-align: center;
     }
 
     // &:hover {

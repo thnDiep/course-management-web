@@ -753,7 +753,7 @@ const getInfoCourse = async function (courses, res) {
 
     // Lấy đường dẫn category của khóa học (nếu khóa học thuộc category cấp lĩnh vực 2)
     const linkCategories = [];
-    if (!category && category.parentID !== null) {
+    if (category.parentID !== null) {
       const parentCategory = await categoryModel.getById(category.parentID);
       linkCategories.push(parentCategory);
     }

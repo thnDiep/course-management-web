@@ -7,7 +7,7 @@ export default knex({
     port: 3307,
     user: "root",
     password: "",
-    database: "academydb",
+    database: "academy",
   },
 });
 // export default knex({
